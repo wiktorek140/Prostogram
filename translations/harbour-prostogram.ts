@@ -210,6 +210,11 @@
         <source>Send picture</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <location filename="../qml/pages/SendPhotoPage.qml" line="51"/>
+        <source>Send photo</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>SettingsPage</name>

@@ -239,8 +239,6 @@ void Instagram::postImage(QString path, QString caption, QString upload_id)
 
 void Instagram::configurePhoto(QVariant answer)
 {
-    qDebug() << "conf";
-
     QJsonDocument jsonResponse = QJsonDocument::fromJson(answer.toByteArray());
     QJsonObject jsonObject = jsonResponse.object();
     if(jsonObject["status"].toString() != QString("ok"))

@@ -31,6 +31,43 @@ Page {
 
                 fillMode: Image.PreserveAspectFit
             }
+
+            TextField{
+                id: caption
+                anchors{
+                    top:sendPhoto.bottom
+                    left: parent.left
+                }
+                width: parent.width
+            }
+
+            Button{
+                id: sendButton
+                anchors{
+                    top:caption.bottom
+                    left: parent.left
+                }
+                width: parent.width
+                text: qsTr("Send photo")
+
+                onClicked: {
+                    instagram.postImage(image_url,caption.text);
+                    bisy.running = true
+                }
+            }
+        }
+    }
+
+    BusyIndicator {
+        id: bisy
+        anchors.centerIn: galleryPage
+        running: false
+    }
+
+    Connections{
+        target: instagram
+        onImageConfigureDataReady:{
+            pageStack.push(Qt.resolvedUrl("StartPage.qml"));
         }
     }
 }
