@@ -337,7 +337,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/StartPage.qml" line="212"/>
+        <location filename="../qml/pages/StartPage.qml" line="213"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
