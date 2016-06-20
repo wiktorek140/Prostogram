@@ -5,292 +5,350 @@
     <name>AboutPage</name>
     <message>
         <source>About</source>
-        <translation type="vanished">Tietoja</translation>
+        <translation>Tietoja</translation>
     </message>
     <message>
         <source>An unofficial client for Instagram.</source>
-        <translation type="vanished">Epävirallinen Instagram-sovellus.</translation>
+        <translation>Epävirallinen Instagram-sovellus.</translation>
     </message>
     <message>
         <source>developer</source>
-        <translation type="vanished">kehittäjä</translation>
+        <translation>kehittäjä</translation>
     </message>
     <message>
         <source>Write a mail</source>
-        <translation type="vanished">Lähetä sähköpostia</translation>
+        <translation>Lähetä sähköpostia</translation>
     </message>
     <message>
         <source>License</source>
-        <translation type="vanished">Lisenssi</translation>
+        <translation>Lisenssi</translation>
     </message>
     <message>
         <source>Source code is licensed under the MIT License (MIT).</source>
-        <translation type="vanished">Lähdekoodi on lisensoitu MIT-lisenssillä (MIT).</translation>
+        <translation>Lähdekoodi on lisensoitu MIT-lisenssillä (MIT).</translation>
     </message>
     <message>
         <source>Contribute</source>
-        <translation type="vanished">Ota osaa</translation>
+        <translation>Ota osaa</translation>
     </message>
     <message>
         <source>Translate</source>
-        <translation type="vanished">Tee käännös</translation>
+        <translation>Tee käännös</translation>
     </message>
     <message>
         <source>Report bugs</source>
-        <translation type="vanished">Ilmoita virheestä</translation>
+        <translation>Ilmoita virheestä</translation>
     </message>
     <message>
         <source>donating = loving</source>
-        <translation type="vanished">lahjoittaminen = välittäminen</translation>
+        <translation>lahjoittaminen = välittäminen</translation>
     </message>
     <message>
         <source>Paypal EUR</source>
-        <translation type="vanished">Paypal EUR</translation>
+        <translation>Paypal EUR</translation>
     </message>
     <message>
         <source>Paypal USD</source>
-        <translation type="vanished">Paypal USD</translation>
+        <translation>Paypal USD</translation>
     </message>
 </context>
 <context>
     <name>AuthPage</name>
     <message>
-        <source>Welcome to SailGrande, an unoffical Instagram client for Sailfish. Please press &apos;continue&apos; to login to your Instagram account.</source>
-        <translation type="vanished">Tervetuloa SailGrandeen, epäviralliseen Instagram-sovellukseen Sailfishille. Ole hyvä ja paina &apos;ǰatka&apos; kirjautuaksesi sisään Instagram-tiliisi.</translation>
+        <source>Continue</source>
+        <translation>Jatka</translation>
     </message>
     <message>
-        <source>Continue</source>
-        <translation type="vanished">Jatka</translation>
+        <source>Welcome to Prostogram, an unoffical Instagram client for Sailfish. Please press &apos;continue&apos; to login to your Instagram account.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Entering...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login fail!</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>ErrorMessageLabel</name>
     <message>
         <source>An error occurred.</source>
-        <translation type="vanished">Tapahtui virhe.</translation>
+        <translation>Tapahtui virhe.</translation>
+    </message>
+</context>
+<context>
+    <name>GalleryPage</name>
+    <message>
+        <source>Select picture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Back</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>MediaDetailPage</name>
     <message>
         <source>Details</source>
-        <translation type="vanished">Lisätietoja</translation>
+        <translation>Lisätietoja</translation>
     </message>
     <message>
         <source>likes</source>
-        <translation type="vanished">tykkäykset</translation>
+        <translation>tykkäykset</translation>
     </message>
     <message>
         <source>comments</source>
-        <translation type="vanished">kommentit</translation>
+        <translation>kommentit</translation>
     </message>
     <message>
         <source>You liked this.</source>
-        <translation type="vanished">Sinä tykkäsit tästä.</translation>
+        <translation>Sinä tykkäsit tästä.</translation>
     </message>
     <message>
         <source>Remove my like</source>
-        <translation type="vanished">Poista tykkäykseni</translation>
+        <translation>Poista tykkäykseni</translation>
     </message>
     <message>
         <source>Like</source>
-        <translation type="vanished">Tykkää</translation>
+        <translation>Tykkää</translation>
+    </message>
+    <message>
+        <source>Follow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Un Follow</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>MediaStreamPage</name>
     <message>
         <source>Pin this tag feed</source>
-        <translation type="vanished">Tallenna tämä tag-syöte</translation>
+        <translation>Tallenna tämä tag-syöte</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="vanished">Päivitä</translation>
+        <translation>Päivitä</translation>
     </message>
     <message>
         <source>Load more</source>
-        <translation type="vanished">Lataa lisää</translation>
+        <translation>Lataa lisää</translation>
     </message>
     <message>
         <source>There is no picture in this feed.</source>
-        <translation type="vanished">Tässä syötteessä ei ole kuvaa.</translation>
+        <translation>Tässä syötteessä ei ole kuvaa.</translation>
     </message>
 </context>
 <context>
     <name>PinnedPage</name>
     <message>
         <source>Pinned tags</source>
-        <translation type="vanished">Tallennetut tägit</translation>
+        <translation>Tallennetut tägit</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="vanished">Poista</translation>
+        <translation>Poista</translation>
     </message>
     <message>
         <source>Set as favorite</source>
-        <translation type="vanished">Aseta suosikiksi</translation>
+        <translation>Aseta suosikiksi</translation>
+    </message>
+</context>
+<context>
+    <name>SendPhotoPage</name>
+    <message>
+        <source>Send picture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Send photo</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>SettingsPage</name>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Asetukset</translation>
+        <translation>Asetukset</translation>
     </message>
     <message>
         <source>Startpage</source>
-        <translation type="vanished">Aloitussivu</translation>
+        <translation>Aloitussivu</translation>
     </message>
     <message>
         <source>Show popular feed</source>
-        <translation type="vanished">Näytä suosittua-syöte</translation>
+        <translation>Näytä suosittua-syöte</translation>
     </message>
     <message>
         <source>Customize the column and row count of the feed previews on the startpage:</source>
-        <translation type="vanished">Muokkaa sarake- ja rivimäärää syötteen esikatselussa aloitussivulla:</translation>
+        <translation>Muokkaa sarake- ja rivimäärää syötteen esikatselussa aloitussivulla:</translation>
     </message>
     <message>
         <source>Columns</source>
-        <translation type="vanished">Saraketta</translation>
+        <translation>Saraketta</translation>
     </message>
     <message>
         <source>Rows</source>
-        <translation type="vanished">Riviä</translation>
+        <translation>Riviä</translation>
     </message>
     <message>
         <source>Shows %1 items per feed preview.</source>
-        <translation type="vanished">Näyttää %1 kohdetta syötteiden esikatselussa.</translation>
+        <translation>Näyttää %1 kohdetta syötteiden esikatselussa.</translation>
     </message>
     <message>
         <source>Feeds</source>
-        <translation type="vanished">Syötteet</translation>
+        <translation>Syötteet</translation>
     </message>
     <message>
         <source>Show user and date</source>
-        <translation type="vanished">Näytä käyttäjä ja päivämäärä</translation>
+        <translation>Näytä käyttäjä ja päivämäärä</translation>
     </message>
     <message>
         <source>Show user and date inline</source>
-        <translation type="vanished">Näytä käyttäjä ja päivämäärä osana kuvaa</translation>
+        <translation>Näytä käyttäjä ja päivämäärä osana kuvaa</translation>
     </message>
     <message>
         <source>Show captions</source>
-        <translation type="vanished">Näytä kuvatekstit</translation>
+        <translation>Näytä kuvatekstit</translation>
     </message>
     <message>
         <source>Logout</source>
-        <translation type="vanished">Kirjaudu ulos</translation>
+        <translation>Kirjaudu ulos</translation>
     </message>
 </context>
 <context>
     <name>StartPage</name>
     <message>
         <source>Welcome</source>
-        <translation type="vanished">Tervetuloa</translation>
+        <translation>Tervetuloa</translation>
     </message>
     <message>
         <source>My Feed</source>
-        <translation type="vanished">Minun Aikajanani</translation>
+        <translation>Minun Aikajanani</translation>
     </message>
     <message>
         <source>Popular</source>
-        <translation type="vanished">Suosittu</translation>
+        <translation>Suosittu</translation>
     </message>
     <message>
         <source>Tagged with %1</source>
-        <translation type="vanished">Tägätty tägillä %1</translation>
+        <translation>Tägätty tägillä %1</translation>
     </message>
     <message>
         <source>All pinned tags</source>
-        <translation type="vanished">Kaikki tallennetut tägit</translation>
+        <translation>Kaikki tallennetut tägit</translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="vanished">Tietoja</translation>
+        <translation>Tietoja</translation>
     </message>
     <message>
         <source>Settings</source>
-        <translation type="vanished">Asetukset</translation>
+        <translation>Asetukset</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="vanished">Haku</translation>
+        <translation>Haku</translation>
     </message>
     <message>
         <source>Refresh</source>
-        <translation type="vanished">Päivitä</translation>
+        <translation>Päivitä</translation>
+    </message>
+    <message>
+        <source>Logout</source>
+        <translation type="unfinished">Kirjaudu ulos</translation>
+    </message>
+    <message>
+        <source>Send photo from phone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Set photo</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>TagSearchPage</name>
     <message>
         <source>Search for tag</source>
-        <translation type="vanished">Hae Tagia</translation>
+        <translation>Hae Tagia</translation>
     </message>
 </context>
 <context>
     <name>UserDetailBlock</name>
     <message>
         <source>%1 posts</source>
-        <translation type="vanished">%1 julkaisut</translation>
+        <translation>%1 julkaisut</translation>
     </message>
     <message>
         <source>%1 followers</source>
-        <translation type="vanished">%1 seuraajat</translation>
+        <translation>%1 seuraajat</translation>
     </message>
     <message>
         <source>%1 following</source>
-        <translation type="vanished">%1 seuraa</translation>
+        <translation>%1 seuraa</translation>
     </message>
 </context>
 <context>
     <name>UserListPage</name>
     <message>
         <source>Load more</source>
-        <translation type="vanished">Lataa lisää</translation>
+        <translation>Lataa lisää</translation>
     </message>
 </context>
 <context>
     <name>UserProfilPage</name>
     <message>
         <source>You follow %1</source>
-        <translation type="vanished">Seuraat käyttäjää %1</translation>
+        <translation>Seuraat käyttäjää %1</translation>
     </message>
     <message>
         <source>You requested to follow %1</source>
-        <translation type="vanished">Lähetit seurauspyynnön käyttäjälle %1</translation>
+        <translation>Lähetit seurauspyynnön käyttäjälle %1</translation>
     </message>
     <message>
         <source>%1 follows you</source>
-        <translation type="vanished">%1 seuraa sinua</translation>
+        <translation>%1 seuraa sinua</translation>
     </message>
     <message>
         <source>%1 requested to follow you</source>
-        <translation type="vanished">%1 lähetti sinulle seurauspyynnön</translation>
+        <translation>%1 lähetti sinulle seurauspyynnön</translation>
     </message>
     <message>
         <source>You blocked %1</source>
-        <translation type="vanished">Estit käyttäjän %1</translation>
+        <translation>Estit käyttäjän %1</translation>
     </message>
     <message>
         <source>This profile is private.</source>
-        <translation type="vanished">Tämä profiili on yksityinen.</translation>
+        <translation>Tämä profiili on yksityinen.</translation>
     </message>
     <message>
         <source>Followers</source>
-        <translation type="vanished">Seuraajat</translation>
+        <translation>Seuraajat</translation>
     </message>
     <message>
         <source>Following</source>
-        <translation type="vanished">Seuraa</translation>
+        <translation>Seuraa</translation>
     </message>
     <message>
         <source>Unfollow %1</source>
-        <translation type="vanished">Älä seuraa käyttäjää %1</translation>
+        <translation>Älä seuraa käyttäjää %1</translation>
     </message>
     <message>
         <source>Follow %1</source>
-        <translation type="vanished">Seuraa käyttäjää %1</translation>
+        <translation>Seuraa käyttäjää %1</translation>
     </message>
 </context>
 </TS>
