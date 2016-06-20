@@ -43,7 +43,7 @@ Page {
             }
 
             Label {
-              text : "Version: 0.6.0-alpha1"
+              text : "Version: 0.6.0-1"
               anchors.right: parent.right
               anchors.rightMargin: Theme.paddingMedium
               anchors.left: parent.left
@@ -56,7 +56,7 @@ Page {
             }
 
             Label {
-              text : "Florian Wittmann"
+              text : "Chupligin Sergey"
               wrapMode: Text.WordWrap
               color: Theme.primaryColor
               anchors.right: parent.right
@@ -85,8 +85,8 @@ Page {
 
               Button {
                   id: buttonTwitter
-                  text: "@flwittmann"
-                  onClicked: Qt.openUrlExternally("https://twitter.com/flwittmann")
+                  text: "@neochapay"
+                  onClicked: Qt.openUrlExternally("https://twitter.com/neochapay")
               }
 
             }
@@ -114,7 +114,7 @@ Page {
                   id: buttonMail
 
                   text: qsTr("Write a mail")
-                  onClicked: Qt.openUrlExternally("mailto:dev@florianwittmann.de")
+                  onClicked: Qt.openUrlExternally("mailto:neochapay@gmail.com")
               }
 
             }
@@ -143,18 +143,18 @@ Page {
                 anchors.leftMargin: Theme.paddingLarge
                 height: button1.height
 
-              Button {
+              /*Button {
                   anchors.bottom: parent.bottom
                   width: parent.width/2
                   text: qsTr("Translate")
                   onClicked: Qt.openUrlExternally("https://www.transifex.com/projects/p/sailgrande/")
-              }
+              }*/
 
               Button {
                   anchors.bottom: parent.bottom
                   width: parent.width/2
                   text: qsTr("Report bugs")
-                  onClicked: Qt.openUrlExternally("https://github.com/florianwittmann/sailgrande/issues")
+                  onClicked: Qt.openUrlExternally("https://github.com/neochapay/Prostogram/issues")
               }
             }
 
@@ -173,8 +173,8 @@ Page {
                   id: button1
                   anchors.bottom: parent.bottom
                   width: parent.width/2
-                  text: qsTr("Paypal EUR")
-                  onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=pp%40florianwittmann%2ede&item_name=SailGrande&no_note=0&currency_code=EUR&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHostedGuest")
+                  text: qsTr("Paypal USD")
+                  onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CD7MEFDNKNM9E")
               }
 
               Button {
