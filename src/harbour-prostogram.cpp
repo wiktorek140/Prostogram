@@ -10,6 +10,7 @@
 #include <QTranslator>
 
 #include "api/instagram.h"
+#include "models/folderlistmodel/qquickfolderlistmodel.h"
 
 int main(int argc, char *argv[])
 {
@@ -32,6 +33,7 @@ int main(int argc, char *argv[])
    view->setTitle("Prostogram");
 
    qmlRegisterType<Instagram>("harbour.prostogram",1,0,"Instagram");
+   qmlRegisterType<QQuickFolderListModel>("harbour.folderlistmodel",1,0,"FolderListModel");
 
    QUrl pageSource = SailfishApp::pathTo("qml/harbour-prostogram.qml");
    view->setSource(pageSource);
