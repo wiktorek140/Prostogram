@@ -6,7 +6,6 @@ import "../components"
 
 Page {
     id: galleryPage
-    //property int streamPreviewColumnCount: 3
     property int recentMediaSize: width / streamPreviewColumnCount
 
     SilicaFlickable {
@@ -28,7 +27,7 @@ Page {
 
             FolderListModel{
                 id: pictureModel
-                folder: "file:/home/nemo/Pictures/"
+                folder: "file://"+Home+"/Pictures/"
                 nameFilters: ["*.jpeg","*.jpg"]
             }
 
@@ -39,15 +38,15 @@ Page {
                     text: qsTr("Back")
                     onClicked: {
                         var cur_dir = pictureModel.folder.toString();
-                        if(cur_dir === "file:/home/nemo/Pictures/")
-                        {
-                            return;
-                        }
-
                         var arr = cur_dir.split("/");
                         var updir = arr[arr.length-2];
 
                         pictureModel.folder = cur_dir.replace(updir+"/","");
+
+                        if(pictureModel.folder.toString() === "file://"+Home+"/Pictures/")
+                        {
+                            backmenu.visible = false;
+                        }
                     }
                 }
             }

@@ -32,6 +32,8 @@ int main(int argc, char *argv[])
 
    view->setTitle("Prostogram");
 
+   view->rootContext()->setContextProperty("Home",QDir::homePath());
+
    qmlRegisterType<Instagram>("harbour.prostogram",1,0,"Instagram");
    qmlRegisterType<QQuickFolderListModel>("harbour.folderlistmodel",1,0,"FolderListModel");
 
