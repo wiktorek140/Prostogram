@@ -32,20 +32,12 @@
         <translation>贡献者</translation>
     </message>
     <message>
-        <source>Translate</source>
-        <translation>翻译</translation>
-    </message>
-    <message>
         <source>Report bugs</source>
         <translation>反馈BUG</translation>
     </message>
     <message>
         <source>donating = loving</source>
         <translation>捐助 = 爱</translation>
-    </message>
-    <message>
-        <source>Paypal EUR</source>
-        <translation>Paypal 欧元</translation>
     </message>
     <message>
         <source>Paypal USD</source>

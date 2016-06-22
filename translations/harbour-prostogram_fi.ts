@@ -32,20 +32,12 @@
         <translation>Ota osaa</translation>
     </message>
     <message>
-        <source>Translate</source>
-        <translation>Tee käännös</translation>
-    </message>
-    <message>
         <source>Report bugs</source>
         <translation>Ilmoita virheestä</translation>
     </message>
     <message>
         <source>donating = loving</source>
         <translation>lahjoittaminen = välittäminen</translation>
-    </message>
-    <message>
-        <source>Paypal EUR</source>
-        <translation>Paypal EUR</translation>
     </message>
     <message>
         <source>Paypal USD</source>

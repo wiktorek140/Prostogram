@@ -32,20 +32,12 @@
         <translation>Přispět</translation>
     </message>
     <message>
-        <source>Translate</source>
-        <translation>Překlad</translation>
-    </message>
-    <message>
         <source>Report bugs</source>
         <translation>Nahlásit chyby</translation>
     </message>
     <message>
         <source>donating = loving</source>
         <translation>přispívání = milování</translation>
-    </message>
-    <message>
-        <source>Paypal EUR</source>
-        <translation>Paypal EUR</translation>
     </message>
     <message>
         <source>Paypal USD</source>

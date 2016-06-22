@@ -32,20 +32,12 @@
         <translation>Prispevaj</translation>
     </message>
     <message>
-        <source>Translate</source>
-        <translation>Prevedi</translation>
-    </message>
-    <message>
         <source>Report bugs</source>
         <translation>Prijavi napake</translation>
     </message>
     <message>
         <source>donating = loving</source>
         <translation>donating = loving</translation>
-    </message>
-    <message>
-        <source>Paypal EUR</source>
-        <translation>Paypal EUR</translation>
     </message>
     <message>
         <source>Paypal USD</source>

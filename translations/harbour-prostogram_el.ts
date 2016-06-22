@@ -32,20 +32,12 @@
         <translation>Συνεισφέρετε</translation>
     </message>
     <message>
-        <source>Translate</source>
-        <translation>Μεταφράστε</translation>
-    </message>
-    <message>
         <source>Report bugs</source>
         <translation>Αναφορά προβλημάτων</translation>
     </message>
     <message>
         <source>donating = loving</source>
         <translation>δωρεά = αγάπη</translation>
-    </message>
-    <message>
-        <source>Paypal EUR</source>
-        <translation>Paypal EUR</translation>
     </message>
     <message>
         <source>Paypal USD</source>

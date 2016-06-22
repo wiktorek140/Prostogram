@@ -32,16 +32,8 @@
         <translation>Mitwirken</translation>
     </message>
     <message>
-        <source>Translate</source>
-        <translation>Übersetzen</translation>
-    </message>
-    <message>
         <source>Report bugs</source>
         <translation>Fehler melden</translation>
-    </message>
-    <message>
-        <source>Paypal EUR</source>
-        <translation>Paypal EUR</translation>
     </message>
     <message>
         <source>Paypal USD</source>

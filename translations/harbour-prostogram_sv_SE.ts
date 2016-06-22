@@ -24,10 +24,6 @@
         <translation>Bidra</translation>
     </message>
     <message>
-        <source>Translate</source>
-        <translation>Översätt</translation>
-    </message>
-    <message>
         <source>Report bugs</source>
         <translation>Rapportera buggar</translation>
     </message>
@@ -41,10 +37,6 @@
     </message>
     <message>
         <source>donating = loving</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Paypal EUR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

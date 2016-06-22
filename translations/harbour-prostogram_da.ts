@@ -32,20 +32,12 @@
         <translation>Bidrag</translation>
     </message>
     <message>
-        <source>Translate</source>
-        <translation>Oversæt</translation>
-    </message>
-    <message>
         <source>Report bugs</source>
         <translation>Rapporter fejl</translation>
     </message>
     <message>
         <source>donating = loving</source>
         <translation>donere = elsker</translation>
-    </message>
-    <message>
-        <source>Paypal EUR</source>
-        <translation>Paypal EUR</translation>
     </message>
     <message>
         <source>Paypal USD</source>

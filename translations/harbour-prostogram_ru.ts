@@ -32,20 +32,12 @@
         <translation>Вклад</translation>
     </message>
     <message>
-        <source>Translate</source>
-        <translation>Перевод</translation>
-    </message>
-    <message>
         <source>Report bugs</source>
         <translation>Сообщить о проблеме</translation>
     </message>
     <message>
         <source>donating = loving</source>
         <translation>пожертвование=любовь</translation>
-    </message>
-    <message>
-        <source>Paypal EUR</source>
-        <translation>Paypal EUR</translation>
     </message>
     <message>
         <source>Paypal USD</source>

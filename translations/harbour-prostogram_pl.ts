@@ -24,10 +24,6 @@
         <translation>Współpraca</translation>
     </message>
     <message>
-        <source>Translate</source>
-        <translation>Tłumaczenia</translation>
-    </message>
-    <message>
         <source>Report bugs</source>
         <translation>Zgłoś błąd</translation>
     </message>
@@ -41,10 +37,6 @@
     </message>
     <message>
         <source>donating = loving</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Paypal EUR</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

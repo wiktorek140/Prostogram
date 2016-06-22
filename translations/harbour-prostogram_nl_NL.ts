@@ -32,20 +32,12 @@
         <translation>Bijdragen</translation>
     </message>
     <message>
-        <source>Translate</source>
-        <translation>Vertalen</translation>
-    </message>
-    <message>
         <source>Report bugs</source>
         <translation>Bugs rapporteren</translation>
     </message>
     <message>
         <source>donating = loving</source>
         <translation>doneren = mijn liefde</translation>
-    </message>
-    <message>
-        <source>Paypal EUR</source>
-        <translation>PayPal EUR</translation>
     </message>
     <message>
         <source>Paypal USD</source>

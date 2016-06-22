@@ -32,20 +32,12 @@
         <translation>Colaborar</translation>
     </message>
     <message>
-        <source>Translate</source>
-        <translation>Traducir</translation>
-    </message>
-    <message>
         <source>Report bugs</source>
         <translation>Informar de fallos</translation>
     </message>
     <message>
         <source>donating = loving</source>
         <translation>donar = amor</translation>
-    </message>
-    <message>
-        <source>Paypal EUR</source>
-        <translation>Paypal EUR</translation>
     </message>
     <message>
         <source>Paypal USD</source>
