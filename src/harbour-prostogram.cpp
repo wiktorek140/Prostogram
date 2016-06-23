@@ -35,7 +35,7 @@ int main(int argc, char *argv[])
    view->rootContext()->setContextProperty("Home",QDir::homePath());
 
    qmlRegisterType<Instagram>("harbour.prostogram",1,0,"Instagram");
-   qmlRegisterType<QQuickFolderListModel>("harbour.folderlistmodel",1,0,"FolderListModel");
+   qmlRegisterType<QQuickFolderListModel>("harbour.prostogram.folderlistmodel",1,0,"FolderListModel");
 
    QUrl pageSource = SailfishApp::pathTo("qml/harbour-prostogram.qml");
    view->setSource(pageSource);
