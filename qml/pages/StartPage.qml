@@ -205,8 +205,7 @@ Page {
 
             MenuItem {
                 text: qsTr("Set photo")
-                //onClicked: pageStack.push(Qt.resolvedUrl("CameraPage.qml"))
-                visible: false
+                onClicked: pageStack.push(Qt.resolvedUrl("CameraPage.qml"))
             }
 
             MenuItem {
