@@ -72,6 +72,13 @@
     </message>
 </context>
 <context>
+    <name>CameraPage</name>
+    <message>
+        <source>Set photo</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ErrorMessageLabel</name>
     <message>
         <source>An error occurred.</source>
