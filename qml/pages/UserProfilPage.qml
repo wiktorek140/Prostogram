@@ -56,7 +56,6 @@ Page {
                     opacity: 0.1
                 }
                 UserDetailBlock{
-
                 }
             }
 
@@ -268,6 +267,7 @@ Page {
 
     Component.onCompleted: {
         instagram.getUsernameFeed(user.pk)
+        instagram.getUsernameInfo(user.pk)
 
         refreshCallback = null
         if(app.user.pk === user.pk)
@@ -296,6 +296,14 @@ Page {
                 recentMediaModel.append(data.items[i]);
             }
             recentMediaLoaded=true;
+        }
+    }
+
+    Connections{
+        target: instagram
+        onUsernameDataReady:{
+            var out = JSON.parse(answer);
+            user = out.user
         }
     }
 }

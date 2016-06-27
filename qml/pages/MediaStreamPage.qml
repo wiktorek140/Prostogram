@@ -206,7 +206,6 @@ Page {
     Connections{
         target: instagram
         onUserTimeLineDataReady: {
-            console.log(answer)
             var data = JSON.parse(answer);
             if(page.mode === MediaStreamMode.USER_MODE)
             {
