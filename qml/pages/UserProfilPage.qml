@@ -2,7 +2,6 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtMultimedia 5.0
 import "../components"
-import "../Api.js" as API
 import "../Helper.js" as Helper
 import "../UserListMode.js" as UserListMode
 import "../MediaStreamMode.js" as MediaStreamMode
@@ -60,7 +59,6 @@ Page {
 
                 }
             }
-
 
             Label {
                 id: incomingRelLabel
@@ -199,7 +197,7 @@ Page {
                 MouseArea {
                     id: mouseAreaHeader
                     anchors.fill: parent
-                    onClicked: pageStack.push(Qt.resolvedUrl("MediaStreamPage.qml"),{mode : MediaStreamMode.USER_MODE, streamData: recentMediaData,tag: user.id, streamTitle: user.username})
+                    onClicked: pageStack.push(Qt.resolvedUrl("MediaStreamPage.qml"),{mode : MediaStreamMode.USER_MODE, streamData: recentMediaData,tag: user.pk, streamTitle: user.username})
                 }
             }
 
@@ -221,14 +219,10 @@ Page {
                     }
                 }
             }
-
         }
 
 
         PullDownMenu {
-
-
-
 
             MenuItem {
                 visible: isSelf
@@ -239,7 +233,7 @@ Page {
             }
 
             MenuItem {
-                visible: isSelf
+                 visible: isSelf
                  text:  qsTr("Following")
                  onClicked: {
                      pageStack.push(Qt.resolvedUrl("UserListPage.qml"),{pageTitle:qsTr("Following"), mode: UserListMode.FOLLOWING});
@@ -250,7 +244,7 @@ Page {
                  text:  qsTr("Unfollow %1").arg(user.username)
                  visible: rel_outgoing_status==="follows" && !isSelf
                  onClicked: {
-                     API.unfollow(user.id, reloadRelationship);
+                     instagram.unfollow(user.pk);
                  }
              }
 
@@ -258,7 +252,7 @@ Page {
                  text: qsTr("Follow %1").arg(user.username)
                  visible: rel_outgoing_status==="none" && !isSelf
                  onClicked: {
-                     API.follow(user.id, reloadRelationship);
+                     instagram.follow(user.pk);
                  }
              }
 
@@ -278,16 +272,6 @@ Page {
         refreshCallback = null
         if(app.user.pk === user.pk)
             isSelf = true;
-        reload();
-
-    }
-
-    function reload() {
-        API.get_UserById(user.id,reloadFinished);
-        API.get_RecentMediaByUserId(user.id,recentMediaFinished)
-
-        if(!isSelf)
-            reloadRelationship("");
     }
 
 
@@ -298,20 +282,6 @@ Page {
             privateProfile = true;
         }
     }
-
-    function recentMediaFinished(data) {
-        if(data === undefined || data.data === undefined) {
-            recentMediaLoaded=true;
-            return;
-        }
-        recentMediaData = data
-        for(var i=0; i<data.data.length; i++) {
-            recentMediaModel.append(data.data[i]);
-        }
-        recentMediaLoaded=true;
-
-    }
-
 
     Connections{
         target: instagram

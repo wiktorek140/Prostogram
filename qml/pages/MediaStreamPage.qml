@@ -118,6 +118,10 @@ Page {
         {
             instagram.tagFeed(tag)
         }
+        else if(page.mode === MediaStreamMode.USER_MODE)
+        {
+            instagram.getUsernameFeed(tag,next_id);
+        }
     }
 
     function mediaStreamPageRefreshCB() {
@@ -191,9 +195,20 @@ Page {
     Connections{
         target: instagram
         onTagFeedDataReady: {
-            console.log(answer)
             var data = JSON.parse(answer);
             if(page.mode === MediaStreamMode.TAG_MODE)
+            {
+                mediaDataFinished(data);
+            }
+        }
+    }
+
+    Connections{
+        target: instagram
+        onUserTimeLineDataReady: {
+            console.log(answer)
+            var data = JSON.parse(answer);
+            if(page.mode === MediaStreamMode.USER_MODE)
             {
                 mediaDataFinished(data);
             }
