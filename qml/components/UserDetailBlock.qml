@@ -6,10 +6,8 @@ Item {
     height:150
     anchors.right: parent.right
 
-
-
     Image {
-        id: profilpic
+       id: profilpic
        width:150
        height:150
        anchors.right: parent.right

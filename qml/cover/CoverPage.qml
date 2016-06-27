@@ -56,7 +56,7 @@ CoverBackground {
         spacing: Theme.paddingSmall
 
         Image {
-            anchors.top: Theme.paddingMedium
+            anchors.topMargin: Theme.paddingMedium
             width: parent.width
             height: width
             source: currentCoverData !== undefined && currentCoverData.image !== undefined ? currentCoverData.image : ""

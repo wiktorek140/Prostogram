@@ -44,48 +44,7 @@ ApplicationWindow {
         }
     }
 
-    function getFeed(mode, tag, cached, cb) {
-        if(cachedFeeds===null) cachedFeeds = {}
-        if(cachedFeedsTime===null) cachedFeedsTime = {}
 
-        var cacheKey
-        if(tag===null || tag.trim()==="") {
-            cacheKey = mode
-        } else {
-            cacheKey = mode + "-" + tag
-        }
-
-        var useCache =false;
-        if(cached  && cachedFeeds[cacheKey] !== undefined && (Date.now() - cachedFeedsTime[cacheKey]) < 30000) {
-            useCache = true;
-        }
-
-            if (useCache) {
-                console.log("Requested " + cacheKey )
-                cb(cachedFeeds[cacheKey])
-            } else {
-
-                if (mode === MediaStreamMode.MY_STREAM_MODE) {
-                    API.get_UserFeed(function(data){dataFinished(cacheKey,data,cb)})
-                } else if (mode === MediaStreamMode.POPULAR_MODE) {
-                    API.get_Popular(function(data){dataFinished(cacheKey,data,cb)})
-                }  else if (mode === MediaStreamMode.TAG_MODE && tag !== "") {
-                        API.get_TagFeed(tag,function(data){dataFinished(cacheKey,data,cb)})
-                } else if (mode === MediaStreamMode.USER_MODE && tag !== "") {
-                    API.get_RecentMediaByUserId(tag,function(data){dataFinished(cacheKey,data,cb)})
-                } else {
-                   cb(null)
-                }
-
-            }
-    }
-
-
-    function dataFinished(cacheKey,data,cb) {
-        cachedFeedsTime[cacheKey] = Date.now()
-        cachedFeeds[cacheKey] = data
-        cb(data)
-    }
 
     function setCoverImage(imageString,username) {
         API.coverImage = imageString
