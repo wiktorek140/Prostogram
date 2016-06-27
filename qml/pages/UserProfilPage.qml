@@ -16,6 +16,7 @@ Page {
     property var recentMediaData
 
     property bool relationStatusLoaded : false
+    property var relationStatus;
 
     property bool privateProfile : false;
     property bool recentMediaLoaded: false;
@@ -70,13 +71,10 @@ Page {
                 truncationMode: TruncationMode.Fade
                 visible: text!==""
                 function getOutgoingText() {
-                    if(rel_outgoing_status===null)
-                        return "";
-                    if(rel_outgoing_status==="follows")
+                    if(relationStatus.following)
                         return qsTr("You follow %1").arg(user.username);
-                    if(rel_outgoing_status==="requested")
+                    if(relationStatus.outgoing_request)
                         return qsTr("You requested to follow %1").arg(user.username);
-                    if(rel_outgoing_status==="none")
                         return ""
                 }
             }
@@ -92,18 +90,13 @@ Page {
                 visible: text!==""
 
                 function getIncomingText() {
-                    if(rel_incoming_status===null)
-                        return "";
-                    if(rel_incoming_status==="followed_by")
+                    if(relationStatus.followed_by)
                         return qsTr("%1 follows you").arg(user.username);
-                    if(rel_incoming_status==="requested_by")
+                    if(relationStatus.incoming_request)
                         return qsTr("%1 requested to follow you").arg(user.username);
-                    if(rel_incoming_status==="blocked_by_you")
+                    if(relationStatus.blocking)
                         return qsTr("You blocked %1").arg(user.username)
-                    if(rel_incoming_status==="none")
                         return ""
-
-
                 }
             }
 
@@ -151,7 +144,7 @@ Page {
                 anchors.right: parent.right
                 anchors.rightMargin: Theme.paddingMedium
                 color: Theme.highlightColor
-                visible: privateProfile
+                visible: relationStatus.is_private
             }
 
 
@@ -241,7 +234,7 @@ Page {
 
             MenuItem {
                  text:  qsTr("Unfollow %1").arg(user.username)
-                 visible: rel_outgoing_status==="follows" && !isSelf
+                 visible: relationStatus.following && !isSelf
                  onClicked: {
                      instagram.unfollow(user.pk);
                  }
@@ -249,7 +242,7 @@ Page {
 
             MenuItem {
                  text: qsTr("Follow %1").arg(user.username)
-                 visible: rel_outgoing_status==="none" && !isSelf
+                 visible: !relationStatus.following && !isSelf
                  onClicked: {
                      instagram.follow(user.pk);
                  }
@@ -271,7 +264,13 @@ Page {
 
         refreshCallback = null
         if(app.user.pk === user.pk)
+        {
             isSelf = true;
+        }
+        else
+        {
+            instagram.userFriendship(user.pk);
+        }
     }
 
 
@@ -304,6 +303,14 @@ Page {
         onUsernameDataReady:{
             var out = JSON.parse(answer);
             user = out.user
+        }
+    }
+
+    Connections{
+        target: instagram
+        onUserFriendshipDataReady:{
+            relationStatusLoaded = true;
+            relationStatus = JSON.parse(answer)
         }
     }
 }
