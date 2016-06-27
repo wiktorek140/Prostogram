@@ -19,6 +19,7 @@ Page {
     allowedOrientations:  Orientation.All
     id: startPage
     property var user
+    property int user_id
     property bool relationStatusLoaded: false
     property bool recentMediaLoaded: false
     property bool updateRunning: false
@@ -237,8 +238,8 @@ Page {
     Connections{
         target: instagram
         onProfileConnected:{
-            var username_id = instagram.getUsernameId();
-            instagram.getUsernameInfo(username_id)
+            startPage.user_id = instagram.getUsernameId();
+            instagram.getUsernameInfo(startPage.user_id)
         }
     }
 
@@ -246,8 +247,11 @@ Page {
         target: instagram
         onUsernameDataReady: {
             var obj = JSON.parse(answer)
-            user = obj.user
-            app.user = obj.user
+            if(obj.user.pk === startPage.user_id)
+            {
+                user = obj.user
+                app.user = obj.user
+            }
         }
     }
 
