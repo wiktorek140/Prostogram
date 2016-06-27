@@ -20,13 +20,16 @@ Page {
         }
 
         Column {
+            id: column
             anchors.top: header.bottom
             anchors.left: parent.left
             anchors.right: parent.right
+            width: parent.width
 
-            Item{
+            Rectangle{
                 width: parent.width
                 height: parent.width
+                clip: true
 
                 Camera {
                     id: camera
@@ -49,12 +52,19 @@ Page {
 
                 VideoOutput {
                     source: camera
-                    anchors.fill: parent
+                    width: parent.width
+                    fillMode: VideoOutput.PreserveAspectFit
+                    clip: true
                     focus : visible // to receive focus and capture key events when visible
                 }
 
                 Image {
                     id: photoPreview
+                    fillMode: Image.PreserveAspectCrop
+                    anchors.fill: parent
+                    width: parent.width
+                    height: parent.height
+                    clip: true
                 }
             }
         }
