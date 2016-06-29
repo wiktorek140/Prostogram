@@ -162,14 +162,7 @@ Page {
                     onClicked: pageStack.push(Qt.resolvedUrl("PinnedPage.qml"))
                 }
             }
-
-
-
         }
-
-
-
-
 
         PullDownMenu {
             MenuItem {
@@ -259,6 +252,13 @@ Page {
         target: instagram
         onProfileConnectedFail:{
             app.cover = Qt.resolvedUrl("AuthPage.qml")
+        }
+    }
+
+    Connections{
+        target: app
+        onCoverRefreshButtonPress:{
+            updateAllFeeds()
         }
     }
 }

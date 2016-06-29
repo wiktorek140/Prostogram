@@ -101,9 +101,7 @@ CoverBackground {
         CoverAction {
             iconSource: "image://theme/icon-cover-refresh"
             onTriggered : refreshFeed()
-
         }
-
     }
 
 
@@ -124,13 +122,6 @@ CoverBackground {
         }
     }
     function refreshFeed() {
-        dataLoading = true
-        getFeed(CoverCtl.refrMode, CoverCtl.refrTag, false, function (data) {
-            loadFeedMediaData(data)
-            dataLoading = false
-            refreshCallbackPending = true
-        })
+        app.refresh();
     }
-
-
 }

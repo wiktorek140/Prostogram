@@ -21,6 +21,8 @@ ApplicationWindow {
 
     property var user
 
+    signal coverRefreshButtonPress();
+
 
     initialPage: getInitialPage()
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
@@ -44,7 +46,9 @@ ApplicationWindow {
         }
     }
 
-
+    function refresh(){
+       coverRefreshButtonPress();
+    }
 
     function setCoverImage(imageString,username) {
         API.coverImage = imageString

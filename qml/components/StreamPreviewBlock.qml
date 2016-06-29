@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "../MediaStreamMode.js" as MediaStreamMode
+import "../CoverMode.js" as CoverMode
 
 Item {
     id: streamPreviewDlock
@@ -160,6 +161,15 @@ Item {
             var data = JSON.parse(answer);
             if(streamPreviewDlock.mode === 0)
             {
+
+                if(recentMediaModel.count == 0)
+                {
+                    var coverdata = {}
+                    coverdata.image = data.items[0].image_versions2.candidates[data.items[0].image_versions2.candidates.length-1].url
+                    coverdata.username = data.items[0].user.username;
+
+                    setCover(CoverMode.SHOW_IMAGE,coverdata)
+                }
                 loadStreamPreviewDataFinished(data);
             }
         }
