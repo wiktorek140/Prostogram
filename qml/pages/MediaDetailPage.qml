@@ -11,6 +11,7 @@ Page {
     allowedOrientations:  Orientation.All
 
     property var item
+    property var relationStatus
     property bool playVideo : false
     property bool userLikedThis : false
     property bool likeStatusLoaded : false
@@ -306,6 +307,15 @@ Page {
         userLikedThis = item.has_liked;
         refreshCallback = null
         instagram.getMediaComments(item.id);
+        if(app.user.pk !== item.user.pk)
+        {
+            instagram.userFriendship(item.user.pk);
+        }
+        else
+        {
+            followMenu.visible = false
+            unFollowMenu.visible = false
+        }
     }
 
     Connections{
@@ -317,6 +327,7 @@ Page {
                 item.has_liked= true;
                 likeMenu.visible = false
                 unLikeMenu.visible = true;
+                likesCommentsCount.text = item.like_count+1 + " " +qsTr("likes") + " - " + item.comment_count + " " + qsTr("comments") + " " + qsTr("You liked this.")
             }
         }
     }
@@ -330,6 +341,7 @@ Page {
                 item.has_liked= false;
                 likeMenu.visible = true
                 unLikeMenu.visible = false;
+                likesCommentsCount.text = item.like_count-1 + " " +qsTr("likes") + " - " + item.comment_count + " " + qsTr("comments")
             }
         }
     }
@@ -361,6 +373,16 @@ Page {
             {
                 pageStack.push(Qt.resolvedUrl("../pages/UserProfilPage.qml"),{user: data.user});
             }
+        }
+    }
+
+    Connections{
+        target: instagram
+        onUserFriendshipDataReady:{
+            relationStatus = JSON.parse(answer)
+
+            followMenu.visible = !relationStatus.following
+            unFollowMenu.visible = relationStatus.following
         }
     }
 }
