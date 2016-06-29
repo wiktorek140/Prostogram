@@ -30,6 +30,25 @@ Page {
 
     property bool isSelf: false;
 
+
+
+    onStatusChanged: {
+        if (status === PageStatus.Active) {
+            if(app.user.pk === user.pk)
+            {
+                isSelf = true;
+                followingMenuItem.visible = true
+                followersMenuItem.visible = true
+                followMenuItem.visible = false
+                unFollowMenuItem.visible = false
+            }
+            else
+            {
+                isSelf = false;
+            }
+        }
+    }
+
     SilicaFlickable {
         anchors.fill: parent
         contentHeight: column.height + header.height + 10
@@ -217,6 +236,7 @@ Page {
         PullDownMenu {
 
             MenuItem {
+                id: followersMenuItem
                 visible: isSelf
                  text:  qsTr("Followers")
                  onClicked: {
@@ -225,6 +245,7 @@ Page {
             }
 
             MenuItem {
+                id: followingMenuItem
                  visible: isSelf
                  text:  qsTr("Following")
                  onClicked: {
@@ -233,14 +254,16 @@ Page {
              }
 
             MenuItem {
+                id: unFollowMenuItem
                  text:  qsTr("Unfollow %1").arg(user.username)
-                 visible: relationStatus.following && !isSelf
+                 visible: !relationStatus.following && !isSelf
                  onClicked: {
                      instagram.unfollow(user.pk);
                  }
              }
 
             MenuItem {
+                id: followMenuItem
                  text: qsTr("Follow %1").arg(user.username)
                  visible: !relationStatus.following && !isSelf
                  onClicked: {
@@ -269,6 +292,7 @@ Page {
         }
         else
         {
+            isSelf = false;
             instagram.userFriendship(user.pk);
         }
     }
@@ -311,6 +335,16 @@ Page {
         onUserFriendshipDataReady:{
             relationStatusLoaded = true;
             relationStatus = JSON.parse(answer)
+            if(!isSelf)
+            {
+                followMenuItem.visible = !relationStatus.following
+                unFollowMenuItem.visible = relationStatus.following
+            }
+            else
+            {
+                followMenuItem.visible = false
+                unFollowMenuItem.visible = false
+            }
         }
     }
 }
