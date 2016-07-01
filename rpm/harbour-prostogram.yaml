@@ -47,6 +47,7 @@ Files:
 Changelog:
  0.6.1
  - Many fixes in user profile
+ - Likes notify work
 
  0.6.0
  - Send photo from phone work
