@@ -24,7 +24,6 @@ Item {
         summary: ""
         body: ""
         onClicked: {}
-        itemCount: 4
     }
 
     Connections{
@@ -33,15 +32,16 @@ Item {
             var out = JSON.parse(answer)
             if(out.new_stories.length > 0)
             {
-                for(var i=out.new_stories.length; i === 0; i--)
+                likeNotify.itemCount = out.new_stories.length;
+
+                for(var i=out.new_stories.length-1; i>=0; i--)
                 {
                     var notify = out.new_stories[i];
-                    if(notify.count.likes > 0)
-                    {
-                        likeNotify.summary = notify.args.text
-                        likeNotify.body = '<img src="'+notify.args.media.image+'">"';
-                        likeNotify.publish();
-                    }
+                    var date = new Date(notify.args.timestamp*1000);
+                    likeNotify.summary = notify.args.text
+                    likeNotify.replacesId = i
+                    likeNotify.timestamp = date
+                    likeNotify.publish();
                 }
             }
 
