@@ -31,16 +31,23 @@ Item {
         target: instagram
         onRecentActivityDataReady:{
             var out = JSON.parse(answer)
-
-            for(var i=out.new_stories.length; i === 0; i--)
+            if(out.new_stories.length > 0)
             {
-                var notify = out.new_stories[i];
-                if(notify.count.likes > 0)
+                for(var i=out.new_stories.length; i === 0; i--)
                 {
-                    likeNotify.summary = notify.args.text
-                    likeNotify.body = '<img src="'+notify.args.media.image+'">"';
-                    likeNotify.publish();
+                    var notify = out.new_stories[i];
+                    if(notify.count.likes > 0)
+                    {
+                        likeNotify.summary = notify.args.text
+                        likeNotify.body = '<img src="'+notify.args.media.image+'">"';
+                        likeNotify.publish();
+                    }
                 }
+            }
+
+            if(!refreshTimer.running)
+            {
+                refreshTimer.start();
             }
         }
     }
@@ -49,7 +56,7 @@ Item {
         id: refreshTimer
         running: false
         repeat: true
-        interval: 300000 //5 minets
+        interval: 30000
         onTriggered: {
             instagram.getRecentActivity();
         }
