@@ -38,8 +38,11 @@ Item {
                 {
                     var notify = out.new_stories[i];
                     var date = new Date(notify.args.timestamp*1000);
+
+                    var iid = toString(notify.args.timestamp);
+
                     likeNotify.summary = notify.args.text
-                    likeNotify.replacesId = i
+                    likeNotify.replacesId = parseInt(iid.replace(".",""));
                     likeNotify.timestamp = date
                     likeNotify.publish();
                 }
