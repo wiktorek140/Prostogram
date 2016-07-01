@@ -78,7 +78,8 @@ DISTFILES += \
     qml/components/Banner.qml \
     qml/pages/GalleryPage.qml \
     qml/pages/SendPhotoPage.qml \
-    qml/pages/CameraPage.qml
+    qml/pages/CameraPage.qml \
+    qml/components/NotificationStream.qml
 
 TRANSLATIONS += translations/harbour-prostogram_ca.ts\
                 translations/harbour-prostogram_el.ts\

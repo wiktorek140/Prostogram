@@ -14,8 +14,6 @@ import "../FavManager.js" as FavManager
 
 
 Page {
-
-
     allowedOrientations:  Orientation.All
     id: startPage
     property var user
@@ -215,7 +213,6 @@ Page {
 
 
     Component.onCompleted: {
-
     }
 
     function startPageRefreshCB() {
@@ -232,7 +229,8 @@ Page {
         target: instagram
         onProfileConnected:{
             startPage.user_id = instagram.getUsernameId();
-            instagram.getUsernameInfo(startPage.user_id)
+            instagram.getUsernameInfo(startPage.user_id);
+            instagram.getRecentActivity();
         }
     }
 

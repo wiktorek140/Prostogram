@@ -5,6 +5,8 @@ import QtQuick.LocalStorage 2.0
 import harbour.prostogram 1.0
 
 import "pages"
+import "components"
+
 import "Storage.js" as Storage
 import "Api.js" as API
 import "MediaStreamMode.js" as MediaStreamMode
@@ -29,6 +31,10 @@ ApplicationWindow {
 
     Instagram{
         id: instagram
+    }
+
+    NotificationStream{
+        id: notifyStream
     }
 
     function getInitialPage() {
