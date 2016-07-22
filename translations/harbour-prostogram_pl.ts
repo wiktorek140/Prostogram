@@ -86,17 +86,6 @@
     </message>
 </context>
 <context>
-    <name>GalleryPage</name>
-    <message>
-        <source>Select picture</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Back</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>MediaDetailPage</name>
     <message>
         <source>Details</source>

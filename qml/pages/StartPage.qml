@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 import QtMultimedia 5.0
 import QtQuick.LocalStorage 2.0
@@ -192,7 +192,13 @@ Page {
 
             MenuItem {
                 text: qsTr("Send photo from phone")
-                onClicked: pageStack.push(Qt.resolvedUrl("GalleryPage.qml"))
+
+                onClicked: {
+                    var imagePicker = pageStack.push("Sailfish.Pickers.ImagePickerPage")
+                    imagePicker.selectedContentChanged.connect(function () {
+                        pageStack.push(Qt.resolvedUrl("SendPhotoPage.qml"),{image_url: imagePicker.selectedContent})
+                    })
+                }
             }
 
             MenuItem {

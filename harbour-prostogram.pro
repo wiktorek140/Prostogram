@@ -22,9 +22,7 @@ CONFIG += sailfishapp
 SOURCES += src/harbour-prostogram.cpp \
     src/api/instagramrequest.cpp \
     src/api/instagram.cpp \
-    src/cripto/hmacsha.cpp \
-    src/models/folderlistmodel/qquickfolderlistmodel.cpp \
-    src/models/folderlistmodel/fileinfothread.cpp
+    src/cripto/hmacsha.cpp
 
 OTHER_FILES += qml/harbour-prostogram.qml \
     qml/cover/CoverPage.qml \
@@ -68,15 +66,11 @@ CONFIG += sailfishapp_i18n
 HEADERS += \
     src/api/instagram.h \
     src/api/instagramrequest.h \
-    src/cripto/hmacsha.h \
-    src/models/folderlistmodel/fileproperty_p.h \
-    src/models/folderlistmodel/fileinfothread_p.h \
-    src/models/folderlistmodel/qquickfolderlistmodel.h
+    src/cripto/hmacsha.h
 
 DISTFILES += \
     qml/harbour-prostogram.qml \
     qml/components/Banner.qml \
-    qml/pages/GalleryPage.qml \
     qml/pages/SendPhotoPage.qml \
     qml/pages/CameraPage.qml \
     qml/components/NotificationStream.qml
