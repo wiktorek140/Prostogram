@@ -10,7 +10,6 @@
 #include <QTranslator>
 
 #include "api/instagram.h"
-#include "models/folderlistmodel/qquickfolderlistmodel.h"
 
 int main(int argc, char *argv[])
 {
@@ -35,7 +34,6 @@ int main(int argc, char *argv[])
    view->rootContext()->setContextProperty("Home",QDir::homePath());
 
    qmlRegisterType<Instagram>("harbour.prostogram",1,0,"Instagram");
-   qmlRegisterType<QQuickFolderListModel>("harbour.prostogram.folderlistmodel",1,0,"FolderListModel");
 
    QUrl pageSource = SailfishApp::pathTo("qml/harbour-prostogram.qml");
    view->setSource(pageSource);
