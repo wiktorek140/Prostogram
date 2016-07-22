@@ -19,6 +19,7 @@ Page {
         }
 
         Column {
+            id: column
             anchors.top: header.bottom
             anchors.left: parent.left
             anchors.right: parent.right
@@ -29,6 +30,45 @@ Page {
                 width: parent.width
 
                 fillMode: Image.PreserveAspectFit
+
+                IconButton {
+                    id: rotateLeft
+                    icon.source: "image://theme/icon-m-refresh?" + (pressed
+                                 ? Theme.highlightColor
+                                 : Theme.primaryColor)
+                    anchors{
+                        top: parent.top
+                        topMargin: rotateLeft.height/3
+                        left: galleryPage.left
+
+                    }
+                    transform: Rotation { axis { x: 0; y: 1; z: 0 } angle: 180 }
+                    z:2
+                    x: rotateLeft.height/3*3.5
+
+                    onClicked: {
+                        instagram.rotateImg(galleryPage.image_url,-90);
+                    }
+                }
+
+                IconButton {
+                    id: rotateRight
+                    icon.source: "image://theme/icon-m-refresh?" + (pressed
+                                 ? Theme.highlightColor
+                                 : Theme.primaryColor)
+                    anchors{
+                        top: parent.top
+                        topMargin: rotateRight.height/3
+                        right: parent.right
+                        rightMargin: rotateRight.height/3
+                    }
+                    z: 2
+
+                    onClicked: {
+                        instagram.rotateImg(galleryPage.image_url,90);
+                        console.log("rot")
+                    }
+                }
             }
 
             TextField{
@@ -66,6 +106,7 @@ Page {
     Connections{
         target: instagram
         onImageConfigureDataReady:{
+            console.log(answer)
             pageStack.push(Qt.resolvedUrl("StartPage.qml"));
         }
     }
