@@ -665,10 +665,17 @@ void Instagram::userFriendship(QString userId)
     QObject::connect(userFriendshipRequest,SIGNAL(replySrtingReady(QVariant)),this,SIGNAL(userFriendshipDataReady(QVariant)));
 }
 
-void Instagram::getLikedMedia()
+void Instagram::getLikedMedia(QString maxid)
 {
     InstagramRequest *getLikedMediaRequest = new InstagramRequest();
-    getLikedMediaRequest->request("feedd/liked/?",NULL);
+    if(maxid.length() == 0)
+    {
+        getLikedMediaRequest->request("feed/liked/?",NULL);
+    }
+    else
+    {
+        getLikedMediaRequest->request("feed/liked/?max_id="+maxid,NULL);
+    }
     QObject::connect(getLikedMediaRequest,SIGNAL(replySrtingReady(QVariant)),this,SIGNAL(likedMediaDataReady(QVariant)));
 }
 
@@ -733,4 +740,22 @@ void Instagram::searchUsername(QString username)
     InstagramRequest *searchUsernameRequest = new InstagramRequest();
     searchUsernameRequest->request("users/"+username+"/usernameinfo/", NULL);
     QObject::connect(searchUsernameRequest,SIGNAL(replySrtingReady(QVariant)), this, SIGNAL(searchUsernameDataReady(QVariant)));
+}
+
+void Instagram::rotateImg(QString filename, qreal deg)
+{
+    QImage image(filename);
+    QTransform rot;
+    rot.rotate(deg);
+    image = image.transformed(rot);
+
+    QFile imgFile(filename);
+    imgFile.open(QIODevice::ReadWrite);
+
+    if(!image.save(&imgFile,"JPG",100))
+    {
+        qDebug() << "NOT SAVE";
+    }
+
+    imgFile.close();
 }
