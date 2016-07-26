@@ -1,4 +1,5 @@
 import QtQuick 2.0
+import Sailfish.Silica 1.0
 
 import org.nemomobile.notifications 1.0
 
@@ -14,7 +15,10 @@ Item {
         category: "x-nemo.example"
         summary: ""
         body: ""
-        onClicked: {}
+        onClicked: {
+            pageStack.push("../pages/NotificatiomPage.qml");
+            app.activate();
+        }
         itemCount: 4
     }
 
@@ -23,7 +27,10 @@ Item {
         category: "x-nemo.example"
         summary: ""
         body: ""
-        onClicked: {}
+        onClicked: {
+            pageStack.push("../pages/NotificatiomPage.qml");
+            app.activate();
+        }
     }
 
     Connections{
