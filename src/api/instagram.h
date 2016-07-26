@@ -94,7 +94,7 @@ signals:
     void profileConnected(QVariant answer);
     void profileConnectedFail();
 
-    void mediaInfoReady(QVariant);
+    void mediaInfoReady(QVariant answer);
     void mediaEdited(QVariant answer);
     void mediaDeleted(QVariant answer);
 

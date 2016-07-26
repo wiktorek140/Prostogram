@@ -336,7 +336,7 @@ void Instagram::infoMedia(QString mediaId)
         data.insert("media_id", mediaId);
 
     QString signature = infoMediaRequest->generateSignature(data);
-    infoMediaRequest->request("media/$mediaId/info/",signature.toUtf8());
+    infoMediaRequest->request("media/"+mediaId+"/info/",signature.toUtf8());
     QObject::connect(infoMediaRequest,SIGNAL(replySrtingReady(QVariant)),this,SIGNAL(mediaInfoReady(QVariant)));
 }
 
