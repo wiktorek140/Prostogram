@@ -338,5 +338,9 @@
         <source>Follow %1</source>
         <translation>%1 volgen</translation>
     </message>
+    <message>
+        <source>Notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>

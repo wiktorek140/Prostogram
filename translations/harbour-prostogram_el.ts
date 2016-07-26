@@ -338,5 +338,9 @@
         <source>Follow %1</source>
         <translation>Ακολουθήστε το χρήστη %1</translation>
     </message>
+    <message>
+        <source>Notifications</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 </TS>
