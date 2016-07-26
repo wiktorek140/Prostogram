@@ -23,6 +23,7 @@ public slots:
     void postImage(QString path, QString caption, QString upload_id = "");
     void postVideo(QFile *video);
 
+    void infoMedia(QString mediaId);
     void editMedia(QString mediaId, QString captionText = "");
     void deleteMedia(QString mediaId);
     void removeSelftag(QString mediaId);
@@ -93,6 +94,7 @@ signals:
     void profileConnected(QVariant answer);
     void profileConnectedFail();
 
+    void mediaInfoReady(QVariant);
     void mediaEdited(QVariant answer);
     void mediaDeleted(QVariant answer);
 

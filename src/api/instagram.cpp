@@ -326,6 +326,20 @@ void Instagram::editMedia(QString mediaId, QString captionText)
     QObject::connect(editMediaRequest,SIGNAL(replySrtingReady(QVariant)),this,SIGNAL(mediaEdited(QVariant)));
 }
 
+void Instagram::infoMedia(QString mediaId)
+{
+    InstagramRequest *infoMediaRequest = new InstagramRequest();
+    QJsonObject data;
+        data.insert("_uuid",        this->m_uuid);
+        data.insert("_uid",         this->m_username_id);
+        data.insert("_csrftoken",   "Set-Cookie: csrftoken="+this->m_token);
+        data.insert("media_id", mediaId);
+
+    QString signature = infoMediaRequest->generateSignature(data);
+    infoMediaRequest->request("media/$mediaId/info/",signature.toUtf8());
+    QObject::connect(infoMediaRequest,SIGNAL(replySrtingReady(QVariant)),this,SIGNAL(mediaInfoReady(QVariant)));
+}
+
 void Instagram::deleteMedia(QString mediaId)
 {
     InstagramRequest *deleteMediaRequest = new InstagramRequest();
