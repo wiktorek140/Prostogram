@@ -38,7 +38,6 @@ Page {
         target: instagram
         onRecentActivityDataReady:{
             var out = JSON.parse(answer)
-
             notifyModel.clear();
 
             out.new_stories.forEach(function(notify){
@@ -55,8 +54,24 @@ Page {
     Connections{
         target: instagram
         onMediaInfoReady:{
-            var mediaElement = JSON.parse(answer);
-            pageStack.push(Qt.resolvedUrl("MediaDetailPage.qml"),{item:mediaElement.items[0]});
+            if (notificationPage.status == PageStatus.Active)
+            {
+                var mediaElement = JSON.parse(answer);
+                pageStack.push(Qt.resolvedUrl("MediaDetailPage.qml"),
+                                {item:mediaElement.items[0]});
+            }
+        }
+    }
+
+    Connections{
+        target: instagram
+        onUsernameDataReady:{
+            if (notificationPage.status == PageStatus.Active)
+            {
+                var out = JSON.parse(answer)
+                pageStack.push(Qt.resolvedUrl("UserProfilPage.qml"),
+                               {user: out.user})
+            }
         }
     }
 

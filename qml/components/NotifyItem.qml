@@ -19,6 +19,13 @@ Item {
             top: parent.top
             left: parent.left
         }
+
+        MouseArea{
+            anchors.fill: parent
+            onClicked: {
+                instagram.getUsernameInfo(args.links[0].id);
+            }
+        }
     }
 
     Label {
