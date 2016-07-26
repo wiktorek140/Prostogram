@@ -90,6 +90,10 @@ Page {
                 truncationMode: TruncationMode.Fade
                 visible: text!==""
                 function getOutgoingText() {
+                    if(!relationStatus)
+                    {
+                        return "";
+                    }
                     if(relationStatus.following)
                         return qsTr("You follow %1").arg(user.username);
                     if(relationStatus.outgoing_request)
@@ -109,6 +113,11 @@ Page {
                 visible: text!==""
 
                 function getIncomingText() {
+                    if(!relationStatus)
+                    {
+                        return "";
+                    }
+
                     if(relationStatus.followed_by)
                         return qsTr("%1 follows you").arg(user.username);
                     if(relationStatus.incoming_request)
@@ -272,13 +281,18 @@ Page {
                  }
              }
 
-           }
-
+            MenuItem {
+                text: qsTr("Notifications")
+                visible: isSelf
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl("NotificationPage.qml"))
+                }
+            }
+        }
     }
 
     ListModel {
         id: recentMediaModel
-
     }
 
 

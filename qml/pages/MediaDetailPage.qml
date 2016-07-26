@@ -327,7 +327,7 @@ Page {
                 item.has_liked= true;
                 likeMenu.visible = false
                 unLikeMenu.visible = true;
-                likesCommentsCount.text = item.like_count+1 + " " +qsTr("likes") + " - " + item.comment_count + " " + qsTr("comments") + " " + qsTr("You liked this.")
+                likesCommentsCount.text = item.like_count+1 + " " +qsTr("likes") + " - " + item.comment_count + " " + qsTr("comments") + " - " + qsTr("You liked this.")
             }
         }
     }
