@@ -157,13 +157,14 @@ Page {
 
 
             Label {
+                id: privatelabel
                 text: qsTr("This profile is private.")
                 anchors.left: parent.left
                 anchors.leftMargin: Theme.paddingMedium
                 anchors.right: parent.right
                 anchors.rightMargin: Theme.paddingMedium
                 color: Theme.highlightColor
-                visible: relationStatus.is_private
+                visible: false
             }
 
 
@@ -344,6 +345,11 @@ Page {
             {
                 followMenuItem.visible = false
                 unFollowMenuItem.visible = false
+            }
+
+            if(relationStatus.is_private)
+            {
+                privatelabel.visible = true
             }
         }
     }
