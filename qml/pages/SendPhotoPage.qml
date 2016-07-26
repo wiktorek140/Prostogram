@@ -33,6 +33,7 @@ Page {
 
                 IconButton {
                     id: rotateLeft
+                    visible: false
                     icon.source: "image://theme/icon-m-refresh?" + (pressed
                                  ? Theme.highlightColor
                                  : Theme.primaryColor)
@@ -52,6 +53,7 @@ Page {
                 }
 
                 IconButton {
+                    visible: false
                     id: rotateRight
                     icon.source: "image://theme/icon-m-refresh?" + (pressed
                                  ? Theme.highlightColor
@@ -65,7 +67,7 @@ Page {
                     z: 2
 
                     onClicked: {
-                        instagram.rotateImg(galleryPage.image_url,90);
+                        instagram.rotateImg(galleryPage.image_url.replace("file://",""),90);
                         console.log("rot")
                     }
                 }
@@ -90,7 +92,7 @@ Page {
                 text: qsTr("Send photo")
 
                 onClicked: {
-                    instagram.postImage(image_url,caption.text);
+                    instagram.postImage(image_url.replace("file://",""),caption.text);
                     bisy.running = true
                 }
             }

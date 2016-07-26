@@ -193,7 +193,12 @@ void Instagram::postImage(QString path, QString caption, QString upload_id)
     this->m_image_path = path;
 
     QFile image(path);
-    image.open(QIODevice::ReadOnly);
+    if(!image.open(QIODevice::ReadOnly))
+    {
+        qDebug() << "Image " << path << " not found";
+        emit error("Image not found");
+    }
+
     QByteArray dataStream = image.readAll();
 
     QFileInfo info(image.fileName());

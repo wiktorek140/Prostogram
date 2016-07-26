@@ -202,6 +202,7 @@ Page {
             }
 
             MenuItem {
+                visible: false
                 text: qsTr("Set photo")
                 onClicked: pageStack.push(Qt.resolvedUrl("CameraPage.qml"))
             }
