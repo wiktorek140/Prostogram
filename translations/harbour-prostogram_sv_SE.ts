@@ -79,6 +79,13 @@
     </message>
 </context>
 <context>
+    <name>EditPhotoPage</name>
+    <message>
+        <source>Edit photo</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>ErrorMessageLabel</name>
     <message>
         <source>An error occurred.</source>
