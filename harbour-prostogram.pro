@@ -76,7 +76,8 @@ DISTFILES += \
     qml/components/NotificationStream.qml \
     qml/images/header_logo.png \
     qml/pages/NotificationPage.qml \
-    qml/components/NotifyItem.qml
+    qml/components/NotifyItem.qml \
+    qml/pages/EditPhotoPage.qml
 
 TRANSLATIONS += translations/harbour-prostogram_ca.ts\
                 translations/harbour-prostogram_el.ts\

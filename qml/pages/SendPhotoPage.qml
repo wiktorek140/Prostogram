@@ -31,44 +31,25 @@ Page {
 
                 fillMode: Image.PreserveAspectFit
 
+
                 IconButton {
-                    id: rotateLeft
-                    visible: false
-                    icon.source: "image://theme/icon-m-refresh?" + (pressed
+                    id: configButton
+                    icon.source: "image://theme/icon-m-edit?" + (pressed
                                  ? Theme.highlightColor
                                  : Theme.primaryColor)
                     anchors{
                         top: parent.top
-                        topMargin: rotateLeft.height/3
-                        left: galleryPage.left
-
-                    }
-                    transform: Rotation { axis { x: 0; y: 1; z: 0 } angle: 180 }
-                    z:2
-                    x: rotateLeft.height/3*3.5
-
-                    onClicked: {
-                        instagram.rotateImg(galleryPage.image_url,-90);
-                    }
-                }
-
-                IconButton {
-                    visible: false
-                    id: rotateRight
-                    icon.source: "image://theme/icon-m-refresh?" + (pressed
-                                 ? Theme.highlightColor
-                                 : Theme.primaryColor)
-                    anchors{
-                        top: parent.top
-                        topMargin: rotateRight.height/3
+                        topMargin: configButton.height/3
                         right: parent.right
-                        rightMargin: rotateRight.height/3
+                        rightMargin: configButton.height/3
                     }
                     z: 2
 
                     onClicked: {
-                        instagram.rotateImg(galleryPage.image_url.replace("file://",""),90);
-                        console.log("rot")
+                        pageStack.push(Qt.resolvedUrl(
+                                        "EditPhotoPage.qml"), {
+                                        image_url: image_url
+                                     })
                     }
                 }
             }
