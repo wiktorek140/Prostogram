@@ -19,65 +19,28 @@ INSTALLS += i18n_files
 
 CONFIG += sailfishapp
 
-SOURCES += src/harbour-prostogram.cpp \
-    src/api/instagramrequest.cpp \
-    src/api/instagram.cpp \
-    src/cripto/hmacsha.cpp
+SOURCES += src/harbour-prostogram.cpp
 
 OTHER_FILES += qml/harbour-prostogram.qml \
-    qml/cover/CoverPage.qml \
-    qml/pages/SecondPage.qml \
+    qml/cover/*.qml \
+    qml/components/*.qml \
+    qml/pages/*.qml \
+    qml/*.js \
     rpm/harbour-prostogram.spec \
     rpm/harbour-prostogram.yaml \
     translations/* \
-    harbour-prostogram.desktop \
-    qml/Api.js \
-    qml/Helper.js \
-    qml/Storage.js \
-    qml/components/FeedItem.qml \
-    qml/components/UserInfoBlock.qml \
     LICENSE \
-    Changelog \
-    qml/pages/AuthPage.qml \
-    qml/pages/MediaDetailPage.qml \
-    qml/pages/UserProfilPage.qml \
-    qml/pages/AboutPage.qml \
-    qml/pages/MediaStreamPage.qml \
-    qml/MediaStreamMode.js \
-    qml/pages/StartPage.qml \
-    qml/components/UserDetailBlock.qml \
-    qml/components/StreamPreviewBlock.qml \
-    qml/pages/TagSearchPage.qml \
-    qml/components/SmallMediaElement.qml \
-    qml/components/ErrorMessageLabel.qml \
-    qml/pages/SettingsPage.qml \
-    qml/CoverMode.js \
-    qml/Cover.js \
-    qml/FavManager.js \
-    qml/pages/PinnedPage.qml \
-    qml/pages/UserListPage.qml \
-    qml/components/UserListItem.qml \
-    qml/UserListMode.js
+    Changelog
 
 # to disable building translations every time, comment out the
 # following CONFIG line
 CONFIG += sailfishapp_i18n
 
-HEADERS += \
-    src/api/instagram.h \
-    src/api/instagramrequest.h \
-    src/cripto/hmacsha.h
-
 DISTFILES += \
-    qml/harbour-prostogram.qml \
-    qml/components/Banner.qml \
-    qml/pages/SendPhotoPage.qml \
-    qml/pages/CameraPage.qml \
-    qml/components/NotificationStream.qml \
+    qml/*.qml \
+    qml/components/*.qml \
+    qml/pages/*.qml \
     qml/images/header_logo.png \
-    qml/pages/NotificationPage.qml \
-    qml/components/NotifyItem.qml \
-    qml/pages/EditPhotoPage.qml
 
 TRANSLATIONS += translations/harbour-prostogram_ca.ts\
                 translations/harbour-prostogram_el.ts\

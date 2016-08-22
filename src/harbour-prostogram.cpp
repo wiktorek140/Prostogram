@@ -9,7 +9,7 @@
 #include <QtQml>
 #include <QTranslator>
 
-#include "api/instagram.h"
+#include "QtInstagram/src/api/instagram.h"
 
 int main(int argc, char *argv[])
 {

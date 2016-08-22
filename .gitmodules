@@ -1,0 +1,3 @@
+[submodule "QtInstagram"]
+	path = QtInstagram
+	url = https://github.com/neochapay/QtInstagram.git
