@@ -4,14 +4,7 @@ import QtMultimedia 5.0
 import QtQuick.LocalStorage 2.0
 
 import "../components"
-import "../Api.js" as API
-import "../Helper.js" as Helper
 import "../MediaStreamMode.js" as MediaStreamMode
-import "../Storage.js" as Storage
-import "../CoverMode.js" as CoverMode
-import "../Cover.js" as CoverCtl
-import "../FavManager.js" as FavManager
-
 
 Page {
     allowedOrientations:  Orientation.All
