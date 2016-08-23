@@ -42,7 +42,6 @@ Page {
             color: Theme.highlightColor
         }
         Button {
-            visible: !logout
             anchors.horizontalCenter: parent.horizontalCenter
             text: qsTr("Continue")
             onClicked: {
