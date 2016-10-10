@@ -33,7 +33,7 @@ Page {
 
         Rectangle{
             id: entherAction
-            color: "white"
+            color: Theme.rgba(Theme.highlightBackgroundColor, Theme.highlightBackgroundOpacity)
             clip: true
             radius: 5
 
@@ -53,8 +53,8 @@ Page {
                 height: Theme.itemSizeMedium
 
                 placeholderText: qsTr("Login")
-                placeholderColor: "gray"
-                color: "black"
+                placeholderColor: Theme.primaryColor
+                color: Theme.primaryColor
 
                 anchors{
                     top: parent.top
@@ -69,8 +69,8 @@ Page {
                 height: Theme.itemSizeMedium
 
                 placeholderText: qsTr("Password")
-                placeholderColor: "gray"
-                color: "black"
+                placeholderColor: Theme.primaryColor
+                color: Theme.primaryColor
 
                 echoMode: TextInput.Password
 
@@ -87,7 +87,7 @@ Page {
                 height: Theme.itemSizeMedium
                 radius: 5
 
-                color: "#5caa15"
+                color: Theme.highlightBackgroundColor
 
                 anchors{
                     bottom: parent.bottom
@@ -96,7 +96,7 @@ Page {
 
                 Text{
                     text: qsTr("Login")
-                    color: "white"
+                    color: Theme.primaryColor
                     width: parent.width
                     height: parent.height/3*2
 
