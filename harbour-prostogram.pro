@@ -30,7 +30,6 @@ OTHER_FILES += qml/harbour-prostogram.qml \
     qml/pages/*.qml \
     qml/*.js \
     rpm/harbour-prostogram.spec \
-    rpm/harbour-prostogram.yaml \
     translations/* \
     LICENSE \
     Changelog
@@ -70,3 +69,5 @@ HEADERS += \
     QtInstagram/src/api/instagram.h \
     QtInstagram/src/api/instagramrequest.h \
     QtInstagram/src/cripto/hmacsha.h
+
+DEFINES += APP_VERSION=\\\"$$VERSION\\\"

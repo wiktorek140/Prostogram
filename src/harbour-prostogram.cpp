@@ -25,6 +25,8 @@ int main(int argc, char *argv[])
    translator->load(QLocale::system(), "harbour-prostogram", "_", translationPath);
    app->installTranslator(translator);
 
+   app->setApplicationVersion(QString(APP_VERSION));
+
    view->setTitle("Prostogram");
 
    view->rootContext()->setContextProperty("Home",QDir::homePath());
