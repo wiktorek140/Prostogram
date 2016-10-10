@@ -13,46 +13,8 @@ Page {
         z: 1000
     }
 
-    Column {
-        id: col
-        spacing: 15
-        visible: !loginArea.visible
-        anchors.fill: parent
-        PageHeader {
-            title: "Prostogram"
-        }
-        Image {
-            source: "../images/header_logo.png"
-        }
-
-        BusyIndicator {
-            id: bisy
-            anchors.horizontalCenter: parent.horizontalCenter
-            size: BusyIndicatorSize.Large
-        }
-
-        Label {
-            text: qsTr("Welcome to Prostogram, an unoffical Instagram client for Sailfish. Please press 'continue' to login to your Instagram account.")
-            anchors.left: parent.left
-            anchors.leftMargin: Theme.paddingLarge
-            anchors.right: parent.right
-            anchors.rightMargin: Theme.paddingLarge
-            wrapMode: Text.Wrap
-            textFormat: Text.RichText
-            color: Theme.highlightColor
-        }
-        Button {
-            anchors.horizontalCenter: parent.horizontalCenter
-            text: qsTr("Continue")
-            onClicked: {
-                loginArea.visible = true
-            }
-        }
-    }
-
     Rectangle{
         id: loginArea
-        visible: false
 
         width: parent.width
         height: parent.height
