@@ -67,14 +67,14 @@
     <name>CameraPage</name>
     <message>
         <source>Set photo</source>
-        <translation type="unfinished"></translation>
+        <translation>Сделать фото</translation>
     </message>
 </context>
 <context>
     <name>EditPhotoPage</name>
     <message>
         <source>Edit photo</source>
-        <translation type="unfinished"></translation>
+        <translation>Редактировать фото</translation>
     </message>
 </context>
 <context>
@@ -112,11 +112,11 @@
     </message>
     <message>
         <source>Follow</source>
-        <translation type="unfinished"></translation>
+        <translation>Добавить в друзья</translation>
     </message>
     <message>
         <source>Un Follow</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить из друзей</translation>
     </message>
 </context>
 <context>
@@ -263,7 +263,7 @@
     </message>
     <message>
         <source>Set photo</source>
-        <translation type="unfinished"></translation>
+        <translation>Сделать фото</translation>
     </message>
 </context>
 <context>
@@ -339,7 +339,7 @@
     </message>
     <message>
         <source>Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Уведомления</translation>
     </message>
 </context>
 </TS>
