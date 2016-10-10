@@ -42,7 +42,6 @@ ApplicationWindow {
         var username = Storage.get("username");
         var password = Storage.get("password")
         if (username === "" ||  password === "" || username === undefined || password === undefined || username === null || password === null ) {
-            console.log("Not logined")
             return Qt.resolvedUrl("pages/AuthPage.qml")
         } else {
             instagram.setUsername(username);
