@@ -43,6 +43,10 @@
         <source>Paypal USD</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Version: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthPage</name>
@@ -214,6 +218,10 @@
         <source>Show user and date inline</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>About</source>
+        <translation type="unfinished">Om</translation>
+    </message>
 </context>
 <context>
     <name>StartPage</name>
@@ -238,10 +246,6 @@
         <translation>Alla fastnålade taggar</translation>
     </message>
     <message>
-        <source>About</source>
-        <translation>Om</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Inställningar</translation>
     </message>
@@ -252,10 +256,6 @@
     <message>
         <source>Refresh</source>
         <translation>Uppdatera</translation>
-    </message>
-    <message>
-        <source>Logout</source>
-        <translation type="unfinished">Logga ut</translation>
     </message>
     <message>
         <source>Send photo from phone</source>

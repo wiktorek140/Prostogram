@@ -43,6 +43,10 @@
         <source>Paypal USD</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Version: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthPage</name>
@@ -214,6 +218,10 @@
         <source>Logout</source>
         <translation>Déconnexion</translation>
     </message>
+    <message>
+        <source>About</source>
+        <translation type="unfinished">À propros de</translation>
+    </message>
 </context>
 <context>
     <name>StartPage</name>
@@ -238,10 +246,6 @@
         <translation>Tous les libellés épinglés</translation>
     </message>
     <message>
-        <source>About</source>
-        <translation>À propos de</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Paramètres</translation>
     </message>
@@ -252,10 +256,6 @@
     <message>
         <source>Refresh</source>
         <translation>Rafraîchir</translation>
-    </message>
-    <message>
-        <source>Logout</source>
-        <translation type="unfinished">Déconnexion</translation>
     </message>
     <message>
         <source>Send photo from phone</source>

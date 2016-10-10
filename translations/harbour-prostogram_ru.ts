@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>developer</source>
-        <translation>разработчик</translation>
+        <translation>Разработчик</translation>
     </message>
     <message>
         <source>Write a mail</source>
@@ -42,6 +42,10 @@
     <message>
         <source>Paypal USD</source>
         <translation>Paypal USD</translation>
+    </message>
+    <message>
+        <source>Version: %1</source>
+        <translation>Версия: %1</translation>
     </message>
 </context>
 <context>
@@ -214,6 +218,10 @@
         <source>Show user and date inline</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>About</source>
+        <translation>О приложении</translation>
+    </message>
 </context>
 <context>
     <name>StartPage</name>
@@ -238,10 +246,6 @@
         <translation>Все закреплённые теги</translation>
     </message>
     <message>
-        <source>About</source>
-        <translation>О приложении</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Настройки</translation>
     </message>
@@ -252,10 +256,6 @@
     <message>
         <source>Refresh</source>
         <translation>Обновить</translation>
-    </message>
-    <message>
-        <source>Logout</source>
-        <translation>Выход</translation>
     </message>
     <message>
         <source>Send photo from phone</source>

@@ -43,6 +43,10 @@
         <source>donating = loving</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Version: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthPage</name>
@@ -214,6 +218,10 @@
         <source>Logout</source>
         <translation>Ausloggen</translation>
     </message>
+    <message>
+        <source>About</source>
+        <translation type="unfinished">Über</translation>
+    </message>
 </context>
 <context>
     <name>StartPage</name>
@@ -238,10 +246,6 @@
         <translation>Alle angepinnten Tags</translation>
     </message>
     <message>
-        <source>About</source>
-        <translation>Über</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Einstellungen</translation>
     </message>
@@ -252,10 +256,6 @@
     <message>
         <source>Refresh</source>
         <translation>Aktualisieren</translation>
-    </message>
-    <message>
-        <source>Logout</source>
-        <translation type="unfinished">Ausloggen</translation>
     </message>
     <message>
         <source>Send photo from phone</source>

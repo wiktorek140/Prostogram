@@ -43,6 +43,10 @@
         <source>Paypal USD</source>
         <translation>Paypal 美元</translation>
     </message>
+    <message>
+        <source>Version: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthPage</name>
@@ -214,6 +218,10 @@
         <source>Logout</source>
         <translation>注销</translation>
     </message>
+    <message>
+        <source>About</source>
+        <translation type="unfinished">关于</translation>
+    </message>
 </context>
 <context>
     <name>StartPage</name>
@@ -238,10 +246,6 @@
         <translation>所有钉上的标签</translation>
     </message>
     <message>
-        <source>About</source>
-        <translation>关于</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>设置</translation>
     </message>
@@ -252,10 +256,6 @@
     <message>
         <source>Refresh</source>
         <translation>刷新</translation>
-    </message>
-    <message>
-        <source>Logout</source>
-        <translation type="unfinished">注销</translation>
     </message>
     <message>
         <source>Send photo from phone</source>

@@ -43,6 +43,10 @@
         <source>Paypal USD</source>
         <translation>Paypal USD</translation>
     </message>
+    <message>
+        <source>Version: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>AuthPage</name>
@@ -214,6 +218,10 @@
         <source>Logout</source>
         <translation>Odhlásit se</translation>
     </message>
+    <message>
+        <source>About</source>
+        <translation type="unfinished">O aplikaci</translation>
+    </message>
 </context>
 <context>
     <name>StartPage</name>
@@ -238,10 +246,6 @@
         <translation>Všechny přišpendlené značky</translation>
     </message>
     <message>
-        <source>About</source>
-        <translation>O programu</translation>
-    </message>
-    <message>
         <source>Settings</source>
         <translation>Nastavení</translation>
     </message>
@@ -252,10 +256,6 @@
     <message>
         <source>Refresh</source>
         <translation>Obnovit</translation>
-    </message>
-    <message>
-        <source>Logout</source>
-        <translation type="unfinished">Odhlásit se</translation>
     </message>
     <message>
         <source>Send photo from phone</source>
