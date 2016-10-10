@@ -245,17 +245,6 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                visible: isSelf
-                text: qsTr("Logout")
-                onClicked: {
-                    Storage.set("password","");
-                    Storage.set("username","");
-                    instagram.logout();
-                    pageStack.push(Qt.resolvedUrl("AuthPage.qml"))
-                }
-            }
-
-            MenuItem {
                 id: followersMenuItem
                 visible: isSelf
                  text:  qsTr("Followers")
