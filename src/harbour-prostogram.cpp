@@ -16,18 +16,14 @@ int main(int argc, char *argv[])
    QGuiApplication* app = SailfishApp::application(argc, argv);
    QString translationPath(SailfishApp::pathTo("translations").toLocalFile());
 
-   QTranslator engineeringEnglish;
-   engineeringEnglish.load("harbour-prostogram", translationPath);
-   qApp->installTranslator(&engineeringEnglish);
-
-   QTranslator translator;
-   translator.load(QLocale(), "harbour-prostogram", "_", translationPath);
-   qApp->installTranslator(&translator);
-
    QScopedPointer <QQuickView> view(SailfishApp::createView());
    app->setApplicationName("harbour-prostogram");
    app->setOrganizationDomain("harbour-prostogram");
    app->setOrganizationName("harbour-prostogram");
+
+   QTranslator *translator = new QTranslator();
+   translator->load(QLocale::system(), "harbour-prostogram", "_", translationPath);
+   app->installTranslator(translator);
 
    view->setTitle("Prostogram");
 
@@ -37,8 +33,6 @@ int main(int argc, char *argv[])
 
    QUrl pageSource = SailfishApp::pathTo("qml/harbour-prostogram.qml");
    view->setSource(pageSource);
-
-
    view->showFullScreen();
 
    return app->exec();
