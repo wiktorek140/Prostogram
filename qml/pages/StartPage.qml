@@ -157,18 +157,6 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: qsTr("Logout")
-                onClicked: {
-                    Storage.set("password","");
-                    Storage.set("username","");
-
-                    instagram.logout();
-
-                    pageStack.push(Qt.resolvedUrl("AuthPage.qml"))
-                }
-            }
-
-            MenuItem {
                 text: qsTr("About")
                 onClicked: pageStack.push(Qt.resolvedUrl("AboutPage.qml"))
             }
