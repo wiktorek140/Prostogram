@@ -44,25 +44,27 @@ DISTFILES += \
     qml/components/*.qml \
     qml/pages/*.qml \
     qml/images/header_logo.png \
+    qml/images/cover.jpg
 
-TRANSLATIONS += translations/harbour-prostogram_ca.ts\
-                translations/harbour-prostogram_el.ts\
-                translations/harbour-prostogram_fi.ts\
-                translations/harbour-prostogram_pl.ts\
-                translations/harbour-prostogram.ts\
-                translations/harbour-prostogram_cs_CZ.ts\
-                translations/harbour-prostogram_en.ts\
-                translations/harbour-prostogram_fr.ts\
-                translations/harbour-prostogram_ru.ts\
-                translations/harbour-prostogram_zh_CN.ts\
-                translations/harbour-prostogram_da.ts\
-                translations/harbour-prostogram_es_AR.ts\
-                translations/harbour-prostogram_it_IT.ts\
-                translations/harbour-prostogram_sl_SI.ts\
-                translations/harbour-prostogram_de.ts\
-                translations/harbour-prostogram_es.ts\
-                translations/harbour-prostogram_nl_NL.ts\
-                translations/harbour-prostogram_sv_SE.ts
+TRANSLATIONS += translations/harbour-prostogram_ca.ts \
+                translations/harbour-prostogram_cs_CZ.ts \
+                translations/harbour-prostogram_da.ts \
+                translations/harbour-prostogram_de.ts \
+                translations/harbour-prostogram_el.ts \
+                translations/harbour-prostogram_en.ts \
+                translations/harbour-prostogram_es_AR.ts \
+                translations/harbour-prostogram_es.ts \
+                translations/harbour-prostogram_fi.ts \
+                translations/harbour-prostogram_fr.ts \
+                translations/harbour-prostogram_it_IT.ts \
+                translations/harbour-prostogram_nl_NL.ts \
+                translations/harbour-prostogram_pl.ts \
+                translations/harbour-prostogram_ru.ts \
+                translations/harbour-prostogram_sl_SI.ts \
+                translations/harbour-prostogram_sv_SE.ts \
+                translations/harbour-prostogram.ts \
+                translations/harbour-prostogram_zh_CN.ts \
+                translations/harbour-sailgrande.ts
 
 HEADERS += \
     QtInstagram/src/api/instagram.h \

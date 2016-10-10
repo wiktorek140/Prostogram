@@ -17,11 +17,11 @@ int main(int argc, char *argv[])
    QString translationPath(SailfishApp::pathTo("translations").toLocalFile());
 
    QTranslator engineeringEnglish;
-   engineeringEnglish.load("prostogram", translationPath);
+   engineeringEnglish.load("harbour-prostogram", translationPath);
    qApp->installTranslator(&engineeringEnglish);
 
    QTranslator translator;
-   translator.load(QLocale(), "prostogram", "_", translationPath);
+   translator.load(QLocale(), "harbour-prostogram", "_", translationPath);
    qApp->installTranslator(&translator);
 
    QScopedPointer <QQuickView> view(SailfishApp::createView());

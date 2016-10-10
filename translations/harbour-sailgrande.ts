@@ -39,11 +39,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AboutPage.qml" line="149"/>
-        <source>Translate</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../qml/pages/AboutPage.qml" line="156"/>
         <source>Report bugs</source>
         <translation type="unfinished"></translation>
@@ -55,10 +50,6 @@
     </message>
     <message>
         <location filename="../qml/pages/AboutPage.qml" line="176"/>
-        <source>Paypal EUR</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="../qml/pages/AboutPage.qml" line="183"/>
         <source>Paypal USD</source>
         <translation type="unfinished"></translation>
@@ -67,24 +58,40 @@
 <context>
     <name>AuthPage</name>
     <message>
-        <location filename="../qml/pages/AuthPage.qml" line="33"/>
-        <source>Welcome to SailGrande, an unoffical Instagram client for Sailfish. Please press &apos;continue&apos; to login to your Instagram account.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/AuthPage.qml" line="45"/>
-        <source>Continue</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/AuthPage.qml" line="92"/>
-        <location filename="../qml/pages/AuthPage.qml" line="130"/>
+        <location filename="../qml/pages/AuthPage.qml" line="55"/>
+        <location filename="../qml/pages/AuthPage.qml" line="98"/>
         <source>Login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AuthPage.qml" line="106"/>
+        <location filename="../qml/pages/AuthPage.qml" line="71"/>
         <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AuthPage.qml" line="144"/>
+        <source>Entering...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AuthPage.qml" line="164"/>
+        <source>Login fail!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CameraPage</name>
+    <message>
+        <location filename="../qml/pages/CameraPage.qml" line="19"/>
+        <source>Set photo</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>EditPhotoPage</name>
+    <message>
+        <location filename="../qml/pages/EditPhotoPage.qml" line="18"/>
+        <source>Edit photo</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -99,42 +106,47 @@
 <context>
     <name>MediaDetailPage</name>
     <message>
-        <location filename="../qml/pages/MediaDetailPage.qml" line="24"/>
+        <location filename="../qml/pages/MediaDetailPage.qml" line="26"/>
         <source>Details</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MediaDetailPage.qml" line="42"/>
+        <location filename="../qml/pages/MediaDetailPage.qml" line="44"/>
+        <location filename="../qml/pages/MediaDetailPage.qml" line="330"/>
+        <location filename="../qml/pages/MediaDetailPage.qml" line="344"/>
         <source>likes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MediaDetailPage.qml" line="42"/>
+        <location filename="../qml/pages/MediaDetailPage.qml" line="44"/>
+        <location filename="../qml/pages/MediaDetailPage.qml" line="330"/>
+        <location filename="../qml/pages/MediaDetailPage.qml" line="344"/>
         <source>comments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MediaDetailPage.qml" line="42"/>
+        <location filename="../qml/pages/MediaDetailPage.qml" line="44"/>
+        <location filename="../qml/pages/MediaDetailPage.qml" line="330"/>
         <source>You liked this.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MediaDetailPage.qml" line="201"/>
+        <location filename="../qml/pages/MediaDetailPage.qml" line="248"/>
         <source>Un Follow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MediaDetailPage.qml" line="212"/>
+        <location filename="../qml/pages/MediaDetailPage.qml" line="259"/>
         <source>Remove my like</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MediaDetailPage.qml" line="221"/>
+        <location filename="../qml/pages/MediaDetailPage.qml" line="268"/>
         <source>Like</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MediaDetailPage.qml" line="190"/>
+        <location filename="../qml/pages/MediaDetailPage.qml" line="237"/>
         <source>Follow</source>
         <translation type="unfinished"></translation>
     </message>
@@ -152,12 +164,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MediaStreamPage.qml" line="72"/>
+        <location filename="../qml/pages/MediaStreamPage.qml" line="76"/>
         <source>Load more</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MediaStreamPage.qml" line="102"/>
+        <location filename="../qml/pages/MediaStreamPage.qml" line="100"/>
         <source>There is no picture in this feed.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -177,6 +189,19 @@
     <message>
         <location filename="../qml/pages/PinnedPage.qml" line="80"/>
         <source>Set as favorite</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SendPhotoPage</name>
+    <message>
+        <location filename="../qml/pages/SendPhotoPage.qml" line="18"/>
+        <source>Send picture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SendPhotoPage.qml" line="73"/>
+        <source>Send photo</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -246,47 +271,62 @@
 <context>
     <name>StartPage</name>
     <message>
-        <location filename="../qml/pages/StartPage.qml" line="89"/>
+        <location filename="../qml/pages/StartPage.qml" line="62"/>
         <source>Welcome</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/StartPage.qml" line="127"/>
+        <location filename="../qml/pages/StartPage.qml" line="100"/>
         <source>My Feed</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/StartPage.qml" line="134"/>
+        <location filename="../qml/pages/StartPage.qml" line="107"/>
         <source>Popular</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/StartPage.qml" line="141"/>
+        <location filename="../qml/pages/StartPage.qml" line="114"/>
         <source>Tagged with %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/StartPage.qml" line="171"/>
+        <location filename="../qml/pages/StartPage.qml" line="144"/>
         <source>All pinned tags</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/StartPage.qml" line="195"/>
+        <location filename="../qml/pages/StartPage.qml" line="160"/>
+        <source>Logout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/StartPage.qml" line="172"/>
         <source>About</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/StartPage.qml" line="200"/>
+        <location filename="../qml/pages/StartPage.qml" line="177"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/StartPage.qml" line="205"/>
+        <location filename="../qml/pages/StartPage.qml" line="182"/>
         <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/StartPage.qml" line="210"/>
+        <location filename="../qml/pages/StartPage.qml" line="187"/>
+        <source>Send photo from phone</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/StartPage.qml" line="199"/>
+        <source>Set photo</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/StartPage.qml" line="204"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
@@ -302,17 +342,17 @@
 <context>
     <name>UserDetailBlock</name>
     <message>
-        <location filename="../qml/components/UserDetailBlock.qml" line="28"/>
+        <location filename="../qml/components/UserDetailBlock.qml" line="26"/>
         <source>%1 posts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/components/UserDetailBlock.qml" line="38"/>
+        <location filename="../qml/components/UserDetailBlock.qml" line="36"/>
         <source>%1 followers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/components/UserDetailBlock.qml" line="48"/>
+        <location filename="../qml/components/UserDetailBlock.qml" line="46"/>
         <source>%1 following</source>
         <translation type="unfinished"></translation>
     </message>
@@ -328,55 +368,60 @@
 <context>
     <name>UserProfilPage</name>
     <message>
-        <location filename="../qml/pages/UserProfilPage.qml" line="79"/>
+        <location filename="../qml/pages/UserProfilPage.qml" line="98"/>
         <source>You follow %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/UserProfilPage.qml" line="81"/>
+        <location filename="../qml/pages/UserProfilPage.qml" line="100"/>
         <source>You requested to follow %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/UserProfilPage.qml" line="101"/>
+        <location filename="../qml/pages/UserProfilPage.qml" line="122"/>
         <source>%1 follows you</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/UserProfilPage.qml" line="103"/>
+        <location filename="../qml/pages/UserProfilPage.qml" line="124"/>
         <source>%1 requested to follow you</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/UserProfilPage.qml" line="105"/>
+        <location filename="../qml/pages/UserProfilPage.qml" line="126"/>
         <source>You blocked %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/UserProfilPage.qml" line="151"/>
+        <location filename="../qml/pages/UserProfilPage.qml" line="170"/>
         <source>This profile is private.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/UserProfilPage.qml" line="235"/>
-        <location filename="../qml/pages/UserProfilPage.qml" line="237"/>
+        <location filename="../qml/pages/UserProfilPage.qml" line="251"/>
+        <location filename="../qml/pages/UserProfilPage.qml" line="253"/>
         <source>Followers</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/UserProfilPage.qml" line="243"/>
-        <location filename="../qml/pages/UserProfilPage.qml" line="245"/>
+        <location filename="../qml/pages/UserProfilPage.qml" line="260"/>
+        <location filename="../qml/pages/UserProfilPage.qml" line="262"/>
         <source>Following</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/UserProfilPage.qml" line="250"/>
+        <location filename="../qml/pages/UserProfilPage.qml" line="268"/>
         <source>Unfollow %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/UserProfilPage.qml" line="258"/>
+        <location filename="../qml/pages/UserProfilPage.qml" line="277"/>
         <source>Follow %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/UserProfilPage.qml" line="285"/>
+        <source>Notifications</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

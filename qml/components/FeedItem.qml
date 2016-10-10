@@ -146,8 +146,6 @@ BackgroundItem {
     }
 
 
-
-
     onClicked: {
         pageStack.push(Qt.resolvedUrl("../pages/MediaDetailPage.qml"), {
                            item: item
