@@ -19,7 +19,10 @@ INSTALLS += i18n_files
 
 CONFIG += sailfishapp
 
-SOURCES += src/harbour-prostogram.cpp
+SOURCES += src/harbour-prostogram.cpp \
+    QtInstagram/src/api/instagram.cpp \
+    QtInstagram/src/api/instagramrequest.cpp \
+    QtInstagram/src/cripto/hmacsha.cpp
 
 OTHER_FILES += qml/harbour-prostogram.qml \
     qml/cover/*.qml \
@@ -61,3 +64,7 @@ TRANSLATIONS += translations/harbour-prostogram_ca.ts\
                 translations/harbour-prostogram_nl_NL.ts\
                 translations/harbour-prostogram_sv_SE.ts
 
+HEADERS += \
+    QtInstagram/src/api/instagram.h \
+    QtInstagram/src/api/instagramrequest.h \
+    QtInstagram/src/cripto/hmacsha.h
