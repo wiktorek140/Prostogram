@@ -47,14 +47,6 @@
 <context>
     <name>AuthPage</name>
     <message>
-        <source>Continue</source>
-        <translation>Nadaljuj</translation>
-    </message>
-    <message>
-        <source>Welcome to Prostogram, an unoffical Instagram client for Sailfish. Please press &apos;continue&apos; to login to your Instagram account.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Login</source>
         <translation type="unfinished"></translation>
     </message>
