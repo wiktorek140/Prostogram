@@ -96,7 +96,7 @@
     <name>LikesPage</name>
     <message>
         <source>Likes</source>
-        <translation type="unfinished"></translation>
+        <translation>Лайки</translation>
     </message>
 </context>
 <context>
@@ -157,7 +157,7 @@
     <name>NotificationPage</name>
     <message>
         <source>Notifications</source>
-        <translation type="unfinished">Уведомления</translation>
+        <translation>Уведомления</translation>
     </message>
 </context>
 <context>
