@@ -49,6 +49,13 @@ Page {
                 wrapMode: Text.Wrap
                 font.pixelSize: Theme.fontSizeTiny
                 color: userLikedThis? Theme.highlightColor : Theme.secondaryHighlightColor
+
+                MouseArea{
+                    anchors.fill: parent
+                    onClicked: {
+                        pageStack.push(Qt.resolvedUrl("LikesPage.qml"), {mediaId: item.id});
+                    }
+                }
             }
 
             Video {
