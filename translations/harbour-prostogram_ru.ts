@@ -51,20 +51,24 @@
 <context>
     <name>AuthPage</name>
     <message>
-        <source>Login</source>
-        <translation>Логин</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>Пароль</translation>
-    </message>
-    <message>
         <source>Entering...</source>
         <translation>Входим</translation>
     </message>
     <message>
         <source>Login fail!</source>
         <translation>Ошибка входа!</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation>Вход</translation>
+    </message>
+    <message>
+        <source>Login</source>
+        <translation>Логин</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation>Пароль</translation>
     </message>
 </context>
 <context>

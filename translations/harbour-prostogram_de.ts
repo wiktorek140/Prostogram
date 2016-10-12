@@ -51,19 +51,23 @@
 <context>
     <name>AuthPage</name>
     <message>
-        <source>Login</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Entering...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Login fail!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
