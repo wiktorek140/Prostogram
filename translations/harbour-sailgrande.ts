@@ -64,13 +64,17 @@
     <name>AuthPage</name>
     <message>
         <location filename="../qml/pages/AuthPage.qml" line="55"/>
-        <location filename="../qml/pages/AuthPage.qml" line="98"/>
         <source>Login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/AuthPage.qml" line="71"/>
         <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AuthPage.qml" line="98"/>
+        <source>Sign in</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -109,6 +113,14 @@
     </message>
 </context>
 <context>
+    <name>LikesPage</name>
+    <message>
+        <location filename="../qml/pages/LikesPage.qml" line="11"/>
+        <source>Likes</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MediaDetailPage</name>
     <message>
         <location filename="../qml/pages/MediaDetailPage.qml" line="26"/>
@@ -117,41 +129,41 @@
     </message>
     <message>
         <location filename="../qml/pages/MediaDetailPage.qml" line="44"/>
-        <location filename="../qml/pages/MediaDetailPage.qml" line="330"/>
-        <location filename="../qml/pages/MediaDetailPage.qml" line="344"/>
+        <location filename="../qml/pages/MediaDetailPage.qml" line="337"/>
+        <location filename="../qml/pages/MediaDetailPage.qml" line="351"/>
         <source>likes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/MediaDetailPage.qml" line="44"/>
-        <location filename="../qml/pages/MediaDetailPage.qml" line="330"/>
-        <location filename="../qml/pages/MediaDetailPage.qml" line="344"/>
+        <location filename="../qml/pages/MediaDetailPage.qml" line="337"/>
+        <location filename="../qml/pages/MediaDetailPage.qml" line="351"/>
         <source>comments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="../qml/pages/MediaDetailPage.qml" line="44"/>
-        <location filename="../qml/pages/MediaDetailPage.qml" line="330"/>
+        <location filename="../qml/pages/MediaDetailPage.qml" line="337"/>
         <source>You liked this.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MediaDetailPage.qml" line="248"/>
+        <location filename="../qml/pages/MediaDetailPage.qml" line="255"/>
         <source>Un Follow</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MediaDetailPage.qml" line="259"/>
+        <location filename="../qml/pages/MediaDetailPage.qml" line="266"/>
         <source>Remove my like</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MediaDetailPage.qml" line="268"/>
+        <location filename="../qml/pages/MediaDetailPage.qml" line="275"/>
         <source>Like</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/MediaDetailPage.qml" line="237"/>
+        <location filename="../qml/pages/MediaDetailPage.qml" line="244"/>
         <source>Follow</source>
         <translation type="unfinished"></translation>
     </message>
@@ -176,6 +188,14 @@
     <message>
         <location filename="../qml/pages/MediaStreamPage.qml" line="100"/>
         <source>There is no picture in this feed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NotificationPage</name>
+    <message>
+        <location filename="../qml/pages/NotificationPage.qml" line="26"/>
+        <source>Notifications</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

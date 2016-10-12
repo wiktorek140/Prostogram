@@ -93,6 +93,13 @@
     </message>
 </context>
 <context>
+    <name>LikesPage</name>
+    <message>
+        <source>Likes</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>MediaDetailPage</name>
     <message>
         <source>Details</source>
@@ -143,6 +150,13 @@
     </message>
     <message>
         <source>There is no picture in this feed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>NotificationPage</name>
+    <message>
+        <source>Notifications</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

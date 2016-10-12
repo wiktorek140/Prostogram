@@ -23,7 +23,7 @@ Page {
     SilicaListView {
         anchors.fill: parent
         header: PageHeader {
-            title: "Notifications"
+            title: qsTr("Notifications")
         }
 
         VerticalScrollDecorator {
