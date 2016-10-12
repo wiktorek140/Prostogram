@@ -189,6 +189,7 @@ Page {
 
                 height: Theme.itemSizeMedium
                 width: parent.width
+                visible: !privatelabel.visible
 
 
                 Rectangle {
