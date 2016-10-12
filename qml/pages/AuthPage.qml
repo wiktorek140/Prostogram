@@ -95,7 +95,7 @@ Page {
                 }
 
                 Text{
-                    text: qsTr("Login")
+                    text: qsTr("Sign in")
                     color: Theme.primaryColor
                     width: parent.width
                     height: parent.height/3*2
