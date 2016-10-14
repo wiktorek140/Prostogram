@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>An unofficial client for Instagram.</source>
-        <translation>En inofficiell Instagramklient</translation>
+        <translation>En inofficiell klient för Instagram</translation>
     </message>
     <message>
         <source>License</source>
@@ -17,93 +17,93 @@
     </message>
     <message>
         <source>Source code is licensed under the MIT License (MIT).</source>
-        <translation>Källkoden är licensierad under MIT License (MIT).</translation>
+        <translation>Källkoden är licensierad under MIT-licensen (MIT).</translation>
     </message>
     <message>
         <source>Contribute</source>
-        <translation>Bidra</translation>
+        <translation>Medverka</translation>
     </message>
     <message>
         <source>Report bugs</source>
-        <translation>Rapportera buggar</translation>
+        <translation>Rapportera fel</translation>
     </message>
     <message>
         <source>developer</source>
-        <translation type="unfinished"></translation>
+        <translation>utvecklare</translation>
     </message>
     <message>
         <source>Write a mail</source>
-        <translation type="unfinished"></translation>
+        <translation>Skicka ett mejl</translation>
     </message>
     <message>
         <source>donating = loving</source>
-        <translation type="unfinished"></translation>
+        <translation>donation = kärlek</translation>
     </message>
     <message>
         <source>Paypal USD</source>
-        <translation type="unfinished"></translation>
+        <translation>Paypal USD</translation>
     </message>
     <message>
         <source>Version: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Version: %1</translation>
     </message>
 </context>
 <context>
     <name>AuthPage</name>
     <message>
         <source>Entering...</source>
-        <translation type="unfinished"></translation>
+        <translation>Loggar in...</translation>
     </message>
     <message>
         <source>Login fail!</source>
-        <translation type="unfinished"></translation>
+        <translation>Inloggningen misslyckades!</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation type="unfinished"></translation>
+        <translation>Logga in</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="unfinished"></translation>
+        <translation>Användarnamn</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenord</translation>
     </message>
 </context>
 <context>
     <name>CameraPage</name>
     <message>
         <source>Set photo</source>
-        <translation type="unfinished"></translation>
+        <translation>Ange foto</translation>
     </message>
 </context>
 <context>
     <name>EditPhotoPage</name>
     <message>
         <source>Edit photo</source>
-        <translation type="unfinished"></translation>
+        <translation>Redigera foto</translation>
     </message>
 </context>
 <context>
     <name>ErrorMessageLabel</name>
     <message>
         <source>An error occurred.</source>
-        <translation>Ett fel inträffade</translation>
+        <translation>Ett fel inträffade.</translation>
     </message>
 </context>
 <context>
     <name>LikesPage</name>
     <message>
         <source>Likes</source>
-        <translation type="unfinished"></translation>
+        <translation>Gillanden</translation>
     </message>
 </context>
 <context>
     <name>MediaDetailPage</name>
     <message>
         <source>Details</source>
-        <translation>Detaljer</translation>
+        <translation>Detaljerat</translation>
     </message>
     <message>
         <source>likes</source>
@@ -127,18 +127,18 @@
     </message>
     <message>
         <source>Follow</source>
-        <translation type="unfinished"></translation>
+        <translation>Följ</translation>
     </message>
     <message>
         <source>Un Follow</source>
-        <translation type="unfinished"></translation>
+        <translation>Följ inte</translation>
     </message>
 </context>
 <context>
     <name>MediaStreamPage</name>
     <message>
         <source>Pin this tag feed</source>
-        <translation>Nåla fast det här taggflödet</translation>
+        <translation>Fäst det här taggflödet</translation>
     </message>
     <message>
         <source>Refresh</source>
@@ -146,44 +146,44 @@
     </message>
     <message>
         <source>Load more</source>
-        <translation>Ladda mer</translation>
+        <translation>Läs in mer</translation>
     </message>
     <message>
         <source>There is no picture in this feed.</source>
-        <translation type="unfinished"></translation>
+        <translation>Det finns ingen bild i det här flödet.</translation>
     </message>
 </context>
 <context>
     <name>NotificationPage</name>
     <message>
         <source>Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Aviseringar</translation>
     </message>
 </context>
 <context>
     <name>PinnedPage</name>
     <message>
         <source>Pinned tags</source>
-        <translation>Fastnålade taggar</translation>
+        <translation>Fästa taggar</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation>Radera</translation>
+        <translation>Ta bort</translation>
     </message>
     <message>
         <source>Set as favorite</source>
-        <translation>Spara som favorit</translation>
+        <translation>Ange som favorit</translation>
     </message>
 </context>
 <context>
     <name>SendPhotoPage</name>
     <message>
         <source>Send picture</source>
-        <translation type="unfinished"></translation>
+        <translation>Skicka bild</translation>
     </message>
     <message>
         <source>Send photo</source>
-        <translation type="unfinished"></translation>
+        <translation>Skicka foto</translation>
     </message>
 </context>
 <context>
@@ -202,7 +202,7 @@
     </message>
     <message>
         <source>Customize the column and row count of the feed previews on the startpage:</source>
-        <translation>Ställ in antal kolumner och rader i flödes vyn på startsidan:</translation>
+        <translation>Anpassa antalet kolumner och rader i flödesvyn på startsidan:</translation>
     </message>
     <message>
         <source>Columns</source>
@@ -214,7 +214,7 @@
     </message>
     <message>
         <source>Shows %1 items per feed preview.</source>
-        <translation>Visar %1 poster per flödesförhandsgranskning</translation>
+        <translation>Visar %1 poster per flödesgranskning.</translation>
     </message>
     <message>
         <source>Feeds</source>
@@ -230,15 +230,15 @@
     </message>
     <message>
         <source>Show user and date</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa användare och datum</translation>
     </message>
     <message>
         <source>Show user and date inline</source>
-        <translation type="unfinished"></translation>
+        <translation>Visa användare och datum infogat</translation>
     </message>
     <message>
         <source>About</source>
-        <translation type="unfinished">Om</translation>
+        <translation>Om</translation>
     </message>
 </context>
 <context>
@@ -261,7 +261,7 @@
     </message>
     <message>
         <source>All pinned tags</source>
-        <translation>Alla fastnålade taggar</translation>
+        <translation>Alla fästa taggar</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -277,11 +277,11 @@
     </message>
     <message>
         <source>Send photo from phone</source>
-        <translation type="unfinished"></translation>
+        <translation>Skicka foto från telefonen</translation>
     </message>
     <message>
         <source>Set photo</source>
-        <translation type="unfinished"></translation>
+        <translation>Ange foto</translation>
     </message>
 </context>
 <context>
@@ -310,7 +310,7 @@
     <name>UserListPage</name>
     <message>
         <source>Load more</source>
-        <translation type="unfinished">Ladda mer</translation>
+        <translation>Läs in mer</translation>
     </message>
 </context>
 <context>
@@ -341,7 +341,7 @@
     </message>
     <message>
         <source>Unfollow %1</source>
-        <translation>Avfölj %1</translation>
+        <translation>Följ inte %1</translation>
     </message>
     <message>
         <source>Follow %1</source>
@@ -349,15 +349,15 @@
     </message>
     <message>
         <source>Followers</source>
-        <translation type="unfinished"></translation>
+        <translation>Följare</translation>
     </message>
     <message>
         <source>Following</source>
-        <translation type="unfinished"></translation>
+        <translation>Följer</translation>
     </message>
     <message>
         <source>Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Aviseringar</translation>
     </message>
 </context>
 </TS>
