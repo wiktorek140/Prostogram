@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtQuick.LocalStorage 2.0
-
+import org.nemomobile.dbus 2.0
 import harbour.prostogram 1.0
 
 import "pages"
@@ -28,6 +28,24 @@ ApplicationWindow {
 
     initialPage: getInitialPage()
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
+
+    DBusAdaptor {
+        id: dbus
+
+        service: 'org.prostogram.notify'
+        iface: 'org.prostogram.notify'
+        path: '/org/prostogram/notify'
+
+        xml: '  <interface name="com.prostogram.notify">\n' +
+             '    <method name="showPhoto">\n' +
+             '      <arg name="mediaId" type="s" direction="in"/>\n' +
+             '    </method>\n' +
+             '  </interface>\n'
+
+        function showPhoto(mediaId) {
+            console.log("Update called",mediaId)
+        }
+    }
 
     Instagram{
         id: instagram

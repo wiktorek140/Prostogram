@@ -12,14 +12,23 @@ Item {
 
     Notification{
         id: likeNotify
+
+        property string mediaId
+
         category: "x-nemo.example"
         summary: ""
         body: ""
-        onClicked: {
-            pageStack.push("../pages/NotificatiomPage.qml");
-            app.activate();
-        }
         itemCount: 4
+        remoteActions: [ {
+            "name": "default",
+                "displayName": "Click to notify",
+                "icon": "icon-s-do-it",
+                "service": "org.prostogram.notify",
+                "path": "/org/prostogram/notify",
+                "iface": "org.prostogram.notify",
+                "method": "showPhoto",
+                "arguments": [ mediaId ]
+        }]
     }
 
     Notification{
@@ -27,16 +36,23 @@ Item {
         category: "x-nemo.example"
         summary: ""
         body: ""
-        onClicked: {
-            pageStack.push("../pages/NotificatiomPage.qml");
-            app.activate();
-        }
+        remoteActions: [ {
+            "name": "default",
+                "displayName": "Click to notify",
+                "icon": "icon-s-do-it",
+                "service": "org.prostogram.notify",
+                "path": "/org/prostogram/notify",
+                "iface": "org.prostogram.notify",
+                "method": "showPhoto",
+                "arguments": [ "123" ]
+        }]
     }
 
     Connections{
         target: instagram
         onRecentActivityDataReady:{
             var out = JSON.parse(answer)
+
             if(out.new_stories.length > 0)
             {
                 likeNotify.itemCount = out.new_stories.length;
@@ -51,6 +67,7 @@ Item {
                     likeNotify.summary = notify.args.text
                     likeNotify.replacesId = parseInt(iid.replace(".",""));
                     likeNotify.timestamp = date
+                    likeNotify.mediaId = notify.args.media && notify.args.media[0].id ? notify.args.media[0].id : ""
                     likeNotify.publish();
                 }
             }
