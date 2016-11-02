@@ -15,9 +15,9 @@ Current features:
 * Follow/Unfollow users
 * Post comments
 * Show posts for a specific tag
+* Watch videos
 
 Broken features:
-* Watch videos
 * Show own followers or followed users
 * Block and unblock users
 * Registration

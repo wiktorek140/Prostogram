@@ -24,6 +24,8 @@ Page {
     property bool refreshStreamData : true
     property string tag: ""
 
+    property var mediaModel: []
+
     property bool more_available
     property string next_max_id
 
@@ -36,7 +38,7 @@ Page {
         }
         delegate: FeedItem {
             visible: dataLoaded
-            item: model
+            item: modelData
         }
 
         VerticalScrollDecorator {
@@ -64,7 +66,8 @@ Page {
                 text: qsTr("Refresh")
                 onClicked: {
                     dataLoaded = false
-                    mediaModel.clear()
+                    mediaModel = []
+                    mediaModelChanged();
                     getMedia();
                 }
             }
@@ -81,10 +84,6 @@ Page {
         }
     }
 
-    ListModel {
-        id: mediaModel
-    }
-
     BusyIndicator {
         anchors.centerIn: parent
         running: dataLoaded == false
@@ -96,7 +95,7 @@ Page {
     }
 
     ErrorMessageLabel {
-        visible: dataLoaded && !errorOccurred && mediaModel.count === 0
+        visible: dataLoaded && !errorOccurred && mediaModel.length === 0
         text: qsTr("There is no picture in this feed.")
     }
 
@@ -131,7 +130,8 @@ Page {
 
     function getMediaData(cached) {
         dataLoaded = false
-        mediaModel.clear()
+        mediaModel = []
+        mediaModelChanged();
         refreshStreamData = true
         getFeed(mode, tag, cached, mediaDataFinished)
     }
@@ -147,7 +147,8 @@ Page {
         errorOccurred = false
 
         for(var i=0; i<data.items.length; i++) {
-            mediaModel.append(data.items[i]);
+            mediaModel.push(data.items[i]);
+            mediaModelChanged();
         }
 
         dataLoaded = true

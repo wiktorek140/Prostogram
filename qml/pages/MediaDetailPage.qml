@@ -58,38 +58,20 @@ Page {
                 }
             }
 
-            Video {
-                id: video
-                anchors.left: parent.left
-                anchors.right: parent.right
-                height: visible ? video.width : 0
-                visible: playVideo && video.status !== MediaPlayer.Loading
-                source: ""
-
-                MouseArea {
-                    anchors.fill: parent
-
-                    onClicked: {
-                        video.stop();
-                    }
-                }
-
-                onStopped: {
-                    playVideo = false;
-                }
-            }
+            /**/
 
             Rectangle {
                 id: image
                 anchors.left: parent.left
                 anchors.right: parent.right
                 height: parent.width/item.image_versions2.candidates[0].width*item.image_versions2.candidates[0].height
-                visible: !playVideo || video.status === MediaPlayer.Loading
                 color: "transparent"
 
                 Image {
-                   anchors.fill: parent
-                   source: item.image_versions2.candidates[0].url
+                    id: mainImage
+                    visible: !playVideo
+                    anchors.fill: parent
+                    source: item.image_versions2.candidates[0].url
                 }
 
                 BusyIndicator {
@@ -98,18 +80,44 @@ Page {
                     running: visible
                 }
 
-
                 Image {
                    anchors.centerIn: parent
                    source:  "image://theme/icon-cover-play"
-                   visible: item.videos !== undefined && !playVideo
+                   visible: item.media_type == 2 && !playVideo
                 }
 
                 MouseArea {
                     anchors.fill: parent
-                    onClicked: {startVideo()}
-                    visible: item.videos !== undefined && !playVideo
+                    onClicked: {
+                        if(playVideo)
+                        {
+                            video.stop()
+                        }
+                        else
+                        {
+                            video.play();
+                        }
+                    }
+                    visible: item.media_type == 2 && !playVideo
 
+                }
+
+                Video {
+                    id: video
+                    anchors.left: parent.left
+                    anchors.right: parent.right
+                    height: visible ? parent.height : 0
+                    width: parent.width
+                    visible: (item.media_type == 2) ? true : false
+                    source: (item.video_versions) ? item.video_versions[0].url : ""
+
+                    onStopped: {
+                        playVideo = false;
+                    }
+
+                    onPlaying: {
+                        playVideo = true;
+                    }
                 }
             }
 
@@ -279,13 +287,6 @@ Page {
                 }
             }
         }
-    }
-
-
-    function startVideo() {
-        video.source=item.videos.low_bandwidth.url;
-        video.play();
-        playVideo=true;
     }
 
     function linkClick(link)

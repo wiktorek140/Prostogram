@@ -23,6 +23,7 @@ Image {
         anchors.fill: parent
         onClicked: {
             pageStack.push(Qt.resolvedUrl("../pages/MediaDetailPage.qml"),{item:mediaElement});
+            console.log(mediaElement)
         }
     }
 }

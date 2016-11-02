@@ -63,13 +63,13 @@ Item {
 
     Grid {
         height: {
-            if(recentMediaModel.count >= streamPreviewColumnCount*streamPreviewRowCount)
+            if(recentMediaModel.length >= streamPreviewColumnCount*streamPreviewRowCount)
             {
                 recentMediaSize*streamPreviewRowCount
             }
             else
             {
-                recentMediaSize*(Math.ceil(recentMediaModel.count/streamPreviewRowCount)+1)
+                recentMediaSize*(Math.ceil(recentMediaModel.length/streamPreviewRowCount)+1)
             }
         }
 
@@ -86,7 +86,7 @@ Item {
                 width: recentMediaSize
                 height: recentMediaSize
                 SmallMediaElement{
-                    mediaElement: model
+                    mediaElement: modelData
                 }
             }
         }
@@ -103,9 +103,8 @@ Item {
         visible: errorOccurred
     }
 
-    ListModel {
-        id: recentMediaModel
-    }
+    property var recentMediaModel: [];
+
 
     function loadStreamPreviewDataFinished(data) {
         streamData = data;
@@ -116,9 +115,18 @@ Item {
             return;
         }
         errorOccurred = false
-        var elementsCount = data.items.length > previewElementsCount-recentMediaModel.count ? previewElementsCount-recentMediaModel.count : data.items.length;
+        var elementsCount = data.items.length > previewElementsCount-recentMediaModel.length ? previewElementsCount-recentMediaModel.length : data.items.length;
         for(var i=0; i<elementsCount; i++) {
-            recentMediaModel.append(data.items[i]);
+/*
+TYPE 1 - IMAGE
+TYPE 2 - VIDEO
+TYPE 3 - FRIEND
+*/
+            if(data.items[i].media_type == 1 || data.items[i].media_type == 2)
+            {
+                recentMediaModel.push(data.items[i]);
+                recentMediaModelChanged()
+            }
         }
         recentMediaLoaded=true;
 
@@ -137,7 +145,8 @@ Item {
 
     function refresh()
     {
-        recentMediaModel.clear();
+        recentMediaModel = [];
+        recentMediaModelChanged()
         if(streamPreviewDlock.mode === 0)
         {
             instagram.getTimeLine();
@@ -149,7 +158,7 @@ Item {
     }
 
     Component.onCompleted: {
-        if(recentMediaModel.count === 0)
+        if(recentMediaModel.length === 0)
         {
             refresh();
         }
@@ -162,7 +171,7 @@ Item {
             if(streamPreviewDlock.mode === 0)
             {
 
-                if(recentMediaModel.count == 0)
+                if(recentMediaModel.length == 0)
                 {
                     var coverdata = {}
                     coverdata.image = data.items[0].image_versions2.candidates[data.items[0].image_versions2.candidates.length-1].url
