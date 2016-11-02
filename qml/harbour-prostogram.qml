@@ -42,8 +42,9 @@ ApplicationWindow {
              '    </method>\n' +
              '  </interface>\n'
 
-        function showPhoto(mediaId) {
-            console.log("Update called",mediaId)
+        function showNotifyPage() {
+            pageStack.push(Qt.resolvedUrl("pages/NotificationPage.qml"));
+            app.activate()
         }
     }
 
@@ -89,6 +90,14 @@ ApplicationWindow {
 
     Component.onCompleted: {
         init();
+    }
+
+    Connections{
+        target: instagram
+        onMediaInfoReady:{
+            var out = JSON.parse(answer);
+            pageStack.push(Qt.resolvedUrl("pages/MediaDetailPage.qml",{item: out.items[0]}))
+        }
     }
 
     function init() {
