@@ -43,7 +43,18 @@ ApplicationWindow {
              '  </interface>\n'
 
         function showNotifyPage() {
-            pageStack.push(Qt.resolvedUrl("pages/NotificationPage.qml"));
+            var page = pageStack.find(function(page){
+                return page.objectName === "notificationPage";
+            })
+            if(page)
+            {
+                pageStack.pop(page);
+                pageStack.replace(Qt.resolvedUrl("pages/NotificationPage.qml"));
+            }
+            else
+            {
+                pageStack.push(Qt.resolvedUrl("pages/NotificationPage.qml"));
+            }
             app.activate()
         }
     }

@@ -4,6 +4,7 @@ import "../components"
 
 Page {
     id: notificationPage
+    objectName: "notificationPage"
 
     Component.onCompleted: {
         instagram.getRecentActivity();
