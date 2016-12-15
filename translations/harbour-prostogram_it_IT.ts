@@ -244,24 +244,8 @@
 <context>
     <name>StartPage</name>
     <message>
-        <source>Welcome</source>
-        <translation>Benvenuto</translation>
-    </message>
-    <message>
         <source>My Feed</source>
         <translation>Il mio feed</translation>
-    </message>
-    <message>
-        <source>Popular</source>
-        <translation>Popolari</translation>
-    </message>
-    <message>
-        <source>Tagged with %1</source>
-        <translation>Taggati con %1</translation>
-    </message>
-    <message>
-        <source>All pinned tags</source>
-        <translation>Tutti i tag evidenziati</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -277,10 +261,6 @@
     </message>
     <message>
         <source>Send photo from phone</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Set photo</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

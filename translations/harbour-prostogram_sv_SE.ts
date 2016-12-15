@@ -244,24 +244,8 @@
 <context>
     <name>StartPage</name>
     <message>
-        <source>Welcome</source>
-        <translation>Välkommen</translation>
-    </message>
-    <message>
         <source>My Feed</source>
         <translation>Mitt flöde</translation>
-    </message>
-    <message>
-        <source>Popular</source>
-        <translation>Populärt</translation>
-    </message>
-    <message>
-        <source>Tagged with %1</source>
-        <translation>Taggade med %1</translation>
-    </message>
-    <message>
-        <source>All pinned tags</source>
-        <translation>Alla fästa taggar</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -278,10 +262,6 @@
     <message>
         <source>Send photo from phone</source>
         <translation>Skicka foto från telefonen</translation>
-    </message>
-    <message>
-        <source>Set photo</source>
-        <translation>Ange foto</translation>
     </message>
 </context>
 <context>

@@ -52,141 +52,60 @@ Page {
         favoriteTagFeedBlock.refreshContent(refreshDone)
     }
 
-    SilicaFlickable {
-        anchors.fill: parent
-        contentHeight: column.height + header.height
-        contentWidth: parent.width
+    FeedHeader{
+        id: header
+    }
 
-        PageHeader {
-            id: header
-            title: qsTr("Welcome")
-            description: user !== undefined ? user.username : ""
+    SilicaFlickable {
+        anchors{
+            top: header.bottom
+            left: parent.left
         }
 
+        height: parent.height-header.height-bottom.height
+        width: parent.width
+
+        contentHeight: column.height
+        contentWidth: parent.width
+
         Column {
-            anchors.top: header.bottom
-            anchors.left: parent.left
-            anchors.right: parent.right
-
             id: column
-
-            Rectangle {
-                height: 150
-                width: parent.width
-                color: "transparent"
-
-                Rectangle {
-                    anchors.fill: parent
-                    color: Theme.highlightColor
-                    opacity: mouseAreaMyProfile.pressed ? 0.3 : 0.1
-                }
-
-                UserDetailBlock {
-                    id: userDetailBlock
-                }
-
-                MouseArea {
-                    anchors.fill: parent
-                    id: mouseAreaMyProfile
-                    onClicked: pageStack.push(Qt.resolvedUrl(
-                                                  "UserProfilPage.qml"), {
-                                                  user: user
-                                              })
-                }
-            }
+            anchors.fill: parent
 
             StreamPreviewBlock {
                 id: myFeedBlock
                 streamTitle: qsTr('My Feed')
                 mode: MediaStreamMode.MY_STREAM_MODE
             }
+        }
+    }
 
-            StreamPreviewBlock {
-                id: popularFeedBlock
-                visible: startPageShowPopularFeed
-                streamTitle: qsTr('Popular')
-                mode: MediaStreamMode.POPULAR_MODE
-            }
-
-            StreamPreviewBlock {
-                id: favoriteTagFeedBlock
-                visible: favoriteTag !== ""
-                streamTitle: qsTr('Tagged with %1').arg(favoriteTag)
-                mode: MediaStreamMode.TAG_MODE
-                tag: favoriteTag
-            }
-
-            Item {
-                id:allPinnedTags
-                visible: favoriteTag !== ""
-
-                height: Theme.itemSizeMedium
-                width: parent.width
+    FeedBottom{
+        id: bottom
+        anchors{
+            bottom: parent.bottom
+        }
+    }
 
 
-                Rectangle {
-                    anchors.fill: parent
-                    color: Theme.highlightColor
-                    opacity : mouseAreaAllPinnedTags.pressed ? 0.3 : 0
-                }
-
-                Image {
-                    id: icon
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.right: parent.right
-                    anchors.rightMargin: Theme.paddingLarge
-                    source:  "image://theme/icon-m-right"
-                }
-
-                Label {
-                    font.pixelSize: Theme.fontSizeLarge
-                    color: Theme.primaryColor
-                    text:qsTr("All pinned tags")
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.right: icon.left
-                    anchors.rightMargin: Theme.paddingMedium
-                }
-
-                MouseArea {
-                    id: mouseAreaAllPinnedTags
-                    anchors.fill: parent
-                    onClicked: pageStack.push(Qt.resolvedUrl("PinnedPage.qml"))
-                }
-            }
+    PullDownMenu {
+        MenuItem {
+            text: qsTr("Settings")
+            onClicked: pageStack.push(Qt.resolvedUrl("SettingsPage.qml"))
         }
 
-        PullDownMenu {
-            MenuItem {
-                text: qsTr("Settings")
-                onClicked: pageStack.push(Qt.resolvedUrl("SettingsPage.qml"))
-            }
+        MenuItem {
+            text: qsTr("Search")
+            onClicked: pageStack.push(Qt.resolvedUrl("TagSearchPage.qml"))
+        }
 
-            MenuItem {
-                text: qsTr("Search")
-                onClicked: pageStack.push(Qt.resolvedUrl("TagSearchPage.qml"))
-            }
+        MenuItem {
+            text: qsTr("Send photo from phone")
+        }
 
-            MenuItem {
-                text: qsTr("Send photo from phone")
-
-                onClicked: {
-                    var imagePicker = pageStack.push("Sailfish.Pickers.ImagePickerPage")
-                    imagePicker.selectedContentChanged.connect(function () {
-                        pageStack.push(Qt.resolvedUrl("SendPhotoPage.qml"),{image_url: imagePicker.selectedContent})
-                    })
-                }
-            }
-
-            MenuItem {
-                visible: false
-                text: qsTr("Set photo")
-                onClicked: pageStack.push(Qt.resolvedUrl("CameraPage.qml"))
-            }
-
-            MenuItem {
-                text: qsTr("Refresh")
-                onClicked: updateAllFeeds()
-            }
+        MenuItem {
+            text: qsTr("Refresh")
+            onClicked: updateAllFeeds()
         }
     }
 

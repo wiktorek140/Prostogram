@@ -45,7 +45,9 @@ DISTFILES += \
     qml/images/header_logo.png \
     qml/images/cover.jpg \
     qml/pages/LikesPage.qml \
-    qml/components/LikesItem.qml
+    qml/components/LikesItem.qml \
+    qml/components/FeedHeader.qml \
+    qml/components/FeedBottom.qml
 
 TRANSLATIONS += translations/harbour-prostogram_ca.ts \
                 translations/harbour-prostogram_cs_CZ.ts \

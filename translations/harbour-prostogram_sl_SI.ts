@@ -244,24 +244,8 @@
 <context>
     <name>StartPage</name>
     <message>
-        <source>Welcome</source>
-        <translation>Dobrodošli</translation>
-    </message>
-    <message>
         <source>My Feed</source>
         <translation>Moj kanal</translation>
-    </message>
-    <message>
-        <source>Popular</source>
-        <translation>Priljubljeno</translation>
-    </message>
-    <message>
-        <source>Tagged with %1</source>
-        <translation>Označeno z %1</translation>
-    </message>
-    <message>
-        <source>All pinned tags</source>
-        <translation>Vse pripete značke</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -277,10 +261,6 @@
     </message>
     <message>
         <source>Send photo from phone</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Set photo</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

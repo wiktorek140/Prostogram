@@ -244,23 +244,7 @@
 <context>
     <name>StartPage</name>
     <message>
-        <source>Welcome</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>My Feed</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Popular</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Tagged with %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>All pinned tags</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -273,10 +257,6 @@
     </message>
     <message>
         <source>Send photo from phone</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Set photo</source>
         <translation type="unfinished"></translation>
     </message>
     <message>

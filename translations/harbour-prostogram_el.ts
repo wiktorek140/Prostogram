@@ -244,24 +244,8 @@
 <context>
     <name>StartPage</name>
     <message>
-        <source>Welcome</source>
-        <translation>Καλώς ήρθατε</translation>
-    </message>
-    <message>
         <source>My Feed</source>
         <translation>Τροφοδοσία μου</translation>
-    </message>
-    <message>
-        <source>Popular</source>
-        <translation>Δημοφιλή</translation>
-    </message>
-    <message>
-        <source>Tagged with %1</source>
-        <translation>Προστέθηκαν με ετικέτα %1</translation>
-    </message>
-    <message>
-        <source>All pinned tags</source>
-        <translation>Όλες οι καρφιτσωμένες ετικέτες</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -277,10 +261,6 @@
     </message>
     <message>
         <source>Send photo from phone</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Set photo</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

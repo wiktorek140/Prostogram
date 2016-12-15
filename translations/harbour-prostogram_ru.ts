@@ -244,24 +244,8 @@
 <context>
     <name>StartPage</name>
     <message>
-        <source>Welcome</source>
-        <translation>Добро пожаловать</translation>
-    </message>
-    <message>
         <source>My Feed</source>
         <translation>Мои подписки</translation>
-    </message>
-    <message>
-        <source>Popular</source>
-        <translation>Популярное</translation>
-    </message>
-    <message>
-        <source>Tagged with %1</source>
-        <translation>С тегом %1</translation>
-    </message>
-    <message>
-        <source>All pinned tags</source>
-        <translation>Все закреплённые теги</translation>
     </message>
     <message>
         <source>Settings</source>
@@ -278,10 +262,6 @@
     <message>
         <source>Send photo from phone</source>
         <translation>Отправить фото с телефона</translation>
-    </message>
-    <message>
-        <source>Set photo</source>
-        <translation>Сделать фото</translation>
     </message>
 </context>
 <context>
