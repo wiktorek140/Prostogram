@@ -37,8 +37,6 @@ int main(int argc, char *argv[])
    view->setSource(pageSource);
    view->showFullScreen();
 
-   app->setQuitOnLastWindowClosed(false);
-
    return app->exec();
 }
 

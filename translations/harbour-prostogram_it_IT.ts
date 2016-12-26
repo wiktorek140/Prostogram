@@ -49,19 +49,14 @@
     </message>
 </context>
 <context>
-    <name>AuthPage</name>
+    <name>CameraPage</name>
     <message>
-        <source>Entering...</source>
+        <source>Set photo</source>
         <translation type="unfinished"></translation>
     </message>
-    <message>
-        <source>Login fail!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation type="unfinished"></translation>
-    </message>
+</context>
+<context>
+    <name>CoverPage</name>
     <message>
         <source>Login</source>
         <translation type="unfinished"></translation>
@@ -70,11 +65,16 @@
         <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>CameraPage</name>
     <message>
-        <source>Set photo</source>
+        <source>Sign in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Entering...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login fail!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

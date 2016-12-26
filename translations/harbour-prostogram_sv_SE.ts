@@ -49,33 +49,33 @@
     </message>
 </context>
 <context>
-    <name>AuthPage</name>
-    <message>
-        <source>Entering...</source>
-        <translation>Loggar in...</translation>
-    </message>
-    <message>
-        <source>Login fail!</source>
-        <translation>Inloggningen misslyckades!</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Logga in</translation>
-    </message>
-    <message>
-        <source>Login</source>
-        <translation>Användarnamn</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>Lösenord</translation>
-    </message>
-</context>
-<context>
     <name>CameraPage</name>
     <message>
         <source>Set photo</source>
         <translation>Ange foto</translation>
+    </message>
+</context>
+<context>
+    <name>CoverPage</name>
+    <message>
+        <source>Login</source>
+        <translation type="unfinished">Användarnamn</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished">Lösenord</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished">Logga in</translation>
+    </message>
+    <message>
+        <source>Entering...</source>
+        <translation type="unfinished">Loggar in...</translation>
+    </message>
+    <message>
+        <source>Login fail!</source>
+        <translation type="unfinished">Inloggningen misslyckades!</translation>
     </message>
 </context>
 <context>

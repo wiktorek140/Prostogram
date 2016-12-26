@@ -49,33 +49,33 @@
     </message>
 </context>
 <context>
-    <name>AuthPage</name>
-    <message>
-        <source>Entering...</source>
-        <translation>Входим</translation>
-    </message>
-    <message>
-        <source>Login fail!</source>
-        <translation>Ошибка входа!</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Вход</translation>
-    </message>
-    <message>
-        <source>Login</source>
-        <translation>Логин</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>Пароль</translation>
-    </message>
-</context>
-<context>
     <name>CameraPage</name>
     <message>
         <source>Set photo</source>
         <translation>Сделать фото</translation>
+    </message>
+</context>
+<context>
+    <name>CoverPage</name>
+    <message>
+        <source>Login</source>
+        <translation type="unfinished">Логин</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished">Пароль</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished">Вход</translation>
+    </message>
+    <message>
+        <source>Entering...</source>
+        <translation type="unfinished">Входим</translation>
+    </message>
+    <message>
+        <source>Login fail!</source>
+        <translation type="unfinished">Ошибка входа!</translation>
     </message>
 </context>
 <context>
