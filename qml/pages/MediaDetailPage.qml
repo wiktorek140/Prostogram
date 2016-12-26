@@ -58,8 +58,6 @@ Page {
                 }
             }
 
-            /**/
-
             Rectangle {
                 id: image
                 anchors.left: parent.left

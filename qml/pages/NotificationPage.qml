@@ -7,6 +7,7 @@ Page {
     objectName: "notificationPage"
 
     Component.onCompleted: {
+        notifyStream.notifyCount = 0;
         instagram.getRecentActivity();
     }
 
@@ -49,18 +50,6 @@ Page {
             out.old_stories.forEach(function(notify){
                 notifyModel.append(notify)
             })
-        }
-    }
-
-    Connections{
-        target: instagram
-        onMediaInfoReady:{
-            if (notificationPage.status == PageStatus.Active)
-            {
-                var mediaElement = JSON.parse(answer);
-                pageStack.push(Qt.resolvedUrl("MediaDetailPage.qml"),
-                                {item:mediaElement.items[0]});
-            }
         }
     }
 

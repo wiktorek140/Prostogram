@@ -109,7 +109,7 @@ ApplicationWindow {
         target: instagram
         onMediaInfoReady:{
             var out = JSON.parse(answer);
-            pageStack.push(Qt.resolvedUrl("pages/MediaDetailPage.qml",{item: out.items[0]}))
+            pageStack.push(Qt.resolvedUrl("pages/MediaDetailPage.qml"),{item: out.items[0]})
         }
     }
 

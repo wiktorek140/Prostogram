@@ -80,7 +80,7 @@ Rectangle {
                 left: parent.left
             }
 
-            visible: (notifyStream.notifyCount) ? true:  false
+            visible: (notifyStream.notifyCount > 0) ? true:  false
 
             Label{
                 text: notifyStream.notifyCount

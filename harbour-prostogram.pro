@@ -43,11 +43,7 @@ DISTFILES += \
     qml/components/*.qml \
     qml/pages/*.qml \
     qml/images/header_logo.png \
-    qml/images/cover.jpg \
-    qml/pages/LikesPage.qml \
-    qml/components/LikesItem.qml \
-    qml/components/FeedHeader.qml \
-    qml/components/FeedBottom.qml
+    qml/images/cover.jpg
 
 TRANSLATIONS += translations/harbour-prostogram_ca.ts \
                 translations/harbour-prostogram_cs_CZ.ts \
@@ -66,8 +62,7 @@ TRANSLATIONS += translations/harbour-prostogram_ca.ts \
                 translations/harbour-prostogram_sl_SI.ts \
                 translations/harbour-prostogram_sv_SE.ts \
                 translations/harbour-prostogram.ts \
-                translations/harbour-prostogram_zh_CN.ts \
-                translations/harbour-sailgrande.ts
+                translations/harbour-prostogram_zh_CN.ts
 
 HEADERS += \
     QtInstagram/src/api/instagram.h \
