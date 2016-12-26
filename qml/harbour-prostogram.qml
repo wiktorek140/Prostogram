@@ -22,6 +22,7 @@ ApplicationWindow {
     property bool refreshCallbackPending : false
 
     property var user
+    property bool need_login : true
 
     signal coverRefreshButtonPress();
 
@@ -72,13 +73,14 @@ ApplicationWindow {
         var username = Storage.get("username");
         var password = Storage.get("password")
         if (username === "" ||  password === "" || username === undefined || password === undefined || username === null || password === null ) {
-            return Qt.resolvedUrl("pages/AuthPage.qml")
+            app.need_login = true;
         } else {
             instagram.setUsername(username);
             instagram.setPassword(password);
             instagram.login(true);
-            return Qt.resolvedUrl(Qt.resolvedUrl("pages/StartPage.qml"))
+            app.need_login = false;
         }
+        return Qt.resolvedUrl(Qt.resolvedUrl("pages/CoverPage.qml"))
     }
 
     function refresh(){

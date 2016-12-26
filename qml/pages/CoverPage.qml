@@ -8,6 +8,8 @@ import "../Api.js" as API
 import "../components/"
 
 Page {
+    id: coverPage
+
     Banner{
         id: banner
         z: 1000
@@ -36,6 +38,8 @@ Page {
             color: Theme.rgba(Theme.highlightBackgroundColor, Theme.highlightBackgroundOpacity)
             clip: true
             radius: 5
+
+            visible: app.need_login
 
             width: parent.width-0.25*parent.width
             height: Theme.itemSizeMedium*3
@@ -152,8 +156,11 @@ Page {
     Connections{
         target: instagram
         onProfileConnected:{
-            Storage.set("password", passwordField.text);
-            Storage.set("username",loginField.text)
+            if(app.need_login)
+            {
+                Storage.set("password", passwordField.text);
+                Storage.set("username",loginField.text)
+            }
             pageStack.push(Qt.resolvedUrl("StartPage.qml"));
         }
     }
@@ -163,5 +170,13 @@ Page {
         onProfileConnectedFail:{
             banner.notify(qsTr("Login fail!"))
         }
+    }
+
+    Component.onCompleted: {
+        if(!app.need_login)
+        {
+            banner.notify(qsTr("Entering..."))
+        }
+        console.log(app.need_login)
     }
 }
