@@ -34,6 +34,53 @@ Page {
         }
 
         Rectangle{
+            id: logoAction
+            visible: !app.need_login
+
+            anchors.fill: parent
+            color: "transparent"
+
+            Image{
+                id: logoImage
+                source: "../images/logo.svg"
+                width: (coverPage.width > coverPage.height) ? coverPage.height/3 : coverPage.width/3
+                height: width
+
+                anchors{
+                    verticalCenter: parent.verticalCenter
+                    horizontalCenter: parent.horizontalCenter
+                }
+
+                sourceSize.width: width
+                sourceSize.height: height
+            }
+
+            Label{
+                id: nameLabel
+                text: "Prostogram"
+                font.pixelSize: Theme.fontSizeExtraLarge
+
+                anchors{
+                    top: logoImage.bottom
+                    topMargin: Theme.paddingMedium
+                    horizontalCenter: parent.horizontalCenter
+                }
+            }
+
+            Label{
+                id: versionLabel
+                text: qsTr("Version: %1").arg(Qt.application.version)
+                font.pixelSize: Theme.fontSizeMedium
+
+                anchors{
+                    top: nameLabel.bottom
+                    topMargin: Theme.paddingMedium
+                    horizontalCenter: parent.horizontalCenter
+                }
+            }
+        }
+
+        Rectangle{
             id: entherAction
             color: Theme.rgba(Theme.highlightBackgroundColor, Theme.highlightBackgroundOpacity)
             clip: true
