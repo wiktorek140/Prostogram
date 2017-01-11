@@ -33,15 +33,8 @@ Item {
 
         Image {
             id: mainImage
-            visible: !playVideo
             anchors.fill: parent
             source: item.image_versions2.candidates[0].url
-        }
-
-        BusyIndicator {
-            anchors.centerIn: parent
-            visible: playVideo && video.status === MediaPlayer.Loading
-            running: visible
         }
 
         Image {
@@ -50,39 +43,37 @@ Item {
            visible: item.media_type == 2 && !playVideo
         }
 
-        MouseArea {
+        MouseArea{
             anchors.fill: parent
+
+            Timer{
+                id:timer
+                interval: 200
+                onTriggered: {
+                    goToMedia();
+                }
+            }
+
             onClicked: {
-                if(playVideo)
+                if(timer.running)
                 {
-                    video.stop()
+                    if(item.has_liked)
+                    {
+                        instagram.unLike(item.id);
+                    }
+                    else
+                    {
+                        instagram.like(item.id);
+                    }
+                    timer.stop()
                 }
                 else
                 {
-                    video.play();
+                    timer.restart()
                 }
             }
-            visible: item.media_type == 2 && !playVideo
-
         }
 
-        Video {
-            id: video
-            anchors.left: parent.left
-            anchors.right: parent.right
-            height: visible ? parent.height : 0
-            width: parent.width
-            visible: (item.media_type == 2) ? true : false
-            source: (item.video_versions) ? item.video_versions[0].url : ""
-
-            onStopped: {
-                playVideo = false;
-            }
-
-            onPlaying: {
-                playVideo = true;
-            }
-        }
     }
 
     Rectangle{
@@ -203,6 +194,11 @@ Item {
             console.log("Load tag "+result[1])
             pageStack.push(Qt.resolvedUrl("../pages/MediaStreamPage.qml"),{tag: result[1], mode:  MediaStreamMode.TAG_MODE, streamTitle: 'Tagged with ' + "#"+result[1] });
         }
+    }
+
+    function goToMedia()
+    {
+        pageStack.push(Qt.resolvedUrl("../pages/MediaDetailPage.qml"),{item:item});
     }
 
     Connections{
