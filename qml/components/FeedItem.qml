@@ -35,6 +35,30 @@ Item {
             id: mainImage
             anchors.fill: parent
             source: item.image_versions2.candidates[0].url
+
+            Image {
+                id: likeImage
+                width: (parent.width > parent.height) ? parent.height*0.7 : parent.width*0.7
+                height: width
+
+                sourceSize.height: height
+                sourceSize.width: height
+
+                opacity: 0
+
+                source: "../images/heart.svg"
+
+                anchors{
+                    verticalCenter: parent.verticalCenter
+                    horizontalCenter: parent.horizontalCenter
+                }
+
+                SequentialAnimation {
+                    id: doLikeAnimation
+                    NumberAnimation { target: likeImage; property: "opacity"; to: 1; from: 0; duration: 300 }
+                    NumberAnimation { target: likeImage; property: "opacity"; to: 0; from: 1; duration: 700 }
+                }
+            }
         }
 
         Image {
@@ -57,6 +81,7 @@ Item {
             onClicked: {
                 if(timer.running)
                 {
+                    doLikeAnimation.start()
                     if(item.has_liked)
                     {
                         instagram.unLike(item.id);
@@ -205,7 +230,6 @@ Item {
         target: instagram
         onLikeDataReady:{
             var out = JSON.parse(answer)
-            console.log(answer)
             if(out.status == "ok")
             {
                 item.has_liked= true;
