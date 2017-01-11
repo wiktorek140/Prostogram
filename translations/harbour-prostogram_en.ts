@@ -77,6 +77,10 @@
         <source>Login fail!</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Version: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>EditPhotoPage</name>
