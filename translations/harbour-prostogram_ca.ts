@@ -93,6 +93,13 @@
     </message>
 </context>
 <context>
+    <name>FeedItem</name>
+    <message>
+        <source>likes</source>
+        <translation type="unfinished">&quot;m&apos;agrada&quot;</translation>
+    </message>
+</context>
+<context>
     <name>LikesPage</name>
     <message>
         <source>Likes</source>
@@ -243,10 +250,6 @@
 </context>
 <context>
     <name>StartPage</name>
-    <message>
-        <source>My Feed</source>
-        <translation>El meu canal</translation>
-    </message>
     <message>
         <source>Settings</source>
         <translation>Configuració</translation>

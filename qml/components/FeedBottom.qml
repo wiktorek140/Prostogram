@@ -70,7 +70,7 @@ Rectangle {
         Rectangle{
             id: likesCount
             color: "red"
-            width: childrenRect.width
+            width: likeCount.width*1.5
             height: parent.width/2
 
             radius: parent.width/2
@@ -83,9 +83,10 @@ Rectangle {
             visible: (notifyStream.notifyCount > 0) ? true:  false
 
             Label{
-                text: notifyStream.notifyCount
+                id: likeCount
+                text: (notifyStream.notifyCount > 99) ? "99+" : notifyStream.notifyCount
                 color: "white"
-                font.pixelSize: parent.width/2
+                font.pixelSize: parent.height/2
                 anchors.centerIn: parent
             }
         }

@@ -65,18 +65,14 @@ Page {
         height: parent.height-header.height-bottom.height
         width: parent.width
 
-        contentHeight: column.height
+        //contentHeight: column.height
         contentWidth: parent.width
 
-        Column {
-            id: column
-            anchors.fill: parent
 
-            StreamPreviewBlock {
-                id: myFeedBlock
-                streamTitle: qsTr('My Feed')
-                mode: MediaStreamMode.MY_STREAM_MODE
-            }
+        StreamPreviewBlock {
+            id: myFeedBlock
+
+            anchors.fill: parent
         }
     }
 
@@ -111,10 +107,6 @@ Page {
 
     ListModel {
         id: recentMediaModel
-    }
-
-
-    Component.onCompleted: {
     }
 
     function startPageRefreshCB() {

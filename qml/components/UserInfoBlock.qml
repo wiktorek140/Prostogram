@@ -4,36 +4,50 @@ import Sailfish.Silica 1.0
 Rectangle {
     id: userInfo
 
-    anchors.right: parent.right
+    anchors{
+        right: parent.right
+        bottomMargin: userInfo.height*0.1
+    }
+
     height: 100
     width: parent.width
     color: "transparent"
 
-    Rectangle {
-        anchors.fill: parent
-        color: Theme.highlightColor
-        opacity: mousearea.pressed ? 0.3 : 0.1
-    }
-
-    Image {
+    Rectangle{
         id: profilpicture
-        anchors.right: userInfo.right
 
-        anchors.top: userInfo.top
-        height: userInfo.height
+        height: userInfo.height*0.9
         width: height
-        source: item.user.profile_pic_url
+
+        radius: width
+
+        color: "transparent"
+        clip: true
+
+        anchors{
+            left: userInfo.left
+            leftMargin: userInfo.height*0.1
+            verticalCenter: userInfo.verticalCenter
+        }
+
+        Image {
+            height: parent.width
+            width: parent.height
+            source: item.user.profile_pic_url
+        }
     }
 
     Label {
         id:username
         text: item.user.username
-        anchors.right: profilpicture.left
-        anchors.rightMargin: Theme.paddingMedium
-        anchors.top: userInfo.top
-        anchors.topMargin: 15
+        anchors{
+            left: profilpicture.right
+            leftMargin: Theme.paddingMedium
+            verticalCenter: userInfo.verticalCenter
+        }
         truncationMode: TruncationMode.Fade
         font.pixelSize: Theme.fontSizeSmall
+        font.bold: true
         color: Theme.secondaryHighlightColor
     }
 

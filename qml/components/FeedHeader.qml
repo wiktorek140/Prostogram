@@ -26,7 +26,7 @@ Rectangle {
        width: parent.height
        height:parent.height
        anchors.right: parent.right
-       source: user.profile_pic_url
+       source: app.user.profile_pic_url
 
        anchors{
            right: parent.right

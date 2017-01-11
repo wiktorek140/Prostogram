@@ -93,6 +93,13 @@
     </message>
 </context>
 <context>
+    <name>FeedItem</name>
+    <message>
+        <source>likes</source>
+        <translation type="unfinished">vind-ik-leuks</translation>
+    </message>
+</context>
+<context>
     <name>LikesPage</name>
     <message>
         <source>Likes</source>
@@ -243,10 +250,6 @@
 </context>
 <context>
     <name>StartPage</name>
-    <message>
-        <source>My Feed</source>
-        <translation>Mijn tijdlijn</translation>
-    </message>
     <message>
         <source>Settings</source>
         <translation>Instellingen</translation>

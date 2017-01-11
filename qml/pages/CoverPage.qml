@@ -161,7 +161,7 @@ Page {
                 Storage.set("password", passwordField.text);
                 Storage.set("username",loginField.text)
             }
-            pageStack.push(Qt.resolvedUrl("StartPage.qml"));
+            pageStack.replace(Qt.resolvedUrl("StartPage.qml"));
         }
     }
 
@@ -177,6 +177,6 @@ Page {
         {
             banner.notify(qsTr("Entering..."))
         }
-        console.log(app.need_login)
+
     }
 }

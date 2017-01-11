@@ -36,6 +36,7 @@ Page {
         header: PageHeader {
             title: streamTitle
         }
+
         delegate: FeedItem {
             visible: dataLoaded
             item: modelData

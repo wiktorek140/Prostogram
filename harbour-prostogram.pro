@@ -42,8 +42,10 @@ DISTFILES += \
     qml/*.qml \
     qml/components/*.qml \
     qml/pages/*.qml \
-    qml/images/header_logo.png \
-    qml/images/cover.jpg
+    qml/images/*.png \
+    qml/images/*.jpg \
+    qml/images/*.svg \
+    qml/components/ClickIcon.qml
 
 TRANSLATIONS += translations/harbour-prostogram_ca.ts \
                 translations/harbour-prostogram_cs_CZ.ts \

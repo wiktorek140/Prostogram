@@ -6,6 +6,8 @@ Item {
     width: parent.width
     height: parent.width/5
 
+    clip: true
+
     Image {
         id: userCover
         source: args.profile_image

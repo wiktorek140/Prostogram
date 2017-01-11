@@ -5,93 +5,37 @@ import "../CoverMode.js" as CoverMode
 
 Item {
     id: streamPreviewDlock
-    height: header.height + grid.height
+    height: parent.height
     width: parent.width
 
     anchors.right: parent.right
 
-    property string streamTitle
-    property int recentMediaSize: width / streamPreviewColumnCount
     property bool recentMediaLoaded: false
-
-    property int previewElementsCount : streamPreviewColumnCount * streamPreviewRowCount
     property bool errorOccurred : false
     property string tag
-
     property var streamData
+    property var nextId;
 
-    property int mode : MediaStreamMode.MY_STREAM_MODE
-
-    Item {
-        id:header
-
-        height: Theme.itemSizeMedium
-        width: parent.width
-        anchors.top: parent.top
-
-
-        Rectangle {
-            anchors.fill: parent
-            color: Theme.highlightColor
-            opacity : mouseAreaHeader.pressed ? 0.3 : 0
-        }
-
-        Image {
-            id: icon
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.right: parent.right
-            anchors.rightMargin: Theme.paddingLarge
-            source:  "image://theme/icon-m-right"
-        }
-
-        Label {
-            font.pixelSize: Theme.fontSizeLarge
-            color: Theme.primaryColor
-
-            text:streamTitle
-            anchors.verticalCenter: parent.verticalCenter
-            anchors.right: icon.left
-            anchors.rightMargin: Theme.paddingMedium
-        }
-
-        MouseArea {
-            id: mouseAreaHeader
-            anchors.fill: parent
-            onClicked: pageStack.push(Qt.resolvedUrl("../pages/MediaStreamPage.qml"),{mode : mode, streamData: streamData, streamTitle: streamTitle})
-        }
-    }
-
-    Grid {
-        height: {
-            if(recentMediaModel.length >= streamPreviewColumnCount*streamPreviewRowCount)
-            {
-                recentMediaSize*streamPreviewRowCount
-            }
-            else
-            {
-                recentMediaSize*(Math.ceil(recentMediaModel.length/streamPreviewRowCount)+1)
-            }
-        }
-
+    ListView {
         id: grid
-        columns: streamPreviewColumnCount
         anchors.left: parent.left
         anchors.right: parent.right
-        anchors.top: header.bottom
         visible: recentMediaLoaded
 
-        Repeater {
-            model: recentMediaModel
-            delegate: Item {
-                width: recentMediaSize
-                height: recentMediaSize
-                SmallMediaElement{
-                    mediaElement: modelData
-                }
+        width: parent.width
+        height: parent.height
+        clip: true
+
+        model: recentMediaModel
+
+        delegate: Item {
+            width: parent.width
+            height: childrenRect.height
+
+            FeedItem{
+                item: modelData
             }
         }
-
-
     }
 
     BusyIndicator {
@@ -115,8 +59,8 @@ Item {
             return;
         }
         errorOccurred = false
-        var elementsCount = data.items.length > previewElementsCount-recentMediaModel.length ? previewElementsCount-recentMediaModel.length : data.items.length;
-        for(var i=0; i<elementsCount; i++) {
+
+        for(var i=0; i<data.items.length; i++) {
 /*
 TYPE 1 - IMAGE
 TYPE 2 - VIDEO
@@ -129,32 +73,14 @@ TYPE 3 - FRIEND
             }
         }
         recentMediaLoaded=true;
-
-        if(data.items.length < streamPreviewColumnCount*streamPreviewRowCount && data.more_available)
-        {
-            if(streamPreviewDlock.mode === 0)
-            {
-                instagram.getTimeLine(data.next_max_id);
-            }
-            else if(streamPreviewDlock.mode === 1)
-            {
-                instagram.getPopularFeed(data.next_max_id);
-            }
-        }
+        nextId = data.items.length;
     }
 
     function refresh()
     {
         recentMediaModel = [];
         recentMediaModelChanged()
-        if(streamPreviewDlock.mode === 0)
-        {
-            instagram.getTimeLine();
-        }
-        else if(streamPreviewDlock.mode === 1)
-        {
-            instagram.getPopularFeed();
-        }
+        instagram.getTimeLine();
     }
 
     Component.onCompleted: {
@@ -168,30 +94,16 @@ TYPE 3 - FRIEND
         target: instagram
         onTimeLineDataReady: {
             var data = JSON.parse(answer);
-            if(streamPreviewDlock.mode === 0)
+
+            if(recentMediaModel.length == 0)
             {
+                var coverdata = {}
+                coverdata.image = data.items[0].image_versions2.candidates[data.items[0].image_versions2.candidates.length-1].url
+                coverdata.username = data.items[0].user.username;
 
-                if(recentMediaModel.length == 0)
-                {
-                    var coverdata = {}
-                    coverdata.image = data.items[0].image_versions2.candidates[data.items[0].image_versions2.candidates.length-1].url
-                    coverdata.username = data.items[0].user.username;
-
-                    setCover(CoverMode.SHOW_IMAGE,coverdata)
-                }
-                loadStreamPreviewDataFinished(data);
+                setCover(CoverMode.SHOW_IMAGE,coverdata)
             }
-        }
-    }
-
-    Connections{
-        target: instagram
-        onPopularFeedDataReady: {
-            var data = JSON.parse(answer);
-            if(streamPreviewDlock.mode === 1)
-            {
-                loadStreamPreviewDataFinished(data);
-            }
+            loadStreamPreviewDataFinished(data);
         }
     }
 }
