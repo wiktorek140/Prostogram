@@ -4,7 +4,7 @@ import "../MediaStreamMode.js" as MediaStreamMode
 import "../CoverMode.js" as CoverMode
 
 Item {
-    id: streamPreviewDlock
+    id: streamPreviewBlock
     height: parent.height
     width: parent.width
 
@@ -15,6 +15,20 @@ Item {
     property string tag
     property var streamData
     property var nextId;
+
+    Label{
+        id: refreshLabel
+        text: qsTr("Refresh")
+        anchors{
+            top: parent.top
+        }
+        width: parent.width
+        horizontalAlignment: Text.AlignHCenter
+        font.bold: true
+        color: Theme.secondaryHighlightColor
+        font.pixelSize: Theme.fontSizeMedium
+        visible: false;
+    }
 
     ListView {
         id: grid
@@ -34,6 +48,24 @@ Item {
 
             FeedItem{
                 item: modelData
+            }
+        }
+
+        onContentYChanged: {
+            if(grid.contentY < -10)
+            {
+                refreshLabel.visible = true
+            }
+
+            if(grid.contentY >= -10)
+            {
+                refreshLabel.visible = false
+            }
+
+            if(grid.contentY < -150)
+            {
+                refreshLabel.visible = false
+                refresh();
             }
         }
     }
@@ -78,6 +110,7 @@ TYPE 3 - FRIEND
 
     function refresh()
     {
+        recentMediaLoaded = false;
         recentMediaModel = [];
         recentMediaModelChanged()
         instagram.getTimeLine();
