@@ -54,9 +54,11 @@ Page {
 
     FeedHeader{
         id: header
+        z: 2
     }
 
     SilicaFlickable {
+        z: 1
         anchors{
             top: header.bottom
             left: parent.left
@@ -78,6 +80,7 @@ Page {
 
     FeedBottom{
         id: bottom
+        z: 2
         anchors{
             bottom: parent.bottom
         }
