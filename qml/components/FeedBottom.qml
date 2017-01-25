@@ -6,7 +6,7 @@ Rectangle {
     width: parent.width
     height: childrenRect.height
 
-    color: "transparent"
+    color: Theme.highlightBackgroundColor
 
     IconButton{
         id: mail

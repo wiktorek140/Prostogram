@@ -5,7 +5,7 @@ Rectangle {
     id: feedHeader
     width: parent.width
     height: childrenRect.height
-    color: "transparent"
+    color: Theme.highlightBackgroundColor
 
     IconButton {
         id: setPhotoIcon
@@ -24,11 +24,13 @@ Rectangle {
         id: logo
 
         source: "../images/prostogram.svg"
-        width: parent.width
-        height: parent.height
+        width: parent.width-setPhotoIcon.width*4
+        height: parent.height*0.6
 
         sourceSize.width: width
         sourceSize.height: height
+
+        anchors.centerIn: feedHeader
 
         MouseArea{
             anchors.fill: parent
