@@ -83,28 +83,6 @@ Page {
         }
     }
 
-
-    PullDownMenu {
-        MenuItem {
-            text: qsTr("Settings")
-            onClicked: pageStack.push(Qt.resolvedUrl("SettingsPage.qml"))
-        }
-
-        MenuItem {
-            text: qsTr("Search")
-            onClicked: pageStack.push(Qt.resolvedUrl("TagSearchPage.qml"))
-        }
-
-        MenuItem {
-            text: qsTr("Send photo from phone")
-        }
-
-        MenuItem {
-            text: qsTr("Refresh")
-            onClicked: updateAllFeeds()
-        }
-    }
-
     ListModel {
         id: recentMediaModel
     }

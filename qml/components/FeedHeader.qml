@@ -30,8 +30,11 @@ Rectangle {
         sourceSize.width: width
         sourceSize.height: height
 
-
-
+        MouseArea{
+            anchors.fill: parent
+            onClicked: pageStack.push(Qt.resolvedUrl(
+                                          "../pages/AboutPage.qml"))
+        }
     }
 
 

@@ -146,10 +146,6 @@ Page {
                 }
             }
 
-            SectionHeader {
-                text: qsTr("donating = loving")
-            }
-
             Row
             {
                 anchors.right: parent.right
@@ -160,30 +156,11 @@ Page {
                 Button {
                     id: button1
                     anchors.bottom: parent.bottom
-                    width: parent.width/2
+                    width: parent.width
                     text: qsTr("Paypal USD")
                     onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CD7MEFDNKNM9E")
                 }
-
-                Button {
-                    anchors.bottom: parent.bottom
-                    width: parent.width/2
-                    text: qsTr("Paypal USD")
-                    onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=pp%40florianwittmann%2ede&item_name=SailGrande&no_note=0&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donate_LG%2egif%3aNonHostedGuest")
-                }
             }
-
-            Image {
-                id: image
-                width: 300
-                height: 300
-                fillMode: Image.PreserveAspectFit
-                smooth: true
-                source: "donate.png"
-                anchors.horizontalCenter: parent.horizontalCenter
-
-            }
-
         }
     }
     Component.onCompleted: {
