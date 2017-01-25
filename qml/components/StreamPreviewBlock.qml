@@ -94,6 +94,7 @@ Item {
     Connections{
         target: instagram
         onTimeLineDataReady: {
+            var data = JSON.parse(answer)
             if(recentMediaModel.length == 0)
             {
                 var coverdata = {}
