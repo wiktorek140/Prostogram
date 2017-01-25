@@ -208,7 +208,10 @@ Page {
                 Storage.set("password", passwordField.text);
                 Storage.set("username",loginField.text)
             }
-            pageStack.replace(Qt.resolvedUrl("StartPage.qml"));
+            instagram.getUsernameInfo(instagram.getUsernameId());
+            instagram.getRecentActivity();
+
+
         }
     }
 
@@ -216,6 +219,26 @@ Page {
         target: instagram
         onProfileConnectedFail:{
             banner.notify(qsTr("Login fail!"))
+            app.cover = Qt.resolvedUrl("AuthPage.qml")
+        }
+    }
+
+    Connections{
+        target: instagram
+        onUsernameDataReady: {
+            var obj = JSON.parse(answer)
+            if(obj.user.pk == instagram.getUsernameId())
+            {
+                app.user = obj.user
+                pageStack.replace(Qt.resolvedUrl("StartPage.qml"));
+            }
+        }
+    }
+
+    Connections{
+        target: app
+        onCoverRefreshButtonPress:{
+            updateAllFeeds()
         }
     }
 

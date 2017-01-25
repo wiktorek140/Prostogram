@@ -20,6 +20,20 @@ Rectangle {
         onClicked: pageStack.push(Qt.resolvedUrl("../pages/CameraPage.qml"))
     }
 
+    Image{
+        id: logo
+
+        source: "../images/prostogram.svg"
+        width: parent.width
+        height: parent.height
+
+        sourceSize.width: width
+        sourceSize.height: height
+
+
+
+    }
+
 
     Image {
        id: profilpic
@@ -38,7 +52,7 @@ Rectangle {
            id: mouseAreaMyProfile
            onClicked: pageStack.push(Qt.resolvedUrl(
                                          "../pages/UserProfilPage.qml"), {
-                                         user: user
+                                         user: app.user
                                      })
        }
     }

@@ -280,14 +280,6 @@ Page {
                      instagram.follow(user.pk);
                  }
              }
-
-            MenuItem {
-                text: qsTr("Notifications")
-                visible: isSelf
-                onClicked: {
-                    pageStack.push(Qt.resolvedUrl("NotificationPage.qml"))
-                }
-            }
         }
     }
 

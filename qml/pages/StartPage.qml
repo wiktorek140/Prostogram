@@ -114,43 +114,7 @@ Page {
         if (updateRunning) {
             return
         }
-        console.log("update...")
         updateRunning = true
         myFeedBlock.refreshContent(refreshDone)
-    }
-
-    Connections{
-        target: instagram
-        onProfileConnected:{
-            startPage.user_id = instagram.getUsernameId();
-            instagram.getUsernameInfo(startPage.user_id);
-            instagram.getRecentActivity();
-        }
-    }
-
-    Connections{
-        target: instagram
-        onUsernameDataReady: {
-            var obj = JSON.parse(answer)
-            if(obj.user.pk === startPage.user_id)
-            {
-                user = obj.user
-                app.user = obj.user
-            }
-        }
-    }
-
-    Connections{
-        target: instagram
-        onProfileConnectedFail:{
-            app.cover = Qt.resolvedUrl("AuthPage.qml")
-        }
-    }
-
-    Connections{
-        target: app
-        onCoverRefreshButtonPress:{
-            updateAllFeeds()
-        }
     }
 }
