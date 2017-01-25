@@ -191,6 +191,10 @@
         <source>Refresh</source>
         <translation type="unfinished">刷新</translation>
     </message>
+    <message>
+        <source>Load more</source>
+        <translation type="unfinished">载入更多</translation>
+    </message>
 </context>
 <context>
     <name>TagSearchPage</name>

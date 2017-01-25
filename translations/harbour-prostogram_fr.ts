@@ -191,6 +191,10 @@
         <source>Refresh</source>
         <translation type="unfinished">Rafraîchir</translation>
     </message>
+    <message>
+        <source>Load more</source>
+        <translation type="unfinished">Voir plus</translation>
+    </message>
 </context>
 <context>
     <name>TagSearchPage</name>

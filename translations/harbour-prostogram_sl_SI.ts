@@ -191,6 +191,10 @@
         <source>Refresh</source>
         <translation type="unfinished">Osveži</translation>
     </message>
+    <message>
+        <source>Load more</source>
+        <translation type="unfinished">Prikaži več</translation>
+    </message>
 </context>
 <context>
     <name>TagSearchPage</name>

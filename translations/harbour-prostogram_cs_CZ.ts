@@ -191,6 +191,10 @@
         <source>Refresh</source>
         <translation type="unfinished">Obnovit</translation>
     </message>
+    <message>
+        <source>Load more</source>
+        <translation type="unfinished">Nahrát více</translation>
+    </message>
 </context>
 <context>
     <name>TagSearchPage</name>

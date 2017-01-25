@@ -191,6 +191,10 @@
         <source>Refresh</source>
         <translation type="unfinished">Uppdatera</translation>
     </message>
+    <message>
+        <source>Load more</source>
+        <translation type="unfinished">Läs in mer</translation>
+    </message>
 </context>
 <context>
     <name>TagSearchPage</name>
