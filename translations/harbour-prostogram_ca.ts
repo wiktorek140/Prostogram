@@ -129,14 +129,6 @@
         <translation>Us agrada.</translation>
     </message>
     <message>
-        <source>Remove my like</source>
-        <translation>Elimina el &quot;m&apos;agrada&quot;</translation>
-    </message>
-    <message>
-        <source>Like</source>
-        <translation>M&apos;agrada</translation>
-    </message>
-    <message>
         <source>Follow</source>
         <translation type="unfinished"></translation>
     </message>
@@ -269,6 +261,13 @@
     <message>
         <source>Send photo from phone</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>StreamPreviewBlock</name>
+    <message>
+        <source>Refresh</source>
+        <translation type="unfinished">Refresca</translation>
     </message>
 </context>
 <context>

@@ -129,14 +129,6 @@
         <translation>Понравившаяся  публикация</translation>
     </message>
     <message>
-        <source>Remove my like</source>
-        <translation>Удалить оценку</translation>
-    </message>
-    <message>
-        <source>Like</source>
-        <translation>Понравилось</translation>
-    </message>
-    <message>
         <source>Follow</source>
         <translation>Добавить в друзья</translation>
     </message>
@@ -269,6 +261,13 @@
     <message>
         <source>Send photo from phone</source>
         <translation>Отправить фото с телефона</translation>
+    </message>
+</context>
+<context>
+    <name>StreamPreviewBlock</name>
+    <message>
+        <source>Refresh</source>
+        <translation type="unfinished">Обновить</translation>
     </message>
 </context>
 <context>

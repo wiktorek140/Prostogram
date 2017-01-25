@@ -129,14 +129,6 @@
         <translation>Du gillar detta.</translation>
     </message>
     <message>
-        <source>Remove my like</source>
-        <translation>Ta bort min gilla</translation>
-    </message>
-    <message>
-        <source>Like</source>
-        <translation>Gilla</translation>
-    </message>
-    <message>
         <source>Follow</source>
         <translation>Följ</translation>
     </message>
@@ -269,6 +261,13 @@
     <message>
         <source>Send photo from phone</source>
         <translation>Skicka foto från telefonen</translation>
+    </message>
+</context>
+<context>
+    <name>StreamPreviewBlock</name>
+    <message>
+        <source>Refresh</source>
+        <translation type="unfinished">Uppdatera</translation>
     </message>
 </context>
 <context>

@@ -129,14 +129,6 @@
         <translation>Ti piace.</translation>
     </message>
     <message>
-        <source>Remove my like</source>
-        <translation>Rimuovi mi piace</translation>
-    </message>
-    <message>
-        <source>Like</source>
-        <translation>Mi piace</translation>
-    </message>
-    <message>
         <source>Follow</source>
         <translation type="unfinished"></translation>
     </message>
@@ -269,6 +261,13 @@
     <message>
         <source>Send photo from phone</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>StreamPreviewBlock</name>
+    <message>
+        <source>Refresh</source>
+        <translation type="unfinished">Aggiorna</translation>
     </message>
 </context>
 <context>

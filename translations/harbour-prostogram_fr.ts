@@ -129,14 +129,6 @@
         <translation>Vous aimez ceci.</translation>
     </message>
     <message>
-        <source>Remove my like</source>
-        <translation>Supprimer mon J&apos;aime.</translation>
-    </message>
-    <message>
-        <source>Like</source>
-        <translation>J&apos;aime</translation>
-    </message>
-    <message>
         <source>Follow</source>
         <translation type="unfinished"></translation>
     </message>
@@ -269,6 +261,13 @@
     <message>
         <source>Send photo from phone</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>StreamPreviewBlock</name>
+    <message>
+        <source>Refresh</source>
+        <translation type="unfinished">Rafraîchir</translation>
     </message>
 </context>
 <context>

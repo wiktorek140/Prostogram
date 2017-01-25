@@ -129,14 +129,6 @@
         <translation>Všečkali ste</translation>
     </message>
     <message>
-        <source>Remove my like</source>
-        <translation>Odstrani moj všeček</translation>
-    </message>
-    <message>
-        <source>Like</source>
-        <translation>Všečkaj</translation>
-    </message>
-    <message>
         <source>Follow</source>
         <translation type="unfinished"></translation>
     </message>
@@ -269,6 +261,13 @@
     <message>
         <source>Send photo from phone</source>
         <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>StreamPreviewBlock</name>
+    <message>
+        <source>Refresh</source>
+        <translation type="unfinished">Osveži</translation>
     </message>
 </context>
 <context>
