@@ -8,6 +8,8 @@ Item {
     height: parent.height
     width: parent.width
 
+    clip: true
+
     anchors.right: parent.right
 
     property bool recentMediaLoaded: false
@@ -18,19 +20,28 @@ Item {
 
     property var recentMediaModel: [];
 
-    Label{
-        id: refreshLabel
-        text: qsTr("Refresh")
-        anchors{
-            top: parent.top
+    PullDownMenu{
+        id: topMenu;
+        MenuItem {
+            id: refreshMenu
+            text: qsTr("Refresh")
+            visible: true
+            onClicked: {
+                refresh();
+            }
         }
-        width: parent.width
-        horizontalAlignment: Text.AlignHCenter
-        font.bold: true
-        color: Theme.secondaryHighlightColor
-        font.pixelSize: Theme.fontSizeMedium
-        visible: false;
-        opacity: 0
+    }
+
+    PushUpMenu{
+        id: bottomMenu
+        MenuItem {
+            id: moreMenu
+            text: qsTr("Load more")
+            visible: (nextId && recentMediaLoaded)
+            onClicked: {
+                instagram.getTimeLine(nextId)
+            }
+        }
     }
 
     ListView {
@@ -51,33 +62,6 @@ Item {
 
             FeedItem{
                 item: modelData
-            }
-        }
-
-        onContentYChanged: {
-            if(grid.contentY < -10)
-            {
-                refreshLabel.visible = true
-                refreshLabel.opacity = Math.abs(grid.contentY-10)/100
-            }
-
-            if(grid.contentY >= -10)
-            {
-                refreshLabel.visible = false
-            }
-            if(grid.contentY < -110)
-            {
-                refreshLabel.visible = false
-                refresh();
-            }
-
-            if((grid.contentY+grid.height)>Math.max(grid.contentHeight, grid.height))
-            {
-                if(nextId && recentMediaLoaded)
-                {
-                    recentMediaLoaded = false;
-                    instagram.getTimeLine(nextId)
-                }
             }
         }
     }
@@ -110,10 +94,6 @@ Item {
     Connections{
         target: instagram
         onTimeLineDataReady: {
-            console.log(streamPreviewBlock.nextId)
-
-            var data = JSON.parse(answer);
-
             if(recentMediaModel.length == 0)
             {
                 var coverdata = {}
