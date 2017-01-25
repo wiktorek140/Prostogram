@@ -36,10 +36,6 @@
         <translation>Bugs rapporteren</translation>
     </message>
     <message>
-        <source>donating = loving</source>
-        <translation>doneren = mijn liefde</translation>
-    </message>
-    <message>
         <source>Paypal USD</source>
         <translation>PayPal USD</translation>
     </message>
@@ -190,80 +186,6 @@
     </message>
 </context>
 <context>
-    <name>SettingsPage</name>
-    <message>
-        <source>Settings</source>
-        <translation>Instellingen</translation>
-    </message>
-    <message>
-        <source>Startpage</source>
-        <translation>Thuispagina</translation>
-    </message>
-    <message>
-        <source>Show popular feed</source>
-        <translation>&apos;Populaire&apos; tijdlijn weergeven</translation>
-    </message>
-    <message>
-        <source>Customize the column and row count of the feed previews on the startpage:</source>
-        <translation>Het aantal kolommen en rijen van voorbeelden op de thuispagina aanpassen:</translation>
-    </message>
-    <message>
-        <source>Columns</source>
-        <translation>Kolommen</translation>
-    </message>
-    <message>
-        <source>Rows</source>
-        <translation>Rijen</translation>
-    </message>
-    <message>
-        <source>Shows %1 items per feed preview.</source>
-        <translation>Weergeeft %1 items per tijdlijnvoorbeeld.</translation>
-    </message>
-    <message>
-        <source>Feeds</source>
-        <translation>Tijdlijnen</translation>
-    </message>
-    <message>
-        <source>Show user and date</source>
-        <translation>Gebruikersnaam en datum weergeven</translation>
-    </message>
-    <message>
-        <source>Show user and date inline</source>
-        <translation>Gebruikersnaam en datum onder foto weergeven</translation>
-    </message>
-    <message>
-        <source>Show captions</source>
-        <translation>Bijschriften weergeven</translation>
-    </message>
-    <message>
-        <source>Logout</source>
-        <translation>Uitloggen</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <translation type="unfinished">Over</translation>
-    </message>
-</context>
-<context>
-    <name>StartPage</name>
-    <message>
-        <source>Settings</source>
-        <translation>Instellingen</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Zoeken</translation>
-    </message>
-    <message>
-        <source>Refresh</source>
-        <translation>Verversen</translation>
-    </message>
-    <message>
-        <source>Send photo from phone</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>StreamPreviewBlock</name>
     <message>
         <source>Refresh</source>
@@ -340,10 +262,6 @@
     <message>
         <source>Follow %1</source>
         <translation>%1 volgen</translation>
-    </message>
-    <message>
-        <source>Notifications</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

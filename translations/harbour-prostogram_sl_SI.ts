@@ -36,10 +36,6 @@
         <translation>Prijavi napake</translation>
     </message>
     <message>
-        <source>donating = loving</source>
-        <translation>donating = loving</translation>
-    </message>
-    <message>
         <source>Paypal USD</source>
         <translation>Paypal USD</translation>
     </message>
@@ -190,80 +186,6 @@
     </message>
 </context>
 <context>
-    <name>SettingsPage</name>
-    <message>
-        <source>Settings</source>
-        <translation>Nastavitve</translation>
-    </message>
-    <message>
-        <source>Startpage</source>
-        <translation>Začetna stran</translation>
-    </message>
-    <message>
-        <source>Show popular feed</source>
-        <translation>Prikaži popularne kanale</translation>
-    </message>
-    <message>
-        <source>Customize the column and row count of the feed previews on the startpage:</source>
-        <translation>Prilagodi število stolpcev in vrstic v predogledu kanalov na začetni strani:</translation>
-    </message>
-    <message>
-        <source>Columns</source>
-        <translation>Stolpci</translation>
-    </message>
-    <message>
-        <source>Rows</source>
-        <translation>Vrstice</translation>
-    </message>
-    <message>
-        <source>Shows %1 items per feed preview.</source>
-        <translation>Prikaži %1 elementov v predogledu kanala</translation>
-    </message>
-    <message>
-        <source>Feeds</source>
-        <translation>Prilagodi število vrstic in stolpcev v predogladih kanalov na začetni strani:</translation>
-    </message>
-    <message>
-        <source>Show user and date</source>
-        <translation>Prikaži uporabnika in datum</translation>
-    </message>
-    <message>
-        <source>Show user and date inline</source>
-        <translation>Prikaži uporabnika in datum v eni vrstici</translation>
-    </message>
-    <message>
-        <source>Show captions</source>
-        <translation>Prikaži napise</translation>
-    </message>
-    <message>
-        <source>Logout</source>
-        <translation>Odjava</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <translation type="unfinished">O programu</translation>
-    </message>
-</context>
-<context>
-    <name>StartPage</name>
-    <message>
-        <source>Settings</source>
-        <translation>Nastavitve</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Iskanje</translation>
-    </message>
-    <message>
-        <source>Refresh</source>
-        <translation>Osveži</translation>
-    </message>
-    <message>
-        <source>Send photo from phone</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>StreamPreviewBlock</name>
     <message>
         <source>Refresh</source>
@@ -340,10 +262,6 @@
     <message>
         <source>Follow %1</source>
         <translation>Sledi %1</translation>
-    </message>
-    <message>
-        <source>Notifications</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

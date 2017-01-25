@@ -36,10 +36,6 @@
         <translation>反馈BUG</translation>
     </message>
     <message>
-        <source>donating = loving</source>
-        <translation>捐助 = 爱</translation>
-    </message>
-    <message>
         <source>Paypal USD</source>
         <translation>Paypal 美元</translation>
     </message>
@@ -190,80 +186,6 @@
     </message>
 </context>
 <context>
-    <name>SettingsPage</name>
-    <message>
-        <source>Settings</source>
-        <translation>设置</translation>
-    </message>
-    <message>
-        <source>Startpage</source>
-        <translation>开始页</translation>
-    </message>
-    <message>
-        <source>Show popular feed</source>
-        <translation>显示热门订阅</translation>
-    </message>
-    <message>
-        <source>Customize the column and row count of the feed previews on the startpage:</source>
-        <translation>自定义开始页订阅预览的行列数：</translation>
-    </message>
-    <message>
-        <source>Columns</source>
-        <translation>列</translation>
-    </message>
-    <message>
-        <source>Rows</source>
-        <translation>行</translation>
-    </message>
-    <message>
-        <source>Shows %1 items per feed preview.</source>
-        <translation>每个订阅预览显示%1个内容。</translation>
-    </message>
-    <message>
-        <source>Feeds</source>
-        <translation>订阅</translation>
-    </message>
-    <message>
-        <source>Show user and date</source>
-        <translation>显示用户和日期</translation>
-    </message>
-    <message>
-        <source>Show user and date inline</source>
-        <translation>单行显示用户和日期</translation>
-    </message>
-    <message>
-        <source>Show captions</source>
-        <translation>显示题注</translation>
-    </message>
-    <message>
-        <source>Logout</source>
-        <translation>注销</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <translation type="unfinished">关于</translation>
-    </message>
-</context>
-<context>
-    <name>StartPage</name>
-    <message>
-        <source>Settings</source>
-        <translation>设置</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>搜索</translation>
-    </message>
-    <message>
-        <source>Refresh</source>
-        <translation>刷新</translation>
-    </message>
-    <message>
-        <source>Send photo from phone</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>StreamPreviewBlock</name>
     <message>
         <source>Refresh</source>
@@ -340,10 +262,6 @@
     <message>
         <source>Follow %1</source>
         <translation>追随%1</translation>
-    </message>
-    <message>
-        <source>Notifications</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -9,7 +9,7 @@
     </message>
     <message>
         <source>An unofficial client for Instagram.</source>
-        <translation>Неофициальный клиент для Instagram</translation>
+        <translation>Неофициальный клиент для Instagram.</translation>
     </message>
     <message>
         <source>developer</source>
@@ -25,7 +25,7 @@
     </message>
     <message>
         <source>Source code is licensed under the MIT License (MIT).</source>
-        <translation>Исходный код распространяется под лицензией MIT License (MIT)</translation>
+        <translation>Исходный код распространяется под лицензией MIT License (MIT).</translation>
     </message>
     <message>
         <source>Contribute</source>
@@ -34,10 +34,6 @@
     <message>
         <source>Report bugs</source>
         <translation>Сообщить о проблеме</translation>
-    </message>
-    <message>
-        <source>donating = loving</source>
-        <translation>пожертвование=любовь</translation>
     </message>
     <message>
         <source>Paypal USD</source>
@@ -59,27 +55,27 @@
     <name>CoverPage</name>
     <message>
         <source>Login</source>
-        <translation type="unfinished">Логин</translation>
+        <translation>Логин</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">Пароль</translation>
+        <translation>Пароль</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation type="unfinished">Вход</translation>
+        <translation>Вход</translation>
     </message>
     <message>
         <source>Entering...</source>
-        <translation type="unfinished">Входим</translation>
+        <translation>Входим...</translation>
     </message>
     <message>
         <source>Login fail!</source>
-        <translation type="unfinished">Ошибка входа!</translation>
+        <translation>Ошибка входа!</translation>
     </message>
     <message>
         <source>Version: %1</source>
-        <translation type="unfinished">Версия: %1</translation>
+        <translation>Версия: %1</translation>
     </message>
 </context>
 <context>
@@ -93,14 +89,14 @@
     <name>ErrorMessageLabel</name>
     <message>
         <source>An error occurred.</source>
-        <translation>Возникла ошибка</translation>
+        <translation>Возникла ошибка.</translation>
     </message>
 </context>
 <context>
     <name>FeedItem</name>
     <message>
         <source>likes</source>
-        <translation type="unfinished">понравилось</translation>
+        <translation>понравилось</translation>
     </message>
 </context>
 <context>
@@ -126,7 +122,7 @@
     </message>
     <message>
         <source>You liked this.</source>
-        <translation>Понравившаяся  публикация</translation>
+        <translation>Понравившаяся  публикация.</translation>
     </message>
     <message>
         <source>Follow</source>
@@ -190,84 +186,10 @@
     </message>
 </context>
 <context>
-    <name>SettingsPage</name>
-    <message>
-        <source>Settings</source>
-        <translation>Настройки</translation>
-    </message>
-    <message>
-        <source>Startpage</source>
-        <translation>Начальная страница</translation>
-    </message>
-    <message>
-        <source>Show popular feed</source>
-        <translation>Показать популярные подписки</translation>
-    </message>
-    <message>
-        <source>Customize the column and row count of the feed previews on the startpage:</source>
-        <translation>Настройте количество столбцов и рядов превью на стартовой странице:</translation>
-    </message>
-    <message>
-        <source>Columns</source>
-        <translation>Столбец</translation>
-    </message>
-    <message>
-        <source>Rows</source>
-        <translation>Ряд</translation>
-    </message>
-    <message>
-        <source>Shows %1 items per feed preview.</source>
-        <translation>Показать %1 превью в предпросмотре.</translation>
-    </message>
-    <message>
-        <source>Feeds</source>
-        <translation>Подписки</translation>
-    </message>
-    <message>
-        <source>Show user and date</source>
-        <translation>Показать пользователя и данные</translation>
-    </message>
-    <message>
-        <source>Show captions</source>
-        <translation>Показывать подпись</translation>
-    </message>
-    <message>
-        <source>Logout</source>
-        <translation>Выход</translation>
-    </message>
-    <message>
-        <source>Show user and date inline</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>About</source>
-        <translation>О приложении</translation>
-    </message>
-</context>
-<context>
-    <name>StartPage</name>
-    <message>
-        <source>Settings</source>
-        <translation>Настройки</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Поиск</translation>
-    </message>
-    <message>
-        <source>Refresh</source>
-        <translation>Обновить</translation>
-    </message>
-    <message>
-        <source>Send photo from phone</source>
-        <translation>Отправить фото с телефона</translation>
-    </message>
-</context>
-<context>
     <name>StreamPreviewBlock</name>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished">Обновить</translation>
+        <translation>Обновить</translation>
     </message>
 </context>
 <context>
@@ -323,7 +245,7 @@
     </message>
     <message>
         <source>This profile is private.</source>
-        <translation>Профиль скрыт</translation>
+        <translation>Профиль скрыт.</translation>
     </message>
     <message>
         <source>Followers</source>
@@ -340,10 +262,6 @@
     <message>
         <source>Follow %1</source>
         <translation>Подписаться %1</translation>
-    </message>
-    <message>
-        <source>Notifications</source>
-        <translation>Уведомления</translation>
     </message>
 </context>
 </TS>

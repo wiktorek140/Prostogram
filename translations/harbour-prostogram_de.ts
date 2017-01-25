@@ -40,10 +40,6 @@
         <translation>Paypal USD</translation>
     </message>
     <message>
-        <source>donating = loving</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Version: %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -190,80 +186,6 @@
     </message>
 </context>
 <context>
-    <name>SettingsPage</name>
-    <message>
-        <source>Settings</source>
-        <translation>Einstellungen</translation>
-    </message>
-    <message>
-        <source>Startpage</source>
-        <translation>Startseite</translation>
-    </message>
-    <message>
-        <source>Show popular feed</source>
-        <translation>Zeige Feed mit angesagten posts</translation>
-    </message>
-    <message>
-        <source>Customize the column and row count of the feed previews on the startpage:</source>
-        <translation>Verändere the Spalten und Reihen Anzahl der Feed Vorschau der Startseite:</translation>
-    </message>
-    <message>
-        <source>Columns</source>
-        <translation>Spalten</translation>
-    </message>
-    <message>
-        <source>Rows</source>
-        <translation>Reihen</translation>
-    </message>
-    <message>
-        <source>Shows %1 items per feed preview.</source>
-        <translation>Zeigt %1 Posts pro Feed Vorschau.</translation>
-    </message>
-    <message>
-        <source>Feeds</source>
-        <translation>Feeds</translation>
-    </message>
-    <message>
-        <source>Show user and date</source>
-        <translation>Zeige User und Datum</translation>
-    </message>
-    <message>
-        <source>Show user and date inline</source>
-        <translation>Zeige User und Datum am Bildrand</translation>
-    </message>
-    <message>
-        <source>Show captions</source>
-        <translation>Zeige Bildunterschriften</translation>
-    </message>
-    <message>
-        <source>Logout</source>
-        <translation>Ausloggen</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <translation type="unfinished">Über</translation>
-    </message>
-</context>
-<context>
-    <name>StartPage</name>
-    <message>
-        <source>Settings</source>
-        <translation>Einstellungen</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Suche</translation>
-    </message>
-    <message>
-        <source>Refresh</source>
-        <translation>Aktualisieren</translation>
-    </message>
-    <message>
-        <source>Send photo from phone</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>StreamPreviewBlock</name>
     <message>
         <source>Refresh</source>
@@ -340,10 +262,6 @@
     <message>
         <source>Follow %1</source>
         <translation>%1 folgen</translation>
-    </message>
-    <message>
-        <source>Notifications</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

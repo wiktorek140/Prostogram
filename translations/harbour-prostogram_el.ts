@@ -36,10 +36,6 @@
         <translation>Αναφορά προβλημάτων</translation>
     </message>
     <message>
-        <source>donating = loving</source>
-        <translation>δωρεά = αγάπη</translation>
-    </message>
-    <message>
         <source>Paypal USD</source>
         <translation>Paypal USD</translation>
     </message>
@@ -190,80 +186,6 @@
     </message>
 </context>
 <context>
-    <name>SettingsPage</name>
-    <message>
-        <source>Settings</source>
-        <translation>Ρυθμίσεις</translation>
-    </message>
-    <message>
-        <source>Startpage</source>
-        <translation>Αρχική</translation>
-    </message>
-    <message>
-        <source>Show popular feed</source>
-        <translation>Προβολή δημοφιλούς τροφοδοσίας</translation>
-    </message>
-    <message>
-        <source>Customize the column and row count of the feed previews on the startpage:</source>
-        <translation>Ρύθμιση αριθμού στηλών και γραμμών στην προεπισκόπηση της αρχικής σελίδας:</translation>
-    </message>
-    <message>
-        <source>Columns</source>
-        <translation>Στήλες</translation>
-    </message>
-    <message>
-        <source>Rows</source>
-        <translation>Γραμμές</translation>
-    </message>
-    <message>
-        <source>Shows %1 items per feed preview.</source>
-        <translation>Δείχνει %1 αντικείμενα ανά προεπισκόπηση τροφοδοσίας</translation>
-    </message>
-    <message>
-        <source>Feeds</source>
-        <translation>Τροφοδοσίες</translation>
-    </message>
-    <message>
-        <source>Show user and date</source>
-        <translation>Εμφάνιση χρήστη και ημερομηνίας</translation>
-    </message>
-    <message>
-        <source>Show user and date inline</source>
-        <translation>Εμφάνιση χρήστη και ημερομηνίας σε μια γραμμή</translation>
-    </message>
-    <message>
-        <source>Show captions</source>
-        <translation>Προβολή λεζάντας</translation>
-    </message>
-    <message>
-        <source>Logout</source>
-        <translation>Αποσύνδεση</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <translation type="unfinished">Περί</translation>
-    </message>
-</context>
-<context>
-    <name>StartPage</name>
-    <message>
-        <source>Settings</source>
-        <translation>Ρυθμίσεις</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Αναζήτηση</translation>
-    </message>
-    <message>
-        <source>Refresh</source>
-        <translation>Ανανέωση</translation>
-    </message>
-    <message>
-        <source>Send photo from phone</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>StreamPreviewBlock</name>
     <message>
         <source>Refresh</source>
@@ -340,10 +262,6 @@
     <message>
         <source>Follow %1</source>
         <translation>Ακολουθήστε το χρήστη %1</translation>
-    </message>
-    <message>
-        <source>Notifications</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

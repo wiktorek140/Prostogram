@@ -36,10 +36,6 @@
         <translation>Informeu sobre errors</translation>
     </message>
     <message>
-        <source>donating = loving</source>
-        <translation>Fer una donació = mostrar estimació</translation>
-    </message>
-    <message>
         <source>Paypal USD</source>
         <translation>Paypal USD</translation>
     </message>
@@ -190,80 +186,6 @@
     </message>
 </context>
 <context>
-    <name>SettingsPage</name>
-    <message>
-        <source>Settings</source>
-        <translation>Configuració</translation>
-    </message>
-    <message>
-        <source>Startpage</source>
-        <translation>Pàgina d&apos;inici</translation>
-    </message>
-    <message>
-        <source>Show popular feed</source>
-        <translation>Mostra canals populars</translation>
-    </message>
-    <message>
-        <source>Customize the column and row count of the feed previews on the startpage:</source>
-        <translation>Personalitza el número de files i columnes de les previsualitzacions de canals de la pàgina d&apos;inici:</translation>
-    </message>
-    <message>
-        <source>Columns</source>
-        <translation>Columnes</translation>
-    </message>
-    <message>
-        <source>Rows</source>
-        <translation>Files</translation>
-    </message>
-    <message>
-        <source>Shows %1 items per feed preview.</source>
-        <translation>Mostra %1 elements per cada previsualització de canal.</translation>
-    </message>
-    <message>
-        <source>Feeds</source>
-        <translation>Canals</translation>
-    </message>
-    <message>
-        <source>Show user and date</source>
-        <translation>Mostra l&apos;usuari i la data</translation>
-    </message>
-    <message>
-        <source>Show user and date inline</source>
-        <translation>Mostra l&apos;usuari i la data de connexió</translation>
-    </message>
-    <message>
-        <source>Show captions</source>
-        <translation>Mostra els títols</translation>
-    </message>
-    <message>
-        <source>Logout</source>
-        <translation>Tanca la sessió</translation>
-    </message>
-    <message>
-        <source>About</source>
-        <translation type="unfinished">Quant a</translation>
-    </message>
-</context>
-<context>
-    <name>StartPage</name>
-    <message>
-        <source>Settings</source>
-        <translation>Configuració</translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation>Cerca</translation>
-    </message>
-    <message>
-        <source>Refresh</source>
-        <translation>Refresca</translation>
-    </message>
-    <message>
-        <source>Send photo from phone</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>StreamPreviewBlock</name>
     <message>
         <source>Refresh</source>
@@ -340,10 +262,6 @@
     <message>
         <source>Follow %1</source>
         <translation>Seguiu %1</translation>
-    </message>
-    <message>
-        <source>Notifications</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
