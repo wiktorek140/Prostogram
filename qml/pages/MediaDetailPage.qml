@@ -181,64 +181,7 @@ Page {
                 id: commentsRepeater
                 model: commentsModel
                 width: parent.width
-
-                Item {
-                    height: labelUser.height+labelComment.height
-                    width: parent.width
-
-                    Rectangle {
-                        anchors.fill: parent
-                        color: Theme.highlightColor
-                        opacity: mousearea.pressed ? 0.3 : 0
-                    }
-
-                    Component.onCompleted: {
-                        labelComment.text = Helper.formatString(text);
-                    }
-
-                    Label {
-                        id: labelUser
-                        text: user.username + " - " + Qt.formatDateTime(
-                                  new Date(parseInt(created_at) * 1000),
-                                  "dd.MM.yy hh:mm")
-                        anchors.left: parent.left
-                        anchors.leftMargin: Theme.paddingMedium
-                        anchors.right: parent.right
-                        anchors.rightMargin: Theme.paddingMedium
-
-                        wrapMode: Text.Wrap
-                        truncationMode: TruncationMode.Fade
-                        font.pixelSize: Theme.fontSizeTiny
-                        color: Theme.secondaryHighlightColor
-                    }
-                    Label {
-                        id: labelComment
-                        anchors.left: parent.left
-                        anchors.leftMargin: Theme.paddingMedium
-                        anchors.right: parent.right
-                        anchors.rightMargin: Theme.paddingMedium
-                        anchors.top: labelUser.bottom
-                        wrapMode: Text.Wrap
-                        font.pixelSize: Theme.fontSizeSmall
-                        color: Theme.highlightColor
-
-                        linkColor: Theme.highlightColor
-
-                        onLinkActivated: {
-                            linkClick(link);
-                        }
-                    }
-
-                    MouseArea {
-                        id: mousearea
-                        anchors.fill: parent
-                        onClicked: {
-                            if(playVideo)
-                                video.stop();
-                            pageStack.push(Qt.resolvedUrl("../pages/UserProfilPage.qml"),{user:getCommentByIndex(index).from});
-                        }
-                    }
-                }
+                delegate: CommentItem{item: modelData}
             }
         }
 
@@ -266,24 +209,6 @@ Page {
                     followMenu.visible = true
                 }
             }
-
-            MenuItem {
-                id: unLikeMenu
-                text: qsTr("Remove my like")
-                visible: item.has_liked
-                onClicked: {
-                    instagram.unLike(item.id);
-                }
-            }
-
-            MenuItem {
-                id: likeMenu
-                text: qsTr("Like")
-                visible: !item.has_liked
-                onClicked: {
-                     instagram.like(item.id);
-                }
-            }
         }
     }
 
@@ -304,12 +229,6 @@ Page {
     }
 
     Component.onCompleted: {
-        var coverdata = {}
-        coverdata.image = item.image_versions2.candidates[item.image_versions2.candidates.length-1].url
-        coverdata.username = item.user.username;
-
-        setCover(CoverMode.SHOW_IMAGE,coverdata)
-
         userLikedThis = item.has_liked;
         refreshCallback = null
         instagram.getMediaComments(item.id);

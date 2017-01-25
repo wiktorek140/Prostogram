@@ -14,7 +14,9 @@ Item {
     property bool errorOccurred : false
     property string tag
     property var streamData
-    property var nextId;
+    property var nextId : false;
+
+    property var recentMediaModel: [];
 
     Label{
         id: refreshLabel
@@ -28,6 +30,7 @@ Item {
         color: Theme.secondaryHighlightColor
         font.pixelSize: Theme.fontSizeMedium
         visible: false;
+        opacity: 0
     }
 
     ListView {
@@ -55,17 +58,26 @@ Item {
             if(grid.contentY < -10)
             {
                 refreshLabel.visible = true
+                refreshLabel.opacity = Math.abs(grid.contentY-10)/100
             }
 
             if(grid.contentY >= -10)
             {
                 refreshLabel.visible = false
             }
-
-            if(grid.contentY < -150)
+            if(grid.contentY < -110)
             {
                 refreshLabel.visible = false
                 refresh();
+            }
+
+            if((grid.contentY+grid.height)>Math.max(grid.contentHeight, grid.height))
+            {
+                if(nextId && recentMediaLoaded)
+                {
+                    recentMediaLoaded = false;
+                    instagram.getTimeLine(nextId)
+                }
             }
         }
     }
@@ -79,53 +91,27 @@ Item {
         visible: errorOccurred
     }
 
-    property var recentMediaModel: [];
-
-
-    function loadStreamPreviewDataFinished(data) {
-        streamData = data;
-        if(data ===null || data === undefined || data.items.length === 0)
-        {
-            recentMediaLoaded=true;
-            errorOccurred=true
-            return;
-        }
-        errorOccurred = false
-
-        for(var i=0; i<data.items.length; i++) {
-/*
-TYPE 1 - IMAGE
-TYPE 2 - VIDEO
-TYPE 3 - FRIEND
-*/
-            if(data.items[i].media_type == 1 || data.items[i].media_type == 2)
-            {
-                recentMediaModel.push(data.items[i]);
-                recentMediaModelChanged()
-            }
-        }
-        recentMediaLoaded=true;
-        nextId = data.items.length;
-    }
-
     function refresh()
     {
+        streamPreviewBlock.nextId = false;
+
         recentMediaLoaded = false;
-        recentMediaModel = [];
-        recentMediaModelChanged()
         instagram.getTimeLine();
     }
 
     Component.onCompleted: {
         if(recentMediaModel.length === 0)
         {
-            refresh();
+            recentMediaLoaded = false;
+            instagram.getTimeLine();
         }
     }
 
     Connections{
         target: instagram
         onTimeLineDataReady: {
+            console.log(streamPreviewBlock.nextId)
+
             var data = JSON.parse(answer);
 
             if(recentMediaModel.length == 0)
@@ -136,7 +122,35 @@ TYPE 3 - FRIEND
 
                 setCover(CoverMode.SHOW_IMAGE,coverdata)
             }
-            loadStreamPreviewDataFinished(data);
+
+            if(!streamPreviewBlock.nextId)
+            {
+                recentMediaModel = [];
+            }
+
+            if(data ===null || data === undefined || data.items.length === 0)
+            {
+                recentMediaLoaded=true;
+                errorOccurred=true
+                return;
+            }
+            errorOccurred = false
+
+            for(var i=0; i<data.items.length; i++) {
+    /*
+    TYPE 1 - IMAGE
+    TYPE 2 - VIDEO
+    TYPE 3 - FRIEND
+    */
+                if(data.items[i].media_type == 1 || data.items[i].media_type == 2)
+                {
+                    recentMediaModel.push(data.items[i]);
+                }
+            }
+            recentMediaModelChanged()
+
+            recentMediaLoaded=true;
+            streamPreviewBlock.nextId = data.next_max_id;
         }
     }
 }

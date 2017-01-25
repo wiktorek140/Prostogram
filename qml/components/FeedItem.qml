@@ -152,7 +152,7 @@ Item {
                          ? Theme.highlightColor
                          : Theme.primaryColor)
             onClicked: {
-                console.log("COMMENT")
+                goToMedia();
             }
         }
     }
@@ -205,18 +205,34 @@ Item {
         }
     }
 
+    Column{
+        id: commentsRectangle
+
+        width: parent.width
+        spacing: Theme.paddingMedium
+
+        anchors{
+            top: description.bottom
+        }
+
+        Repeater{
+            id: commentsPreview
+            model: item.preview_comments
+            delegate: CommentItem{item: modelData}
+        }
+    }
+
+
     function linkClick(link)
     {
         var result = link.split("://");
         if(result[0] === "user")
         {
-            console.log("Load user "+result[1])
             instagram.searchUsername(result[1]);
         }
 
         if(result[0] === "tag")
         {
-            console.log("Load tag "+result[1])
             pageStack.push(Qt.resolvedUrl("../pages/MediaStreamPage.qml"),{tag: result[1], mode:  MediaStreamMode.TAG_MODE, streamTitle: 'Tagged with ' + "#"+result[1] });
         }
     }
