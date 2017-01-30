@@ -210,8 +210,6 @@ Page {
             }
             instagram.getUsernameInfo(instagram.getUsernameId());
             instagram.getRecentActivity();
-
-
         }
     }
 

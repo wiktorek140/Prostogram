@@ -7,6 +7,7 @@ Page {
     id: editPhotoPage
 
     property string image_url
+    property bool squared
 
     SilicaFlickable {
         anchors.fill: parent

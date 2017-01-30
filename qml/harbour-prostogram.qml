@@ -26,6 +26,7 @@ ApplicationWindow {
 
     signal coverRefreshButtonPress();
 
+    allowedOrientations: Orientation.Portrait
 
     initialPage: getInitialPage()
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
