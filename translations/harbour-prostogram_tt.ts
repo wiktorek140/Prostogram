@@ -193,7 +193,7 @@
     </message>
     <message>
         <source>Load more</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Күбрәк йөкләү</translation>
     </message>
 </context>
 <context>
