@@ -70,7 +70,7 @@ Rectangle {
         Rectangle{
             id: likesCount
             color: "red"
-            width: likeCount.width*1.5
+            width: parent.width/2
             height: parent.width/2
 
             radius: parent.width/2
