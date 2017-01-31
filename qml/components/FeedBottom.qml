@@ -105,7 +105,7 @@ Rectangle {
 
         onClicked: pageStack.push(Qt.resolvedUrl(
                                       "../pages/UserProfilPage.qml"), {
-                                      user: user
+                                      user: app.user
                                   })
     }
 }
