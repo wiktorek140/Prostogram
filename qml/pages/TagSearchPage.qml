@@ -4,6 +4,8 @@ import QtQuick.LocalStorage 2.0
 import "../Api.js" as API
 import "../MediaStreamMode.js" as MediaStreamMode
 
+import "../components"
+
 Page {
 
     allowedOrientations:  Orientation.All
@@ -31,6 +33,10 @@ Page {
             width: parent.width
 
             onTextChanged: {
+                if(searchField.text == "")
+                {
+                    list.model = [];
+                }
                 timerSearchTags.restart();
             }
         }
@@ -38,76 +44,50 @@ Page {
 
 
 
-    SilicaListView {
-        id: list
-        anchors.top: searchField.bottom
-        anchors.bottom: parent.bottom
-        anchors.right: parent.right
-        anchors.left: parent.left
-        visible: dataLoaded
-        model: tagsModel
-        clip: true
+        SilicaListView {
+            id: list
+            anchors.top: searchField.bottom
+            anchors.bottom: parent.bottom
+            anchors.right: parent.right
+            anchors.left: parent.left
+            visible: dataLoaded
 
-        delegate: BackgroundItem {
+            clip: true
 
-            id: delegate
+            delegate: FeedItem {item: modelData}
 
-            Label {
-                text: name + " (" + media_count + "x)"
-                anchors.left: parent.left
-                anchors.leftMargin: Theme.paddingMedium
-                anchors.right: parent.right
-                anchors.rightMargin: Theme.paddingMedium
-                wrapMode: Text.Wrap
-                textFormat: Text.RichText
-                font.pixelSize: Theme.fontSizeMedium
+            VerticalScrollDecorator { }
 
-            }
-
-            onClicked: {
-                pageStack.replace(Qt.resolvedUrl("MediaStreamPage.qml"),{mode : MediaStreamMode.TAG_MODE, tag:name , streamTitle: 'Tagged with ' + name })
-            }
-       }
-
-        ListModel {
-            id: tagsModel
         }
-
-
-        VerticalScrollDecorator { }
-
     }
-    }
+
     BusyIndicator {
         anchors.centerIn: parent
         running: dataLoaded == false && searchField.text.trim() !== ""
         size: BusyIndicatorSize.Large
     }
 
-    function searchTagsData(searchTerm) {
-        if(searchTerm.trim() === "")
-            return;
-
-        API.get_Tags(searchTerm, tagsDataSearched);
+    function searchTagsData() {
+        instagram.tagFeed(searchField.text);
     }
 
-    function tagsDataSearched(data) {
-        tagsModel.clear();
-        loadingMore = false;
-        for(var i=0; i<data.data.length; i++) {
-            tagsModel.append(data.data[i]);
+    Connections{
+        target: instagram
+        onTagFeedDataReady:{
+            var out  = JSON.parse(answer)
+            list.model = out.ranked_items
+            dataLoaded = true;
         }
-        dataLoaded = true;
-
     }
+
 
     Timer {
-         id: timerSearchTags
-         interval: 600
-         running: false
-         repeat: false
-         onTriggered: searchTagsData(searchField.text)
-     }
+        id: timerSearchTags
+        interval: 600
+        running: false
+        repeat: false
+        onTriggered: searchTagsData()
+    }
 
     Component.onCompleted: {
         refreshCallback = null

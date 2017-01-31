@@ -192,7 +192,7 @@ Page {
                             instagram.setPassword(passwordField.text);
                             instagram.login(true);
 
-                            banner.notify(qsTr("Entering..."))
+                            //banner.notify(qsTr("Entering..."))
                         }
                     }
                 }
@@ -211,18 +211,12 @@ Page {
             instagram.getUsernameInfo(instagram.getUsernameId());
             instagram.getRecentActivity();
         }
-    }
 
-    Connections{
-        target: instagram
         onProfileConnectedFail:{
             banner.notify(qsTr("Login fail!"))
             app.cover = Qt.resolvedUrl("AuthPage.qml")
         }
-    }
 
-    Connections{
-        target: instagram
         onUsernameDataReady: {
             var obj = JSON.parse(answer)
             if(obj.user.pk == instagram.getUsernameId())
