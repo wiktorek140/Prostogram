@@ -62,6 +62,7 @@ TRANSLATIONS += translations/harbour-prostogram_ca.ts \
                 translations/harbour-prostogram_ru.ts \
                 translations/harbour-prostogram_sl_SI.ts \
                 translations/harbour-prostogram_sv_SE.ts \
+                translations/harbour-prostogram_tt.ts \
                 translations/harbour-prostogram.ts \
                 translations/harbour-prostogram_zh_CN.ts
 
