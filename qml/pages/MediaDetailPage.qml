@@ -26,10 +26,6 @@ Page {
             title: qsTr("Details")
         }
 
-        ListModel{
-            id: commentsModel
-        }
-
         Column {
 
             anchors.top: header.bottom
@@ -179,7 +175,6 @@ Page {
 
             Repeater {
                 id: commentsRepeater
-                model: commentsModel
                 width: parent.width
                 delegate: CommentItem{item: modelData}
             }
@@ -275,9 +270,7 @@ Page {
         target: instagram
         onMediaCommentsDataReady:{
             var out = JSON.parse(answer)
-            out.comments.forEach(function(comment){
-                commentsModel.append(comment)
-            })
+            commentsRepeater.model = out.comments
         }
     }
 
