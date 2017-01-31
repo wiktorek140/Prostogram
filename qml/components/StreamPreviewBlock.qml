@@ -16,35 +16,13 @@ Item {
     property bool errorOccurred : false
     property string tag
     property var streamData
-    property var nextId : false;
+    property var nextId : "";
 
-    property var recentMediaModel: [];
-
-    PullDownMenu{
-        id: topMenu;
-        MenuItem {
-            id: refreshMenu
-            text: qsTr("Refresh")
-            visible: true
-            onClicked: {
-                refresh();
-            }
-        }
+    ListModel{
+        id: recentMediaModel;
     }
 
-    PushUpMenu{
-        id: bottomMenu
-        MenuItem {
-            id: moreMenu
-            text: qsTr("Load more")
-            visible: (nextId && recentMediaLoaded)
-            onClicked: {
-                instagram.getTimeLine(nextId)
-            }
-        }
-    }
-
-    ListView {
+    SilicaListView {
         id: grid
         anchors.left: parent.left
         anchors.right: parent.right
@@ -56,12 +34,39 @@ Item {
 
         model: recentMediaModel
 
+        PullDownMenu{
+            id: topMenu;
+            quickSelect: true
+            MenuItem {
+                id: refreshMenu
+                text: qsTr("Refresh")
+                visible: true
+                onClicked: {
+                    refresh();
+                }
+            }
+        }
+
+        PushUpMenu{
+            id: bottomMenu
+            visible: (nextId != "")
+            quickSelect: true
+
+            MenuItem {
+                id: moreMenu
+                text: qsTr("Load more")
+                onClicked: {
+                    instagram.getTimeLine(nextId)
+                }
+            }
+        }
+
         delegate: Item {
             width: parent.width
             height: childrenRect.height
 
             FeedItem{
-                item: modelData
+                item: model
             }
         }
     }
@@ -77,14 +82,14 @@ Item {
 
     function refresh()
     {
-        streamPreviewBlock.nextId = false;
+        streamPreviewBlock.nextId = "";
 
         recentMediaLoaded = false;
         instagram.getTimeLine();
     }
 
     Component.onCompleted: {
-        if(recentMediaModel.length === 0)
+        if(recentMediaModel.count === 0)
         {
             recentMediaLoaded = false;
             instagram.getTimeLine();
@@ -95,7 +100,7 @@ Item {
         target: instagram
         onTimeLineDataReady: {
             var data = JSON.parse(answer)
-            if(recentMediaModel.length == 0)
+            if(recentMediaModel.count == 0)
             {
                 var coverdata = {}
                 coverdata.image = data.items[0].image_versions2.candidates[data.items[0].image_versions2.candidates.length-1].url
@@ -104,9 +109,9 @@ Item {
                 setCover(CoverMode.SHOW_IMAGE,coverdata)
             }
 
-            if(!streamPreviewBlock.nextId)
+            if(streamPreviewBlock.nextId == "")
             {
-                recentMediaModel = [];
+                recentMediaModel.clear()
             }
 
             if(data ===null || data === undefined || data.items.length === 0)
@@ -125,10 +130,11 @@ Item {
     */
                 if(data.items[i].media_type == 1 || data.items[i].media_type == 2)
                 {
-                    recentMediaModel.push(data.items[i]);
+                    recentMediaModel.append(data.items[i]);
                 }
             }
-            recentMediaModelChanged()
+
+            //recentMediaModelChanged()
 
             recentMediaLoaded=true;
             streamPreviewBlock.nextId = data.next_max_id;

@@ -218,7 +218,7 @@ Item {
         Repeater{
             id: commentsPreview
             model: item.preview_comments
-            delegate: CommentItem{item: modelData}
+            delegate: CommentItem{item: model}
         }
     }
 

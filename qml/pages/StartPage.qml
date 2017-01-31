@@ -67,13 +67,11 @@ Page {
         height: parent.height-header.height-bottom.height
         width: parent.width
 
-        //contentHeight: column.height
         contentWidth: parent.width
 
 
         StreamPreviewBlock {
             id: myFeedBlock
-
             anchors.fill: parent
         }
     }
