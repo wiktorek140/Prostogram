@@ -5,8 +5,7 @@ Rectangle {
     id: feedHeader
     width: parent.width
     height: childrenRect.height
-    color: Theme.highlightBackgroundColor
-
+    color: Theme.highlightDimmerColor
     IconButton {
         id: setPhotoIcon
         anchors{
