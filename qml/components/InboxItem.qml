@@ -19,6 +19,11 @@ Rectangle{
         id: conversationUser
         text: item.users.get(0).full_name ? item.users.get(0).full_name : item.users.get(0).username
 
+        width: parent.width-conversationCover.width-Theme.paddingSmall*2
+        wrapMode: Text.WordWrap
+
+        maximumLineCount: 1
+
         anchors{
             top: conversationCover.top
             left: conversationCover.right
@@ -33,6 +38,10 @@ Rectangle{
         id: conversationLastItem
         text: (item.items.get(0).item_type == "text") ? item.items.get(0).text : (item.items.get(0).user_id == instagram.getUsernameId()) ? qsTr("You send message") : qsTr("You get message")
 
+        width: parent.width-conversationCover.width-Theme.paddingSmall*2
+        height: parent.height-conversationUser.height-Theme.paddingSmall*2
+
+        wrapMode: Text.WordWrap
         anchors{
             top: conversationUser.bottom
             topMargin: Theme.paddingSmall
