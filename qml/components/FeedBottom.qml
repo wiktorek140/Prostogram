@@ -18,6 +18,10 @@ Rectangle {
         icon.source: "image://theme/icon-m-mail?" + (pressed
                      ? Theme.highlightColor
                      : Theme.primaryColor)
+        onClicked: {
+            onClicked: pageStack.push(Qt.resolvedUrl(
+                                          "../pages/InboxPage.qml"))
+        }
     }
 
     IconButton{

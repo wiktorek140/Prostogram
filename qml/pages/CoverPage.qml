@@ -191,7 +191,7 @@ Page {
                             instagram.setUsername(loginField.text);
                             instagram.setPassword(passwordField.text);
                             instagram.login(true);
-
+                            //instagram.getInbox();
                             //banner.notify(qsTr("Entering..."))
                         }
                     }
