@@ -100,6 +100,24 @@
     </message>
 </context>
 <context>
+    <name>InboxItem</name>
+    <message>
+        <source>You send message</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>You get message</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>InboxPage</name>
+    <message>
+        <source>Inbox</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>LikesPage</name>
     <message>
         <source>Likes</source>
