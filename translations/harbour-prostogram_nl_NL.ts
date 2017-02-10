@@ -41,48 +41,48 @@
     </message>
     <message>
         <source>Version: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Versie %1</translation>
     </message>
 </context>
 <context>
     <name>CameraPage</name>
     <message>
         <source>Set photo</source>
-        <translation type="unfinished"></translation>
+        <translation>foto instellen</translation>
     </message>
 </context>
 <context>
     <name>CoverPage</name>
     <message>
         <source>Login</source>
-        <translation type="unfinished"></translation>
+        <translation>Inloggen</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Wachtwoord</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation type="unfinished"></translation>
+        <translation>Aanmelden</translation>
     </message>
     <message>
         <source>Entering...</source>
-        <translation type="unfinished"></translation>
+        <translation>Binnengaan...</translation>
     </message>
     <message>
         <source>Login fail!</source>
-        <translation type="unfinished"></translation>
+        <translation>Inloggen mislukt</translation>
     </message>
     <message>
         <source>Version: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Versie %1</translation>
     </message>
 </context>
 <context>
     <name>EditPhotoPage</name>
     <message>
         <source>Edit photo</source>
-        <translation type="unfinished"></translation>
+        <translation>Bewerk foto</translation>
     </message>
 </context>
 <context>
@@ -96,32 +96,32 @@
     <name>FeedItem</name>
     <message>
         <source>likes</source>
-        <translation type="unfinished">vind-ik-leuks</translation>
+        <translation>vind-ik-leuks</translation>
     </message>
 </context>
 <context>
     <name>InboxItem</name>
     <message>
         <source>You send message</source>
-        <translation type="unfinished"></translation>
+        <translation>U stuurt bericht</translation>
     </message>
     <message>
         <source>You get message</source>
-        <translation type="unfinished"></translation>
+        <translation>U krijgt bericht</translation>
     </message>
 </context>
 <context>
     <name>InboxPage</name>
     <message>
         <source>Inbox</source>
-        <translation type="unfinished"></translation>
+        <translation>Inbbox</translation>
     </message>
 </context>
 <context>
     <name>LikesPage</name>
     <message>
         <source>Likes</source>
-        <translation type="unfinished"></translation>
+        <translation>vind-ik-leuks</translation>
     </message>
 </context>
 <context>
@@ -144,11 +144,11 @@
     </message>
     <message>
         <source>Follow</source>
-        <translation type="unfinished"></translation>
+        <translation>Volgen</translation>
     </message>
     <message>
         <source>Un Follow</source>
-        <translation type="unfinished"></translation>
+        <translation>Niet meer volgen</translation>
     </message>
 </context>
 <context>
@@ -174,7 +174,7 @@
     <name>NotificationPage</name>
     <message>
         <source>Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Meldingen</translation>
     </message>
 </context>
 <context>
@@ -196,22 +196,22 @@
     <name>SendPhotoPage</name>
     <message>
         <source>Send picture</source>
-        <translation type="unfinished"></translation>
+        <translation>Verstuur afbeelding</translation>
     </message>
     <message>
         <source>Send photo</source>
-        <translation type="unfinished"></translation>
+        <translation>Verstuur foto</translation>
     </message>
 </context>
 <context>
     <name>StreamPreviewBlock</name>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished">Verversen</translation>
+        <translation>Verversen</translation>
     </message>
     <message>
         <source>Load more</source>
-        <translation type="unfinished">Meer laden</translation>
+        <translation>Meer laden</translation>
     </message>
 </context>
 <context>
