@@ -77,6 +77,10 @@
         <source>Version: %1</source>
         <translation type="unfinished">Version: %1</translation>
     </message>
+    <message>
+        <source>Login...</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>EditPhotoPage</name>
