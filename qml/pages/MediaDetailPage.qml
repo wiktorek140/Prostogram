@@ -204,6 +204,20 @@ Page {
                     followMenu.visible = true
                 }
             }
+            MenuItem{
+                id: likeMenu
+                text: item.has_liked ? qsTr("Unlike") : qsTr("Like")
+                onClicked: {
+                    if(item.has_liked)
+                    {
+                        instagram.like(item.id)
+                    }
+                    else
+                    {
+                        instagram.unLike(item.id)
+                    }
+                }
+            }
         }
     }
 
@@ -245,8 +259,6 @@ Page {
             if(out.status === "ok")
             {
                 item.has_liked= true;
-                likeMenu.visible = false
-                unLikeMenu.visible = true;
                 likesCommentsCount.text = item.like_count+1 + " " +qsTr("likes") + " - " + item.comment_count + " " + qsTr("comments") + " - " + qsTr("You liked this.")
             }
         }
@@ -259,8 +271,6 @@ Page {
             if(out.status === "ok")
             {
                 item.has_liked= false;
-                likeMenu.visible = true
-                unLikeMenu.visible = false;
                 likesCommentsCount.text = item.like_count-1 + " " +qsTr("likes") + " - " + item.comment_count + " " + qsTr("comments")
             }
         }
