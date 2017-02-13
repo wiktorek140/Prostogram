@@ -47,6 +47,7 @@ Page {
                 for(var i=0; i<out.inbox.threads.length; i++) {
                     inboxModel.append(out.inbox.threads[i]);
                 }
+                console.log(out.inbox.threads.length)
             }
             loadIndicator.visible = false
         }

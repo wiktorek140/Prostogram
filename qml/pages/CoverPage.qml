@@ -191,8 +191,7 @@ Page {
                             instagram.setUsername(loginField.text);
                             instagram.setPassword(passwordField.text);
                             instagram.login(true);
-                            //instagram.getInbox();
-                            //banner.notify(qsTr("Entering..."))
+                            banner.notify(qsTr("Login..."))
                         }
                     }
                 }
@@ -210,6 +209,7 @@ Page {
             }
             instagram.getUsernameInfo(instagram.getUsernameId());
             instagram.getRecentActivity();
+            instagram.getInbox();
         }
 
         onProfileConnectedFail:{
@@ -219,6 +219,7 @@ Page {
 
         onUsernameDataReady: {
             var obj = JSON.parse(answer)
+
             if(obj.user.pk == instagram.getUsernameId())
             {
                 app.user = obj.user
