@@ -103,18 +103,18 @@
     <name>InboxItem</name>
     <message>
         <source>You send message</source>
-        <translation type="unfinished"></translation>
+        <translation>Du skickar meddelande</translation>
     </message>
     <message>
         <source>You get message</source>
-        <translation type="unfinished"></translation>
+        <translation>Du tar emot meddelande</translation>
     </message>
 </context>
 <context>
     <name>InboxPage</name>
     <message>
         <source>Inbox</source>
-        <translation type="unfinished"></translation>
+        <translation>Inkorg</translation>
     </message>
 </context>
 <context>
