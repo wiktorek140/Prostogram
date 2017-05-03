@@ -132,19 +132,19 @@
     <name>MediaDetailPage</name>
     <message>
         <source>Details</source>
-        <translation>Podrobnosti</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>likes</source>
-        <translation>všečki</translation>
+        <translation type="unfinished">všečki</translation>
     </message>
     <message>
         <source>comments</source>
-        <translation>komentarji</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>You liked this.</source>
-        <translation>Všečkali ste</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Follow</source>
@@ -152,6 +152,14 @@
     </message>
     <message>
         <source>Un Follow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlike</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Like</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

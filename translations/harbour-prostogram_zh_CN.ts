@@ -132,19 +132,19 @@
     <name>MediaDetailPage</name>
     <message>
         <source>Details</source>
-        <translation>细节</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>likes</source>
-        <translation>喜欢</translation>
+        <translation type="unfinished">喜欢</translation>
     </message>
     <message>
         <source>comments</source>
-        <translation>评论</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>You liked this.</source>
-        <translation>你已经喜欢过了。</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Follow</source>
@@ -152,6 +152,14 @@
     </message>
     <message>
         <source>Un Follow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlike</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Like</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -132,27 +132,35 @@
     <name>MediaDetailPage</name>
     <message>
         <source>Details</source>
-        <translation>Мәгълүмат</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>likes</source>
-        <translation>Ошый</translation>
+        <translation type="unfinished">ошый</translation>
     </message>
     <message>
         <source>comments</source>
-        <translation>фикер</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>You liked this.</source>
-        <translation>Сез моны ошаттыгыз.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Follow</source>
-        <translation>Дусларга өстәү</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Un Follow</source>
-        <translation>Дуслардан сызу</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlike</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Like</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

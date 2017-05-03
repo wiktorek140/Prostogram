@@ -132,27 +132,35 @@
     <name>MediaDetailPage</name>
     <message>
         <source>Details</source>
-        <translation>Детали</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>likes</source>
-        <translation>понравилось</translation>
+        <translation type="unfinished">понравилось</translation>
     </message>
     <message>
         <source>comments</source>
-        <translation>комментариев</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>You liked this.</source>
-        <translation>Понравившаяся  публикация.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Follow</source>
-        <translation>Добавить в друзья</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Un Follow</source>
-        <translation>Удалить из друзей</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlike</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Like</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

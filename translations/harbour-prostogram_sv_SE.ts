@@ -132,27 +132,35 @@
     <name>MediaDetailPage</name>
     <message>
         <source>Details</source>
-        <translation>Detaljerat</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>likes</source>
-        <translation>gillanden</translation>
+        <translation type="unfinished">gillanden</translation>
     </message>
     <message>
         <source>comments</source>
-        <translation>kommentarer</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>You liked this.</source>
-        <translation>Du gillar detta.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Follow</source>
-        <translation>Följ</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Un Follow</source>
-        <translation>Följ inte</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlike</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Like</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

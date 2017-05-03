@@ -132,19 +132,19 @@
     <name>MediaDetailPage</name>
     <message>
         <source>Details</source>
-        <translation>Dettagli</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>likes</source>
-        <translation>mi piace</translation>
+        <translation type="unfinished">mi piace</translation>
     </message>
     <message>
         <source>comments</source>
-        <translation>commenti</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>You liked this.</source>
-        <translation>Ti piace.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Follow</source>
@@ -152,6 +152,14 @@
     </message>
     <message>
         <source>Un Follow</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlike</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Like</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

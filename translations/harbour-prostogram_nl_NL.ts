@@ -77,6 +77,10 @@
         <source>Version: %1</source>
         <translation>Versie %1</translation>
     </message>
+    <message>
+        <source>Login...</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>EditPhotoPage</name>
@@ -128,27 +132,35 @@
     <name>MediaDetailPage</name>
     <message>
         <source>Details</source>
-        <translation>Details</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>likes</source>
-        <translation>vind-ik-leuks</translation>
+        <translation type="unfinished">vind-ik-leuks</translation>
     </message>
     <message>
         <source>comments</source>
-        <translation>reacties</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>You liked this.</source>
-        <translation>U vindt dit leuk.</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Follow</source>
-        <translation>Volgen</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Un Follow</source>
-        <translation>Niet meer volgen</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Unlike</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Like</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
