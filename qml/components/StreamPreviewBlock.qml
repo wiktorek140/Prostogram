@@ -100,14 +100,6 @@ Item {
         target: instagram
         onTimeLineDataReady: {
             var data = JSON.parse(answer)
-            if(recentMediaModel.count == 0)
-            {
-                var coverdata = {}
-                coverdata.image = data.items[0].image_versions2.candidates[data.items[0].image_versions2.candidates.length-1].url
-                coverdata.username = data.items[0].user.username;
-
-                setCover(CoverMode.SHOW_IMAGE,coverdata)
-            }
 
             if(streamPreviewBlock.nextId == "")
             {
@@ -127,11 +119,28 @@ Item {
     TYPE 1 - IMAGE
     TYPE 2 - VIDEO
     TYPE 3 - FRIEND
+
+    TYPE 8 - CARUSEL
     */
                 if(data.items[i].media_type == 1 || data.items[i].media_type == 2)
                 {
+//Don`t add carusel to cover
+                    if(recentMediaModel.count == 0)
+                    {
+                        var coverdata = {}
+                        coverdata.image = data.items[i].image_versions2.candidates[data.items[i].image_versions2.candidates.length-1].url
+                        coverdata.username = data.items[i].user.username;
+
+                        setCover(CoverMode.SHOW_IMAGE,coverdata)
+                    }
+
                     recentMediaModel.append(data.items[i]);
                 }
+                else if(data.items[i].media_type == 8)
+                {
+                    recentMediaModel.append(data.items[i]);
+                }
+
             }
 
             //recentMediaModelChanged()

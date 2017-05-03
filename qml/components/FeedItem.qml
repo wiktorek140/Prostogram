@@ -6,6 +6,7 @@ import QtMultimedia 5.0
 import "../Helper.js" as Helper
 
 Item {
+    id: feedItem
     property var item
     property bool playVideo : false
 
@@ -21,6 +22,7 @@ Item {
 
     Rectangle {
         id: image
+        width: parent.width
         anchors{
             left: parent.left
             right: parent.right
@@ -28,47 +30,42 @@ Item {
             topMargin: header.height*0.1
         }
 
-        height: parent.width/item.image_versions2.candidates[0].width*item.image_versions2.candidates[0].height
         color: "transparent"
 
-        Image {
-            id: mainImage
+        MainItemLoader{
+            id: mainLoader
             anchors.fill: parent
-            source: item.image_versions2.candidates[0].url
+            width: parent.width
 
-            Image {
-                id: likeImage
-                width: (parent.width > parent.height) ? parent.height*0.7 : parent.width*0.7
-                height: width
+            clip: true
+        }
 
-                sourceSize.height: height
-                sourceSize.width: height
 
-                opacity: 0
+        Image {
+            id: likeImage
+            width: (parent.width > parent.height) ? parent.height*0.4 : parent.width*0.4
+            height: width
 
-                source: "../images/heart.svg"
+            sourceSize.height: height
+            sourceSize.width: height
 
-                anchors{
-                    verticalCenter: parent.verticalCenter
-                    horizontalCenter: parent.horizontalCenter
-                }
+            opacity: 0
 
-                SequentialAnimation {
-                    id: doLikeAnimation
-                    NumberAnimation { target: likeImage; property: "opacity"; to: 1; from: 0; duration: 300 }
-                    NumberAnimation { target: likeImage; property: "opacity"; to: 0; from: 1; duration: 700 }
-                }
+            source: "../images/heart.svg"
+
+            anchors.centerIn: mainLoader
+
+            SequentialAnimation {
+                id: doLikeAnimation
+                NumberAnimation { target: likeImage; property: "opacity"; to: 1; from: 0; duration: 300 }
+                NumberAnimation { target: likeImage; property: "opacity"; to: 0; from: 1; duration: 700 }
             }
         }
 
-        Image {
-           anchors.centerIn: parent
-           source:  "image://theme/icon-cover-play"
-           visible: item.media_type == 2 && !playVideo
-        }
-
         MouseArea{
-            anchors.fill: parent
+            anchors.centerIn: parent
+            width: parent.width*0.5
+            height: parent.width*0.5
 
             Timer{
                 id:timer

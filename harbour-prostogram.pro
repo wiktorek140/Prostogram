@@ -31,8 +31,7 @@ OTHER_FILES += qml/harbour-prostogram.qml \
     qml/*.js \
     rpm/harbour-prostogram.spec \
     translations/* \
-    LICENSE \
-    Changelog
+    LICENSE
 
 # to disable building translations every time, comment out the
 # following CONFIG line
@@ -44,7 +43,14 @@ DISTFILES += \
     qml/pages/*.qml \
     qml/images/*.png \
     qml/images/*.jpg \
-    qml/images/*.svg
+    qml/images/*.svg \
+    qml/components/LoaderImage.qml \
+    qml/components/LoaderCarusel.qml \
+    qml/images/carusel.svg \
+    qml/components/MainItemLoader.qml \
+    qml/components/LoaderVideo.qml \
+    qml/images/volume-up.svg \
+    qml/images/volume-off.svg
 
 TRANSLATIONS += translations/harbour-prostogram_ca.ts \
                 translations/harbour-prostogram_cs_CZ.ts \
