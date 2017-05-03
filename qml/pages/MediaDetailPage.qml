@@ -173,6 +173,14 @@ Page {
                     }
                 }
             }
+            MenuItem{
+                id: deleteMenu
+                text: qsTr("Remove")
+                visible: item.user.pk == app.user.pk
+                onClicked: {
+                    instagram.deleteMedia(item.id)
+                }
+            }
         }
     }
 
@@ -217,6 +225,7 @@ Page {
                 likesCommentsCount.text = item.like_count+1 + " " +qsTr("likes") + " - " + item.comment_count + " " + qsTr("comments") + " - " + qsTr("You liked this.")
             }
         }
+
     }
 
     Connections{
@@ -228,6 +237,9 @@ Page {
                 item.has_liked= false;
                 likesCommentsCount.text = item.like_count-1 + " " +qsTr("likes") + " - " + item.comment_count + " " + qsTr("comments")
             }
+        }
+        onMediaDeleted:{
+            pageStack.pop();
         }
     }
 

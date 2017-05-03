@@ -148,5 +148,8 @@ Item {
             recentMediaLoaded=true;
             streamPreviewBlock.nextId = data.next_max_id;
         }
+        onMediaDeleted:{
+            refresh()
+        }
     }
 }
