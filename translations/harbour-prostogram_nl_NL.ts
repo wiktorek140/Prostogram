@@ -162,6 +162,10 @@
         <source>Like</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished">Verwijderen</translation>
+    </message>
 </context>
 <context>
     <name>MediaStreamPage</name>

@@ -1,15 +1,9 @@
 import QtQuick 2.0
 
 Rectangle {
-    id: image
+    id: images
 
     property var item
-
-    width: parent.width
-    anchors{
-        left: parent.left
-        right: parent.right
-    }
 
     color: "transparent"
 

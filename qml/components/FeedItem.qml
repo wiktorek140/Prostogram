@@ -5,41 +5,25 @@ import QtMultimedia 5.0
 
 import "../Helper.js" as Helper
 
-Item {
+Column {
     id: feedItem
     property var item
     property bool playVideo : false
 
     width: parent.width
-    height: childrenRect.height
-
 
     UserInfoBlock{
         id: header
         height: actions.height*1.1
     }
 
+    /**/
 
-    Rectangle {
-        id: image
+
+    MainItemLoader{
+        id: mainLoader
         width: parent.width
-        anchors{
-            left: parent.left
-            right: parent.right
-            top: header.bottom
-            topMargin: header.height*0.1
-        }
-
-        color: "transparent"
-
-        MainItemLoader{
-            id: mainLoader
-            anchors.fill: parent
-            width: parent.width
-
-            clip: true
-        }
-
+        clip: true
 
         Image {
             id: likeImage
@@ -53,7 +37,7 @@ Item {
 
             source: "../images/heart.svg"
 
-            anchors.centerIn: mainLoader
+            anchors.centerIn: parent
 
             SequentialAnimation {
                 id: doLikeAnimation
@@ -97,13 +81,13 @@ Item {
         }
 
     }
+    /**/
 
     Rectangle{
         id: actions
         anchors{
             left: parent.left
             right: parent.right
-            top: image.bottom
         }
 
         width: parent.width
@@ -146,8 +130,8 @@ Item {
             }
 
             icon.source: "image://theme/icon-m-bubble-universal?" + (pressed
-                         ? Theme.highlightColor
-                         : Theme.primaryColor)
+                                                                     ? Theme.highlightColor
+                                                                     : Theme.primaryColor)
             onClicked: {
                 goToMedia();
             }
@@ -157,15 +141,7 @@ Item {
     Label{
         id: likeCount
 
-        anchors{
-            top: actions.bottom
-            topMargin: Theme.paddingMedium
-            left: parent.left
-            leftMargin: Theme.paddingMedium
-            right: parent.right
-            rightMargin: Theme.paddingMedium
-            bottomMargin: Theme.paddingMedium
-        }
+        width: parent.width
 
         text:item.like_count+" "+qsTr("likes");
         font.bold: true
@@ -175,16 +151,10 @@ Item {
     Label {
         id: description
         visible: text!==""
+
+        width: parent.width
+
         text: item.caption ? Helper.formatString(item.caption.text) : ""
-        anchors{
-            top: likeCount.bottom
-            topMargin: Theme.paddingMedium
-            left: parent.left
-            leftMargin: Theme.paddingMedium
-            right: parent.right
-            rightMargin: Theme.paddingMedium
-            bottomMargin: Theme.paddingMedium
-        }
 
         clip: true;
 
@@ -207,10 +177,6 @@ Item {
 
         width: parent.width
         spacing: Theme.paddingMedium
-
-        anchors{
-            top: description.bottom
-        }
 
         Repeater{
             id: commentsPreview
@@ -250,10 +216,6 @@ Item {
                 likeCount.text = item.like_count+1 + " " +qsTr("likes")
             }
         }
-    }
-
-    Connections{
-        target: instagram
         onUnLikeDataReady:{
             var out = JSON.parse(answer)
             if(out.status == "ok")

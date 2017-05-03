@@ -54,12 +54,7 @@ Page {
                 }
             }
 
-            Rectangle {
-                id: image
-                anchors.left: parent.left
-                anchors.right: parent.right
-                height: parent.width/item.image_versions2.candidates[0].width*item.image_versions2.candidates[0].height
-                color: "transparent"
+
 
                 MainItemLoader{
                     id: mainLoader
@@ -68,7 +63,7 @@ Page {
 
                     clip: true
                 }
-            }
+
 
 
             Label {

@@ -98,7 +98,7 @@ Page {
                         return qsTr("You follow %1").arg(user.username);
                     if(relationStatus.outgoing_request)
                         return qsTr("You requested to follow %1").arg(user.username);
-                        return ""
+                    return ""
                 }
             }
 
@@ -124,7 +124,7 @@ Page {
                         return qsTr("%1 requested to follow you").arg(user.username);
                     if(relationStatus.blocking)
                         return qsTr("You blocked %1").arg(user.username)
-                        return ""
+                    return ""
                 }
             }
 
@@ -224,22 +224,14 @@ Page {
             }
 
 
-            Grid {
-                columns: 3
+            GridView {
+                cellWidth: patent.width/3
                 anchors.left: parent.left
                 anchors.right: parent.right
+                model: recentMediaModel
 
-                Repeater {
-                    visible: recentMediaLoaded
-                    model: recentMediaModel
-                    delegate: Item {
-                        width: recentMediaSize
-                        height: recentMediaSize
-                        SmallMediaElement{
-                            item: model
-                        }
-                    }
-                }
+
+                delegate: SmallMediaElement{}
             }
         }
 
@@ -248,38 +240,38 @@ Page {
             MenuItem {
                 id: followersMenuItem
                 visible: isSelf
-                 text:  qsTr("Followers")
-                 onClicked: {
-                     pageStack.push(Qt.resolvedUrl("UserListPage.qml"),{pageTitle:qsTr("Followers"), mode: UserListMode.FOLLOWER});
-                 }
+                text:  qsTr("Followers")
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl("UserListPage.qml"),{pageTitle:qsTr("Followers"), mode: UserListMode.FOLLOWER});
+                }
             }
 
             MenuItem {
                 id: followingMenuItem
-                 visible: isSelf
-                 text:  qsTr("Following")
-                 onClicked: {
-                     pageStack.push(Qt.resolvedUrl("UserListPage.qml"),{pageTitle:qsTr("Following"), mode: UserListMode.FOLLOWING});
-                 }
-             }
+                visible: isSelf
+                text:  qsTr("Following")
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl("UserListPage.qml"),{pageTitle:qsTr("Following"), mode: UserListMode.FOLLOWING});
+                }
+            }
 
             MenuItem {
                 id: unFollowMenuItem
-                 text:  qsTr("Unfollow %1").arg(user.username)
-                 visible: !relationStatus.following && !isSelf
-                 onClicked: {
-                     instagram.unfollow(user.pk);
-                 }
-             }
+                text:  qsTr("Unfollow %1").arg(user.username)
+                visible: !relationStatus.following && !isSelf
+                onClicked: {
+                    instagram.unfollow(user.pk);
+                }
+            }
 
             MenuItem {
                 id: followMenuItem
-                 text: qsTr("Follow %1").arg(user.username)
-                 visible: !relationStatus.following && !isSelf
-                 onClicked: {
-                     instagram.follow(user.pk);
-                 }
-             }
+                text: qsTr("Follow %1").arg(user.username)
+                visible: !relationStatus.following && !isSelf
+                onClicked: {
+                    instagram.follow(user.pk);
+                }
+            }
         }
     }
 

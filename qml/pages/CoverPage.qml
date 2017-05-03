@@ -214,7 +214,7 @@ Page {
 
         onProfileConnectedFail:{
             banner.notify(qsTr("Login fail!"))
-            app.cover = Qt.resolvedUrl("AuthPage.qml")
+
         }
 
         onUsernameDataReady: {
