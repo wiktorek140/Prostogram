@@ -30,6 +30,7 @@ Rectangle {
         sourceSize.height: height
 
         anchors.centerIn: feedHeader
+        fillMode: Image.PreserveAspectFit
 
         MouseArea{
             anchors.fill: parent
