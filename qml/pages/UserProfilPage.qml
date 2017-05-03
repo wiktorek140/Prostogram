@@ -236,7 +236,7 @@ Page {
                         width: recentMediaSize
                         height: recentMediaSize
                         SmallMediaElement{
-                            mediaElement: model
+                            item: model
                         }
                     }
                 }

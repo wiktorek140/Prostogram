@@ -6,5 +6,7 @@ Image {
     width: parent.width
     height: parent.height
 
+    fillMode: Image.PreserveAspectCrop
+
     source: item.image_versions2.candidates[0].url
 }

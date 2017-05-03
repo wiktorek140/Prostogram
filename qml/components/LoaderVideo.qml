@@ -26,7 +26,8 @@ Rectangle{
         height: visible ? parent.height : 0
         width: parent.width
 
-        autoPlay: true
+        autoPlay: item.autoVideoPlay
+
         muted: true
 
         onPlaybackStateChanged: {

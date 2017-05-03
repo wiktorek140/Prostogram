@@ -103,7 +103,6 @@ ApplicationWindow {
 
 
     Component.onCompleted: {
-        console.log("HELLO");
         init();
     }
 
