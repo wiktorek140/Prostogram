@@ -3,7 +3,6 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtQuick.LocalStorage 2.0
 
-import "../Api.js" as API
 import "../Helper.js" as Helper
 import "../components"
 import "../UserListMode.js" as UserListMode
@@ -80,16 +79,6 @@ Page {
     function getMediaData() {
         dataLoaded = false
         mediaModel.clear()
-
-        if(mode=== UserListMode.FOLLOWER) {
-            API.get_UserFollowers("self", mediaDataFinished)
-        } else if(mode===UserListMode.FOLLOWING) {
-            API.get_UserFollowing("self", mediaDataFinished)
-        }
-    }
-
-    function getNextMediaData() {
-        API.get_Url(nextMediaUrl, mediaDataFinished)
     }
 
     function mediaDataFinished(data) {

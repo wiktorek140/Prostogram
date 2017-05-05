@@ -3,7 +3,6 @@ import Sailfish.Silica 1.0
 import QtQuick.LocalStorage 2.0
 
 import "../Storage.js" as Storage
-import "../Api.js" as API
 
 import "../components/"
 

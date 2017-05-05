@@ -8,7 +8,6 @@ import "pages"
 import "components"
 
 import "Storage.js" as Storage
-import "Api.js" as API
 import "MediaStreamMode.js" as MediaStreamMode
 import "Cover.js" as CoverCtl
 import "FavManager.js" as FavManager
@@ -86,11 +85,6 @@ ApplicationWindow {
 
     function refresh(){
        coverRefreshButtonPress();
-    }
-
-    function setCoverImage(imageString,username) {
-        API.coverImage = imageString
-        API.coverUsername = username
     }
 
     property int streamPreviewColumnCount: 3;

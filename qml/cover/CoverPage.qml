@@ -1,6 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import "../Api.js" as API
+
 import "../Helper.js" as Helper
 import "../CoverMode.js" as CoverMode
 import "../Cover.js" as CoverCtl
