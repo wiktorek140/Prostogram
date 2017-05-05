@@ -38,10 +38,12 @@ Page {
             Label {
                 id: likesCommentsCount
                 text: item.like_count + " " +qsTr("likes") + " - " + item.comment_count + " " + qsTr("comments")  + (item.has_liked? " - " + qsTr("You liked this.") : "")
-                anchors.left: parent.left
-                anchors.leftMargin: Theme.paddingMedium
-                anchors.right: parent.right
-                anchors.rightMargin: Theme.paddingMedium
+                anchors{
+                    left: parent.left
+                    leftMargin: Theme.paddingMedium
+                    right: parent.right
+                    rightMargin: Theme.paddingMedium
+                }
                 wrapMode: Text.Wrap
                 font.pixelSize: Theme.fontSizeTiny
                 color: userLikedThis? Theme.highlightColor : Theme.secondaryHighlightColor
@@ -56,24 +58,22 @@ Page {
 
 
 
-                MainItemLoader{
-                    id: mainLoader
-                    anchors.fill: parent
-                    width: parent.width
-
-                    clip: true
-                }
-
+            MainItemLoader{
+                id: mainLoader
+                width: parent.width
+            }
 
 
             Label {
                 id: description
                 visible: text!==""
                 text: item.caption ? Helper.formatString(item.caption.text) : ""
-                anchors.left: parent.left
-                anchors.leftMargin: Theme.paddingMedium
-                anchors.right: parent.right
-                anchors.rightMargin: Theme.paddingMedium
+                anchors{
+                    left: parent.left
+                    leftMargin: Theme.paddingMedium
+                    right: parent.right
+                    rightMargin: Theme.paddingMedium
+                }
 
                 wrapMode: Text.Wrap
                 font.pixelSize: Theme.fontSizeSmall
