@@ -50,6 +50,7 @@ Page {
     }
 
     SilicaFlickable {
+        id: allView
         anchors.fill: parent
         contentHeight: column.height + header.height + 10
         contentWidth: parent.width
@@ -225,13 +226,45 @@ Page {
 
 
             GridView {
-                cellWidth: patent.width/3
-                anchors.left: parent.left
-                anchors.right: parent.right
+                width: parent.width
+                height: allView.height
+                cellWidth: width/3
+                cellHeight: cellWidth
+
+                clip: true
+
+                anchors{
+                    left: parent.left
+                    right: parent.right
+                }
+
                 model: recentMediaModel
 
+                delegate:Item{
+                    property var item: model
+                    width: parent.width/3
+                    height: width
 
-                delegate: SmallMediaElement{}
+                    MainItemLoader{
+                        id: mainLoader
+                        anchors.fill: parent
+                        width: parent.width
+
+                        clip: true
+
+                        autoVideoPlay: false
+                        isSquared: true
+                    }
+
+                    MouseArea {
+                        id: mousearea
+                        anchors.fill: parent
+                        onClicked: {
+                            pageStack.push(Qt.resolvedUrl("../pages/MediaDetailPage.qml"),{item:item});
+                        }
+                    }
+                }
+
             }
         }
 
