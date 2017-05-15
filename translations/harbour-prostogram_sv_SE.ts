@@ -79,7 +79,7 @@
     </message>
     <message>
         <source>Login...</source>
-        <translation type="unfinished"></translation>
+        <translation>Logga in...</translation>
     </message>
 </context>
 <context>
@@ -132,7 +132,7 @@
     <name>MediaDetailPage</name>
     <message>
         <source>Details</source>
-        <translation type="unfinished"></translation>
+        <translation>Detaljerat</translation>
     </message>
     <message>
         <source>likes</source>
@@ -140,27 +140,27 @@
     </message>
     <message>
         <source>comments</source>
-        <translation type="unfinished"></translation>
+        <translation>kommentarer</translation>
     </message>
     <message>
         <source>You liked this.</source>
-        <translation type="unfinished"></translation>
+        <translation>Du gillade detta</translation>
     </message>
     <message>
         <source>Follow</source>
-        <translation type="unfinished"></translation>
+        <translation>Följ</translation>
     </message>
     <message>
         <source>Un Follow</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluta följa</translation>
     </message>
     <message>
         <source>Unlike</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluta gilla</translation>
     </message>
     <message>
         <source>Like</source>
-        <translation type="unfinished"></translation>
+        <translation>Gilla</translation>
     </message>
     <message>
         <source>Remove</source>
