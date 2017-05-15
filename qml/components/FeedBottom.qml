@@ -53,7 +53,8 @@ Rectangle {
         onClicked: {
             var imagePicker = pageStack.push("Sailfish.Pickers.ImagePickerPage")
             imagePicker.selectedContentChanged.connect(function () {
-                pageStack.push(Qt.resolvedUrl("SendPhotoPage.qml"),{image_url: imagePicker.selectedContent})
+                console.log("IMAGE SELECT:",imagePicker.selectedContent);
+                pageStack.push(Qt.resolvedUrl("../pages/EditPhotoPage.qml"),{image_url: imagePicker.selectedContent})
             })
         }
     }
