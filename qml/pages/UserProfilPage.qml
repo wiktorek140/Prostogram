@@ -305,6 +305,14 @@ Page {
                     instagram.follow(user.pk);
                 }
             }
+            MenuItem {
+                id: logoutItem
+                text: qsTr("Logout")
+                visible: !isSelf
+                onClicked: {
+                    instagram.logout();
+                }
+            }
         }
     }
 
