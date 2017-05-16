@@ -1,28 +1,20 @@
-
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtQuick.LocalStorage 2.0
 
-import "../Helper.js" as Helper
 import "../components"
-import "../UserListMode.js" as UserListMode
-
-
 
 Page {
     id: page
     allowedOrientations:  Orientation.All
-
-
 
     property var nextMediaUrl: null
     property bool dataLoaded: false
     property string pageTitle : ""
     property bool errorOccurred: false
     property var streamData: null
-    property int mode: UserListMode.FOLLOWER
 
-
+    property int userId;
 
     SilicaListView {
         id: listView
@@ -71,33 +63,32 @@ Page {
     }
 
     Component.onCompleted: {
-        getMediaData()
-        refreshCallback = null
-
+        if(page.pageTitle === qsTr("Followers"))
+        {
+            instagram.getUserFollowings(userId)
+        }
+        else
+        {
+            instagram.getUserFollowers(userId)
+        }
     }
 
-    function getMediaData() {
-        dataLoaded = false
-        mediaModel.clear()
+    Connections{
+        target: instagram
+        onUserFollowingsDataReady:{
+            mediaDataFinished(answer)
+        }
+
+        onUserFollowersDataReady:{
+            mediaDataFinished(answer)
+        }
     }
 
-    function mediaDataFinished(data) {
-        if (data === undefined || data.data === undefined) {
-            dataLoaded = true
-            errorOccurred = true
-            return
+    function mediaDataFinished(answer) {
+        var data = JSON.parse(answer)
+        for(var i=0; i<data.users.length; i++) {
+            mediaModel.append(data.users[i]);
         }
-        errorOccurred = false
-
-        for (var i = 0; i < data.data.length; i++) {
-            mediaModel.append(data.data[i])
-        }
-
-        if (data.pagination !== undefined && data.pagination.next_url) {
-            nextMediaUrl = data.pagination.next_url
-        } else {
-            nextMediaUrl = null
-        }
-        dataLoaded = true
+        dataLoaded = true;
     }
 }

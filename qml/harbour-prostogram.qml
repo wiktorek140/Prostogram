@@ -109,7 +109,7 @@ ApplicationWindow {
         onError:{
             console.log("Error: "+message)
         }
-        onLogout:{
+        onDoLogout:{
             pageStack.clear();
             pageStack.push(Qt.resolvedUrl(Qt.resolvedUrl("pages/CoverPage.qml")))
         }

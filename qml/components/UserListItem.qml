@@ -11,12 +11,12 @@ BackgroundItem {
 
     Image {
         id: profilpicture
-        anchors.left: userInfo.left
+        anchors.left: parent.left
 
-        anchors.top: userInfo.top
-        height: userInfo.height
+        anchors.top: parent.top
+        height: parent.height
         width: height
-        source: item.profile_picture
+        source: item.profile_pic_url
     }
 
     Label {

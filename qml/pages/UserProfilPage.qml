@@ -271,11 +271,20 @@ Page {
 
         PullDownMenu {
             MenuItem {
+                id: logoutItem
+                text: qsTr("Logout")
+                visible: isSelf
+                onClicked: {
+                    instagram.logout();
+                }
+            }
+
+            MenuItem {
                 id: followersMenuItem
                 visible: isSelf
                 text:  qsTr("Followers")
                 onClicked: {
-                    pageStack.push(Qt.resolvedUrl("UserListPage.qml"),{pageTitle:qsTr("Followers"), mode: UserListMode.FOLLOWER});
+                    pageStack.push(Qt.resolvedUrl("UserListPage.qml"),{pageTitle:qsTr("Followers"), userId: user.pk});
                 }
             }
 
@@ -284,7 +293,7 @@ Page {
                 visible: isSelf
                 text:  qsTr("Following")
                 onClicked: {
-                    pageStack.push(Qt.resolvedUrl("UserListPage.qml"),{pageTitle:qsTr("Following"), mode: UserListMode.FOLLOWING});
+                    pageStack.push(Qt.resolvedUrl("UserListPage.qml"),{pageTitle:qsTr("Following"), userId: user.pk });
                 }
             }
 
@@ -303,14 +312,6 @@ Page {
                 visible: !relationStatus.following && !isSelf
                 onClicked: {
                     instagram.follow(user.pk);
-                }
-            }
-            MenuItem {
-                id: logoutItem
-                text: qsTr("Logout")
-                visible: !isSelf
-                onClicked: {
-                    instagram.logout();
                 }
             }
         }
