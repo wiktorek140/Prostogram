@@ -307,7 +307,7 @@
     </message>
     <message>
         <source>Logout</source>
-        <translation type="unfinished"></translation>
+        <translation>Logga ut</translation>
     </message>
 </context>
 </TS>
