@@ -1,4 +1,4 @@
-import QtQuick 2.0
+import QtQuick 2.6
 
 import Sailfish.Silica 1.0
 import QtMultimedia 5.0
@@ -11,14 +11,14 @@ Column {
     property bool playVideo : false
 
     width: parent.width
+    height: childrenRect.height+20
 
     UserInfoBlock{
         id: header
         height: actions.height*1.1
     }
 
-    /**/
-
+    spacing: 20
 
     MainItemLoader{
         id: mainLoader
@@ -141,7 +141,11 @@ Column {
     Label{
         id: likeCount
 
-        width: parent.width
+        width: parent.width-40
+        anchors{
+            left: parent.left
+            leftMargin: 20
+        }
 
         text:item.like_count+" "+qsTr("likes");
         font.bold: true
@@ -152,8 +156,11 @@ Column {
         id: description
         visible: text!==""
 
-        width: parent.width
-
+        width: parent.width-40
+        anchors{
+            left: parent.left
+            leftMargin: 20
+        }
         text: item.caption ? Helper.formatString(item.caption.text) : ""
 
         clip: true;
@@ -175,7 +182,7 @@ Column {
     Column{
         id: commentsRectangle
 
-        width: parent.width
+        width: parent.width-40
         spacing: Theme.paddingMedium
 
         Repeater{
