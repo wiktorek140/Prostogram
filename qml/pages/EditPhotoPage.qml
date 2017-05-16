@@ -86,7 +86,7 @@ Page {
 
         onClicked: {
             var out_img = StandardPaths.pictures+"/"+"prostogram_"+Qt.formatDateTime(new Date(),"yyMMdd_hhmmss")+".jpg"
-            instagram.cropImg(image_url,
+            instagram.cropImg(image_url.replace("file://",""),
                               out_img,
                               (mainImage.sourceSize.height/mainImage.height)*imageCrop.y,
                               imageCrop.width===imageCrop.height);
