@@ -213,7 +213,7 @@ Page {
 
         onProfileConnectedFail:{
             banner.notify(qsTr("Login fail!"))
-
+            instagram.logout();
         }
 
         onUsernameDataReady: {
