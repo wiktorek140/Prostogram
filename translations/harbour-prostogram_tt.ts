@@ -258,6 +258,10 @@
         <source>Load more</source>
         <translation>Күбрәк йөкләү</translation>
     </message>
+    <message>
+        <source>Followers</source>
+        <translation type="unfinished">Язылучы</translation>
+    </message>
 </context>
 <context>
     <name>UserProfilPage</name>
@@ -300,6 +304,10 @@
     <message>
         <source>Follow %1</source>
         <translation>%1 дусты булу</translation>
+    </message>
+    <message>
+        <source>Logout</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

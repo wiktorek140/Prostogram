@@ -258,6 +258,10 @@
         <source>Load more</source>
         <translation>Läs in mer</translation>
     </message>
+    <message>
+        <source>Followers</source>
+        <translation type="unfinished">Följare</translation>
+    </message>
 </context>
 <context>
     <name>UserProfilPage</name>
@@ -300,6 +304,10 @@
     <message>
         <source>Following</source>
         <translation>Följer</translation>
+    </message>
+    <message>
+        <source>Logout</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

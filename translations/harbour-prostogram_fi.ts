@@ -258,6 +258,10 @@
         <source>Load more</source>
         <translation>Lataa lisää</translation>
     </message>
+    <message>
+        <source>Followers</source>
+        <translation type="unfinished">Seuraajat</translation>
+    </message>
 </context>
 <context>
     <name>UserProfilPage</name>
@@ -300,6 +304,10 @@
     <message>
         <source>Follow %1</source>
         <translation>Seuraa käyttäjää %1</translation>
+    </message>
+    <message>
+        <source>Logout</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

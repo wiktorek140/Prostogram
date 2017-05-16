@@ -258,6 +258,10 @@
         <source>Load more</source>
         <translation type="unfinished">Więcej</translation>
     </message>
+    <message>
+        <source>Followers</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UserProfilPage</name>
@@ -299,6 +303,10 @@
     </message>
     <message>
         <source>Unfollow %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Logout</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

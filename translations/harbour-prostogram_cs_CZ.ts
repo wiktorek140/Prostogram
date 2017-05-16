@@ -258,6 +258,10 @@
         <source>Load more</source>
         <translation>Nahrát více</translation>
     </message>
+    <message>
+        <source>Followers</source>
+        <translation type="unfinished">Sledováno</translation>
+    </message>
 </context>
 <context>
     <name>UserProfilPage</name>
@@ -300,6 +304,10 @@
     <message>
         <source>Follow %1</source>
         <translation>Sledovat %1</translation>
+    </message>
+    <message>
+        <source>Logout</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
