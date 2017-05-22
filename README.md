@@ -6,8 +6,7 @@ Unoffical Instagram client for Sailfish. Fork of sailgrande.
 Current features:
 
 * Show own feed with posts
-* Show current popular posts
-* A startpage containing a preview for all three of them (own feed, popular and tag posts)
+* Show current popular posts 
 * Show details for a picture/video : Count of likes and comments and the most recent comments.
 * Like a picture/video or remove your previous like
 * Open user profiles
@@ -15,13 +14,13 @@ Current features:
 * Follow/Unfollow users
 * Post comments
 * Show posts for a specific tag
-* Watch videos
-
-Broken features:
+* Watch videos and caledoscope
 * Show own followers or followed users
 * Block and unblock users
+
+Broken features:
 * Registration
-* Upload photos ans videos
+* Upload videos and caledoscope
 
 License
 =======
