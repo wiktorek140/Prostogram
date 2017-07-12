@@ -310,4 +310,11 @@
         <translation>Logga ut</translation>
     </message>
 </context>
+<context>
+    <name>UserSearchPage</name>
+    <message>
+        <source>Search for users</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
 </TS>

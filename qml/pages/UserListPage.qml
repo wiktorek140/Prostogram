@@ -14,7 +14,8 @@ Page {
     property bool errorOccurred: false
     property var streamData: null
 
-    property int userId;
+    property string userId;
+
 
     SilicaListView {
         id: listView
