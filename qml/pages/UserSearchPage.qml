@@ -72,9 +72,7 @@ Page {
     Connections{
         target: instagram
         onUserFeedDataReady:{
-            //print(answer);
             var data  = JSON.parse(answer)
-            //list = out.ranked_items
             for(var i=0; i<data.users.length; i++) {
                 mediaModel.append(data.users[i]);
             }

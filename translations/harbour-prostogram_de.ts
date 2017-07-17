@@ -236,6 +236,10 @@
         <source>Search for tag</source>
         <translation>Suche nach Hashtags</translation>
     </message>
+    <message>
+        <source>Search user</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UserDetailBlock</name>
