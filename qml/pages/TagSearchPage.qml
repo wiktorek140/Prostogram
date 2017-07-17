@@ -42,7 +42,16 @@ Page {
         }
 
 
-
+        PullDownMenu {
+            MenuItem {
+                id: searchUser
+                text: qsTr("Search user")
+                visible: true
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl("UserSearchPage.qml"),{pageTitle:qsTr("Search user"), user: user});
+                }
+            }
+        }
 
         SilicaListView {
             id: list
