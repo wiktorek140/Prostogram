@@ -79,7 +79,7 @@
     </message>
     <message>
         <source>Login...</source>
-        <translation type="unfinished"></translation>
+        <translation>Входим...</translation>
     </message>
 </context>
 <context>
@@ -107,18 +107,18 @@
     <name>InboxItem</name>
     <message>
         <source>You send message</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы отправили сообщения</translation>
     </message>
     <message>
         <source>You get message</source>
-        <translation type="unfinished"></translation>
+        <translation>Вы получили сообщения</translation>
     </message>
 </context>
 <context>
     <name>InboxPage</name>
     <message>
         <source>Inbox</source>
-        <translation type="unfinished"></translation>
+        <translation>Входящие</translation>
     </message>
 </context>
 <context>
@@ -132,19 +132,19 @@
     <name>MediaDetailPage</name>
     <message>
         <source>Details</source>
-        <translation type="unfinished"></translation>
+        <translation>Подробности</translation>
     </message>
     <message>
         <source>likes</source>
-        <translation type="unfinished">понравилось</translation>
+        <translation>понравилось</translation>
     </message>
     <message>
         <source>comments</source>
-        <translation type="unfinished"></translation>
+        <translation>коментарии</translation>
     </message>
     <message>
         <source>You liked this.</source>
-        <translation type="unfinished"></translation>
+        <translation>Вам понравилось</translation>
     </message>
     <message>
         <source>Follow</source>
@@ -156,15 +156,15 @@
     </message>
     <message>
         <source>Unlike</source>
-        <translation type="unfinished"></translation>
+        <translation>Удалить лайк</translation>
     </message>
     <message>
         <source>Like</source>
-        <translation type="unfinished"></translation>
+        <translation>Понравилось</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">Удалить</translation>
+        <translation>Удалить</translation>
     </message>
 </context>
 <context>
@@ -227,7 +227,7 @@
     </message>
     <message>
         <source>Load more</source>
-        <translation type="unfinished"></translation>
+        <translation>Загрузить ещё</translation>
     </message>
 </context>
 <context>
@@ -238,7 +238,7 @@
     </message>
     <message>
         <source>Search user</source>
-        <translation type="unfinished"></translation>
+        <translation>Искать пользователя</translation>
     </message>
 </context>
 <context>
@@ -264,7 +264,7 @@
     </message>
     <message>
         <source>Followers</source>
-        <translation type="unfinished">Подписчики</translation>
+        <translation>Подписчики</translation>
     </message>
 </context>
 <context>
@@ -311,14 +311,14 @@
     </message>
     <message>
         <source>Logout</source>
-        <translation type="unfinished"></translation>
+        <translation>Выход</translation>
     </message>
 </context>
 <context>
     <name>UserSearchPage</name>
     <message>
         <source>Search for users</source>
-        <translation type="unfinished"></translation>
+        <translation>Искать пользователей</translation>
     </message>
 </context>
 </TS>
