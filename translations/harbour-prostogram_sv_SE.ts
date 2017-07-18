@@ -236,6 +236,10 @@
         <source>Search for tag</source>
         <translation>Sök efter tagg</translation>
     </message>
+    <message>
+        <source>Search user</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UserDetailBlock</name>
@@ -308,6 +312,13 @@
     <message>
         <source>Logout</source>
         <translation>Logga ut</translation>
+    </message>
+</context>
+<context>
+    <name>UserSearchPage</name>
+    <message>
+        <source>Search for users</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

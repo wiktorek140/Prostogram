@@ -16,7 +16,7 @@ Page {
 
 
     property int pageNr : 1
-    id: tagsPage
+    id: userPage
 
 
     SilicaFlickable {
@@ -24,7 +24,7 @@ Page {
 
         PageHeader {
             id: header
-            title: qsTr("Search for tag")
+            title: qsTr("Search for users")
         }
 
         SearchField {
@@ -33,37 +33,26 @@ Page {
             width: parent.width
 
             onTextChanged: {
-                if(searchField.text == "")
-                {
-                    list.model = [];
-                }
-                timerSearchTags.restart();
+                mediaModel.clear();
+                timerSearchUser.restart();
             }
         }
 
-
-        PullDownMenu {
-            MenuItem {
-                id: searchUser
-                text: qsTr("Search user")
-                visible: true
-                onClicked: {
-                    pageStack.push(Qt.resolvedUrl("UserSearchPage.qml"),{pageTitle:qsTr("Search user"), user: user});
-                }
-            }
-        }
 
         SilicaListView {
-            id: list
+            id: listView
+            model: mediaModel
             anchors.top: searchField.bottom
             anchors.bottom: parent.bottom
             anchors.right: parent.right
             anchors.left: parent.left
+            anchors.topMargin: 75
             visible: dataLoaded
 
-            clip: true
-
-            delegate: FeedItem {item: modelData}
+            delegate: UserListItem {
+                visible: dataLoaded
+                item: model
+            }
 
             VerticalScrollDecorator { }
 
@@ -76,26 +65,32 @@ Page {
         size: BusyIndicatorSize.Large
     }
 
-    function searchTagsData() {
-        instagram.tagFeed(searchField.text);
+    function searchUserData() {
+        instagram.userFeed(searchField.text);
     }
 
     Connections{
         target: instagram
-        onTagFeedDataReady:{
-            var out  = JSON.parse(answer)
-            list.model = out.ranked_items
+        onUserFeedDataReady:{
+            var data  = JSON.parse(answer)
+            for(var i=0; i<data.users.length; i++) {
+                mediaModel.append(data.users[i]);
+            }
             dataLoaded = true;
         }
     }
 
 
     Timer {
-        id: timerSearchTags
+        id: timerSearchUser
         interval: 600
         running: false
         repeat: false
-        onTriggered: searchTagsData()
+        onTriggered: searchUserData()
+    }
+
+    ListModel {
+        id: mediaModel
     }
 
     Component.onCompleted: {

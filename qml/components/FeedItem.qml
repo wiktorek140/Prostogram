@@ -218,6 +218,7 @@ Column {
             var out = JSON.parse(answer)
             if(out.status == "ok")
             {
+
                 item.has_liked= true;
                 likeIcon.source = "../images/heart.svg"
                 likeCount.text = item.like_count+1 + " " +qsTr("likes")

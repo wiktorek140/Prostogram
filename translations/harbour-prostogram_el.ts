@@ -236,6 +236,10 @@
         <source>Search for tag</source>
         <translation>Αναζήτηση για ετικέτα</translation>
     </message>
+    <message>
+        <source>Search user</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UserDetailBlock</name>
@@ -307,6 +311,13 @@
     </message>
     <message>
         <source>Logout</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>UserSearchPage</name>
+    <message>
+        <source>Search for users</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
