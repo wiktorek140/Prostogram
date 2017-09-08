@@ -51,7 +51,8 @@ DISTFILES += \
     qml/components/LoaderVideo.qml \
     qml/images/volume-up.svg \
     qml/images/volume-off.svg \
-    qml/pages/UserSearchPage.qml
+    qml/pages/UserSearchPage.qml \
+    qml/pages/ExplorePage.qml
 
 TRANSLATIONS += translations/harbour-prostogram_ca.ts \
                 translations/harbour-prostogram_cs_CZ.ts \

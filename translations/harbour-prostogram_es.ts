@@ -240,6 +240,10 @@
         <source>Search user</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Explore</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>UserDetailBlock</name>
