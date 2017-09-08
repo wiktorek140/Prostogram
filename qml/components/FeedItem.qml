@@ -112,10 +112,19 @@ Column {
                 if(item.has_liked)
                 {
                     instagram.unLike(item.id);
+
+                    item.has_liked = false;
+                    likeIcon.source = "../images/heart-o.svg"
+                    likeCount.text = item.like_count-1 + " " +qsTr("likes")
+
                 }
                 else
                 {
                     instagram.like(item.id);
+
+                    item.has_liked = true;
+                    likeIcon.source = "../images/heart.svg"
+                    likeCount.text = item.like_count+1 + " " +qsTr("likes")
                 }
             }
 
@@ -210,28 +219,5 @@ Column {
     function goToMedia()
     {
         pageStack.push(Qt.resolvedUrl("../pages/MediaDetailPage.qml"),{item:item});
-    }
-
-    Connections{
-        target: instagram
-        onLikeDataReady:{
-            var out = JSON.parse(answer)
-            if(out.status == "ok")
-            {
-
-                item.has_liked= true;
-                likeIcon.source = "../images/heart.svg"
-                likeCount.text = item.like_count+1 + " " +qsTr("likes")
-            }
-        }
-        onUnLikeDataReady:{
-            var out = JSON.parse(answer)
-            if(out.status == "ok")
-            {
-                item.has_liked= false;
-                likeIcon.source = "../images/heart-o.svg"
-                likeCount.text = item.like_count-1 + " " +qsTr("likes")
-            }
-        }
     }
 }

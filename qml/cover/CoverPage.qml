@@ -59,6 +59,7 @@ CoverBackground {
             anchors.topMargin: Theme.paddingMedium
             width: parent.width
             height: width
+            fillMode: Image.PreserveAspectCrop
             source: currentCoverData !== undefined && currentCoverData.image !== undefined ? currentCoverData.image : ""
         }
 

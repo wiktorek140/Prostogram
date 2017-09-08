@@ -53,8 +53,12 @@ DISTFILES += \
     qml/images/volume-off.svg \
     qml/pages/UserSearchPage.qml \
     qml/images/refresh.svg \
+<<<<<<< HEAD
     qml/components/SmallMediaElement.qml \
     qml/pages/ExplorePage.qml
+=======
+    qml/components/SmallMediaElement.qml
+>>>>>>> fc0cc751beca368214afef07609a73eeadcba642
 
 TRANSLATIONS += translations/harbour-prostogram_ca.ts \
                 translations/harbour-prostogram_cs_CZ.ts \
