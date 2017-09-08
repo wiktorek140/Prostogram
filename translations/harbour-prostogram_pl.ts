@@ -241,7 +241,7 @@
     <name>TagSearchPage</name>
     <message>
         <source>Search for tag</source>
-        <translation>Szukaj tagu</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Search user</source>
@@ -328,7 +328,7 @@
 <context>
     <name>UserSearchPage</name>
     <message>
-        <source>Search for users</source>
+        <source>Search users</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

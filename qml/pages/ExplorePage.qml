@@ -90,7 +90,11 @@ Page {
         id: recentMediaModel
     }
 
-    Connections{
+    Component.onCompleted: {
+        instagram.exploreFeed();
+    }
+
+    Connections {
         target: instagram
         onExploreDataReady:{
             var data = JSON.parse(answer);
