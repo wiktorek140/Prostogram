@@ -20,7 +20,6 @@ Page {
             exploreData();
         }
     }
-    on__Silica_pageChanged: allViev.visible = false
 
     SilicaFlickable {
         id: allView
@@ -108,7 +107,7 @@ Page {
         instagram.exploreFeed();
     }
 
-    Connections{
+    Connections {
         target: instagram
         onExploreDataReady:{
             var data = JSON.parse(answer);

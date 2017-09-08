@@ -18,7 +18,6 @@ Page {
     property int pageNr : 1
     id: tagsPage
 
-
     SilicaFlickable {
         anchors.fill: parent
 
@@ -48,7 +47,7 @@ Page {
                 text: qsTr("Search user")
                 visible: true
                 onClicked: {
-                    pageStack.push(Qt.resolvedUrl("UserSearchPage.qml"),{pageTitle:qsTr("Search user"), user: user});
+                    pageStack.push(Qt.resolvedUrl("UserSearchPage.qml"),{user: user});
                 }
             }
             MenuItem {
@@ -56,7 +55,7 @@ Page {
                 text: qsTr("Explore")
                 visible: true
                 onClicked: {
-                    pageStack.push(Qt.resolvedUrl("ExplorePage.qml"),{pageTitle:qsTr("Explore"), user: user});
+                    pageStack.push(Qt.resolvedUrl("ExplorePage.qml"),{user: user});
                 }
             }
         }

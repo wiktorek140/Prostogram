@@ -321,7 +321,7 @@
 <context>
     <name>UserSearchPage</name>
     <message>
-        <source>Search for users</source>
+        <source>Search users</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
