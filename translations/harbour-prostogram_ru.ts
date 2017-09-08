@@ -97,6 +97,13 @@
     </message>
 </context>
 <context>
+    <name>ExplorePage</name>
+    <message>
+        <source>Explore</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>FeedItem</name>
     <message>
         <source>likes</source>
@@ -239,6 +246,10 @@
     <message>
         <source>Search user</source>
         <translation>Искать пользователя</translation>
+    </message>
+    <message>
+        <source>Explore</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>

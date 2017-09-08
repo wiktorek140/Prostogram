@@ -63,7 +63,8 @@ DISTFILES += \
     qml/images/volume-off.svg \
     qml/pages/UserSearchPage.qml \
     qml/images/refresh.svg \
-    qml/components/SmallMediaElement.qml
+    qml/components/SmallMediaElement.qml \
+    qml/pages/ExplorePage.qml
 
 TRANSLATIONS += translations/harbour-prostogram_ca.ts \
                 translations/harbour-prostogram_cs_CZ.ts \

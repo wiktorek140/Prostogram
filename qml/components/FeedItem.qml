@@ -4,6 +4,7 @@ import Sailfish.Silica 1.0
 import QtMultimedia 5.0
 
 import "../Helper.js" as Helper
+import "../MediaStreamMode.js" as MediaStreamMode
 
 Column {
     id: feedItem

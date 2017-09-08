@@ -51,6 +51,14 @@ Page {
                     pageStack.push(Qt.resolvedUrl("UserSearchPage.qml"),{pageTitle:qsTr("Search user"), user: user});
                 }
             }
+            MenuItem {
+                id: explore
+                text: qsTr("Explore")
+                visible: true
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl("ExplorePage.qml"),{pageTitle:qsTr("Explore"), user: user});
+                }
+            }
         }
 
         SilicaListView {
@@ -83,8 +91,8 @@ Page {
     Connections{
         target: instagram
         onTagFeedDataReady:{
-            var out  = JSON.parse(answer)
-            list.model = out.ranked_items
+            var data  = JSON.parse(answer)
+            list.model = data.ranked_items
             dataLoaded = true;
         }
     }
