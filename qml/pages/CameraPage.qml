@@ -7,6 +7,8 @@ import "../components"
 Page {
     id: cameraPage
 
+    property int cameraId: 0
+
     PageHeader {
         id: header
         title: qsTr("Set photo")
@@ -14,6 +16,9 @@ Page {
 
     Camera {
         id: camera
+        deviceId: QtMultimedia.availableCameras[cameraId].deviceId;
+
+        captureMode: Camera.CaptureViewfinder
 
         imageProcessing.whiteBalanceMode: CameraImageProcessing.WhiteBalanceFlash
 
@@ -21,7 +26,6 @@ Page {
             exposureCompensation: -1.0
             exposureMode: Camera.ExposurePortrait
         }
-
 
         imageCapture {
             onImageSaved: {
@@ -39,6 +43,7 @@ Page {
     }
 
     VideoOutput {
+        id: viewFinder
         source: camera
         width: parent.width
         height: parent.height
@@ -71,6 +76,35 @@ Page {
             border.width: 4
 
             anchors.centerIn: parent
+        }
+
+        ClickIcon{
+            id: cameraChange
+
+            width: getShot.width/3*2
+            height: width
+            source: "../images/refresh.svg"
+            anchors{
+                right: getShot.left
+                rightMargin: width
+                verticalCenter: getShot.verticalCenter
+            }
+
+            visible: QtMultimedia.availableCameras.length > 1;
+
+            onClicked: {
+                camera.stop();
+                if(cameraId+1 == QtMultimedia.availableCameras.length)
+                {
+                    cameraId = 0;
+
+                }
+                else
+                {
+                    cameraId++;
+                }
+                camera.start();
+            }
         }
 
         ClickIcon{

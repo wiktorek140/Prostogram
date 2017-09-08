@@ -13,7 +13,7 @@
     </message>
     <message>
         <source>developer</source>
-        <translation>ontwikkelaar</translation>
+        <translation>Ontwikkelaar</translation>
     </message>
     <message>
         <source>Write a mail</source>
@@ -67,7 +67,7 @@
     </message>
     <message>
         <source>Entering...</source>
-        <translation>Binnengaan...</translation>
+        <translation>Openen...</translation>
     </message>
     <message>
         <source>Login fail!</source>
@@ -79,7 +79,7 @@
     </message>
     <message>
         <source>Login...</source>
-        <translation type="unfinished"></translation>
+        <translation>Inloggen...</translation>
     </message>
 </context>
 <context>
@@ -100,7 +100,7 @@
     <name>FeedItem</name>
     <message>
         <source>likes</source>
-        <translation>vind-ik-leuks</translation>
+        <translation>Vind ik leuks</translation>
     </message>
 </context>
 <context>
@@ -118,53 +118,53 @@
     <name>InboxPage</name>
     <message>
         <source>Inbox</source>
-        <translation>Inbbox</translation>
+        <translation>Inbox</translation>
     </message>
 </context>
 <context>
     <name>LikesPage</name>
     <message>
         <source>Likes</source>
-        <translation>vind-ik-leuks</translation>
+        <translation>Vind ik leuks</translation>
     </message>
 </context>
 <context>
     <name>MediaDetailPage</name>
     <message>
         <source>Details</source>
-        <translation type="unfinished"></translation>
+        <translation>Details</translation>
     </message>
     <message>
         <source>likes</source>
-        <translation type="unfinished">vind-ik-leuks</translation>
+        <translation>Vind ik leuks</translation>
     </message>
     <message>
         <source>comments</source>
-        <translation type="unfinished"></translation>
+        <translation>Commentaar</translation>
     </message>
     <message>
         <source>You liked this.</source>
-        <translation type="unfinished"></translation>
+        <translation>Je vond dit leuk.</translation>
     </message>
     <message>
         <source>Follow</source>
-        <translation type="unfinished"></translation>
+        <translation>Volgend</translation>
     </message>
     <message>
         <source>Un Follow</source>
-        <translation type="unfinished"></translation>
+        <translation>Ontvolgend</translation>
     </message>
     <message>
         <source>Unlike</source>
-        <translation type="unfinished"></translation>
+        <translation>Vind ik niet leuk</translation>
     </message>
     <message>
         <source>Like</source>
-        <translation type="unfinished"></translation>
+        <translation>Vind ik leuk</translation>
     </message>
     <message>
         <source>Remove</source>
-        <translation type="unfinished">Verwijderen</translation>
+        <translation>Verwijderen</translation>
     </message>
 </context>
 <context>
@@ -238,7 +238,7 @@
     </message>
     <message>
         <source>Search user</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoeken naar gebruiker</translation>
     </message>
     <message>
         <source>Explore</source>
@@ -268,7 +268,7 @@
     </message>
     <message>
         <source>Followers</source>
-        <translation type="unfinished">Volgers</translation>
+        <translation>Volgers</translation>
     </message>
 </context>
 <context>
@@ -315,14 +315,14 @@
     </message>
     <message>
         <source>Logout</source>
-        <translation type="unfinished"></translation>
+        <translation>Uitloggen</translation>
     </message>
 </context>
 <context>
     <name>UserSearchPage</name>
     <message>
         <source>Search for users</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoeken naar gebruikers</translation>
     </message>
 </context>
 </TS>

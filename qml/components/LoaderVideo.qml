@@ -44,7 +44,7 @@ Rectangle{
     }
 
     Image{
-        source: "../images/volume-up.svg"
+        source: "../images/volume-off.svg"
         width: parent.width/20
         height: parent.width/20
 
@@ -63,12 +63,12 @@ Rectangle{
             onClicked: {
                 if(video.muted)
                 {
-                    parent.source = "../images/volume-off.svg"
+                    parent.source = "../images/volume-up.svg"
                     video.muted = false
                 }
                 else
                 {
-                    parent.source = "../images/volume-up.svg"
+                    parent.source = "../images/volume-off.svg"
                     video.muted = true
                 }
             }
