@@ -238,7 +238,7 @@
     </message>
     <message>
         <source>Search user</source>
-        <translation type="unfinished"></translation>
+        <translation>Sök användare</translation>
     </message>
 </context>
 <context>
@@ -318,7 +318,7 @@
     <name>UserSearchPage</name>
     <message>
         <source>Search for users</source>
-        <translation type="unfinished"></translation>
+        <translation>Sök efter användare</translation>
     </message>
 </context>
 </TS>
