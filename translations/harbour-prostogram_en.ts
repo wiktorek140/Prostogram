@@ -166,6 +166,10 @@
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Story</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MediaStreamPage</name>
@@ -242,6 +246,10 @@
     </message>
     <message>
         <source>Explore</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Stories</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

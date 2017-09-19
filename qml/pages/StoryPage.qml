@@ -7,6 +7,8 @@ import "../MediaStreamMode.js" as MediaStreamMode
 
 
 Page {
+
+
     allowedOrientations:  Orientation.All
 
     property var user
@@ -15,21 +17,36 @@ Page {
 
     onStatusChanged: {
         if (status === PageStatus.Active && !dataLoaded) {
-            exploreData();
+            storiesData();
+        }
+    }
+
+    HorizontalList {
+        id: stories
+        z: 1
+        mediaModel: recentMediaModel
+        anchors{
+            top: parent.top
+            left: parent.left
         }
     }
 
     SilicaFlickable {
         id: allView
-        anchors.fill: parent
-        contentHeight: column.height + header.height + 10
+        anchors.left: parent.left
+        anchors.right: parent.right
+        anchors.bottom: parent.bottom
+        anchors.top: stories.bottom
+        contentHeight: column.height + header.height + 10 -150
         contentWidth: parent.width
 
         PageHeader {
+            anchors {
+                top:stories.bottom
+            }
             id: header
-            title: "Explore"
+            title: "Stories"
         }
-
 
         Column {
             anchors.top: header.bottom
@@ -43,20 +60,19 @@ Page {
             BusyIndicator {
                 running: visible
                 visible: !dataLoaded
-                anchors.horizontalCenter: parent.horizontalCenter
+                anchors.horizontalCenter: stories.horizontalCenter
             }
 
 
             GridView {
                 width: parent.width
-                height: allView.height
+                height: allView.height - 150
                 cellWidth: width/3
-                cellHeight: cellWidth
-
+                cellHeight: cellWidth                     
                 clip: true
 
-
-                anchors {
+                anchors{
+                    top: header.bottom
                     left: parent.left
                     right: parent.right
                 }
@@ -83,7 +99,8 @@ Page {
                         id: mousearea
                         anchors.fill: parent
                         onClicked: {
-                            pageStack.push(Qt.resolvedUrl("../pages/MediaDetailPage.qml"),{item:item});
+                            pageStack.push(Qt.resolvedUrl("../pages/MediaDetailPage.qml"),{item:item,isStory: true});
+                            recentMediaModel.remove(item)
                         }
                     }
                 }
@@ -96,18 +113,24 @@ Page {
         id: recentMediaModel
     }
 
-    function exploreData() {
-        instagram.exploreFeed();
+    function storiesData() {
+        instagram.storiesFeed();
     }
 
     Connections {
         target: instagram
-        onExploreDataReady:{
+        onStoriesDataReady:{
             //print(answer)
             var data = JSON.parse(answer);
+            var obj;
+            for(var i=0; i<data.tray.length; i++) {
+                obj= data.tray[i];
+                //print(i)
+                if(obj.items != undefined)
+                    for(var j=0;j<obj.items.length;j++){
+                    recentMediaModel.append(obj.items[j]);
 
-            for(var i=1; i<data.items.length; i++) {
-                recentMediaModel.append(data.items[i].media);
+                }
             }
             dataLoaded=true;
         }

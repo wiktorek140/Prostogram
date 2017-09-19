@@ -6,6 +6,7 @@ Rectangle {
     width: parent.width
     height: childrenRect.height
     color: Theme.highlightDimmerColor
+
     IconButton {
         id: setPhotoIcon
         anchors{
@@ -18,7 +19,17 @@ Rectangle {
                      : Theme.primaryColor)
         onClicked: pageStack.push(Qt.resolvedUrl("../pages/CameraPage.qml"))
     }
-
+    IconButton {
+        id: setStoriesIcon
+        anchors{
+            left: setPhotoIcon.right
+            top: parent.top
+        }
+        icon.width: setPhotoIcon.width-40
+        icon.height: setPhotoIcon.height-40
+        icon.source: "../images/carusel.svg"
+        onClicked: pageStack.push(Qt.resolvedUrl("../pages/StoryPage.qml"))
+    }
     Image{
         id: logo
 

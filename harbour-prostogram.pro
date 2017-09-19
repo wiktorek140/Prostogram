@@ -55,7 +55,9 @@ DISTFILES += \
     qml/pages/UserSearchPage.qml \
     qml/images/refresh.svg \
     qml/components/SmallMediaElement.qml \
-    qml/pages/ExplorePage.qml
+    qml/pages/ExplorePage.qml \
+    qml/components/LoaderVideoPreview.qml \
+    qml/components/HorizontalList.qml
 
 
 TRANSLATIONS += translations/harbour-prostogram_ca.ts \
@@ -84,4 +86,4 @@ HEADERS += \
     QtInstagram/src/cripto/hmacsha.h \
     src/cacheimage.h
 
-DEFINES += APP_VERSION=\\\"$$VERSION\\\"
+DEFINES += APP_VERSION=\\\"0.8.4\\\"

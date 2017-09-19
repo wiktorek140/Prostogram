@@ -52,7 +52,7 @@ Page {
         favoriteTagFeedBlock.refreshContent(refreshDone)
     }
 
-    FeedHeader{
+    FeedHeader {
         id: header
         z: 2
     }

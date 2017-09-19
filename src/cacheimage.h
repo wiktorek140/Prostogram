@@ -36,6 +36,7 @@ private:
     QNetworkReply *currentDownload;
     QFile output;
     bool downloaded=false;
+    QString path;
 };
 
 #endif // CACHEIMAGE_H

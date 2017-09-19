@@ -58,6 +58,14 @@ Page {
                     pageStack.push(Qt.resolvedUrl("ExplorePage.qml"),{user: user});
                 }
             }
+            MenuItem {
+                id: stories
+                text: qsTr("Stories")
+                visible: false
+                onClicked: {
+                    pageStack.push(Qt.resolvedUrl("StoryPage.qml"),{user: user});
+                }
+            }
         }
 
         SilicaListView {

@@ -1,10 +1,12 @@
 import QtQuick 2.0
+import Sailfish.Silica 1.0
 
 Rectangle {
     id: image
 
     property bool autoVideoPlay: true
-    property bool isSquared: false
+    property bool isSquared: true
+    property bool preview: false
 
     width: parent.width
     anchors{
@@ -13,6 +15,7 @@ Rectangle {
     }
 
     color: "transparent"
+
     Rectangle{
         id: mainItemLoader
         anchors.fill: parent
@@ -52,7 +55,7 @@ Rectangle {
                 }
                 else
                 {
-                    mainLoader.source = "LoaderVideo.qml"
+                    preview ? mainLoader.source = "LoaderVideoPreview.qml" : mainLoader.source = "LoaderVideo.qml"
                 }
 
             }

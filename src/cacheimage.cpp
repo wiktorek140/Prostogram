@@ -19,8 +19,8 @@ void CacheImage::init() {
 QString CacheImage::getFromCache(const QString &str){
     QUrl url(str);
 
-    QString path = cacheLocation+"/"+url.fileName();
-    QTextStream(stdout) << "File Path: " << path << endl;
+    path = cacheLocation+"/"+url.fileName();
+    //QTextStream(stdout) << "File Path: " << path << endl;
     if(QFile::exists(path) && QFile(path).size()>0)
         return path;
     else {
@@ -52,12 +52,12 @@ void CacheImage::requestImage(const QUrl &url){
 void CacheImage::downloadFinished()
 {
     output.close();
-    QTextStream(stdout) <<"Download finished"<<endl;
+    //QTextStream(stdout) <<"Download finished"<<endl;
     downloaded=true;
     if (currentDownload->error()) {
-        //QTextStream(stdout) <<"1. n";
+        QTextStream(stdout) <<"Error:"<<currentDownload->errorString();
     } else {
-        //QTextStream(stdout) <<"2. n";
+
     }
 
     currentDownload->deleteLater();
@@ -76,7 +76,7 @@ void CacheImage::clean(){
 
     QDir::setCurrent(cacheLocation);
     QDir dir(cacheLocation);
-    if(dir.count()>10){
+    if(dir.count()>100){
         dir.removeRecursively();
         QTextStream(stdout) <<"cache cleaned"<<endl;
     }

@@ -37,8 +37,10 @@ function formatString(string)
     var user_reg = "/@(\w*)/g";
     var tag_reg = "/#(\S*)/g"
 
+    if (string.length > 1 ){
     string = string.replace(/@(\w*)/g,'<a href="user://$1">@$1</a>');
     string = string.replace(/#(\S*)/g,'<a href="tag://$1">#$1</a>');
-
+    }
+    else string = '<a href="user://unname">@unname</a>'
     return string;
 }

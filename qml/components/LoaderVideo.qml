@@ -37,6 +37,10 @@ Rectangle{
             }
         }
     }
+    Component.onDestruction: {
+        video.stop();
+    }
+
 
     Component.onCompleted: {
         var videos = item.video_versions.get(0)
