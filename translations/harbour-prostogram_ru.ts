@@ -173,6 +173,10 @@
         <source>Remove</source>
         <translation>Удалить</translation>
     </message>
+    <message>
+        <source>Story</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MediaStreamPage</name>

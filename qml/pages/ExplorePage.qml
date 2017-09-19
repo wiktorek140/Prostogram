@@ -14,7 +14,7 @@ Page {
     property int recentMediaSize: (width - 2 * Theme.paddingMedium) / 3
 
     onStatusChanged: {
-        if (status === PageStatus.Active) {
+        if (status === PageStatus.Active && !dataLoaded) {
             instagram.exploreFeed();
         }
     }
@@ -69,6 +69,7 @@ Page {
                         id: mainLoader
                         anchors.fill: parent
                         width: parent.width
+                        preview:true
                         clip: true
                         autoVideoPlay: false
                         isSquared: true
@@ -98,6 +99,7 @@ Page {
         target: instagram
         onExploreDataReady:{
             var data = JSON.parse(answer);
+
             for(var i=1; i<data.items.length; i++) {
                 recentMediaModel.append(data.items[i].media);
             }

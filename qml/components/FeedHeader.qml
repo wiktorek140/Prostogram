@@ -6,6 +6,7 @@ Rectangle {
     width: parent.width
     height: childrenRect.height
     color: Theme.highlightDimmerColor
+
     IconButton {
         id: setPhotoIcon
         anchors{

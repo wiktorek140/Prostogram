@@ -9,7 +9,7 @@ import "../Helper.js" as Helper
 Page {
 
     allowedOrientations:  Orientation.All
-
+    property bool isStory: false
     property var item
     property var relationStatus
     property bool playVideo : false
@@ -23,7 +23,7 @@ Page {
 
         PageHeader {
             id: header
-            title: qsTr("Details")
+            title: isStory? qsTr("Story") : qsTr("Details")
         }
 
         Column {
@@ -37,6 +37,7 @@ Page {
 
             Label {
                 id: likesCommentsCount
+                visible: !isStory
                 text: item.like_count + " " +qsTr("likes") + " - " + item.comment_count + " " + qsTr("comments")  + (item.has_liked? " - " + qsTr("You liked this.") : "")
                 anchors{
                     left: parent.left
@@ -66,7 +67,7 @@ Page {
 
             Label {
                 id: description
-                visible: text!==""
+                visible: text!=="" && !isStory
                 text: item.caption ? Helper.formatString(item.caption.text) : ""
                 anchors{
                     left: parent.left
@@ -93,6 +94,7 @@ Page {
 
             Rectangle{
                 id: doComment
+                visible: !isStory
                 width: parent.width
                 height: childrenRect.height
                 color: "transparent"
@@ -132,11 +134,11 @@ Page {
 
 
         PullDownMenu {
-
+            visible: !isStory
             MenuItem {
                 id: followMenu
                 text: qsTr("Follow")
-                visible: item.user.pk != app.user.pk && item.user.friendship_status.following
+                visible: item.user.pk != app.user.pk && item.user.friendship_status.following || !isStory
                 onClicked: {
                     instagram.follow(item.user.pk)
                     followMenu.visible = false
@@ -147,7 +149,7 @@ Page {
             MenuItem {
                 id: unFollowMenu
                 text: qsTr("Un Follow")
-                visible: item.user.pk != app.user.pk && !item.user.friendship_status.following
+                visible: item.user.pk != app.user.pk && !item.user.friendship_status.following  || !isStory
                 onClicked: {
                     instagram.unFollow(item.user.pk)
                     unFollowMenu.visible = false
@@ -156,6 +158,7 @@ Page {
             }
             MenuItem{
                 id: likeMenu
+                visible: !isStory
                 text: item.has_liked ? qsTr("Unlike") : qsTr("Like")
                 onClicked: {
                     if(item.has_liked)

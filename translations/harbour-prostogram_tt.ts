@@ -173,6 +173,10 @@
         <source>Remove</source>
         <translation type="unfinished">Бетерү</translation>
     </message>
+    <message>
+        <source>Story</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>MediaStreamPage</name>

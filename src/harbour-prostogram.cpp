@@ -39,7 +39,6 @@ int main(int argc, char *argv[])
    view->setSource(pageSource);
    view->showFullScreen();
 
-
    return app->exec();
 }
 
