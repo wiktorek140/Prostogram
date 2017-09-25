@@ -28,7 +28,8 @@ Rectangle {
         icon.width: setPhotoIcon.width-40
         icon.height: setPhotoIcon.height-40
         icon.source: "../images/carusel.svg"
-        onClicked: pageStack.push(Qt.resolvedUrl("../pages/StoryPage.qml"))
+        onClicked: isStoriesOpen=!isStoriesOpen
+            //pageStack.push(Qt.resolvedUrl("../pages/StoryPage.qml"))
     }
     Image{
         id: logo

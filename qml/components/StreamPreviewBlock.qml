@@ -12,15 +12,18 @@ Item {
 
     anchors.right: parent.right
 
+    property int pWidth: parent.width>0?parent.width:500;
     property bool recentMediaLoaded: false
     property bool errorOccurred : false
     property string tag
     property var streamData
-    property var nextId : "";
+    property string nextId : "";
 
     ListModel{
         id: recentMediaModel;
     }
+
+
 
     SilicaListView {
         id: grid
@@ -28,13 +31,14 @@ Item {
         anchors.right: parent.right
         visible: recentMediaLoaded
 
-        width: parent.width
+        width: pWidth
+
         height: parent.height
         clip: true
 
         model: recentMediaModel
 
-        PullDownMenu{
+        PullDownMenu {
             id: topMenu;
             quickSelect: true
             MenuItem {
@@ -47,22 +51,24 @@ Item {
             }
         }
 
-        PushUpMenu{
+
+        PushUpMenu {
             id: bottomMenu
-            visible: (nextId != "")
+            visible: (nextId !== "")
             quickSelect: true
 
             MenuItem {
                 id: moreMenu
                 text: qsTr("Load more")
                 onClicked: {
-                    instagram.getTimeLine(nextId)
+                    instagram.getTimelineFeed(nextId)
                 }
             }
         }
 
         delegate: Item {
-            width: parent.width
+
+            width: pWidth
             height: childrenRect.height
 
             FeedItem{
@@ -85,20 +91,20 @@ Item {
         streamPreviewBlock.nextId = "";
 
         recentMediaLoaded = false;
-        instagram.getTimeLine();
+        instagram.getTimelineFeed(nextId);
     }
 
     Component.onCompleted: {
         if(recentMediaModel.count === 0)
         {
             recentMediaLoaded = false;
-            instagram.getTimeLine();
+            instagram.getTimelineFeed(nextId);
         }
     }
 
     Connections{
         target: instagram
-        onTimeLineDataReady: {
+        onTimelineFeedDataReady: {
             var data = JSON.parse(answer)
 
             if(streamPreviewBlock.nextId == "")
@@ -116,12 +122,12 @@ Item {
 
             for(var i=0; i<data.items.length; i++) {
                 /*
-    TYPE 1 - IMAGE
-    TYPE 2 - VIDEO
-    TYPE 3 - FRIEND
+                TYPE 1 - IMAGE
+                TYPE 2 - VIDEO
+                TYPE 3 - FRIEND
+                TYPE 8 - CARUSEL
+                */
 
-    TYPE 8 - CARUSEL
-    */
                 if(recentMediaModel.count == 0)
                 {
                     var coverdata = {}
@@ -137,7 +143,10 @@ Item {
                     setCover(CoverMode.SHOW_IMAGE,coverdata)
 
                 }
-                recentMediaModel.append(data.items[i]);
+
+                if(data.items[i].media_type >= 1 ){
+                    recentMediaModel.append(data.items[i]);
+                }
             }
 
             //recentMediaModelChanged()

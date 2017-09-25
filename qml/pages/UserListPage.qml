@@ -66,21 +66,21 @@ Page {
     Component.onCompleted: {
         if(page.pageTitle === qsTr("Followers"))
         {
-            instagram.getUserFollowings(userId)
+            instagram.getFollowing(userId)
         }
         else
         {
-            instagram.getUserFollowers(userId)
+            instagram.getFollowers(userId)
         }
     }
 
     Connections{
         target: instagram
-        onUserFollowingsDataReady:{
+        onFollowingDataReady:{
             mediaDataFinished(answer)
         }
 
-        onUserFollowersDataReady:{
+        onFollowersDataReady:{
             mediaDataFinished(answer)
         }
     }

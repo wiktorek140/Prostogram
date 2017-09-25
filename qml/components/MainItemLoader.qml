@@ -20,7 +20,7 @@ Rectangle {
         id: mainItemLoader
         anchors.fill: parent
         width: parent.width
-
+        height: parent.width
 
 
         clip: true
@@ -30,6 +30,7 @@ Rectangle {
             id: mainLoader
             anchors.fill: parent
             width: parent.width
+            height: parent.width
 
             clip: true
 
@@ -42,11 +43,15 @@ Rectangle {
 
             mainLoader.item = item
 
+
             if(item.media_type === 1 || item.media_type === 2)
             {
                 if(!item.isSquared)
                 {
-                    image.height = parent.width/item.image_versions2.candidates[0].width*item.image_versions2.candidates[0].height
+                    image.height = (parent.width/item.image_versions2.candidates[0].width)*item.image_versions2.candidates[0].height
+
+                    //image.height = (item.image_versions2.candidates[0].height/item.image_versions2.candidates[0].width)*parent.width
+
                 }
 
                 if(item.media_type === 1)
@@ -57,6 +62,7 @@ Rectangle {
                 {
                     preview ? mainLoader.source = "LoaderVideoPreview.qml" : mainLoader.source = "LoaderVideo.qml"
                 }
+
 
             }
             else if(item.media_type === 8)

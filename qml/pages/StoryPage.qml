@@ -10,6 +10,8 @@ Page {
 
 
     allowedOrientations:  Orientation.All
+    width: parent.width
+    height: parent.height
 
     property var user
     property bool dataLoaded: false
@@ -24,7 +26,6 @@ Page {
     HorizontalList {
         id: stories
         z: 1
-        mediaModel: recentMediaModel
         anchors{
             top: parent.top
             left: parent.left
@@ -33,6 +34,7 @@ Page {
 
     SilicaFlickable {
         id: allView
+        visible:false
         anchors.left: parent.left
         anchors.right: parent.right
         anchors.bottom: parent.bottom
@@ -60,12 +62,12 @@ Page {
             BusyIndicator {
                 running: visible
                 visible: !dataLoaded
-                anchors.horizontalCenter: stories.horizontalCenter
+                anchors.top:header.bottom
+                anchors.horizontalCenter: header.horizontalCenter
             }
 
-
             GridView {
-                width: parent.width
+                width: column.width
                 height: allView.height - 150
                 cellWidth: width/3
                 cellHeight: cellWidth                     
@@ -100,7 +102,8 @@ Page {
                         anchors.fill: parent
                         onClicked: {
                             pageStack.push(Qt.resolvedUrl("../pages/MediaDetailPage.qml"),{item:item,isStory: true});
-                            recentMediaModel.remove(item)
+                            recentMediaModel.remove(item);
+
                         }
                     }
                 }
@@ -114,25 +117,34 @@ Page {
     }
 
     function storiesData() {
-        instagram.storiesFeed();
+        instagram.getReelsTrayFeed();
     }
 
     Connections {
         target: instagram
-        onStoriesDataReady:{
-            //print(answer)
+        onReelsTrayFeedDataReady:{
             var data = JSON.parse(answer);
             var obj;
             for(var i=0; i<data.tray.length; i++) {
                 obj= data.tray[i];
                 //print(i)
-                if(obj.items != undefined)
+                if(obj.items !== undefined)
                     for(var j=0;j<obj.items.length;j++){
                     recentMediaModel.append(obj.items[j]);
-
+                }
+                else
+                {
+                    instagram.getUserReelsMediaFeed(obj.user.pk);
                 }
             }
             dataLoaded=true;
+        }
+        onUserReelsMediaFeedDataReady: {
+            while(!dataLoaded){}
+            var data = JSON.parse(answer);
+            for(var j=0;j<data.items.length;j++){
+                recentMediaModel.append(data.items[j]);
+            }
         }
     }
 }

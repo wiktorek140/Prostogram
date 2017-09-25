@@ -35,7 +35,7 @@ Item {
 
     Connections{
         target: instagram
-        onRecentActivityDataReady:{
+        onRecentActivityInboxDataReady:{
             var out = JSON.parse(answer)
 
             if(out.new_stories.length > 0)
@@ -62,7 +62,7 @@ Item {
         repeat: true
         interval: 30000
         onTriggered: {
-            instagram.getRecentActivity();
+            instagram.getRecentActivityInbox();
         }
     }
 }

@@ -3,7 +3,6 @@ import Sailfish.Silica 1.0
 
 Rectangle {
     id: userInfo
-
     anchors{
         right: parent.right
         bottomMargin: userInfo.height*0.1
@@ -68,8 +67,8 @@ Rectangle {
         id: mousearea
         anchors.fill: parent
         onClicked: {
-            if(playVideo)
-                video.stop();
+            //if(playVideo && item.media_type === 2 ) {video.stop();}
+            //print(item)
             pageStack.push(Qt.resolvedUrl("../pages/UserProfilPage.qml"),{user:item.user});
         }
     }

@@ -15,6 +15,7 @@ Page {
     property bool recentMediaLoaded: false
     property bool updateRunning: false
     property string favoriteTag: ""
+    property bool isStoriesOpen: false
 
     onStatusChanged: {
         if (status === PageStatus.Active) {
@@ -70,9 +71,25 @@ Page {
         contentWidth: parent.width
 
 
+        HorizontalList {
+            id: stories
+            visible: isStoriesOpen
+            anchors{
+                top: parent.top
+                left: parent.left
+                right:parent.right
+            }
+        }
+
         StreamPreviewBlock {
             id: myFeedBlock
-            anchors.fill: parent
+
+            anchors {
+                top: isStoriesOpen? stories.bottom : parent.top
+                bottom: parent.bottom
+                left: parent.left
+                right: parent.right
+            }
         }
     }
 

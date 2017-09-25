@@ -108,7 +108,7 @@ Page {
     {
         if(page.mode === MediaStreamMode.MY_STREAM_MODE)
         {
-            instagram.getTimeLine(next_id);
+            instagram.getTimelineFeed(next_id);
         }
         else if(page.mode === MediaStreamMode.POPULAR_MODE)
         {
@@ -116,11 +116,11 @@ Page {
         }
         else if(page.mode === MediaStreamMode.TAG_MODE)
         {
-            instagram.tagFeed(tag)
+            instagram.getTagFeed(tag)
         }
         else if(page.mode === MediaStreamMode.USER_MODE)
         {
-            instagram.getUsernameFeed(tag,next_id);
+            instagram.getUserFeed(tag,next_id);
         }
     }
 
@@ -174,7 +174,7 @@ Page {
 
     Connections{
         target: instagram
-        onTimeLineDataReady: {
+        onTimelineFeedDataReady: {
             var data = JSON.parse(answer);
             if(page.mode === MediaStreamMode.MY_STREAM_MODE)
             {
@@ -207,7 +207,7 @@ Page {
 
     Connections{
         target: instagram
-        onUserTimeLineDataReady: {
+        onUserFeedDataReady: {
             var data = JSON.parse(answer);
             if(page.mode === MediaStreamMode.USER_MODE)
             {

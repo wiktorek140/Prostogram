@@ -206,8 +206,8 @@ Page {
                 Storage.set("password", passwordField.text);
                 Storage.set("username",loginField.text)
             }
-            instagram.getUsernameInfo(instagram.getUsernameId());
-            instagram.getRecentActivity();
+            instagram.getInfoById(instagram.getUsernameId());
+            instagram.getRecentActivityInbox();
             instagram.getInbox();
         }
 
@@ -216,7 +216,8 @@ Page {
             instagram.logout();
         }
 
-        onUsernameDataReady: {
+        onInfoByIdDataReady: {
+            //print(answer)
             var obj = JSON.parse(answer)
 
             if(obj.user.pk == instagram.getUsernameId())

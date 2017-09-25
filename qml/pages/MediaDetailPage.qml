@@ -9,8 +9,9 @@ import "../Helper.js" as Helper
 Page {
 
     allowedOrientations:  Orientation.All
-    property var isStory: false
+    property bool isStory: false
     property var item
+
     property var relationStatus
     property bool playVideo : true
     property bool userLikedThis : false
@@ -23,6 +24,7 @@ Page {
 
         PageHeader {
             id: header
+            visible: !isStory
             title: isStory? qsTr("Story") : qsTr("Details")
         }
 
@@ -61,6 +63,7 @@ Page {
 
             MainItemLoader{
                 id: mainLoader
+                isSquared: false
                 width: parent.width
             }
 
@@ -90,6 +93,7 @@ Page {
 
             UserInfoBlock {
                 id:userInfo
+                visible: !isStory
             }
 
             Rectangle{
@@ -138,7 +142,7 @@ Page {
             MenuItem {
                 id: followMenu
                 text: qsTr("Follow")
-                visible: item.user.pk != app.user.pk && item.user.friendship_status.following || !isStory
+                visible: isStory? false : item.user.pk != app.user.pk && item.user.friendship_status.following
                 onClicked: {
                     instagram.follow(item.user.pk)
                     followMenu.visible = false
@@ -148,8 +152,8 @@ Page {
 
             MenuItem {
                 id: unFollowMenu
-                text: qsTr("Un Follow")
-                visible: item.user.pk != app.user.pk && !item.user.friendship_status.following  || !isStory
+                text: qsTr("UnFollow")
+                visible: isStory ? false: item.user.pk != app.user.pk && !item.user.friendship_status.following
                 onClicked: {
                     instagram.unFollow(item.user.pk)
                     unFollowMenu.visible = false
@@ -161,7 +165,7 @@ Page {
                 visible: !isStory
                 text: item.has_liked ? qsTr("Unlike") : qsTr("Like")
                 onClicked: {
-                    if(item.has_liked)
+                    if(!item.has_liked)
                     {
                         instagram.like(item.id)
                     }
@@ -171,7 +175,7 @@ Page {
                     }
                 }
             }
-            MenuItem{
+            MenuItem {
                 id: deleteMenu
                 text: qsTr("Remove")
                 visible: item.user.pk == app.user.pk
@@ -199,27 +203,36 @@ Page {
     }
 
     Component.onCompleted: {
-        userLikedThis = item.has_liked;
-        refreshCallback = null
-        instagram.getMediaComments(item.id);
-        if(app.user.pk !== item.user.pk)
-        {
-            instagram.userFriendship(item.user.pk);
-        }
-        else
-        {
+        if(isStory){
+            refreshCallback = null
             followMenu.visible = false
             unFollowMenu.visible = false
+        }
+
+        else {
+            userLikedThis = item.has_liked;
+            refreshCallback = null
+            instagram.getComments(item.id);
+            if(app.user.pk !== item.user.pk)
+            {
+                instagram.getFriendship(item.user.pk);
+            }
+            else
+            {
+                followMenu.visible = false
+                unFollowMenu.visible = false
+            }
         }
     }
 
     Connections{
         target: instagram
         onLikeDataReady:{
+            //print(answer)
             var out = JSON.parse(answer)
             if(out.status === "ok")
             {
-                item.has_liked= true;
+                item.has_liked = true;
                 likesCommentsCount.text = item.like_count+1 + " " +qsTr("likes") + " - " + item.comment_count + " " + qsTr("comments") + " - " + qsTr("You liked this.")
             }
         }
@@ -271,7 +284,8 @@ Page {
 
     Connections{
         target: instagram
-        onUserFriendshipDataReady:{
+        onFriendshipDataReady:{
+            //print(answer)
             relationStatus = JSON.parse(answer)
 
             followMenu.visible = !relationStatus.following

@@ -151,10 +151,6 @@
         <translation>Följ</translation>
     </message>
     <message>
-        <source>Un Follow</source>
-        <translation>Sluta följa</translation>
-    </message>
-    <message>
         <source>Unlike</source>
         <translation>Sluta gilla</translation>
     </message>
@@ -168,6 +164,10 @@
     </message>
     <message>
         <source>Story</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>UnFollow</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -237,10 +237,6 @@
 <context>
     <name>TagSearchPage</name>
     <message>
-        <source>Search for tag</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Search user</source>
         <translation type="unfinished"></translation>
     </message>
@@ -250,6 +246,10 @@
     </message>
     <message>
         <source>Stories</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search tag</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

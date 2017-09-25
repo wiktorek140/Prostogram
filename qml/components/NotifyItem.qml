@@ -25,7 +25,7 @@ Item {
         MouseArea{
             anchors.fill: parent
             onClicked: {
-                instagram.getUsernameInfo(args.links[0].id);
+                instagram.getInfoById(args.links[0].id);
             }
         }
     }
@@ -63,7 +63,7 @@ Item {
         MouseArea{
             anchors.fill: parent
             onClicked: {
-                instagram.infoMedia(args.media[0].id);
+                instagram.getInfoMedia(args.media[0].id);
                 notifyBisy.running = true
             }
         }

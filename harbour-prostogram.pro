@@ -23,7 +23,17 @@ SOURCES += src/harbour-prostogram.cpp \
     QtInstagram/src/api/instagram.cpp \
     QtInstagram/src/api/instagramrequest.cpp \
     QtInstagram/src/cripto/hmacsha.cpp \
-    src/cacheimage.cpp
+    src/cacheimage.cpp \
+    QtInstagram/src/api/instagramv2.cpp \
+    QtInstagram/src/api/request/timeline.cpp \
+    QtInstagram/src/api/request/people.cpp \
+    QtInstagram/src/api/request/story.cpp \
+    QtInstagram/src/api/request/usertag.cpp \
+    QtInstagram/src/api/request/discover.cpp \
+    QtInstagram/src/api/request/account.cpp \
+    QtInstagram/src/api/request/media.cpp \
+    QtInstagram/src/api/request/hashtag.cpp \
+    QtInstagram/src/api/request/direct.cpp
 
 OTHER_FILES += qml/harbour-prostogram.qml \
     qml/cover/*.qml \
@@ -57,7 +67,8 @@ DISTFILES += \
     qml/components/SmallMediaElement.qml \
     qml/pages/ExplorePage.qml \
     qml/components/LoaderVideoPreview.qml \
-    qml/components/HorizontalList.qml
+    qml/components/HorizontalList.qml \
+    qml/images/next.svg
 
 
 TRANSLATIONS += translations/harbour-prostogram_ca.ts \
@@ -84,6 +95,7 @@ HEADERS += \
     QtInstagram/src/api/instagram.h \
     QtInstagram/src/api/instagramrequest.h \
     QtInstagram/src/cripto/hmacsha.h \
-    src/cacheimage.h
+    src/cacheimage.h \
+    QtInstagram/src/api/instagramv2.h
 
-DEFINES += APP_VERSION=\\\"0.8.4\\\"
+DEFINES += APP_VERSION=\\\"0.9.1\\\"

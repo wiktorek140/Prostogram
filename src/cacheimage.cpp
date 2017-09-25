@@ -19,7 +19,7 @@ void CacheImage::init() {
 QString CacheImage::getFromCache(const QString &str){
     QUrl url(str);
 
-    path = cacheLocation+"/"+url.fileName();
+    path = cacheLocation+url.fileName();
     //QTextStream(stdout) << "File Path: " << path << endl;
     if(QFile::exists(path) && QFile(path).size()>0)
         return path;
@@ -38,12 +38,14 @@ QString CacheImage::getFromCache(const QString &str){
 void CacheImage::requestImage(const QUrl &url){
 
     //QNetworkRequest request(url);
-
+    //QNetworkAccessManager manager;
     currentDownload = manager.get(QNetworkRequest(QUrl(url)));
     connect(currentDownload, SIGNAL(finished()),
             SLOT(downloadFinished()));
     connect(currentDownload, SIGNAL(readyRead()),
             SLOT(downloadReadyRead()));
+
+
     QEventLoop event;
     connect(currentDownload,SIGNAL(finished()),&event,SLOT(quit()));
     event.exec();
@@ -51,13 +53,14 @@ void CacheImage::requestImage(const QUrl &url){
 
 void CacheImage::downloadFinished()
 {
-    output.close();
+    //output.close();
     //QTextStream(stdout) <<"Download finished"<<endl;
     downloaded=true;
+    output.close();
     if (currentDownload->error()) {
         QTextStream(stdout) <<"Error:"<<currentDownload->errorString();
     } else {
-
+        emit finishedImage();
     }
 
     currentDownload->deleteLater();
@@ -67,7 +70,7 @@ void CacheImage::downloadReadyRead()
 {
     output.write(currentDownload->readAll());
     //QTextStream(stdout) <<"Odczyt udany";
-    emit finished();
+    //emit finishedImage();
 }
 
 
