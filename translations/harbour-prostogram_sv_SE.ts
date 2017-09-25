@@ -238,7 +238,7 @@
     <name>TagSearchPage</name>
     <message>
         <source>Search user</source>
-        <translation type="unfinished"></translation>
+        <translation>Sök användare</translation>
     </message>
     <message>
         <source>Explore</source>
@@ -330,7 +330,7 @@
     <name>UserSearchPage</name>
     <message>
         <source>Search users</source>
-        <translation type="unfinished"></translation>
+        <translation>Sök efter användare</translation>
     </message>
 </context>
 </TS>
