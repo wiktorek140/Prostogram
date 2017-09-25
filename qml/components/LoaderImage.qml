@@ -2,7 +2,6 @@ import QtQuick 2.0
 import harbour.prostogram.cache 1.0
 
 Image {
-
     CacheImage {
         id:cache
     }

@@ -202,7 +202,6 @@ Column {
         }
     }
 
-
     function linkClick(link)
     {
         var result = link.split("://");

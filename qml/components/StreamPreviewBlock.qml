@@ -23,8 +23,6 @@ Item {
         id: recentMediaModel;
     }
 
-
-
     SilicaListView {
         id: grid
         anchors.left: parent.left
@@ -50,7 +48,6 @@ Item {
                 }
             }
         }
-
 
         PushUpMenu {
             id: bottomMenu
@@ -112,7 +109,7 @@ Item {
                 recentMediaModel.clear()
             }
 
-            if(data ===null || data === undefined || data.items.length === 0)
+            if(data === null || data === undefined || data.items.length === 0)
             {
                 recentMediaLoaded=true;
                 errorOccurred=true
@@ -131,11 +128,11 @@ Item {
                 if(recentMediaModel.count == 0)
                 {
                     var coverdata = {}
-                    if(data.items[i].media_type == 1 || data.items[i].media_type == 2)
+                    if(data.items[i].media_type === 1 || data.items[i].media_type === 2)
                     {
                         coverdata.image = data.items[i].image_versions2.candidates[data.items[i].image_versions2.candidates.length-1].url
                     }
-                    else if(data.items[i].media_type == 8)
+                    else if(data.items[i].media_type === 8)
                     {
                         coverdata.image = data.items[i].carousel_media[0].image_versions2.candidates[0].url
                     }

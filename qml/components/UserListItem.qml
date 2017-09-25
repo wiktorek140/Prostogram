@@ -32,5 +32,4 @@ BackgroundItem {
     onClicked: {
         pageStack.push(Qt.resolvedUrl("../pages/UserProfilPage.qml"),{user:item});
     }
-
 }

@@ -27,7 +27,6 @@ Rectangle {
         width: parent.width
 
         autoPlay: item.autoVideoPlay
-
         muted: true
 
         onPlaybackStateChanged: {
@@ -43,7 +42,6 @@ Rectangle {
 
 
     Component.onCompleted: {
-        //video.source = item.video_versions.get(0).url
         var videos = item.video_versions.get(0)
         video.source = videos.url
     }

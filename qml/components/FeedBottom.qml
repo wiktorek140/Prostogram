@@ -59,7 +59,7 @@ Rectangle {
         }
     }
 
-    IconButton{
+    IconButton {
         id: likes
         anchors{
             left: sendPhoto.right

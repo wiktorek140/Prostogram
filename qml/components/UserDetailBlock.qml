@@ -31,7 +31,6 @@ Item {
             truncationMode: TruncationMode.Fade
         }
 
-
         Label {
             text: user !== undefined && user.follower_count !== undefined ? qsTr("%1 followers").arg(user.follower_count) : ""
             anchors.left: parent.left

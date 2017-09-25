@@ -67,8 +67,8 @@ Rectangle {
         id: mousearea
         anchors.fill: parent
         onClicked: {
+            //Need to be removed because cannot accec to  profile if it isn't video
             //if(playVideo && item.media_type === 2 ) {video.stop();}
-            //print(item)
             pageStack.push(Qt.resolvedUrl("../pages/UserProfilPage.qml"),{user:item.user});
         }
     }

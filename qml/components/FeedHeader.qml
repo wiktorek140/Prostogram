@@ -28,10 +28,10 @@ Rectangle {
         icon.width: setPhotoIcon.width-40
         icon.height: setPhotoIcon.height-40
         icon.source: "../images/carusel.svg"
+
         onClicked: isStoriesOpen=!isStoriesOpen
-            //pageStack.push(Qt.resolvedUrl("../pages/StoryPage.qml"))
     }
-    Image{
+    Image {
         id: logo
 
         source: "../images/prostogram.svg"
@@ -50,7 +50,6 @@ Rectangle {
                                           "../pages/AboutPage.qml"))
         }
     }
-
 
     Image {
        id: profilpic
@@ -73,5 +72,4 @@ Rectangle {
                                      })
        }
     }
-
 }

@@ -3,7 +3,6 @@ import Sailfish.Silica 1.0
 import harbour.prostogram.cache 1.0
 
 Item {
-    //property var mediaModel
 
     id: story
     width: parent.width
@@ -11,7 +10,7 @@ Item {
     property bool dataLoaded:false
 
 
-  Component.onCompleted: {
+    Component.onCompleted: {
         if (!dataLoaded) {
             storiesData();
         }
@@ -35,25 +34,21 @@ Item {
 
             height:parent.height
             implicitWidth: parent.height
-
             width: parent.width
             orientation: SilicaListView.Horizontal
 
             model: recentMediaModel
-
-
 
             delegate: Image {
 
                 CacheImage {
                     id:cache
                 }
+
                 property var item: model
-                //property bool isViewed:false
                 id: storyDelegate
                 width: parent.height
                 height: parent.height
-                //visible: !isViewed
                 fillMode: Image.PreserveAspectFit
                 source: cache.getFromCache(item.image_versions2.candidates[0].url)
 
@@ -63,7 +58,6 @@ Item {
                     onClicked: {
                         pageStack.push(Qt.resolvedUrl("../pages/MediaDetailPage.qml"),{item:item, isStory:true});
                         itimer.start()
-                        //recentMediaModel.remove(model.index)
                     }
 
                 }
@@ -94,7 +88,6 @@ Item {
             var obj;
             for(var i=0; i<data.tray.length; i++) {
                 obj= data.tray[i];
-                //print(i)
                 if(obj.items !== undefined)
                     for(var j=0;j<obj.items.length;j++){
                     recentMediaModel.append(obj.items[j]);
@@ -104,8 +97,6 @@ Item {
                     instagram.getUserReelsMediaFeed(obj.user.pk);
                 }
             }
-           // dataModel = recentMediaModel
-
             dataLoaded=true;
         }
         onUserReelsMediaFeedDataReady: {
@@ -114,7 +105,6 @@ Item {
             for(var j=0;j<data.items.length;j++){
                 recentMediaModel.append(data.items[j]);
             }
-            //dataModel = recentMediaModel
         }
     }
 }
