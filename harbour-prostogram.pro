@@ -22,7 +22,17 @@ CONFIG += sailfishapp
 SOURCES += src/harbour-prostogram.cpp \
     QtInstagram/src/api/instagram.cpp \
     QtInstagram/src/api/instagramrequest.cpp \
-    QtInstagram/src/cripto/hmacsha.cpp
+    QtInstagram/src/cripto/hmacsha.cpp \
+    QtInstagram/src/api2/request/account.cpp \
+    QtInstagram/src/api2/request/direct.cpp \
+    QtInstagram/src/api2/request/discover.cpp \
+    QtInstagram/src/api2/request/hashtag.cpp \
+    QtInstagram/src/api2/request/media.cpp \
+    QtInstagram/src/api2/request/people.cpp \
+    QtInstagram/src/api2/request/story.cpp \
+    QtInstagram/src/api2/request/timeline.cpp \
+    QtInstagram/src/api2/request/usertag.cpp \
+    QtInstagram/src/api2/instagramv2.cpp
 
 OTHER_FILES += qml/harbour-prostogram.qml \
     qml/cover/*.qml \
@@ -78,6 +88,7 @@ TRANSLATIONS += translations/harbour-prostogram_ca.ts \
 HEADERS += \
     QtInstagram/src/api/instagram.h \
     QtInstagram/src/api/instagramrequest.h \
-    QtInstagram/src/cripto/hmacsha.h
+    QtInstagram/src/cripto/hmacsha.h \
+    QtInstagram/src/api2/instagramv2.h
 
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
