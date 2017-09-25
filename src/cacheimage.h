@@ -19,6 +19,7 @@ class CacheImage : public QObject
     Q_OBJECT
 public:
     explicit CacheImage(QObject *parent = 0);
+
     Q_INVOKABLE void init();
     Q_INVOKABLE QString getFromCache(const QString &str);
     Q_INVOKABLE void clean();
@@ -27,7 +28,7 @@ public:
     const QString cacheLocation = QStandardPaths::writableLocation(QStandardPaths::CacheLocation)+"/images";
 
 signals:
-    void finished();
+    void finishedImage();
 
 public slots:
     void downloadFinished();

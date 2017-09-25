@@ -29,11 +29,11 @@
     </message>
     <message>
         <source>developer</source>
-        <translation type="unfinished"></translation>
+        <translation>twórca</translation>
     </message>
     <message>
         <source>Write a mail</source>
-        <translation type="unfinished"></translation>
+        <translation>Napisz E-maila</translation>
     </message>
     <message>
         <source>Paypal USD</source>
@@ -41,33 +41,33 @@
     </message>
     <message>
         <source>Version: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Wersja %1</translation>
     </message>
 </context>
 <context>
     <name>CameraPage</name>
     <message>
         <source>Set photo</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wybierz zdjęcie</translation>
     </message>
 </context>
 <context>
     <name>CoverPage</name>
     <message>
         <source>Login</source>
-        <translation type="unfinished"></translation>
+        <translation>Login</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Hasło</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation type="unfinished"></translation>
+        <translation>Zaloguj</translation>
     </message>
     <message>
         <source>Entering...</source>
-        <translation type="unfinished"></translation>
+        <translation>Wczytywanie...</translation>
     </message>
     <message>
         <source>Login fail!</source>
@@ -75,18 +75,18 @@
     </message>
     <message>
         <source>Version: %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wersja %1</translation>
     </message>
     <message>
         <source>Login...</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Logowanie...</translation>
     </message>
 </context>
 <context>
     <name>EditPhotoPage</name>
     <message>
         <source>Edit photo</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Edytuj zdjęcie</translation>
     </message>
 </context>
 <context>
@@ -100,25 +100,25 @@
     <name>ExplorePage</name>
     <message>
         <source>Explore</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Explore</translation>
     </message>
 </context>
 <context>
     <name>FeedItem</name>
     <message>
         <source>likes</source>
-        <translation type="unfinished">lubi</translation>
+        <translation>lubi</translation>
     </message>
 </context>
 <context>
     <name>InboxItem</name>
     <message>
         <source>You send message</source>
-        <translation type="unfinished"></translation>
+        <translation>Wysłałeś wiadomość</translation>
     </message>
     <message>
         <source>You get message</source>
-        <translation type="unfinished"></translation>
+        <translation>Dostałeś wiadomość</translation>
     </message>
 </context>
 <context>
@@ -139,7 +139,7 @@
     <name>MediaDetailPage</name>
     <message>
         <source>Details</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Szczegóły</translation>
     </message>
     <message>
         <source>likes</source>
@@ -147,19 +147,15 @@
     </message>
     <message>
         <source>comments</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">komentarzy</translation>
     </message>
     <message>
         <source>You liked this.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Lubisz to.</translation>
     </message>
     <message>
         <source>Follow</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Un Follow</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Obserwuj</translation>
     </message>
     <message>
         <source>Unlike</source>
@@ -167,7 +163,7 @@
     </message>
     <message>
         <source>Like</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Polub</translation>
     </message>
     <message>
         <source>Remove</source>
@@ -175,6 +171,10 @@
     </message>
     <message>
         <source>Story</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Un Follow</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -201,7 +201,7 @@
     <name>NotificationPage</name>
     <message>
         <source>Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Powiadomienia</translation>
     </message>
 </context>
 <context>
@@ -216,7 +216,7 @@
     </message>
     <message>
         <source>Set as favorite</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Ustaw jako ulubione</translation>
     </message>
 </context>
 <context>
@@ -244,16 +244,16 @@
 <context>
     <name>TagSearchPage</name>
     <message>
-        <source>Search for tag</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Search user</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Szukaj osób</translation>
     </message>
     <message>
         <source>Explore</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Explore</translation>
+    </message>
+    <message>
+        <source>Search tag</source>
+        <translation type="unfinished">Szukaj tagami</translation>
     </message>
 </context>
 <context>
@@ -279,7 +279,7 @@
     </message>
     <message>
         <source>Followers</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Obserwujący</translation>
     </message>
 </context>
 <context>
@@ -314,11 +314,11 @@
     </message>
     <message>
         <source>Followers</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Obserwujący</translation>
     </message>
     <message>
         <source>Following</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Obserwujesz</translation>
     </message>
     <message>
         <source>Unfollow %1</source>
@@ -326,14 +326,14 @@
     </message>
     <message>
         <source>Logout</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Wyloguj</translation>
     </message>
 </context>
 <context>
     <name>UserSearchPage</name>
     <message>
         <source>Search users</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Szukaj osoby</translation>
     </message>
 </context>
 </TS>

@@ -66,12 +66,12 @@ Page {
     }
 
     function searchUserData() {
-        instagram.userFeed(searchField.text);
+        instagram.searchUser(searchField.text);
     }
 
     Connections{
         target: instagram
-        onUserFeedDataReady:{
+        onSearchUserDataReady:{
             var data  = JSON.parse(answer)
             for(var i=0; i<data.users.length; i++) {
                 mediaModel.append(data.users[i]);

@@ -10,6 +10,7 @@ Column {
     id: feedItem
     property var item
     property bool playVideo : false
+    property int type: 0
 
     width: parent.width
     height: childrenRect.height+20

@@ -5,9 +5,23 @@ import harbour.prostogram.cache 1.0
 
 Item {
     property var mediaModel
+    property int storyesCount: 0
+    property bool dataLoaded: false
     id: story
     width: parent.width
     height: parent.width/4
+
+    Component.onCompleted: {
+        if (!dataLoaded) {
+            instagram.getReelsTrayFeed();
+        }
+    }
+
+    BusyIndicator {
+        running: visible
+        visible: !dataLoaded
+        anchors.centerIn: parent
+    }
 
     SilicaFlickable {
         anchors.left: parent.left
@@ -25,13 +39,11 @@ Item {
 
             orientation: SilicaListView.Horizontal
 
-            model: mediaModel
+            model: recentMediaModel
 
             delegate: Item{
                 height: parent.height
                 width: height
-
-                property var item: model
                 property bool isViewed:false
 
                 Image {
@@ -46,21 +58,21 @@ Item {
                     anchors.centerIn: parent
 
                     fillMode: Image.PreserveAspectCrop
-                    source: cache.getFromCache(item.image_versions2.candidates[0].url)
+                    source: cache.getFromCache(image_versions2.candidates[0].url)
 
                     layer.enabled: true
                     layer.effect: OpacityMask {
-                            maskSource: Item {
+                        maskSource: Item {
+                            width: delegate.width
+                            height: delegate.height
+                            Rectangle {
+                                anchors.centerIn: parent
                                 width: delegate.width
                                 height: delegate.height
-                                Rectangle {
-                                    anchors.centerIn: parent
-                                    width: delegate.width
-                                    height: delegate.height
-                                    radius: width
-                                }
+                                radius: width
                             }
                         }
+                    }
                 }
 
                 MouseArea {
@@ -68,8 +80,55 @@ Item {
                     anchors.fill: parent
                     onClicked: {
                         pageStack.push(Qt.resolvedUrl("../pages/MediaDetailPage.qml"),{item:item,isStory: true});
+                        itimer.start()
+
                     }
                 }
+
+                Timer {
+                    id: itimer
+                    interval: 1000;
+                    running: false
+                    repeat: false
+                    triggeredOnStart: false
+                    onTriggered: recentMediaModel.remove(model.index)
+                }
+            }
+        }
+    }
+
+    ListModel {
+        id: recentMediaModel
+        onCountChanged: {
+            storyesCount = recentMediaModel.count
+        }
+    }
+
+    Connections {
+        target: instagram
+        onReelsTrayFeedDataReady:{
+            var data = JSON.parse(answer);
+            var obj;
+            for(var i=0; i<data.tray.length; i++) {
+                obj= data.tray[i];
+
+                if(obj.items !== undefined)
+                    for(var j=0;j<obj.items.length;j++){
+                        recentMediaModel.append(obj.items[j]);
+                    }
+                else
+                {
+                    instagram.getUserReelsMediaFeed(obj.user.pk);
+                }
+            }
+
+            dataLoaded=true;
+        }
+        onUserReelsMediaFeedDataReady: {
+            while(!dataLoaded){}
+            var data = JSON.parse(answer);
+            for(var j=0;j<data.items.length;j++){
+                recentMediaModel.append(data.items[j]);
             }
         }
     }

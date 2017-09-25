@@ -40,7 +40,7 @@ Page {
     Connections{
         target: instagram
 
-        onGetInboxDataReady:{
+        onInboxDataReady:{
             var out = JSON.parse(answer)
             if(out.status === "ok")
             {

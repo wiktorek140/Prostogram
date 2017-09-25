@@ -16,12 +16,9 @@ Page {
     property bool updateRunning: false
     property string favoriteTag: ""
 
-    property bool storyDataLoaded: false
-
     onStatusChanged: {
         if (status === PageStatus.Active) {
             refreshCallback = startPageRefreshCB
-            instagram.storiesFeed();
         }
     }
 
@@ -74,21 +71,13 @@ Page {
 
         HorizontalList {
             id: stories
-            z: 1
-            mediaModel: storiesModel
             anchors.top: parent.top
-            visible: storiesModel.count > 0
-            BusyIndicator {
-                running: visible
-                visible: !storyDataLoaded
-                anchors.centerIn: parent
-            }
         }
 
         StreamPreviewBlock {
             id: myFeedBlock
             anchors{
-                top: (storiesModel.count > 0) ? stories.bottom : parent.top
+                top: (stories.storyesCount > 0) ? stories.bottom : parent.top
             }
         }
     }
@@ -116,21 +105,5 @@ Page {
         }
         updateRunning = true
         myFeedBlock.refreshContent(refreshDone)
-    }
-
-    Connections {
-        target: instagram
-        onStoriesDataReady:{
-            var data = JSON.parse(answer);
-            var obj;
-            for(var i=0; i<data.tray.length; i++) {
-                obj= data.tray[i];
-                if(obj.items != undefined)
-                    for(var j=0;j<obj.items.length;j++){
-                        storiesModel.append(obj.items[j]);
-                    }
-            }
-            storyDataLoaded=true;
-        }
     }
 }

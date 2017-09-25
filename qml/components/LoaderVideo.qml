@@ -1,8 +1,8 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import QtMultimedia 5.0
+import QtMultimedia 5.5
 
-Rectangle{
+Rectangle {
     width: parent.width
     height: parent.height
 
@@ -43,19 +43,18 @@ Rectangle{
 
 
     Component.onCompleted: {
-        var videos = item.video_versions.get(0)
-        video.source = videos.url
+        video.source = item.video_versions.get(0).url
     }
 
     Image{
         source: "../images/volume-off.svg"
-        width: parent.width/20
-        height: parent.width/20
+        width: parent.width/18
+        height: parent.width/18
 
         sourceSize.height: height
         sourceSize.width: height
 
-        anchors{
+        anchors {
             left: parent.left
             leftMargin: parent.width/25
             bottom: parent.bottom

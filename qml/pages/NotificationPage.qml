@@ -8,7 +8,7 @@ Page {
 
     Component.onCompleted: {
         notifyStream.notifyCount = 0;
-        instagram.getRecentActivity();
+        instagram.getRecentActivityInbox();
     }
 
     onStatusChanged: {
@@ -38,7 +38,7 @@ Page {
 
     Connections{
         target: instagram
-        onRecentActivityDataReady:{
+        onRecentActivityInboxDataReady:{
             var out = JSON.parse(answer)
             notifyModel.clear();
 
@@ -51,11 +51,7 @@ Page {
                 notifyModel.append(notify)
             })
         }
-    }
-
-    Connections{
-        target: instagram
-        onUsernameDataReady:{
+        onInfoByIdDataReady:{
             if (notificationPage.status == PageStatus.Active)
             {
                 var out = JSON.parse(answer)

@@ -15,7 +15,6 @@ void CacheImage::init() {
 QString CacheImage::getFromCache(const QString &str){
     QUrl url(str);
     path = cacheLocation+"/"+url.fileName();
-
     if(QFile::exists(path) && QFile(path).size()>0)
         return path;
     else {
@@ -34,6 +33,8 @@ void CacheImage::requestImage(const QUrl &url){
             SLOT(downloadFinished()));
     connect(currentDownload, SIGNAL(readyRead()),
             SLOT(downloadReadyRead()));
+
+
     QEventLoop event;
     connect(currentDownload,SIGNAL(finished()),&event,SLOT(quit()));
     event.exec();
@@ -41,11 +42,12 @@ void CacheImage::requestImage(const QUrl &url){
 
 void CacheImage::downloadFinished()
 {
-    output.close();
     downloaded=true;
+    output.close();
     if (currentDownload->error()) {
         qDebug() << "Error: " << currentDownload->errorString();
     } else {
+        emit finishedImage();
     }
     currentDownload->deleteLater();
 }
@@ -53,7 +55,6 @@ void CacheImage::downloadFinished()
 void CacheImage::downloadReadyRead()
 {
     output.write(currentDownload->readAll());
-    emit finished();
 }
 
 void CacheImage::clean(){
@@ -63,4 +64,3 @@ void CacheImage::clean(){
         dir.removeRecursively();
     }
 }
-

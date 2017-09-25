@@ -8,8 +8,8 @@
 #include <QQuickView>
 #include <QtQml>
 #include <QTranslator>
+#include "QtInstagram/src/api2/instagramv2.h"
 
-#include "QtInstagram/src/api/instagram.h"
 #include "cacheimage.h"
 
 int main(int argc, char *argv[])
@@ -19,8 +19,6 @@ int main(int argc, char *argv[])
 
    QScopedPointer <QQuickView> view(SailfishApp::createView());
    app->setApplicationName("harbour-prostogram");
-   app->setOrganizationDomain("harbour-prostogram");
-   app->setOrganizationName("harbour-prostogram");
 
    QTranslator *translator = new QTranslator();
    translator->load(QLocale::system(), "harbour-prostogram", "_", translationPath);
@@ -30,14 +28,12 @@ int main(int argc, char *argv[])
 
    view->setTitle("Prostogram");
 
-   view->rootContext()->setContextProperty("Home",QDir::homePath());
-
-   qmlRegisterType<Instagram>("harbour.prostogram",1,0,"Instagram");
+   qmlRegisterType<Instagramv2>("harbour.prostogram",1,0,"Instagram");
    qmlRegisterType<CacheImage>("harbour.prostogram.cache",1,0,"CacheImage");
 
    QUrl pageSource = SailfishApp::pathTo("qml/harbour-prostogram.qml");
    view->setSource(pageSource);
-   view->showFullScreen();
+   view->show();
 
    return app->exec();
 }

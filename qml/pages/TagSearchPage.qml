@@ -23,7 +23,7 @@ Page {
 
         PageHeader {
             id: header
-            title: qsTr("Search for tag")
+            title: qsTr("Search tag")
         }
 
         SearchField {
@@ -84,7 +84,7 @@ Page {
     }
 
     function searchTagsData() {
-        instagram.tagFeed(searchField.text);
+        instagram.getTagFeed(searchField.text);
     }
 
     Connections{

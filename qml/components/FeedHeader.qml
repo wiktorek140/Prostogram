@@ -40,7 +40,6 @@ Rectangle {
         }
     }
 
-
     Image {
        id: profilpic
        width: parent.height
@@ -62,5 +61,4 @@ Rectangle {
                                      })
        }
     }
-
 }

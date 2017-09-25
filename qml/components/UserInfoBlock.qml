@@ -68,8 +68,6 @@ Rectangle {
         id: mousearea
         anchors.fill: parent
         onClicked: {
-            if(playVideo)
-                video.stop();
             pageStack.push(Qt.resolvedUrl("../pages/UserProfilPage.qml"),{user:item.user});
         }
     }

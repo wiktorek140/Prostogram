@@ -301,14 +301,14 @@ Page {
                 text:  qsTr("Unfollow %1").arg(user.username)
                 visible: !relationStatus.following && !isSelf
                 onClicked: {
-                    instagram.unfollow(user.pk);
+                    instagram.unFollow(user.pk);
                 }
             }
 
             MenuItem {
                 id: followMenuItem
                 text: qsTr("Follow %1").arg(user.username)
-                visible: !relationStatus.following && !isSelf
+                visible: relationStatus.following && !isSelf
                 onClicked: {
                     instagram.follow(user.pk);
                 }
@@ -322,8 +322,8 @@ Page {
 
 
     Component.onCompleted: {
-        instagram.getUsernameFeed(user.pk)
-        instagram.getUsernameInfo(user.pk)
+        instagram.getUserFeed(user.pk)
+        instagram.getInfoById(user.pk)
 
         refreshCallback = null
         if(app.user.pk === user.pk)
@@ -333,7 +333,7 @@ Page {
         else
         {
             isSelf = false;
-            instagram.userFriendship(user.pk);
+            instagram.getFriendship(user.pk);
         }
     }
 
@@ -348,7 +348,7 @@ Page {
 
     Connections{
         target: instagram
-        onUserTimeLineDataReady:{
+        onUserFeedDataReady:{
             var data = JSON.parse(answer);
             if(data === undefined || data.items === undefined) {
                 recentMediaLoaded=true;
@@ -360,19 +360,19 @@ Page {
             }
             recentMediaLoaded=true;
         }
-    }
-
-    Connections{
-        target: instagram
-        onUsernameDataReady:{
+        onInfoByIdDataReady:{
             var out = JSON.parse(answer);
             user = out.user
         }
-    }
-
-    Connections{
-        target: instagram
-        onUserFriendshipDataReady:{
+        onFollowDataReady:{
+            relationStatusLoaded = false;
+            instagram.getFriendship(user.pk);
+        }
+        onUnFollowDataReady:{
+            relationStatusLoaded = false;
+            instagram.getFriendship(user.pk);
+        }
+        onFriendshipDataReady:{
             relationStatusLoaded = true;
             relationStatus = JSON.parse(answer)
             if(!isSelf)

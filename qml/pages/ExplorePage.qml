@@ -10,6 +10,7 @@ Page {
     allowedOrientations:  Orientation.All
 
     property var user
+    property string next_id: ""
     property bool dataLoaded: false
     property int recentMediaSize: (width - 2 * Theme.paddingMedium) / 3
 
@@ -62,6 +63,7 @@ Page {
 
                 delegate:Item{
                     property var item: model
+
                     width: parent.width/3
                     height: width
 
@@ -79,7 +81,11 @@ Page {
                         id: mousearea
                         anchors.fill: parent
                         onClicked: {
-                            pageStack.push(Qt.resolvedUrl("../pages/MediaDetailPage.qml"),{item:item});
+                            if(item.special === 1) {
+                                exploreData()
+                                recentMediaModel.remove(model.index)
+                            }
+                            else pageStack.push(Qt.resolvedUrl("../pages/MediaDetailPage.qml"),{item:item});
                         }
                     }
                 }
@@ -89,21 +95,27 @@ Page {
 
     ListModel {
         id: recentMediaModel
+
     }
 
     Component.onCompleted: {
-        instagram.exploreFeed();
+        instagram.exploreFeed(next_id);
     }
 
     Connections {
         target: instagram
-        onExploreDataReady:{
+        onExploreFeedDataReady:{
             var data = JSON.parse(answer);
 
             for(var i=1; i<data.items.length; i++) {
                 recentMediaModel.append(data.items[i].media);
             }
+            next_id = data.next_max_id
             dataLoaded=true;
+
+            data.items[0].media_type=1
+            data.items[0].special=1
+            recentMediaModel.append(data.items[0])
         }
     }
 }
