@@ -41,7 +41,8 @@ Item {
 
             model: recentMediaModel
 
-            delegate: Item{
+            delegate: Item {
+
                 height: parent.height
                 width: height
                 property bool isViewed:false
@@ -79,19 +80,10 @@ Item {
                     id: mousearea
                     anchors.fill: parent
                     onClicked: {
-                        pageStack.push(Qt.resolvedUrl("../pages/MediaDetailPage.qml"),{item:item,isStory: true});
-                        itimer.start()
-
+                        pageStack.push(Qt.resolvedUrl("../pages/MediaDetailPage.qml"),{item:model, isStory:true});
+                        recentMediaModel.remove(model.index)
+                        //Somehow stuck when try to open element durig loading/downloading
                     }
-                }
-
-                Timer {
-                    id: itimer
-                    interval: 1000;
-                    running: false
-                    repeat: false
-                    triggeredOnStart: false
-                    onTriggered: recentMediaModel.remove(model.index)
                 }
             }
         }
@@ -106,7 +98,7 @@ Item {
 
     Connections {
         target: instagram
-        onReelsTrayFeedDataReady:{
+        onReelsTrayFeedDataReady: {
             var data = JSON.parse(answer);
             var obj;
             for(var i=0; i<data.tray.length; i++) {
@@ -121,13 +113,12 @@ Item {
                     instagram.getUserReelsMediaFeed(obj.user.pk);
                 }
             }
-
             dataLoaded=true;
         }
         onUserReelsMediaFeedDataReady: {
             while(!dataLoaded){}
             var data = JSON.parse(answer);
-            for(var j=0;j<data.items.length;j++){
+            for(var j=0;j<data.items.length;j++) {
                 recentMediaModel.append(data.items[j]);
             }
         }
