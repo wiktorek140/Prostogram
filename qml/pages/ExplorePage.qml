@@ -56,7 +56,7 @@ Page {
                 model: recentMediaModel
 
                 delegate: Item {
-                    property var item: model
+                    //property var item: model
 
                     width: parent.width/3
                     height: width
@@ -65,10 +65,11 @@ Page {
                         id: mainLoader
                         anchors.fill: parent
                         width: parent.width
-                        preview:true
+                        preview: true
                         clip: true
                         autoVideoPlay: false
                         isSquared: true
+                        property var item: model
                     }
 
                     MouseArea {

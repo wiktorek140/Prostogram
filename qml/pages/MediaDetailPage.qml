@@ -16,6 +16,7 @@ Page {
     property bool userLikedThis : false
     property bool likeStatusLoaded : false
 
+
     SilicaFlickable {
         anchors.fill: parent
         contentHeight: column.height + header.height + 10
@@ -58,13 +59,28 @@ Page {
                 }
             }
 
-            MainItemLoader{
+            MainItemLoader {
                 id: mainLoader
+
+                MouseArea{
+                    anchors{
+                        left: parent.left
+                        right: parent.right
+                        top: parent.top
+                        //bottom: parent.bottom
+                    }
+                    height: parent.height - 100
+                    visible: isStory
+                    onClicked: {
+                        pageStack._navigateBack();
+                    }
+                }
+
             }
 
             Label {
                 id: description
-                visible: text!=="" && !isStory
+                visible: text !== "" && !isStory
                 text: item.caption ? Helper.formatString(item.caption.text) : ""
                 anchors{
                     left: parent.left
@@ -90,7 +106,7 @@ Page {
                 visible: !isStory
             }
 
-            Rectangle{
+            Rectangle {
                 id: doComment
                 visible: !isStory
                 width: parent.width
@@ -125,8 +141,9 @@ Page {
 
             Repeater {
                 id: commentsRepeater
+                visible: !isStory
                 width: parent.width
-                delegate: CommentItem{item: modelData}
+                delegate: CommentItem {item: modelData}
             }
         }
 

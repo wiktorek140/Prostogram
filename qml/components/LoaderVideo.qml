@@ -46,10 +46,10 @@ Rectangle {
         video.source = item.video_versions.get(0).url
     }
 
-    Image{
+    Image {
         source: "../images/volume-off.svg"
-        width: parent.width/18
-        height: parent.width/18
+        width: parent.width/14
+        height: parent.width/14
 
         sourceSize.height: height
         sourceSize.width: height
@@ -61,7 +61,7 @@ Rectangle {
             bottomMargin: parent.width/25
         }
 
-        MouseArea{
+        MouseArea {
             anchors.fill: parent
             onClicked: {
                 if(video.muted)

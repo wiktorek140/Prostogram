@@ -56,8 +56,6 @@ Rectangle {
                 {
                     preview ? mainLoader.source = "LoaderVideoPreview.qml" : mainLoader.source = "LoaderVideo.qml"
                 }
-
-
             }
             else if(item.media_type == 8)
             {
