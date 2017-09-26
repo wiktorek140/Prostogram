@@ -14,12 +14,6 @@ Page {
     property bool dataLoaded: false
     property int recentMediaSize: (width - 2 * Theme.paddingMedium) / 3
 
-    onStatusChanged: {
-        if (status === PageStatus.Active && !dataLoaded) {
-            instagram.exploreFeed();
-        }
-    }
-
     SilicaFlickable {
         id: allView
         anchors.fill: parent
@@ -61,13 +55,13 @@ Page {
 
                 model: recentMediaModel
 
-                delegate:Item{
+                delegate: Item {
                     property var item: model
 
                     width: parent.width/3
                     height: width
 
-                    MainItemLoader{
+                    MainItemLoader {
                         id: mainLoader
                         anchors.fill: parent
                         width: parent.width
@@ -81,11 +75,12 @@ Page {
                         id: mousearea
                         anchors.fill: parent
                         onClicked: {
-                            if(item.special === 1) {
-                                exploreData()
-                                recentMediaModel.remove(model.index)
+                            if(model.special === 1) {
+                                recentMediaModel.remove(model.index);
+                                dataLoaded = false;
+                                instagram.getExploreFeed(next_id);
                             }
-                            else pageStack.push(Qt.resolvedUrl("../pages/MediaDetailPage.qml"),{item:item});
+                            else pageStack.push(Qt.resolvedUrl("../pages/MediaDetailPage.qml"),{item:model});
                         }
                     }
                 }
@@ -99,7 +94,7 @@ Page {
     }
 
     Component.onCompleted: {
-        instagram.exploreFeed(next_id);
+        instagram.getExploreFeed(next_id);
     }
 
     Connections {

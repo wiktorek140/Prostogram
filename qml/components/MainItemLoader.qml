@@ -24,7 +24,7 @@ Rectangle {
         clip: true
         color: "transparent"
 
-        Loader{
+        Loader {
             id: mainLoader
             anchors.fill: parent
             width: parent.width
