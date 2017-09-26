@@ -98,4 +98,4 @@ HEADERS += \
     src/cacheimage.h \
     QtInstagram/src/api/instagramv2.h
 
-DEFINES += APP_VERSION=\\\"0.9.1\\\"
+DEFINES += APP_VERSION=\\\"$$VERSION\\\"
