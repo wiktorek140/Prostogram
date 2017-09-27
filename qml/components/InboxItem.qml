@@ -10,7 +10,8 @@ Rectangle{
     color: "transparent"
     clip: true
 
-    Image{
+
+    Image {
         id: conversationCover
         source: item.users.get(0).profile_pic_url
     }
@@ -54,6 +55,7 @@ Rectangle{
         anchors.fill: parent
         onClicked: {
             console.log("Load thread "+item.thread_id)
+            pageStack.push(Qt.resolvedUrl("ThreadView.qml"),{threadId:item.thread_id, user:item.users.get(0).username});
         }
     }
 }

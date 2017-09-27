@@ -257,6 +257,17 @@
     </message>
 </context>
 <context>
+    <name>ThreadView</name>
+    <message>
+        <source>Refresh</source>
+        <translation type="unfinished">Verversen</translation>
+    </message>
+    <message>
+        <source>Load older</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>UserDetailBlock</name>
     <message>
         <source>%1 posts</source>

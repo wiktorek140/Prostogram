@@ -22,7 +22,7 @@ Column {
 
     spacing: 20
 
-    MainItemLoader{
+    MainItemLoader {
         id: mainLoader
         width: parent.width
         clip: true
