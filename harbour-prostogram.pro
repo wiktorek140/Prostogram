@@ -68,7 +68,8 @@ DISTFILES += \
     qml/pages/ExplorePage.qml \
     qml/components/LoaderVideoPreview.qml \
     qml/components/HorizontalList.qml \
-    qml/images/next.svg
+    qml/images/next.svg \
+    qml/components/ThreadView.qml
 
 TRANSLATIONS += translations/harbour-prostogram_ca.ts \
                 translations/harbour-prostogram_cs_CZ.ts \
