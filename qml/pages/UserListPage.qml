@@ -90,12 +90,9 @@ Page {
         for(var i=0; i<data.users.length; i++) {
             mediaModel.append(data.users[i]);
         }
-
         dataLoaded = true;
     }
 
     //function getNextMediaData() {
-
-
     //}
 }
