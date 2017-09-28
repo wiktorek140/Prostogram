@@ -292,7 +292,7 @@ Page {
                 visible: isSelf
                 text:  qsTr("Following")
                 onClicked: {
-                    pageStack.push(Qt.resolvedUrl("UserListPage.qml"),{pageTitle:qsTr("Following"), userId: user.pk });
+                    pageStack.push(Qt.resolvedUrl("UserListPage.qml"),{pageTitle:qsTr("Following"), userId: user.pk});
                 }
             }
 
@@ -368,7 +368,7 @@ Page {
             relationStatusLoaded = false;
             instagram.getFriendship(user.pk);
         }
-        onUnFollowDataReady:{
+        onUnfollowDataReady:{
             relationStatusLoaded = false;
             instagram.getFriendship(user.pk);
         }

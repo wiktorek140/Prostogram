@@ -33,7 +33,8 @@ SOURCES += src/harbour-prostogram.cpp \
     QtInstagram/src/api2/request/timeline.cpp \
     QtInstagram/src/api2/request/usertag.cpp \
     QtInstagram/src/api2/instagramv2.cpp \
-    src/cacheimage.cpp
+    src/cacheimage.cpp \
+    QtInstagram/src/api2/instagramrequestv2.cpp
 
 OTHER_FILES += qml/harbour-prostogram.qml \
     qml/cover/*.qml \
@@ -96,6 +97,7 @@ HEADERS += \
     QtInstagram/src/api/instagramrequest.h \
     QtInstagram/src/cripto/hmacsha.h \
     QtInstagram/src/api2/instagramv2.h \
-    src/cacheimage.h
+    src/cacheimage.h \
+    QtInstagram/src/api2/instagramrequestv2.h
 
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"

@@ -66,11 +66,11 @@ Page {
     Component.onCompleted: {
         if(page.pageTitle === qsTr("Followers"))
         {
-            instagram.getFollowing(userId)
+            instagram.getFollowers(userId)
         }
         else
         {
-            instagram.getFollowers(userId)
+            instagram.getFollowing(userId)
         }
     }
 
@@ -90,6 +90,12 @@ Page {
         for(var i=0; i<data.users.length; i++) {
             mediaModel.append(data.users[i]);
         }
+
         dataLoaded = true;
     }
+
+    //function getNextMediaData() {
+
+
+    //}
 }
