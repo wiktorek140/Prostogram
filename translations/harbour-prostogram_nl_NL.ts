@@ -100,7 +100,7 @@
     <name>ExplorePage</name>
     <message>
         <source>Explore</source>
-        <translation type="unfinished"></translation>
+        <translation>Onderzoeken</translation>
     </message>
 </context>
 <context>
@@ -171,11 +171,11 @@
     </message>
     <message>
         <source>Story</source>
-        <translation type="unfinished"></translation>
+        <translation>Verhaal</translation>
     </message>
     <message>
         <source>Un Follow</source>
-        <translation type="unfinished"></translation>
+        <translation>Niet meer volgen</translation>
     </message>
 </context>
 <context>
@@ -245,26 +245,26 @@
     <name>TagSearchPage</name>
     <message>
         <source>Search user</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoek gebruiker</translation>
     </message>
     <message>
         <source>Explore</source>
-        <translation type="unfinished"></translation>
+        <translation>Onderzoeken</translation>
     </message>
     <message>
         <source>Search tag</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoek tag</translation>
     </message>
 </context>
 <context>
     <name>ThreadView</name>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished">Verversen</translation>
+        <translation>Verversen</translation>
     </message>
     <message>
         <source>Load older</source>
-        <translation type="unfinished"></translation>
+        <translation>Ouder laden</translation>
     </message>
 </context>
 <context>
@@ -344,7 +344,7 @@
     <name>UserSearchPage</name>
     <message>
         <source>Search users</source>
-        <translation type="unfinished"></translation>
+        <translation>Zoek gebruikers</translation>
     </message>
 </context>
 </TS>
