@@ -138,11 +138,11 @@ Page {
                 color: Theme.highlightColor
                 truncationMode: TruncationMode.Fade
                 font.bold: true
-
+                visible: user.full_name !== "" ? true : false
 
             }
             Label {
-                text: user.bio !== undefined ? user.bio : ""
+                text: user.biography !== undefined ? user.biography : ""
                 anchors.left: parent.left
                 anchors.leftMargin: Theme.paddingMedium
                 anchors.right: parent.right
@@ -154,7 +154,7 @@ Page {
             }
 
             Label {
-                text: user.website !== undefined ? user.website :""
+                text: user.external_url !== undefined ? user.external_url :""
                 anchors.left: parent.left
                 anchors.leftMargin: Theme.paddingMedium
                 anchors.right: parent.right
@@ -193,33 +193,83 @@ Page {
 
 
                 Rectangle {
-                    anchors.fill: parent
-                    color: Theme.highlightColor
-                    opacity : mouseAreaHeader.pressed ? 0.3 : 0
+                    anchors {
+                        left:parent.left
+                        top: parent.top
+                        bottom:parent.bottom
+                    }
+                    width: parent.width/2
+                    color: "transparent"
+                    //opacity : mouseAreaHeader.pressed ? 0.3 : 0
+                    Rectangle {
+                        anchors.fill: parent
+                        color: Theme.highlightColor
+                        opacity : mouseAreaHeader.pressed ? 0.3 : 0
+                    }
+
+                    Image {
+                        id: iconL
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left: parent.left
+                        anchors.leftMargin: Theme.paddingLarge
+                        source:  "image://theme/icon-m-left"
+                    }
+
+                    Label {
+                        font.pixelSize: Theme.fontSizeLarge
+                        color: Theme.primaryColor
+
+                        text: "#tags"
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.left: iconL.right
+                        anchors.leftMargin: Theme.paddingMedium
+                    }
+
+                    MouseArea {
+                        id: mouseAreaHeaderTag
+                        anchors.fill: parent
+                        onClicked: pageStack.push(Qt.resolvedUrl("MediaStreamPage.qml"),{mode : MediaStreamMode.TAG_MODE, streamData: recentMediaData,tag: user.pk, streamTitle: user.username})
+                    }
                 }
 
-                Image {
-                    id: icon
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.right: parent.right
-                    anchors.rightMargin: Theme.paddingLarge
-                    source:  "image://theme/icon-m-right"
-                }
+                Rectangle {
+                    anchors {
+                        right:parent.right
+                        top: parent.top
+                        bottom:parent.bottom
+                    }
+                    width: parent.width/2
+                    color: "transparent"
+                    //opacity : mouseAreaHeader.pressed ? 0.3 : 0
+                    Rectangle {
+                        anchors.fill: parent
+                        color: Theme.highlightColor
+                        opacity : mouseAreaHeader.pressed ? 0.3 : 0
+                    }
 
-                Label {
-                    font.pixelSize: Theme.fontSizeLarge
-                    color: Theme.primaryColor
+                    Image {
+                        id: icon
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.right: parent.right
+                        anchors.rightMargin: Theme.paddingLarge
+                        source:  "image://theme/icon-m-right"
+                    }
 
-                    text: user.username
-                    anchors.verticalCenter: parent.verticalCenter
-                    anchors.right: icon.left
-                    anchors.rightMargin: Theme.paddingMedium
-                }
+                    Label {
+                        font.pixelSize: Theme.fontSizeLarge
+                        color: Theme.primaryColor
 
-                MouseArea {
-                    id: mouseAreaHeader
-                    anchors.fill: parent
-                    onClicked: pageStack.push(Qt.resolvedUrl("MediaStreamPage.qml"),{mode : MediaStreamMode.USER_MODE, streamData: recentMediaData,tag: user.pk, streamTitle: user.username})
+                        text: user.username
+                        anchors.verticalCenter: parent.verticalCenter
+                        anchors.right: icon.left
+                        anchors.rightMargin: Theme.paddingMedium
+                    }
+
+                    MouseArea {
+                        id: mouseAreaHeader
+                        anchors.fill: parent
+                        onClicked: pageStack.push(Qt.resolvedUrl("MediaStreamPage.qml"),{mode : MediaStreamMode.USER_MODE, streamData: recentMediaData,tag: user.pk, streamTitle: user.username})
+                    }
                 }
             }
 
