@@ -194,13 +194,13 @@ Page {
 
                 Rectangle {
                     anchors {
-                        left:parent.left
+                        left: parent.left
                         top: parent.top
-                        bottom:parent.bottom
+                        bottom: parent.bottom
                     }
                     width: parent.width/2
                     color: "transparent"
-                    //opacity : mouseAreaHeader.pressed ? 0.3 : 0
+
                     Rectangle {
                         anchors.fill: parent
                         color: Theme.highlightColor
@@ -228,19 +228,19 @@ Page {
                     MouseArea {
                         id: mouseAreaHeaderTag
                         anchors.fill: parent
-                        onClicked: pageStack.push(Qt.resolvedUrl("MediaStreamPage.qml"),{mode : MediaStreamMode.TAG_MODE, streamData: recentMediaData,tag: user.pk, streamTitle: user.username})
+                        onClicked: pageStack.push(Qt.resolvedUrl("MediaStreamPage.qml"),{mode : MediaStreamMode.TAG_MODE, streamData: recentMediaData,tag: user.username, streamTitle: user.username})
                     }
                 }
 
                 Rectangle {
                     anchors {
-                        right:parent.right
+                        right: parent.right
                         top: parent.top
-                        bottom:parent.bottom
+                        bottom: parent.bottom
                     }
                     width: parent.width/2
                     color: "transparent"
-                    //opacity : mouseAreaHeader.pressed ? 0.3 : 0
+
                     Rectangle {
                         anchors.fill: parent
                         color: Theme.highlightColor

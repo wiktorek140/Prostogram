@@ -2,6 +2,7 @@ import QtQuick 2.2
 import Sailfish.Silica 1.0
 import QtMultimedia 5.0
 import QtQuick.LocalStorage 2.0
+import harbour.prostogram.cache 1.0
 
 import "../components"
 import "../MediaStreamMode.js" as MediaStreamMode
@@ -64,7 +65,7 @@ Page {
             left: parent.left
         }
 
-        height: parent.height-header.height-bottom.height
+        height: parent.height - header.height - bottom.height - (stories.storyesCount > 0 ? stories.height : 0)
         width: parent.width
 
         contentWidth: parent.width
@@ -78,11 +79,12 @@ Page {
             id: myFeedBlock
             anchors{
                 top: (stories.storyesCount > 0) ? stories.bottom : parent.top
+                bottom: bottom.top
             }
         }
     }
 
-    FeedBottom{
+    FeedBottom {
         id: bottom
         z: 2
         anchors{
