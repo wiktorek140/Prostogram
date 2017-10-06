@@ -124,7 +124,7 @@ Page {
                         commentBody.readOnly = true
                         if(commentBody.text.length > 0)
                         {
-                            instagram.postComment(item.id, commentBody.text)
+                            instagram.comment(item.id, commentBody.text)
                         }
                     }
                 }
@@ -262,7 +262,7 @@ Page {
             commentsRepeater.model = out.comments
         }
         onCommentPosted:{
-            instagram.getMediaComments(item.id);
+            instagram.getComments(item.id);
             commentBody.readOnly = false
             commentBody.text = "";
         }
