@@ -162,7 +162,7 @@ ApplicationWindow {
     onApplicationActiveChanged: {
         if (applicationActive === true) {
 
-            if(refreshCallback!==null && refreshCallbackPending) {
+            if(refreshCallback !== null && refreshCallbackPending) {
                 refreshCallbackPending = false
                 refreshCallback()
             }

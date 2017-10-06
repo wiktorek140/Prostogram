@@ -106,19 +106,19 @@ Page {
 
     function getMedia(next_id)
     {
-        if(page.mode === MediaStreamMode.MY_STREAM_MODE)
+        if(mode === MediaStreamMode.MY_STREAM_MODE)
         {
             instagram.getTimelineFeed(next_id);
         }
-        else if(page.mode === MediaStreamMode.POPULAR_MODE)
+        else if(mode === MediaStreamMode.POPULAR_MODE)
         {
             instagram.getPopularFeed(next_id)
         }
-        else if(page.mode === MediaStreamMode.TAG_MODE)
+        else if(mode === MediaStreamMode.TAG_MODE)
         {
             instagram.getTagFeed(tag)
         }
-        else if(page.mode === MediaStreamMode.USER_MODE)
+        else if(mode === MediaStreamMode.USER_MODE)
         {
             instagram.getUserFeed(tag,next_id);
         }
@@ -190,7 +190,7 @@ Page {
         }
         onTagFeedDataReady: {
             var data = JSON.parse(answer);
-            if(page.mode === MediaStreamMode.TAG_MODE)
+            if(mode === MediaStreamMode.TAG_MODE)
             {
                 mediaDataFinished(data);
             }

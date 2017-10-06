@@ -41,13 +41,6 @@ BackgroundItem {
         width: parent.width - 100 - Theme.paddingMedium
         height: width
 
-        MouseArea{
-            anchors.fill: parent
-            onClicked: {
-                print(width)
-            }
-        }
-
         source: isText? "" : model.media_share.image_versions2.candidates[0].url
     }
 
