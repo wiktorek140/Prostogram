@@ -4,8 +4,8 @@ Name:       harbour-prostogram
 %{!?qtc_make:%define qtc_make make}
 %{?qtc_builddir:%define _builddir %qtc_builddir}
 Summary:    An unofficial client for Instagram.
-Version:    0.8.9
-Release:    1
+Version:    0.9.1
+Release:    3
 Group:      Qt/Qt
 License:    MIT License
 URL:        https://github.com/neochapay/prostogram

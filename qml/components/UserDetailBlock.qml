@@ -43,7 +43,7 @@ Item {
         }
 
         Label {
-            text: user !== undefined && user.counts !== undefined ? qsTr("%1 following").arg(user.counts.follows) : ""
+            text: user !== undefined && user.following_count !== undefined ? qsTr("%1 following").arg(user.following_count) : ""
             anchors.left: parent.left
             anchors.right: parent.right
             color: Theme.secondaryColor

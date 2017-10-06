@@ -65,13 +65,10 @@ Column {
                 if(timer.running)
                 {
                     doLikeAnimation.start()
-                    if(item.has_liked)
-                    {
-                        instagram.unLike(item.id);
-                    }
-                    else
+                    if(item.has_liked === false)
                     {
                         instagram.like(item.id);
+                        likeUpdate(true)
                     }
                     timer.stop()
                 }
@@ -111,22 +108,18 @@ Column {
 
             source: item.has_liked ? "../images/heart.svg" : "../images/heart-o.svg"
             onClicked: {
-                if(item.has_liked)
+                if(item.has_liked === true)
                 {
                     instagram.unLike(item.id);
+                    likeUpdate(false);
 
-                    item.has_liked = false;
-                    likeIcon.source = "../images/heart-o.svg"
-                    likeCount.text = item.like_count-1 + " " +qsTr("likes")
 
                 }
                 else
                 {
                     instagram.like(item.id);
+                    likeUpdate(true);
 
-                    item.has_liked = true;
-                    likeIcon.source = "../images/heart.svg"
-                    likeCount.text = item.like_count+1 + " " +qsTr("likes")
                 }
             }
 
@@ -149,7 +142,7 @@ Column {
         }
     }
 
-    Label{
+    Label {
         id: likeCount
 
         width: parent.width-40
@@ -221,5 +214,13 @@ Column {
     function goToMedia()
     {
         pageStack.push(Qt.resolvedUrl("../pages/MediaDetailPage.qml"),{item:item});
+    }
+
+    function likeUpdate(like) {       
+        item.has_liked = like;
+        likeIcon.source = like ? "../images/heart.svg" : "../images/heart-o.svg"
+        item.like_count = item.like_count+(like ? 1 : (-1) );
+        likeCount.text = item.like_count + " " +qsTr("likes")
+
     }
 }

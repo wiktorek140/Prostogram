@@ -16,7 +16,7 @@ ListView {
         NumberAnimation { properties: "x"; duration: 1000 }
     }
 
-    delegate: Image{
+    delegate: Image {
         source: image_versions2.candidates[0].url
     }
 
