@@ -65,7 +65,7 @@ ApplicationWindow {
         id: instagram
     }
 
-    CacheImage{
+    CacheImage {
         id: cache
     }
 

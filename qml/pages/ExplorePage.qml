@@ -91,7 +91,6 @@ Page {
 
     ListModel {
         id: recentMediaModel
-
     }
 
     Component.onCompleted: {
