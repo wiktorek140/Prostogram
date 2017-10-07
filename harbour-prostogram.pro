@@ -71,7 +71,8 @@ DISTFILES += \
     qml/components/HorizontalList.qml \
     qml/images/next.svg \
     qml/components/ThreadView.qml \
-    qml/components/ThreadMessageItem.qml
+    qml/components/ThreadMessageItem.qml \
+    qml/pages/StoryShowPage.qml
 
 TRANSLATIONS += translations/harbour-prostogram_ca.ts \
                 translations/harbour-prostogram_cs_CZ.ts \

@@ -7,6 +7,7 @@ Item {
     property var mediaModel
     property int storyesCount: 0
     property bool dataLoaded: false
+
     id: story
     width: parent.width
     height: parent.width/4
@@ -59,7 +60,7 @@ Item {
                     anchors.centerIn: parent
 
                     fillMode: Image.PreserveAspectCrop
-                    source: cache.getFromCache(image_versions2.candidates[0].url)
+                    source: cache.getFromCache(model.user.profile_pic_url)
 
                     layer.enabled: true
                     layer.effect: OpacityMask {
@@ -80,9 +81,8 @@ Item {
                     id: mousearea
                     anchors.fill: parent
                     onClicked: {
-                        pageStack.push(Qt.resolvedUrl("../pages/MediaDetailPage.qml"),{item:model, isStory:true});
+                        pageStack.push(Qt.resolvedUrl("../pages/StoryShowPage.qml"),{userId: model.user.pk});
                         recentMediaModel.remove(model.index)
-                        //Somehow stuck when try to open element durig loading/downloading
                     }
                 }
             }
@@ -100,27 +100,10 @@ Item {
         target: instagram
         onReelsTrayFeedDataReady: {
             var data = JSON.parse(answer);
-            var obj;
             for(var i=0; i<data.tray.length; i++) {
-                obj= data.tray[i];
-
-                if(obj.items !== undefined)
-                    for(var j=0;j<obj.items.length;j++){
-                        recentMediaModel.append(obj.items[j]);
-                    }
-                else
-                {
-                    instagram.getUserReelsMediaFeed(obj.user.pk);
-                }
+                recentMediaModel.append(data.tray[i]);
             }
             dataLoaded=true;
-        }
-        onUserReelsMediaFeedDataReady: {
-            while(!dataLoaded){}
-            var data = JSON.parse(answer);
-            for(var j=0;j<data.items.length;j++) {
-                recentMediaModel.append(data.items[j]);
-            }
         }
     }
 }

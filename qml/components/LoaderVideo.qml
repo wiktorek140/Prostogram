@@ -37,6 +37,7 @@ Rectangle {
             }
         }
     }
+
     Component.onDestruction: {
         video.stop();
     }
