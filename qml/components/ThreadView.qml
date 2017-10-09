@@ -5,27 +5,29 @@ import "../MediaStreamMode.js" as MediaStreamMode
 
 Page {
     id: threadView
-
     height: parent.height
     width: parent.width
-
     clip: true
-
-    PageHeader {
-        id: header
-        title: user
-    }
 
     property bool threadLoaded: false
     property string cursorId : "";
     property string newestCursor: "";
     property string oldestCursor: "";
-    property string user:"";
+    property string name:"";
     property string threadId;
+    property var user;
+    property int userLength:1;
 
-    ListModel{
+
+    PageHeader {
+        id: header
+        title: name
+    }
+
+    ListModel {
         id: threadModel;
     }
+
 
     SilicaListView {
         id: grid
@@ -40,7 +42,7 @@ Page {
 
         model: threadModel
 
-        PullDownMenu{
+        PullDownMenu {
             id: topMenu;
             quickSelect: true
             visible: (newestCursor !== "")
@@ -68,22 +70,12 @@ Page {
             }
         }
 
-        delegate: Item {
-            width: parent.width
-            height: 100
-
-            Rectangle {
-                width: parent.width
-                height: parent.height
-                color: "transparent"
-                border.color: "black"
-
-                Label {
-                    text: model.text
-                }
+        delegate:
+            ThreadMessageItem {
+                pic_url: getUser(model.user_id)
 
             }
-        }
+
     }
 
     BusyIndicator {
@@ -100,19 +92,30 @@ Page {
         }
     }
 
-    Connections{
+    Connections {
         target: instagram
         onDirectThreadDataReady: {
-            //print(answer);
             var data = JSON.parse(answer);
 
             for(var j=0;j<data.thread.items.length;j++) {
                 threadModel.append(data.thread.items[j]);
             }
-            user = data.thread.users[0].username
+            user = data.thread.users;
+            userLength = data.thread.users.length;
+
+            name = data.thread.thread_title;
+
             if(data.thread.has_newer){newestCursor = data.thread.newest_cursor;}
             if(data.thread.has_older){oldestCursor = data.thread.oldest_cursor;}
             threadLoaded = true;
         }
+    }
+
+    function getUser(id) {
+        for(var i=0; i < user.length; i++) {
+            print(user[i].profile_pic_url)
+            if(""+user[i].pk === ""+id) return user[i].profile_pic_url;
+        }
+
     }
 }

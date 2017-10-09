@@ -4,9 +4,8 @@ import harbour.prostogram.cache 1.0
 Image {
 
     CacheImage {
-        id:cache
+        id: cache
     }
-
 
     id: mainImage
     width: parent.width

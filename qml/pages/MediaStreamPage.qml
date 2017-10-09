@@ -1,4 +1,3 @@
-
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtQuick.LocalStorage 2.0
@@ -24,14 +23,12 @@ Page {
     property bool refreshStreamData : true
     property string tag: ""
 
-    property var mediaModel: []
-
     property bool more_available
     property string next_max_id
 
     SilicaListView {
         id: listView
-        model: mediaModel
+        model: mediaStreamModel
         anchors.fill: parent
         header: PageHeader {
             title: streamTitle
@@ -39,7 +36,7 @@ Page {
 
         delegate: FeedItem {
             visible: dataLoaded
-            item: modelData
+            item: model
         }
 
         VerticalScrollDecorator {
@@ -67,8 +64,7 @@ Page {
                 text: qsTr("Refresh")
                 onClicked: {
                     dataLoaded = false
-                    mediaModel = []
-                    mediaModelChanged();
+                    mediaStreamModel.clear();
                     getMedia();
                 }
             }
@@ -96,8 +92,12 @@ Page {
     }
 
     ErrorMessageLabel {
-        visible: dataLoaded && !errorOccurred && mediaModel.length === 0
+        visible: dataLoaded && !errorOccurred && mediaStreamModel.count === 0
         text: qsTr("There is no picture in this feed.")
+    }
+
+    ListModel {
+        id: mediaStreamModel
     }
 
     Component.onCompleted: {
@@ -106,19 +106,19 @@ Page {
 
     function getMedia(next_id)
     {
-        if(page.mode === MediaStreamMode.MY_STREAM_MODE)
+        if(mode === MediaStreamMode.MY_STREAM_MODE)
         {
             instagram.getTimelineFeed(next_id);
         }
-        else if(page.mode === MediaStreamMode.POPULAR_MODE)
+        else if(mode === MediaStreamMode.POPULAR_MODE)
         {
             instagram.getPopularFeed(next_id)
         }
-        else if(page.mode === MediaStreamMode.TAG_MODE)
+        else if(mode === MediaStreamMode.TAG_MODE)
         {
             instagram.getTagFeed(tag)
         }
-        else if(page.mode === MediaStreamMode.USER_MODE)
+        else if(mode === MediaStreamMode.USER_MODE)
         {
             instagram.getUserFeed(tag,next_id);
         }
@@ -131,8 +131,7 @@ Page {
 
     function getMediaData(cached) {
         dataLoaded = false
-        mediaModel = []
-        mediaModelChanged();
+        mediaStreamModel.clear()
         refreshStreamData = true
         getFeed(mode, tag, cached, mediaDataFinished)
     }
@@ -148,8 +147,7 @@ Page {
         errorOccurred = false
 
         for(var i=0; i<data.items.length; i++) {
-            mediaModel.push(data.items[i]);
-            mediaModelChanged();
+            mediaStreamModel.append(data.items[i]);
         }
 
         dataLoaded = true
@@ -190,7 +188,7 @@ Page {
         }
         onTagFeedDataReady: {
             var data = JSON.parse(answer);
-            if(page.mode === MediaStreamMode.TAG_MODE)
+            if(mode === MediaStreamMode.TAG_MODE)
             {
                 mediaDataFinished(data);
             }

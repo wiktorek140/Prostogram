@@ -21,7 +21,6 @@ QString CacheImage::getFromCache(const QString &str){
         downloaded=false;
         QDir::setCurrent(cacheLocation);
         output.setFileName(url.fileName());
-        output.open(QIODevice::WriteOnly);
         requestImage(url);
         return path;
     }
@@ -29,14 +28,14 @@ QString CacheImage::getFromCache(const QString &str){
 
 void CacheImage::requestImage(const QUrl &url){
     currentDownload = manager.get(QNetworkRequest(QUrl(url)));
-    connect(currentDownload, SIGNAL(finished()),
-            SLOT(downloadFinished()));
-    connect(currentDownload, SIGNAL(readyRead()),
-            SLOT(downloadReadyRead()));
+    connect(currentDownload, &QIODevice::readyRead,
+            this, &CacheImage::downloadReadyRead);
+    connect(currentDownload, &QNetworkReply::finished,
+            this, &CacheImage::downloadFinished);
 
 
     QEventLoop event;
-    connect(currentDownload,SIGNAL(finished()),&event,SLOT(quit()));
+    connect(currentDownload,&QNetworkReply::finished,&event,&QEventLoop::quit);
     event.exec();
 }
 
@@ -54,6 +53,7 @@ void CacheImage::downloadFinished()
 
 void CacheImage::downloadReadyRead()
 {
+    if(!output.isOpen()){output.open(QIODevice::WriteOnly);}
     output.write(currentDownload->readAll());
 }
 
