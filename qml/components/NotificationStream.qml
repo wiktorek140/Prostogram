@@ -10,7 +10,7 @@ Item {
 
     property int notifyCount: 0
 
-    Notification{
+    Notification {
         id: likeNotify
 
         category: "x-nemo.example"
