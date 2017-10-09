@@ -100,7 +100,7 @@
     <name>ExplorePage</name>
     <message>
         <source>Explore</source>
-        <translation type="unfinished"></translation>
+        <translation>Utforska</translation>
     </message>
 </context>
 <context>
@@ -171,11 +171,11 @@
     </message>
     <message>
         <source>Story</source>
-        <translation type="unfinished"></translation>
+        <translation>Berättelse</translation>
     </message>
     <message>
         <source>Un Follow</source>
-        <translation type="unfinished"></translation>
+        <translation>Sluta följ</translation>
     </message>
 </context>
 <context>
@@ -249,11 +249,11 @@
     </message>
     <message>
         <source>Explore</source>
-        <translation type="unfinished"></translation>
+        <translation>Utforska</translation>
     </message>
     <message>
         <source>Search tag</source>
-        <translation type="unfinished"></translation>
+        <translation>Sök tagg</translation>
     </message>
 </context>
 <context>
@@ -264,7 +264,7 @@
     </message>
     <message>
         <source>Load older</source>
-        <translation type="unfinished"></translation>
+        <translation>Läs in äldre</translation>
     </message>
 </context>
 <context>
@@ -344,7 +344,7 @@
     <name>UserSearchPage</name>
     <message>
         <source>Search users</source>
-        <translation type="unfinished"></translation>
+        <translation>Sök användare</translation>
     </message>
 </context>
 </TS>
