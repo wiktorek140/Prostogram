@@ -1,10 +1,11 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtMultimedia 5.5
+import QtGraphicalEffects 1.0
 
 import "../components"
 import "../CoverMode.js" as CoverMode
-import "../MediaStreamMode.js" as  MediaStreamMode
+import "../MediaStreamMode.js" as MediaStreamMode
 import "../Helper.js" as Helper
 
 Page {
@@ -16,6 +17,7 @@ Page {
     property bool playVideo : false
     property int counter: 0
     property int last: 1
+    property bool isLoadingNext: false
 
 
     ListModel {
@@ -50,7 +52,7 @@ Page {
                     bottom: parent.bottom
                 }
                 width: parent.width/3
-                height: parent.height - 100
+                height: parent.height-100
                 onClicked: {
                     mLeft()
                 }
@@ -64,7 +66,7 @@ Page {
                     bottom: parent.bottom
                 }
                 width: parent.width/3
-                height: parent.height - 100
+                height: parent.height
                 onClicked: {
                     pageStack._navigateBack();
                 }
@@ -78,7 +80,7 @@ Page {
                     bottom: parent.bottom
                 }
                 width: parent.width/3
-                height: parent.height - 100
+                height: parent.height
                 onClicked: {
                     mRight()
                 }
@@ -87,7 +89,7 @@ Page {
             Image {
                 id: imageItem
                 visible: loadedAll && !isVideo
-                source: ""
+                //source: ""
                 width: parent.width
                 height: parent.height
 
@@ -112,19 +114,55 @@ Page {
                 muted: false
             }
 
-            Label {
-                id: userNameLabel
-                height: parent.height/10
+            Image {
+                id: userImage
+                height: parent.width * 0.15
+                width: height
+
+                onStatusChanged: {
+                    if(userImage.status === Image.Error) {
+                        userImage.source = imageCache.getFromCache(userImage.source,true);
+                    }
+                }
                 anchors {
                     right: parent.right
+                    top: parent. top
+                    rightMargin: Theme.paddingMedium
+                    topMargin: Theme.paddingSmall
+                }
+                layer.enabled: true
+                layer.effect: OpacityMask {
+                    anchors.fill: userImage
+                    maskSource: Rectangle {
+                        //id: mask
+                        //anchors.centerIn: userCover
+                        width: userImage.height
+                        height: userImage.height
+                        radius: width
+                        //visible:false
+                    }
+                }
+            }
+
+            Label {
+                id: userNameLabel
+                height: parent.width * 0.15
+                anchors {
+                    right: userImage.left
                     top: parent.top
                     rightMargin: Theme.paddingMedium
-                    topMargin: height/2;
+                    topMargin: (height / 2) - (userNameLabel.font.pixelSize / 2 );
                 }
-
-                text: ""
+                //text: ""
                 fontSizeMode: Theme.iconSizeSmall
                 visible: loadedAll
+                layer.enabled: true
+                layer.effect: DropShadow {
+                    verticalOffset: 2
+                    color: "#aa000000"
+                    radius: 2
+                    samples: 3
+                }
             }
         }
     }
@@ -146,42 +184,47 @@ Page {
     }
 
     function mLeft() {
-        if(counter >= 1) {
-            counter--;
-            console.log("Left")
-            checkType();
-            //imageItem.source = storiesList.get(counter).image_versions2.candidates[0].url;
+        if(!isLoadingNext) {
+            if(counter >= 1) {
+                counter--;
+                console.log("Left")
+                checkType();
+                //imageItem.source = storiesList.get(counter).image_versions2.candidates[0].url;
+            }
+            else pageStack._navigateBack();
         }
-        else pageStack._navigateBack();
     }
 
     function mRight(){
-        if(counter < last-1) {
-            counter++;
-            console.log("Right")
-            //imageItem.source = storiesList.get(counter).image_versions2.candidates[0].url;
-            checkType();
+        if(!isLoadingNext) {
+            if(counter < last-1) {
+                counter++;
+                console.log("Right")
+                //imageItem.source = storiesList.get(counter).image_versions2.candidates[0].url;
+                checkType();
+            }
+            else pageStack._navigateBack();
         }
-        else pageStack._navigateBack();
     }
 
 
     function checkType() {
         if(storiesList.get(counter).media_type === 2) {
             isVideo = true
-            video.source = storiesList.get(counter).video_versions.get(0).url
+            video.source = imageCache.getFromCache(storiesList.get(counter).video_versions.get(0).url);
         }
         else {
             isVideo = false
-            imageItem.source = storiesList.get(counter).image_versions2.candidates[0].url;
+            imageItem.source = imageCache.getFromCache(storiesList.get(counter).image_versions2.candidates[0].url);
         }
+        isLoadingNext=false
     }
 
     Component.onCompleted: {
-            instagram.getUserReelsMediaFeed(userId);
+        instagram.getUserReelsMediaFeed(userId);
     }
 
-    Connections{
+    Connections {
         target: instagram
 
         onUserReelsMediaFeedDataReady: {
@@ -197,6 +240,7 @@ Page {
             imageItem.source = data.items[0].image_versions2.candidates[0].url
             checkType();
             userNameLabel.text = data.user.username
+            userImage.source = imageCache.getFromCache(data.user.profile_pic_url)
             last = data.items.length
             loadedAll = true
         }

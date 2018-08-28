@@ -3,7 +3,9 @@ import QtGraphicalEffects 1.0
 import Sailfish.Silica 1.0
 import harbour.prostogram.cache 1.0
 
-Item {
+//reworked
+
+Rectangle {
     property var mediaModel
     property int storyesCount: 0
     property bool dataLoaded: false
@@ -50,17 +52,19 @@ Item {
 
                 Image {
                     id: delegate
-                    width: parent.height*0.8
-                    height: parent.height*0.8
-
-                    CacheImage {
-                        id:cache
-                    }
+                    width: parent.height * 0.8
+                    height: parent.width * 0.8
 
                     anchors.centerIn: parent
 
                     fillMode: Image.PreserveAspectCrop
-                    source: cache.getFromCache(model.user.profile_pic_url)
+                    source: imageCache.getUserImageFromCache(model.user.profile_pic_url)
+
+                    onStatusChanged: {
+                        if(delegate.status === Image.Error) {
+                            delegate.source = imageCache.getUserImageFromCache(model.user.profile_pic_url , true);
+                        }
+                    }
 
                     layer.enabled: true
                     layer.effect: OpacityMask {
@@ -105,5 +109,10 @@ Item {
             }
             dataLoaded=true;
         }
+    }
+
+    Border {
+        anchors.top: parent.bottom
+        height: 3
     }
 }
