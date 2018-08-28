@@ -52,6 +52,17 @@
     </message>
 </context>
 <context>
+    <name>CommentsPage</name>
+    <message>
+        <source>Comments</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Load More</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CoverPage</name>
     <message>
         <source>Login</source>
@@ -136,49 +147,6 @@
     </message>
 </context>
 <context>
-    <name>MediaDetailPage</name>
-    <message>
-        <source>Details</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>likes</source>
-        <translation type="unfinished">Gefällt mir</translation>
-    </message>
-    <message>
-        <source>comments</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You liked this.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Follow</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Unlike</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Like</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation type="unfinished">Entfernen</translation>
-    </message>
-    <message>
-        <source>Story</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Un Follow</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
     <name>MediaStreamPage</name>
     <message>
         <source>Pin this tag feed</source>
@@ -253,6 +221,10 @@
     </message>
     <message>
         <source>Search tag</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Search</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
