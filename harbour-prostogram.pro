@@ -22,7 +22,8 @@ CONFIG += sailfishapp
 include(QtInstagram/QtInstagram.pri)
 
 SOURCES += src/harbour-prostogram.cpp \
-    src/cacheimage.cpp
+    src/cacheimage.cpp \
+    src/downloadmanager.cpp
 
 
 OTHER_FILES += qml/harbour-prostogram.qml \
@@ -52,16 +53,23 @@ DISTFILES += \
     qml/components/LoaderVideo.qml \
     qml/images/volume-up.svg \
     qml/images/volume-off.svg \
-    qml/pages/UserSearchPage.qml \
     qml/images/refresh.svg \
     qml/components/SmallMediaElement.qml \
     qml/pages/ExplorePage.qml \
     qml/components/LoaderVideoPreview.qml \
-    qml/components/HorizontalList.qml \
     qml/images/next.svg \
     qml/components/ThreadView.qml \
     qml/components/ThreadMessageItem.qml \
-    qml/pages/StoryShowPage.qml
+    qml/pages/StoryShowPage.qml \
+    qml/components/new/FeedBottom.qml \
+    qml/components/FeedBottom.qml \
+    qml/components/FeedHeader.qml \
+    qml/components/StoriesList.qml \
+    qml/itemLoader.js \
+    qml/MediaTypes.js \
+    qml/components/Border.qml \
+    qml/pages/SingleMediaPage.qml \
+    qml/pages/SearchPage.qml
 
 TRANSLATIONS += translations/harbour-prostogram_ca.ts \
                 translations/harbour-prostogram_cs_CZ.ts \
@@ -84,7 +92,9 @@ TRANSLATIONS += translations/harbour-prostogram_ca.ts \
                 translations/harbour-prostogram_zh_CN.ts
 
 HEADERS += \
-    src/cacheimage.h
+    src/cacheimage.h \
+    src/harbour-prostogram.h \
+    src/downloadmanager.h
 
 
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"
