@@ -8,7 +8,6 @@ import "../MediaStreamMode.js" as MediaStreamMode
 
 Page {
 
-
     allowedOrientations:  Orientation.All
 
     property var user
@@ -29,8 +28,6 @@ Page {
 
     property bool isSelf: false;
 
-
-
     onStatusChanged: {
         if (status === PageStatus.Active) {
             if(app.user.pk === user.pk)
@@ -40,12 +37,18 @@ Page {
                 followersMenuItem.visible = true
                 followMenuItem.visible = false
                 unFollowMenuItem.visible = false
+
             }
             else
             {
                 isSelf = false;
             }
         }
+    }
+
+    Rectangle {
+        anchors.fill: parent
+        color: "white"
     }
 
     SilicaFlickable {
@@ -57,6 +60,7 @@ Page {
         PageHeader {
             id: header
             title: user.username
+            _titleItem.color: "black"
         }
 
         Column {
@@ -72,7 +76,7 @@ Page {
                 height: 150
                 Rectangle {
                     anchors.fill: parent
-                    color: Theme.highlightColor
+                    color: "black"
                     opacity: 0.1
                 }
                 UserDetailBlock{
@@ -86,7 +90,7 @@ Page {
                 anchors.leftMargin: Theme.paddingMedium
                 anchors.right: parent.right
                 anchors.rightMargin: Theme.paddingMedium
-                color: Theme.primaryColor
+                color: "black"
                 truncationMode: TruncationMode.Fade
                 visible: text!==""
                 function getOutgoingText() {
@@ -108,7 +112,7 @@ Page {
                 anchors.leftMargin: Theme.paddingMedium
                 anchors.right: parent.right
                 anchors.rightMargin: Theme.paddingMedium
-                color: Theme.primaryColor
+                color: "black"
                 truncationMode: TruncationMode.Fade
                 visible: text!==""
 
@@ -135,7 +139,7 @@ Page {
                 anchors.leftMargin: Theme.paddingMedium
                 anchors.right: parent.right
                 anchors.rightMargin: Theme.paddingMedium
-                color: Theme.highlightColor
+                color: "black"
                 truncationMode: TruncationMode.Fade
                 font.bold: true
                 visible: user.full_name !== "" ? true : false
@@ -147,7 +151,7 @@ Page {
                 anchors.leftMargin: Theme.paddingMedium
                 anchors.right: parent.right
                 anchors.rightMargin: Theme.paddingMedium
-                color: Theme.highlightColor
+                color: "black"
                 visible: text!==""
                 wrapMode: Text.Wrap
 
@@ -159,7 +163,7 @@ Page {
                 anchors.leftMargin: Theme.paddingMedium
                 anchors.right: parent.right
                 anchors.rightMargin: Theme.paddingMedium
-                color: Theme.secondaryColor
+                color: "black"
                 visible: text!==""
                 truncationMode: TruncationMode.Fade
             }
@@ -172,7 +176,7 @@ Page {
                 anchors.leftMargin: Theme.paddingMedium
                 anchors.right: parent.right
                 anchors.rightMargin: Theme.paddingMedium
-                color: Theme.highlightColor
+                color: "black"
                 visible: false
             }
 
@@ -185,7 +189,7 @@ Page {
 
 
             Item {
-                id:gridHeader
+                id: gridHeader
 
                 height: Theme.itemSizeMedium
                 width: parent.width
@@ -217,7 +221,7 @@ Page {
 
                     Label {
                         font.pixelSize: Theme.fontSizeLarge
-                        color: Theme.primaryColor
+                        color: "black"
 
                         text: "#tags"
                         anchors.verticalCenter: parent.verticalCenter
@@ -257,8 +261,7 @@ Page {
 
                     Label {
                         font.pixelSize: Theme.fontSizeLarge
-                        color: Theme.primaryColor
-
+                        color: "black"
                         text: user.username
                         anchors.verticalCenter: parent.verticalCenter
                         anchors.right: icon.left
@@ -268,7 +271,8 @@ Page {
                     MouseArea {
                         id: mouseAreaHeader
                         anchors.fill: parent
-                        onClicked: pageStack.push(Qt.resolvedUrl("MediaStreamPage.qml"),{mode : MediaStreamMode.USER_MODE, streamData: recentMediaData,tag: user.pk, streamTitle: user.username})
+                        onClicked: pageStack.push(Qt.resolvedUrl("MediaStreamPage.qml"),{mode : MediaStreamMode.USER_MODE,
+                                                      streamData: recentMediaData,tag: user.pk, streamTitle: user.username})
                     }
                 }
             }
@@ -289,16 +293,15 @@ Page {
 
                 model: recentMediaModel
 
-                delegate:Item{
+                delegate: Item {
                     property var item: model
                     width: parent.width/3
                     height: width
 
-                    MainItemLoader{
+                    MainItemLoader {
                         id: mainLoader
                         anchors.fill: parent
                         width: parent.width
-
                         clip: true
 
                         autoVideoPlay: false
@@ -309,7 +312,7 @@ Page {
                         id: mousearea
                         anchors.fill: parent
                         onClicked: {
-                            pageStack.push(Qt.resolvedUrl("../pages/MediaDetailPage.qml"),{item:item});
+                            pageStack.push(Qt.resolvedUrl("../pages/SingleMediaPage.qml"),{singleItem: item});
                         }
                     }
                 }
@@ -323,6 +326,7 @@ Page {
                 id: logoutItem
                 text: qsTr("Logout")
                 visible: isSelf
+                color: "black"
                 onClicked: {
                     instagram.logout();
                 }
@@ -331,6 +335,7 @@ Page {
             MenuItem {
                 id: followersMenuItem
                 visible: isSelf
+                color: "black"
                 text:  qsTr("Followers")
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("UserListPage.qml"),{pageTitle:qsTr("Followers"), userId: user.pk});
@@ -340,6 +345,7 @@ Page {
             MenuItem {
                 id: followingMenuItem
                 visible: isSelf
+                color: "black"
                 text:  qsTr("Following")
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("UserListPage.qml"),{pageTitle:qsTr("Following"), userId: user.pk});
@@ -348,8 +354,9 @@ Page {
 
             MenuItem {
                 id: unFollowMenuItem
+                color: "black"
+                visible: !isSelf && !relationStatus.following
                 text:  qsTr("Unfollow %1").arg(user.username)
-                visible: !relationStatus.following && !isSelf
                 onClicked: {
                     instagram.unFollow(user.pk);
                 }
@@ -357,8 +364,9 @@ Page {
 
             MenuItem {
                 id: followMenuItem
+                color: "black"
+                visible: !isSelf &&  relationStatus.following
                 text: qsTr("Follow %1").arg(user.username)
-                visible: relationStatus.following && !isSelf
                 onClicked: {
                     instagram.follow(user.pk);
                 }
@@ -379,6 +387,7 @@ Page {
         if(app.user.pk === user.pk)
         {
             isSelf = true;
+            relationStatus = JSON.parse('{"following": "", "status": "ok"}')
         }
         else
         {
@@ -396,7 +405,7 @@ Page {
         }
     }
 
-    Connections{
+    Connections {
         target: instagram
         onUserFeedDataReady:{
             var data = JSON.parse(answer);
@@ -425,6 +434,7 @@ Page {
         onFriendshipDataReady:{
             relationStatusLoaded = true;
             relationStatus = JSON.parse(answer)
+            print(answer);
             if(!isSelf)
             {
                 followMenuItem.visible = !relationStatus.following
