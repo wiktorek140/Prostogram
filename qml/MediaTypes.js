@@ -1,3 +1,5 @@
-function func() {
-
-}
+var IMAGE_TYPE = 1;
+var VIDEO_TYPE = 2;
+var SUGESSTION_TYPE = 3;
+var VIDEO_PREVIEW_TYPE = 4;
+var CARUSEL_TYPE = 8;
