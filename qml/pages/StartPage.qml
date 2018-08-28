@@ -17,9 +17,35 @@ Page {
     property bool updateRunning: false
     property string favoriteTag: ""
 
+
     onStatusChanged: {
         if (status === PageStatus.Active) {
             refreshCallback = startPageRefreshCB
+        }
+    }
+
+    FeedHeader {
+        id: header
+        z: 2
+    }
+
+    StreamPreviewBlock {
+        id: myFeedBlock
+        anchors {
+            top: header.bottom
+            left: parent.left
+            right: parent.right
+            bottom: bottomFeed.top
+        }
+        //height: parent.height - header.height - bottomFeed.height
+        //width: parent.width
+    }
+
+    FeedBottom {
+        id: bottomFeed
+        z: 2
+        anchors{
+            bottom: parent.bottom
         }
     }
 
@@ -40,64 +66,14 @@ Page {
         }
     }
 
-
     function refreshFavoriteTagFeedBlock() {
-
         if(FavManager.favTag===null) FavManager.favTag = ""
-
         console.log("current fav " + favoriteTag + " - new " + FavManager.favTag)
+        print("current fav " + favoriteTag + " - new " + FavManager.favTag)
         if(favoriteTag!==FavManager.favTag) {
             favoriteTag = FavManager.favTag
         }
-
         favoriteTagFeedBlock.refreshContent(refreshDone)
-    }
-
-    FeedHeader{
-        id: header
-        z: 2
-    }
-
-    SilicaFlickable {
-        z: 1
-        anchors{
-            top: header.bottom
-            left: parent.left
-        }
-
-        height: parent.height - header.height - bottom.height - (stories.storyesCount > 0 ? stories.height : 0)
-        width: parent.width
-
-        contentWidth: parent.width
-
-        HorizontalList {
-            id: stories
-            anchors.top: parent.top
-        }
-
-        StreamPreviewBlock {
-            id: myFeedBlock
-            anchors{
-                top: (stories.storyesCount > 0) ? stories.bottom : parent.top
-                bottom: bottom.top
-            }
-        }
-    }
-
-    FeedBottom {
-        id: bottom
-        z: 2
-        anchors{
-            bottom: parent.bottom
-        }
-    }
-
-    ListModel {
-        id: recentMediaModel
-    }
-
-    ListModel {
-        id: storiesModel
     }
 
     function startPageRefreshCB() {
@@ -107,5 +83,5 @@ Page {
         }
         updateRunning = true
         myFeedBlock.refreshContent(refreshDone)
-    }
+    }   
 }
