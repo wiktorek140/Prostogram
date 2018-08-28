@@ -26,7 +26,7 @@ Item {
             text: user !== undefined && user.media_count !== undefined ? qsTr("%1 posts").arg(user.media_count) :""
             anchors.left: parent.left
             anchors.right: parent.right
-            color: Theme.secondaryColor
+            color: "black"
             visible: text!==""
             truncationMode: TruncationMode.Fade
         }
@@ -36,7 +36,7 @@ Item {
             text: user !== undefined && user.follower_count !== undefined ? qsTr("%1 followers").arg(user.follower_count) : ""
             anchors.left: parent.left
             anchors.right: parent.right
-            color: Theme.secondaryColor
+            color: "black"
             visible: text!==""
             truncationMode: TruncationMode.Fade
 
@@ -46,7 +46,7 @@ Item {
             text: user !== undefined && user.following_count !== undefined ? qsTr("%1 following").arg(user.following_count) : ""
             anchors.left: parent.left
             anchors.right: parent.right
-            color: Theme.secondaryColor
+            color: "black"
             visible: text!==""
             truncationMode: TruncationMode.Fade
         }

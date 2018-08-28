@@ -1,10 +1,13 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import QtGraphicalEffects 1.0
+
+//reworked
 
 Item {
     id: notifyItem
     width: parent.width
-    height: parent.width/5
+    height: width * 0.2
 
     clip: true
 
@@ -12,17 +15,29 @@ Item {
         id: userCover
         source: args.profile_image
 
-        width: parent.height
-        height: parent.height
+        width: parent.height * 0.8
+        height: parent.height * 0.8
 
         fillMode: Image.PreserveAspectFit
 
-        anchors{
+        anchors {
+            topMargin: 10
+            bottomMargin: 10
             top: parent.top
             left: parent.left
+            verticalCenter: notifyItem.verticalCenter
+        }
+        layer.enabled: true
+        layer.effect: OpacityMask {
+            anchors.fill: userCover
+            maskSource: Rectangle {
+                width: userCover.height
+                height: userCover.height
+                radius: width
+            }
         }
 
-        MouseArea{
+        MouseArea {
             anchors.fill: parent
             onClicked: {
                 instagram.getInfoById(args.links[0].id);
@@ -30,41 +45,46 @@ Item {
         }
     }
 
+
+
     Label {
         id: notifyText
-        anchors.left:  userCover.right
-        anchors.leftMargin: Theme.paddingMedium
-        anchors.right: (type === 1) ? mediaImage.left : parent.right
-        anchors.rightMargin: Theme.paddingMedium
-        anchors.top: parent.top
-        wrapMode: Text.Wrap
-        font.pixelSize: Theme.fontSizeSmall
-        color: Theme.highlightColor
+        anchors {
+            left:  userCover.right
+            leftMargin: Theme.paddingMedium
+            right: (type === 1) ? mediaImage.left : parent.right
+            rightMargin: Theme.paddingMedium
+            top: parent.top
+        }
 
-        linkColor: Theme.highlightColor
+        wrapMode: Text.Wrap
+        font.pixelSize: Theme.fontSizeExtraSmall
+
+        color: "black"
+        linkColor: "navy"
         text: args.text
     }
 
-    Image{
+    Image {
         id: mediaImage
         visible: (type === 1) ? true : false
-        source: (type === 1) ? args.media[0].image : ""
+        source: (type === 1) ? imageCache.getFromCache2(args.media[0].image) : ""
 
-        width: parent.height
-        height: parent.height
+        width: parent.height * 0.9
+        height: parent.height * 0.9
 
         fillMode: Image.PreserveAspectFit
 
-        anchors{
+        anchors {
             top: parent.top
             right: parent.right
         }
 
-        MouseArea{
+        MouseArea {
             anchors.fill: parent
             onClicked: {
                 instagram.getInfoMedia(args.media[0].id);
-                notifyBisy.running = true
+                notifyBusy.running = true
             }
         }
     }

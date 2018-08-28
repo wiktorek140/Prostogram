@@ -1,7 +1,8 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import QtGraphicalEffects 1.0
 
-Rectangle{
+Rectangle {
     property var item
 
     width: parent.width
@@ -14,9 +15,22 @@ Rectangle{
     Image {
         id: conversationCover
         source: item.users.get(0).profile_pic_url
+        layer.enabled: true
+        layer.effect: OpacityMask {
+            maskSource: Item {
+                width: conversationCover.width
+                height: conversationCover.height
+                Rectangle {
+                    anchors.centerIn: parent
+                    width: conversationCover.width
+                    height: conversationCover.height
+                    radius: width
+                }
+            }
+        }
     }
 
-    Text{
+    Text {
         id: conversationUser
         text: item.users.get(0).full_name ? item.users.get(0).full_name : item.users.get(0).username
 
@@ -37,7 +51,7 @@ Rectangle{
 
     Text{
         id: conversationLastItem
-        text: (item.items.get(0).item_type == "text") ? item.items.get(0).text : (item.items.get(0).user_id == instagram.getUsernameId()) ? qsTr("You send message") : qsTr("You get message")
+        text: (item.items.get(0).item_type === "text") ? item.items.get(0).text : (item.items.get(0).user_id === instagram.getUsernameId()) ? qsTr("You send message") : qsTr("You get message")
 
         width: parent.width-conversationCover.width-Theme.paddingSmall*2
         height: parent.height-conversationUser.height-Theme.paddingSmall*2
