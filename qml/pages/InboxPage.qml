@@ -41,7 +41,7 @@ Page {
         target: instagram
 
         onInboxDataReady:{
-            //print(answer)
+            print(answer)
             var out = JSON.parse(answer)
             if(out.status === "ok")
             {

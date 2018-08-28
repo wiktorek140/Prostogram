@@ -14,6 +14,11 @@ Page {
     property bool dataLoaded: false
     property int recentMediaSize: (width - 2 * Theme.paddingMedium) / 3
 
+    Rectangle {
+        anchors.fill: parent
+        color: "white"
+    }
+
     SilicaFlickable {
         id: allView
         anchors.fill: parent
@@ -23,6 +28,7 @@ Page {
         PageHeader {
             id: header
             title: qsTr("Explore")
+            _titleItem.color: "black"
         }
 
         Column {
