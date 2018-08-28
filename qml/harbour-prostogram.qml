@@ -1,7 +1,7 @@
-import QtQuick 2.0
+import QtQuick 2.2
 import Sailfish.Silica 1.0
 import QtQuick.LocalStorage 2.0
-import org.nemomobile.dbus 2.0
+import Nemo.DBus 2.0
 import harbour.prostogram 1.0
 import harbour.prostogram.cache 1.0
 
@@ -15,14 +15,14 @@ import "FavManager.js" as FavManager
 
 ApplicationWindow {
     id: app
-    property var cachedFeeds : null
-    property var cachedFeedsTime : null
+    property var cachedFeeds
+    property var cachedFeedsTime
 
-    property var refreshCallback : null
-    property bool refreshCallbackPending : false
+    property var refreshCallback
+    property bool refreshCallbackPending: false
 
     property var user
-    property bool need_login : true
+    property bool need_login: true
 
     signal coverRefreshButtonPress();
 
@@ -61,15 +61,15 @@ ApplicationWindow {
         }
     }
 
-    Instagram{
+    Instagram {
         id: instagram
     }
 
     CacheImage {
-        id: cache
+        id: imageCache
     }
 
-    NotificationStream{
+    NotificationStream {
         id: notifyStream
     }
 
@@ -86,8 +86,9 @@ ApplicationWindow {
             app.need_login = false;
         }
 
-        cache.clean();
-        cache.init();
+        imageCache.init();
+        imageCache.clean();
+
 
         return Qt.resolvedUrl(Qt.resolvedUrl("pages/CoverPage.qml"))
     }
@@ -109,14 +110,14 @@ ApplicationWindow {
         init();
     }
 
-    Connections{
+    Connections {
         target: instagram
         onMediaInfoReady:{
             var out = JSON.parse(answer);
             pageStack.push(Qt.resolvedUrl("pages/MediaDetailPage.qml"),{item: out.items[0]})
         }
-        onError:{
-            console.log("Error: "+message)
+        onError: {
+            print("Error: "+message)
         }
         onDoLogout:{
             pageStack.clear();
@@ -161,7 +162,6 @@ ApplicationWindow {
 
     onApplicationActiveChanged: {
         if (applicationActive === true) {
-
             if(refreshCallback !== null && refreshCallbackPending) {
                 refreshCallbackPending = false
                 refreshCallback()
