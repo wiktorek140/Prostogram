@@ -1,201 +1,259 @@
-import QtQuick 2.6
+import QtQuick 2.5
 
 import Sailfish.Silica 1.0
 import QtMultimedia 5.0
 
 import "../Helper.js" as Helper
 import "../MediaStreamMode.js" as MediaStreamMode
+import "../itemLoader.js" as ItemLoader
+import "../MediaTypes.js" as MediaType
 
-Column {
+//Reworked
+
+ListItem {
+
     id: feedItem
     property var item
-    property bool playVideo : false
+    property bool playVideo: false
     property int type: 0
+    property bool isLoaded: false
 
     width: parent.width
-    height: childrenRect.height+20
+    height: header.height + image.height + actions.height +
+            likeCount.height + description.height + commentsRectangle.height
 
-    UserInfoBlock{
-        id: header
-        height: actions.height*1.1
+    //Component.onCompleted: {
+    //height = header.height + mainLoader.height + actions.height +
+    //likeCount.height + description.height + commentsRectangle.height
+    //}
+    Component.onCompleted: {
+        //if(item.media_type === MediaType.VIDEO_TYPE) item.media_type = MediaType.VIDEO_PREVIEW_TYPE;
+
+        switch (item.media_type) {
+        case MediaType.IMAGE_TYPE:
+            image.height = (width/item.image_versions2.candidates[0].width) * item.image_versions2.candidates[0].height;
+            ItemLoader.createComponentObjects("LoaderImage.qml", {"url": item.image_versions2.candidates[0].url}, image);
+            break;
+
+        case MediaType.VIDEO_TYPE:
+            //print(item.video_versions.get(0).url);
+            image.height = (width / item.original_width) * item.original_height;
+            ItemLoader.createComponentObjects("LoaderVideo.qml", {"url": item.image_versions2.candidates[0].url,
+                                                  "videoUrl": item.video_versions.get(0).url,
+                                                  "autoVideoPlay": playVideo}, image);
+            if(item.image_versions2.candidates[0].url) {
+                print(JSON.toString(item))
+            }
+
+            break;
+        case MediaType.CARUSEL_TYPE:
+            //print(item.carousel_media[0].original_height)
+            image.height = (width / item.carousel_media.get(0).original_width) *
+                    item.carousel_media.get(0).original_height;
+            ItemLoader.createComponentObjects("LoaderCarusel.qml", {"url": item.carousel_media}, image);
+            break;
+        case MediaType.VIDEO_PREVIEW_TYPE:
+            image.height = (width/item.image_versions2.candidates[0].width) * item.image_versions2.candidates[0].height;
+            ItemLoader.createComponentObjects("LoaderVideoPreview.qml", {"url": item.image_versions2.candidates[1].url}, image);
+            break;
+        }
+        feedItemArea.width = image.width / 3;
+        feedItemArea.height = image.width / 3;
+        isLoaded = true;
     }
 
-    spacing: 20
-
-    MainItemLoader {
-        id: mainLoader
+    Column {
+        id: itemColumn
         width: parent.width
-        clip: true
 
-        Image {
-            id: likeImage
-            width: (parent.width > parent.height) ? parent.height*0.4 : parent.width*0.4
-            height: width
 
-            sourceSize.height: height
-            sourceSize.width: height
-
-            opacity: 0
-
-            source: "../images/heart.svg"
-
-            anchors.centerIn: parent
-
-            SequentialAnimation {
-                id: doLikeAnimation
-                NumberAnimation { target: likeImage; property: "opacity"; to: 1; from: 0; duration: 300 }
-                NumberAnimation { target: likeImage; property: "opacity"; to: 0; from: 1; duration: 700 }
-            }
+        UserInfoBlock {
+            id: header
+            //anchors.top: parent.top
         }
 
-        MouseArea{
-            anchors.centerIn: parent
-            width: parent.width*0.5
-            height: parent.width*0.5
+        Rectangle {
+            id: image
+            width: parent.width
+            //height: parent.width * (4/3)
+            //clip: true
+            //anchors.top: header.bottom
 
-            Timer{
-                id:timer
-                interval: 200
-                onTriggered: {
-                    goToMedia();
+
+
+            Image {
+                z:5
+                id: likeImage
+                anchors.top: image.top
+                width: image.width / 3
+                //(image.width > image.height) ? image.height*0.4 : image.width*0.4
+                height: width
+                sourceSize.height: height
+                sourceSize.width: height
+                opacity: 0
+                source: "../images/heart.svg"
+                anchors.centerIn: parent
+                SequentialAnimation {
+                    id: doLikeAnimation
+                    NumberAnimation { target: likeImage; property: "opacity"; to: 0.9; from: 0; duration: 300; }
+                    NumberAnimation { target: likeImage; property: "opacity"; to: 0.95; from: 0.9; duration: 200; }
+                    NumberAnimation { target: likeImage; property: "opacity"; to: 0; from: 1; duration: 700; }
                 }
             }
 
-            onClicked: {
-                if(timer.running)
-                {
-                    doLikeAnimation.start()
-                    if(item.has_liked === false)
-                    {
-                        instagram.like(item.id);
-                        likeUpdate(true)
+            MouseArea {
+                id: feedItemArea
+                //z:2
+                //anchors.centerIn: parent
+                //width: image.width
+                //height: image.width
+                anchors.fill: image
+                property real lClick : 0
+
+                onClicked: {
+                    var nc = Date.now()
+                    if ((nc - lClick) < 500) {
+                        doLikeAnimation.start()
+                        if(item.has_liked === false)
+                        {
+                            instagram.like(item.id);
+                            likeUpdate(true)
+                        }
                     }
-                    timer.stop()
-                }
-                else
-                {
-                    timer.restart()
+                    lClick = nc
                 }
             }
         }
 
-    }
-    /**/
 
-    Rectangle{
-        id: actions
-        anchors{
-            left: parent.left
-            right: parent.right
-        }
-
-        width: parent.width
-        height: likeIcon.height*1.1
-
-        color: "transparent"
-
-        ClickIcon {
-            id: likeIcon
-
-            height: commentIcon.height*0.6
-            width: commentIcon.width*0.6
-
+        Rectangle {
+            id: actions
             anchors{
                 left: parent.left
-                leftMargin: likeIcon.width/3
-                verticalCenter: commentIcon.verticalCenter
+                right: parent.right
+                //top: image.bottom
             }
 
-            source: item.has_liked ? "../images/heart.svg" : "../images/heart-o.svg"
-            onClicked: {
-                if(item.has_liked === true)
-                {
-                    instagram.unLike(item.id);
-                    likeUpdate(false);
+            width: parent.width
+            height: commentIcon.height
 
-
+            Image {
+                id: likeIcon
+                height: commentIcon.height * 0.7
+                width: commentIcon.width * 0.7
+                anchors {
+                    left: parent.left
+                    leftMargin: likeIcon.width / 3
+                    verticalCenter: commentIcon.verticalCenter
                 }
-                else
-                {
-                    instagram.like(item.id);
-                    likeUpdate(true);
-
+                source: item.has_liked ? "../images/heart.svg" : "../images/heart-o.svg"
+                MouseArea {
+                    id: clickLikeIcon
+                    anchors.fill: parent
+                    onClicked: {
+                        if(item.has_liked === true)
+                        {
+                            instagram.unLike(item.id);
+                            likeUpdate(false);
+                        }
+                        else
+                        {
+                            instagram.like(item.id);
+                            likeUpdate(true);
+                        }
+                    }
                 }
             }
 
+            IconButton {
+                id: commentIcon
+                anchors {
+                    left: likeIcon.right
+                    leftMargin: commentIcon.width/3
+                }
+                icon.source: "image://theme/icon-m-bubble-universal?" +
+                             (pressed? Theme.highlightColor: "black" )
+                onClicked: { goToComents(); }
+            }
         }
 
-        IconButton {
-            id: commentIcon
-
+        Label {
+            id: likeCount
+            color: "black"
+            width: parent.width-40
+            height: Font.bold
             anchors{
-                left: likeIcon.right
-                leftMargin: commentIcon.width/3
+                left: parent.left
+                leftMargin: 20
+                //top:actions.bottom
             }
 
-            icon.source: "image://theme/icon-m-bubble-universal?" + (pressed
-                                                                     ? Theme.highlightColor
-                                                                     : Theme.primaryColor)
-            onClicked: {
-                goToMedia();
+            text: item.like_count+" "+qsTr("likes");
+            font.bold: true
+            font.pixelSize: Theme.fontSizeExtraSmall
+        }
+
+        Label {
+            id: description
+            visible: text !== ""
+
+            width: parent.width - 40
+            anchors {
+                left: parent.left
+                leftMargin: 20
+                //top: likeCount.bottom
+            }
+
+            text: item.caption ? Helper.formatString(item.caption.text) : ""
+            clip: true
+            maximumLineCount: 3
+
+            wrapMode: Text.Wrap
+            font.pixelSize: Theme.fontSizeSmall
+            color: "black"
+            linkColor: "navy"
+            textFormat: Text.StyledText
+
+            onLinkActivated: {
+                linkClick(link);
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    goToComents();
+                }
             }
         }
-    }
 
-    Label {
-        id: likeCount
+        Rectangle {
+            //to fix
+            id: commentsRectangle
+            //anchors.top: description.bottom
+            anchors.leftMargin: 20
+            width: parent.width
+            height: commentsPreview.height + 10
+            visible: item.preview_comments !== []
 
-        width: parent.width-40
-        anchors{
-            left: parent.left
-            leftMargin: 20
+            Repeater {
+                id: commentsPreview
+                model: item.preview_comments
+                delegate: Label {
+                    text: "<b>"+ model.user.username + "</b>" + model.text
+                    textFormat: Text.StyledText
+                    font.pixelSize: Theme.fontSizeSmall
+                    width: parent.width
+                    height: font.pixelSize
+                    anchors {
+                        left: parent.left
+                        right: parent.right
+                    }
+                }
+                //CommentItem { item: model }
+            }
         }
 
-        text:item.like_count+" "+qsTr("likes");
-        font.bold: true
-        color: Theme.secondaryHighlightColor
     }
-
-    Label {
-        id: description
-        visible: text!==""
-
-        width: parent.width-40
-        anchors{
-            left: parent.left
-            leftMargin: 20
-        }
-        text: item.caption ? Helper.formatString(item.caption.text) : ""
-
-        clip: true;
-
-        maximumLineCount: 3
-
-        wrapMode: Text.Wrap
-        font.pixelSize: Theme.fontSizeSmall
-        color: Theme.highlightColor
-        linkColor: Theme.highlightColor
-
-        textFormat: Text.StyledText
-
-        onLinkActivated: {
-            linkClick(link);
-        }
-    }
-
-    Column{
-        id: commentsRectangle
-
-        width: parent.width-40
-        spacing: Theme.paddingMedium
-
-        Repeater{
-            id: commentsPreview
-            model: item.preview_comments
-            delegate: CommentItem{item: model}
-        }
-    }
-
 
     function linkClick(link)
     {
@@ -211,12 +269,12 @@ Column {
         }
     }
 
-    function goToMedia()
+    function goToComents()
     {
-        pageStack.push(Qt.resolvedUrl("../pages/MediaDetailPage.qml"),{item:item});
+        pageStack.push(Qt.resolvedUrl("../pages/CommentsPage.qml"),{"elementId": item.id});
     }
 
-    function likeUpdate(like) {       
+    function likeUpdate(like) {
         item.has_liked = like;
         likeIcon.source = like ? "../images/heart.svg" : "../images/heart-o.svg"
         item.like_count = item.like_count+(like ? 1 : (-1) );

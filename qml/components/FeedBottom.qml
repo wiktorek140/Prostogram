@@ -1,13 +1,14 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 
+//reworked
+
 Rectangle {
     id: feedBottom
     width: parent.width
     height: childrenRect.height
 
-    color: Theme.highlightDimmerColor
-
+    color: "white"
     IconButton{
         id: mail
         anchors{
@@ -17,7 +18,7 @@ Rectangle {
 
         icon.source: "image://theme/icon-m-mail?" + (pressed
                      ? Theme.highlightColor
-                     : Theme.primaryColor)
+                     : "black")
         onClicked: {
             onClicked: pageStack.push(Qt.resolvedUrl(
                                           "../pages/InboxPage.qml"))
@@ -33,12 +34,12 @@ Rectangle {
 
         icon.source: "image://theme/icon-m-search?" + (pressed
                      ? Theme.highlightColor
-                     : Theme.primaryColor)
+                     : "black")
 
         onClicked: pageStack.push(Qt.resolvedUrl(
-                                      "../pages/TagSearchPage.qml"), {
-                                      user: user
-                                  })
+                                      "../pages/SearchPage.qml")
+                                  //, {user: user}
+                                  )
     }
 
     IconButton {
@@ -49,7 +50,7 @@ Rectangle {
 
         icon.source: "image://theme/icon-m-add?" + (pressed
                      ? Theme.highlightColor
-                     : Theme.primaryColor)
+                     : "black")
         onClicked: {
             var imagePicker = pageStack.push("Sailfish.Pickers.ImagePickerPage")
             imagePicker.selectedContentChanged.connect(function () {
@@ -59,7 +60,7 @@ Rectangle {
         }
     }
 
-    IconButton{
+    IconButton {
         id: likes
         anchors{
             left: sendPhoto.right
@@ -68,11 +69,11 @@ Rectangle {
 
         icon.source: "image://theme/icon-m-like?" + (pressed
                      ? Theme.highlightColor
-                     : Theme.primaryColor)
+                     : "black")
 
         onClicked: pageStack.push(Qt.resolvedUrl("../pages/NotificationPage.qml"));
 
-        Rectangle{
+        Rectangle {
             id: likesCount
             color: "red"
             width: parent.width/2
@@ -97,7 +98,7 @@ Rectangle {
         }
     }
 
-    IconButton{
+    IconButton {
         id: profile
         anchors{
             left: likes.right
@@ -106,7 +107,7 @@ Rectangle {
 
         icon.source: "image://theme/icon-m-people?" + (pressed
                      ? Theme.highlightColor
-                     : Theme.primaryColor)
+                     : "black")
 
         onClicked: pageStack.push(Qt.resolvedUrl(
                                       "../pages/UserProfilPage.qml"), {
