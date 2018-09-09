@@ -55,38 +55,38 @@
     <name>CommentsPage</name>
     <message>
         <source>Comments</source>
-        <translation type="unfinished"></translation>
+        <translation>Kommentarer</translation>
     </message>
     <message>
         <source>Load More</source>
-        <translation type="unfinished"></translation>
+        <translation>Hämta mer</translation>
     </message>
 </context>
 <context>
     <name>CoverPage</name>
     <message>
         <source>Login</source>
-        <translation type="unfinished">Användarnamn</translation>
+        <translation>Användarnamn</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished">Lösenord</translation>
+        <translation>Lösenord</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation type="unfinished">Logga in</translation>
+        <translation>Logga in</translation>
     </message>
     <message>
         <source>Entering...</source>
-        <translation type="unfinished">Loggar in...</translation>
+        <translation>Loggar in...</translation>
     </message>
     <message>
         <source>Login fail!</source>
-        <translation type="unfinished">Inloggningen misslyckades!</translation>
+        <translation>Inloggningen misslyckades!</translation>
     </message>
     <message>
         <source>Version: %1</source>
-        <translation type="unfinished">Version: %1</translation>
+        <translation>Version: %1</translation>
     </message>
     <message>
         <source>Login...</source>
@@ -111,14 +111,14 @@
     <name>ExplorePage</name>
     <message>
         <source>Explore</source>
-        <translation type="unfinished"></translation>
+        <translation>Utforska</translation>
     </message>
 </context>
 <context>
     <name>FeedItem</name>
     <message>
         <source>likes</source>
-        <translation type="unfinished">gillanden</translation>
+        <translation>gillanden</translation>
     </message>
 </context>
 <context>
@@ -158,7 +158,7 @@
     </message>
     <message>
         <source>Load more</source>
-        <translation>Läs in mer</translation>
+        <translation>Hämta mer</translation>
     </message>
     <message>
         <source>There is no picture in this feed.</source>
@@ -202,11 +202,11 @@
     <name>StreamPreviewBlock</name>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished">Uppdatera</translation>
+        <translation>Uppdatera</translation>
     </message>
     <message>
         <source>Load more</source>
-        <translation type="unfinished">Läs in mer</translation>
+        <translation>Hämta mer</translation>
     </message>
 </context>
 <context>
@@ -217,26 +217,26 @@
     </message>
     <message>
         <source>Explore</source>
-        <translation type="unfinished"></translation>
+        <translation>Utforska</translation>
     </message>
     <message>
         <source>Search tag</source>
-        <translation type="unfinished"></translation>
+        <translation>Sök tagg</translation>
     </message>
     <message>
         <source>Search</source>
-        <translation type="unfinished"></translation>
+        <translation>Sök</translation>
     </message>
 </context>
 <context>
     <name>ThreadView</name>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished">Uppdatera</translation>
+        <translation>Uppdatera</translation>
     </message>
     <message>
         <source>Load older</source>
-        <translation type="unfinished"></translation>
+        <translation>Hämta äldre</translation>
     </message>
 </context>
 <context>
@@ -258,11 +258,11 @@
     <name>UserListPage</name>
     <message>
         <source>Load more</source>
-        <translation>Läs in mer</translation>
+        <translation>Hämta mer</translation>
     </message>
     <message>
         <source>Followers</source>
-        <translation type="unfinished">Följare</translation>
+        <translation>Följare</translation>
     </message>
 </context>
 <context>
@@ -316,7 +316,7 @@
     <name>UserSearchPage</name>
     <message>
         <source>Search users</source>
-        <translation type="unfinished"></translation>
+        <translation>Sök användare</translation>
     </message>
 </context>
 </TS>
