@@ -2,15 +2,17 @@ import QtQuick 2.5
 import QtGraphicalEffects 1.0
 import Sailfish.Silica 1.0
 import harbour.prostogram.cache 1.0
+import "../js/Settings.js" as Setting
+//reworked
 
-Item {
+Rectangle {
     property var mediaModel
     property int storyesCount: 0
     property bool dataLoaded: false
 
     id: story
     width: parent.width
-    height: parent.width/4
+    height: parent.width / 4 + Setting.storyTitleSize()
 
     Component.onCompleted: {
         if (!dataLoaded) {
@@ -27,6 +29,7 @@ Item {
     SilicaFlickable {
         anchors.left: parent.left
         anchors.right: parent.right
+
         contentHeight: parent.height
         contentWidth: parent.width
 
@@ -35,9 +38,7 @@ Item {
 
             height:parent.height
             width: parent.width
-
             implicitWidth: parent.height
-
             orientation: SilicaListView.Horizontal
 
             model: recentMediaModel
@@ -45,22 +46,24 @@ Item {
             delegate: Item {
 
                 height: parent.height
-                width: height
-                property bool isViewed:false
+                width: height - Setting.storyTitleSize()
+                property bool isViewed: false
 
                 Image {
                     id: delegate
-                    width: parent.height*0.8
-                    height: parent.height*0.8
-
-                    CacheImage {
-                        id:cache
-                    }
+                    width: parent.width * 0.75
+                    height: parent.width * 0.75
 
                     anchors.centerIn: parent
 
                     fillMode: Image.PreserveAspectCrop
-                    source: cache.getFromCache(model.user.profile_pic_url)
+                    source: imageCache.getUserImageFromCache(model.user.profile_pic_url)
+
+                    onStatusChanged: {
+                        if(delegate.status === Image.Error) {
+                            delegate.source = imageCache.getUserImageFromCache(model.user.profile_pic_url , true);
+                        }
+                    }
 
                     layer.enabled: true
                     layer.effect: OpacityMask {
@@ -75,6 +78,23 @@ Item {
                             }
                         }
                     }
+                }
+
+                Label {
+                    id: name
+                    text: model.user.username
+                    anchors {
+                        top: delegate.bottom
+                        //left: parent.left
+                        //right: parent.right
+                        horizontalCenter: delegate.horizontalCenter
+                    }
+
+                    font.pixelSize: Setting.storyTitleSize()
+                    font.bold: true
+                    horizontalAlignment: Text.AlignHCenter
+                    color: Setting.STYLE_COLOR_FONT
+                    wrapMode: Text.Wrap
                 }
 
                 MouseArea {
@@ -99,11 +119,17 @@ Item {
     Connections {
         target: instagram
         onReelsTrayFeedDataReady: {
+            //print(answer)
             var data = JSON.parse(answer);
-            for(var i=0; i<data.tray.length; i++) {
+            for(var i = 0; i < data.tray.length; i++) {
                 recentMediaModel.append(data.tray[i]);
             }
-            dataLoaded=true;
+            dataLoaded = true;
         }
+    }
+
+    Border {
+        anchors.top: parent.bottom
+        height: 3
     }
 }

@@ -1,55 +1,67 @@
 import QtQuick 2.0
 
-ListView {
-    id: caruselListView
+//reworked
+
+Rectangle {
+    property var url
+
+    id: carusel
     width: parent.width
     height: parent.height
 
-    model: item.carousel_media
+    ListView {
+        id: caruselListView
+        width: parent.width
+        height: parent.height
+        model: url
 
-    orientation: Qt.Horizontal
-    focus: true
+        orientation: Qt.Horizontal
+        //focus: true
 
-    snapMode: ListView.SnapOneItem
+        snapMode: ListView.SnapOneItem
 
-    move: Transition {
-        NumberAnimation { properties: "x"; duration: 1000 }
-    }
+        move: Transition {
+            NumberAnimation { properties: "x"; duration: 1000 }
+        }
 
-    delegate: Image {
-        source: image_versions2.candidates[0].url
-    }
+        delegate: Image {
+            //z:1
+            width: carusel.width
+            source: image_versions2.candidates[0].url;
+            fillMode: Image.PreserveAspectFit
+        }
 
-    Timer{
-        id:timer
-        interval: 5000
-        running: true
-        repeat: true
-        onTriggered: {
-            if(caruselListView.currentIndex == caruselListView.count-1)
-            {
-               caruselListView.currentIndex = 0
-            }
-            else
-            {
-                caruselListView.currentIndex++
+        Timer {
+            id:timer
+            interval: 5000
+            running: true
+            repeat: true
+            onTriggered: {
+                if(caruselListView.currentIndex == caruselListView.count-1)
+                {
+                    caruselListView.currentIndex = 0
+                }
+                else
+                {
+                    caruselListView.currentIndex++
+                }
             }
         }
-    }
 
-    Image{
-        source: "../images/carusel.svg"
-        width: parent.width/20
-        height: parent.width/20
+        Image {
+            source: "../images/carusel.svg"
+            width: parent.width/20
+            height: parent.width/20
 
-        sourceSize.height: height
-        sourceSize.width: height
+            sourceSize.height: height
+            sourceSize.width: height
 
-        anchors{
-            left: parent.left
-            leftMargin: parent.width/25
-            bottom: parent.bottom
-            bottomMargin: parent.width/25
+            anchors {
+                left: parent.left
+                leftMargin: parent.width/25
+                bottom: parent.bottom
+                bottomMargin: parent.width/25
+            }
         }
     }
 }

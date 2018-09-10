@@ -19,22 +19,17 @@ INSTALLS += i18n_files
 
 CONFIG += sailfishapp
 
+#QMAKE_CXXFLAGS_RELEASE -= -O
+#QMAKE_CXXFLAGS_RELEASE -= -O1
+#QMAKE_CXXFLAGS_RELEASE *= -O2
+
+
+include(QtInstagram/QtInstagram.pri)
+
 SOURCES += src/harbour-prostogram.cpp \
-    QtInstagram/src/api/instagram.cpp \
-    QtInstagram/src/api/instagramrequest.cpp \
-    QtInstagram/src/cripto/hmacsha.cpp \
-    QtInstagram/src/api2/request/account.cpp \
-    QtInstagram/src/api2/request/direct.cpp \
-    QtInstagram/src/api2/request/discover.cpp \
-    QtInstagram/src/api2/request/hashtag.cpp \
-    QtInstagram/src/api2/request/media.cpp \
-    QtInstagram/src/api2/request/people.cpp \
-    QtInstagram/src/api2/request/story.cpp \
-    QtInstagram/src/api2/request/timeline.cpp \
-    QtInstagram/src/api2/request/usertag.cpp \
-    QtInstagram/src/api2/instagramv2.cpp \
     src/cacheimage.cpp \
-    QtInstagram/src/api2/instagramrequestv2.cpp
+    src/downloadmanager.cpp
+
 
 OTHER_FILES += qml/harbour-prostogram.qml \
     qml/cover/*.qml \
@@ -63,16 +58,24 @@ DISTFILES += \
     qml/components/LoaderVideo.qml \
     qml/images/volume-up.svg \
     qml/images/volume-off.svg \
-    qml/pages/UserSearchPage.qml \
     qml/images/refresh.svg \
     qml/components/SmallMediaElement.qml \
     qml/pages/ExplorePage.qml \
     qml/components/LoaderVideoPreview.qml \
-    qml/components/HorizontalList.qml \
     qml/images/next.svg \
     qml/components/ThreadView.qml \
     qml/components/ThreadMessageItem.qml \
-    qml/pages/StoryShowPage.qml
+    qml/pages/StoryShowPage.qml \
+    qml/components/FeedBottom.qml \
+    qml/components/FeedHeader.qml \
+    qml/components/StoriesList.qml \
+    qml/itemLoader.js \
+    qml/MediaTypes.js \
+    qml/components/Border.qml \
+    qml/pages/SingleMediaPage.qml \
+    qml/pages/SearchPage.qml \
+    qml/js/Settings.js \
+    qml/components/UserFollowItem.qml
 
 TRANSLATIONS += translations/harbour-prostogram_ca.ts \
                 translations/harbour-prostogram_cs_CZ.ts \
@@ -95,11 +98,9 @@ TRANSLATIONS += translations/harbour-prostogram_ca.ts \
                 translations/harbour-prostogram_zh_CN.ts
 
 HEADERS += \
-    QtInstagram/src/api/instagram.h \
-    QtInstagram/src/api/instagramrequest.h \
-    QtInstagram/src/cripto/hmacsha.h \
-    QtInstagram/src/api2/instagramv2.h \
     src/cacheimage.h \
-    QtInstagram/src/api2/instagramrequestv2.h
+    src/harbour-prostogram.h \
+    src/downloadmanager.h
+
 
 DEFINES += APP_VERSION=\\\"$$VERSION\\\"

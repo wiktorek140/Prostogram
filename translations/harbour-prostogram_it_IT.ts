@@ -36,11 +36,11 @@
         <translation>Segnala bug</translation>
     </message>
     <message>
-        <source>Paypal USD</source>
-        <translation>Paypal USD</translation>
+        <source>Version: %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Version: %1</source>
+        <source>Paypal</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -52,33 +52,17 @@
     </message>
 </context>
 <context>
-    <name>CoverPage</name>
+    <name>CommentsPage</name>
     <message>
-        <source>Login</source>
+        <source>Comments</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Password</source>
+        <source>Load More</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Entering...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Login fail!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Version: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Login...</source>
+        <source>Reload</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -113,11 +97,7 @@
 <context>
     <name>InboxItem</name>
     <message>
-        <source>You send message</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You get message</source>
+        <source>Raven Message.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -136,45 +116,33 @@
     </message>
 </context>
 <context>
-    <name>MediaDetailPage</name>
+    <name>LoginPage</name>
     <message>
-        <source>Details</source>
+        <source>Version: %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>likes</source>
-        <translation type="unfinished">mi piace</translation>
-    </message>
-    <message>
-        <source>comments</source>
+        <source>Login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>You liked this.</source>
+        <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Follow</source>
+        <source>Sign in</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Unlike</source>
+        <source>Login...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Like</source>
+        <source>Login fail!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Remove</source>
-        <translation type="unfinished">Rimuovi</translation>
-    </message>
-    <message>
-        <source>Story</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Un Follow</source>
+        <source>Entering...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -239,21 +207,6 @@
     <message>
         <source>Load more</source>
         <translation type="unfinished">Carica altro</translation>
-    </message>
-</context>
-<context>
-    <name>TagSearchPage</name>
-    <message>
-        <source>Search user</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Explore</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Search tag</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -337,13 +290,6 @@
     </message>
     <message>
         <source>Logout</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>UserSearchPage</name>
-    <message>
-        <source>Search users</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

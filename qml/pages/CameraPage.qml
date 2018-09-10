@@ -7,8 +7,10 @@ import "../components"
 Page {
     id: cameraPage
 
-    property int cameraId: 0
+    orientation: Orientation.All
 
+    property int cameraId: 0
+    property bool rotated: false
     PageHeader {
         id: header
         title: qsTr("Set photo")
@@ -27,17 +29,32 @@ Page {
             exposureMode: Camera.ExposurePortrait
         }
 
+        onOrientationChanged: {
+            print("Orientation camera: " + orientation);
+            //rotated = true;
+        }
         imageCapture {
+            //onImageCaptured: {
+            //    //camera.imageCapture.capturedImagePath
+            //    instagram.cropImg(camera.imageCapture.capturedImagePath, true, rotated)
+            //    pageStack.replace(Qt.resolvedUrl("SendPhotoPage.qml"), {image_url: camera.imageCapture.capturedImagePath})
+            //}
             onImageSaved: {
-                instagram.cropImg(path,videoCrop.width == videoCrop.height)
-                pageStack.replace(Qt.resolvedUrl("SendPhotoPage.qml"),{image_url: path})
+                //print("RES:"+ camera.viewfinder.resolution);
+                print("Orientation camera: " + camera.orientation);
+                print("Orientation video: " + viewFinder.orientation);
+                print("Orientation page: " + cameraPage.orientation);
+                instagram.cropImg(path, true, rotated)
+                pageStack.replace(Qt.resolvedUrl("SendPhotoPage.qml"), {image_url: path})
             }
         }
 
         onLockStatusChanged: {
             if(lockStatus == Camera.Locked)
             {
-                camera.imageCapture.captureToLocation(StandardPaths.pictures+"/"+"prostogram_"+Qt.formatDateTime(new Date(),"yyMMdd_hhmmss")+".jpg")
+                //print("RES:");
+                camera.imageCapture.capture();
+                //camera.imageCapture.captureToLocation(StandardPaths.pictures+"/"+"prostogram_"+Qt.formatDateTime(new Date(),"yyMMdd_hhmmss")+".jpg")
             }
         }
     }
@@ -51,7 +68,12 @@ Page {
         clip: true
         focus : visible // to receive focus and capture key events when visible
 
-        Rectangle{
+        onOrientationChanged: {
+            print("Orientation video: " + orientation);
+            //rotated = true;
+        }
+
+        Rectangle {
             width: parent.width
             height: (parent.height-videoCrop.height)/2
             color: "#000000"
@@ -59,7 +81,7 @@ Page {
             anchors.bottom: videoCrop.top
         }
 
-        Rectangle{
+        Rectangle {
             width: parent.width
             height: (parent.height-videoCrop.height)/2
             color: "#000000"
@@ -67,21 +89,21 @@ Page {
             anchors.top: videoCrop.bottom
         }
 
-        Rectangle{
+        Rectangle {
             id: videoCrop
-            width: Math.min(cameraPage.width,cameraPage.height)
+            width: Math.min(cameraPage.width, cameraPage.height)
             height: width
             color: "transparent"
             border.color: "white"
-            border.width: 4
+            border.width: 2
 
             anchors.centerIn: parent
         }
 
-        ClickIcon{
+        ClickIcon {
             id: cameraChange
 
-            width: getShot.width/3*2
+            width: getShot.width/3* 1.5
             height: width
             source: "../images/refresh.svg"
             anchors{
@@ -93,21 +115,22 @@ Page {
             visible: QtMultimedia.availableCameras.length > 1;
 
             onClicked: {
+                print(QtMultimedia.availableCameras.length)
                 camera.stop();
-                if(cameraId+1 == QtMultimedia.availableCameras.length)
+                if(cameraId + 1 === QtMultimedia.availableCameras.length)
                 {
                     cameraId = 0;
-
                 }
                 else
                 {
                     cameraId++;
                 }
+
                 camera.start();
             }
         }
 
-        ClickIcon{
+        ClickIcon {
             id: getShot
             width: cameraPage.height/10
             height: width
@@ -119,29 +142,23 @@ Page {
             }
             onClicked: {
                 camera.searchAndLock();
+                //camera.imageCapture.capture();
             }
         }
 
         ClickIcon{
-            id: changeCrop
-            width: getShot.width/3*2
+            id: changeOrintation
+            width: getShot.width/3 * 1.5
             height: width
             source: "../images/crop.svg"
-            anchors{
+            anchors {
                 left: getShot.right
                 leftMargin: width
                 verticalCenter: getShot.verticalCenter
             }
 
             onClicked: {
-                if(videoCrop.width == videoCrop.height)
-                {
-                    videoCrop.height = videoCrop.width/5*4
-                }
-                else
-                {
-                    videoCrop.height = videoCrop.width
-                }
+                rotated = !rotated;
             }
         }
     }

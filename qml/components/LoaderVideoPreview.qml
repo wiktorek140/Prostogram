@@ -2,18 +2,21 @@ import QtQuick 2.0
 import Sailfish.Silica 1.0
 import harbour.prostogram.cache 1.0
 
-Rectangle{
+//Reworked
+
+Rectangle {
+    property string url
     width: parent.width
     height: parent.height
 
     CacheImage {
-        id:cache
+        id: cache
     }
 
     Image {
         id: mainImage
         anchors.fill: parent
-        source: cache.getFromCache(item.image_versions2.candidates[1].url)
+        source: cache.getFromCache2(url);
     }
 
     Image{
@@ -24,7 +27,7 @@ Rectangle{
         sourceSize.height: height
         sourceSize.width: height
 
-        anchors{
+        anchors {
             left: parent.left
             leftMargin: parent.width/25
             bottom: parent.bottom

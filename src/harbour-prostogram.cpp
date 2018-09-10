@@ -10,6 +10,7 @@
 #include <QTranslator>
 #include "QtInstagram/src/api2/instagramv2.h"
 
+#include "harbour-prostogram.h"
 #include "cacheimage.h"
 
 int main(int argc, char *argv[])
@@ -28,13 +29,12 @@ int main(int argc, char *argv[])
 
    view->setTitle("Prostogram");
 
-   qmlRegisterType<Instagramv2>("harbour.prostogram",1,0,"Instagram");
-   qmlRegisterType<CacheImage>("harbour.prostogram.cache",1,0,"CacheImage");
+   qmlRegisterType<Instagramv2>("harbour.prostogram", 1,0, "Instagram");
+   qmlRegisterType<CacheImage>("harbour.prostogram.cache", 1,0, "CacheImage");
 
    QUrl pageSource = SailfishApp::pathTo("qml/harbour-prostogram.qml");
    view->setSource(pageSource);
    view->show();
-
    return app->exec();
 }
 

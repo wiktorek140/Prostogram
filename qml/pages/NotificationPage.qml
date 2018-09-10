@@ -4,7 +4,11 @@ import "../components"
 
 Page {
     id: notificationPage
-    objectName: "notificationPage"
+
+    Rectangle {
+        color: "white"
+        anchors.fill: parent
+    }
 
     Component.onCompleted: {
         notifyStream.notifyCount = 0;
@@ -12,11 +16,11 @@ Page {
     }
 
     onStatusChanged: {
-        notifyBisy.running = false
+        notifyBusy.running = false
     }
 
     BusyIndicator {
-        id: notifyBisy
+        id: notifyBusy
         anchors.centerIn: parent
         running: false
         size: BusyIndicatorSize.Large
@@ -25,6 +29,7 @@ Page {
     SilicaListView {
         anchors.fill: parent
         header: PageHeader {
+            _titleItem.color: "black"
             title: qsTr("Notifications")
         }
 
@@ -33,12 +38,12 @@ Page {
         }
 
         model: notifyModel;
-        delegate: NotifyItem{}
+        delegate: NotifyItem {}
     }
 
-    Connections{
+    Connections {
         target: instagram
-        onRecentActivityInboxDataReady:{
+        onRecentActivityInboxDataReady: {
             var out = JSON.parse(answer)
             notifyModel.clear();
 
@@ -51,9 +56,10 @@ Page {
                 notifyModel.append(notify)
             })
         }
-        onInfoByIdDataReady:{
+        onInfoByIdDataReady: {
             if (notificationPage.status == PageStatus.Active)
             {
+                //print(answer)
                 var out = JSON.parse(answer)
                 pageStack.push(Qt.resolvedUrl("UserProfilPage.qml"),
                                {user: out.user})
@@ -61,7 +67,7 @@ Page {
         }
     }
 
-    ListModel{
+    ListModel {
         id: notifyModel
     }
 }

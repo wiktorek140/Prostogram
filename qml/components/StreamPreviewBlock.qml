@@ -3,14 +3,16 @@ import Sailfish.Silica 1.0
 import "../MediaStreamMode.js" as MediaStreamMode
 import "../CoverMode.js" as CoverMode
 
+//reworked
+
 Item {
     id: streamPreviewBlock
     height: parent.height
     width: parent.width
 
+    //color: "white"
     clip: true
-
-    anchors.right: parent.right
+    //anchors.right: parent.right
 
     property bool recentMediaLoaded: false
     property bool errorOccurred : false
@@ -18,16 +20,19 @@ Item {
     property var streamData
     property string nextId : "";
 
-    ListModel{
-        id: recentMediaModel;
+    Rectangle {
+    anchors.fill: parent
+    color: "white"
     }
 
-
-
+    ListModel {
+        id: recentMediaModel;  
+    }
     SilicaListView {
         id: grid
         anchors.left: parent.left
         anchors.right: parent.right
+
         visible: recentMediaLoaded
 
         width: parent.width
@@ -42,6 +47,7 @@ Item {
             MenuItem {
                 id: refreshMenu
                 text: qsTr("Refresh")
+                color: "black"
                 visible: true
                 onClicked: {
                     refresh();
@@ -49,14 +55,14 @@ Item {
             }
         }
 
-
-        PushUpMenu{
+        PushUpMenu {
             id: bottomMenu
             visible: (nextId !== "")
             quickSelect: true
 
             MenuItem {
                 id: moreMenu
+                color: "black"
                 text: qsTr("Load more")
                 onClicked: {
                     instagram.getTimelineFeed(nextId)
@@ -64,14 +70,15 @@ Item {
             }
         }
 
-        delegate: Item {
-            width: parent.width
-            height: childrenRect.height
-
-            FeedItem{
-                item: model
-            }
+        section {
+            property: "type"
+            delegate: StoriesList { id: stories }
         }
+
+        delegate: FeedItem {
+                item: model
+        }
+
     }
 
     BusyIndicator {
@@ -83,8 +90,7 @@ Item {
         visible: errorOccurred
     }
 
-    function refresh()
-    {
+    function refresh() {
         streamPreviewBlock.nextId = "";
 
         recentMediaLoaded = false;
@@ -102,6 +108,7 @@ Item {
     Connections{
         target: instagram
         onTimelineFeedDataReady: {
+            //print(answer)
             var data = JSON.parse(answer)
 
             if(streamPreviewBlock.nextId == "")
@@ -109,7 +116,7 @@ Item {
                 recentMediaModel.clear()
             }
 
-            if(data ===null || data === undefined || data.items.length === 0)
+            if(data === null || data === undefined || data.items.length === 0)
             {
                 recentMediaLoaded=true;
                 errorOccurred=true
@@ -117,7 +124,7 @@ Item {
             }
             errorOccurred = false
 
-            for(var i=0; i<data.items.length; i++) {
+            for(var i = 0; i<data.items.length; i++) {
                 /*
                 TYPE 1 - IMAGE
                 TYPE 2 - VIDEO
@@ -128,11 +135,11 @@ Item {
                 if(recentMediaModel.count == 0)
                 {
                     var coverdata = {}
-                    if(data.items[i].media_type == 1 || data.items[i].media_type == 2)
+                    if(data.items[i].media_type === 1 || data.items[i].media_type === 2)
                     {
                         coverdata.image = data.items[i].image_versions2.candidates[data.items[i].image_versions2.candidates.length-1].url
                     }
-                    else if(data.items[i].media_type == 8)
+                    else if(data.items[i].media_type === 8)
                     {
                         coverdata.image = data.items[i].carousel_media[0].image_versions2.candidates[0].url
                     }
@@ -141,7 +148,8 @@ Item {
 
                 }
 
-                if(data.items[i].media_type >= 1 ){
+                if(data.items[i].media_type >= 1 && data.items[i].media_type !== 3 ){
+                    data.items[i].type = "stories";
                     recentMediaModel.append(data.items[i]);
                 }
             }
@@ -151,7 +159,7 @@ Item {
             recentMediaLoaded=true;
             streamPreviewBlock.nextId = data.next_max_id;
         }
-        onMediaDeleted:{
+        onMediaDeleted: {
             refresh()
         }
     }

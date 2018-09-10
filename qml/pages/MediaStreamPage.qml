@@ -8,6 +8,7 @@ import "../MediaStreamMode.js" as MediaStreamMode
 import "../Storage.js" as Storage
 import "../CoverMode.js" as CoverMode
 import "../FavManager.js" as FavManager
+import "../js/Settings.js" as Setting
 
 Page {
     id: page
@@ -26,6 +27,11 @@ Page {
     property bool more_available
     property string next_max_id
 
+    Rectangle{
+        anchors.fill: parent
+        color:Setting.STYLE_COLOR_BACKGROUND
+    }
+
     SilicaListView {
         id: listView
         model: mediaStreamModel
@@ -37,10 +43,6 @@ Page {
         delegate: FeedItem {
             visible: dataLoaded
             item: model
-        }
-
-        VerticalScrollDecorator {
-            id: scroll
         }
 
         PullDownMenu {

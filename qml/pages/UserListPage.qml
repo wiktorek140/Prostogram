@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtQuick.LocalStorage 2.0
-
+import "../js/Settings.js" as Setting
 import "../components"
 
 Page {
@@ -17,6 +17,12 @@ Page {
     property string userId;
 
 
+    Rectangle {
+        anchors.fill: parent
+        color: Setting.STYLE_COLOR_BACKGROUND
+    }
+
+
     SilicaListView {
         id: listView
         model: mediaModel
@@ -24,13 +30,11 @@ Page {
         header: PageHeader {
             title: pageTitle
         }
-        delegate: UserListItem {
+        delegate: UserFollowItem {
             visible: dataLoaded
             item: model
         }
 
-        VerticalScrollDecorator {
-        }
 
         PushUpMenu {
             visible: nextMediaUrl !== null
@@ -76,11 +80,13 @@ Page {
 
     Connections{
         target: instagram
-        onFollowingDataReady:{
+        onFollowingDataReady: {
+
             mediaDataFinished(answer)
         }
 
-        onFollowersDataReady:{
+        onFollowersDataReady: {
+            //print(answer)
             mediaDataFinished(answer)
         }
     }

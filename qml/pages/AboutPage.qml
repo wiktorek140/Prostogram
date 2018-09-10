@@ -1,11 +1,17 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "../components"
+import "../js/Settings.js" as Setting
 
 Page {
 
     id: aboutPage
     allowedOrientations:  Orientation.All
+
+    Rectangle {
+        anchors.fill: parent
+        color: Setting.STYLE_COLOR_BACKGROUND
+    }
 
     SilicaFlickable {
         anchors.fill: parent
@@ -61,8 +67,7 @@ Page {
                 anchors.leftMargin: Theme.paddingMedium
             }
 
-            Row
-            {
+            Row {
                 anchors.right: parent.right
                 anchors.rightMargin: Theme.paddingMedium
                 anchors.left: parent.left
@@ -76,7 +81,6 @@ Page {
                     fillMode: Image.PreserveAspectFit
                     smooth: true
                     source: "twitter.png"
-
                 }
 
                 Button {
@@ -84,12 +88,10 @@ Page {
                     text: "@neochapay"
                     onClicked: Qt.openUrlExternally("https://twitter.com/neochapay")
                 }
-
             }
 
 
-            Row
-            {
+            Row {
                 anchors.right: parent.right
                 anchors.rightMargin: Theme.paddingMedium
                 anchors.left: parent.left
@@ -103,16 +105,70 @@ Page {
                     fillMode: Image.PreserveAspectFit
                     smooth: true
                     source: "mail.png"
-
                 }
 
                 Button {
                     id: buttonMail
-
                     text: qsTr("Write a mail")
                     onClicked: Qt.openUrlExternally("mailto:neochapay@gmail.com")
                 }
+            }
 
+            Label {
+                text : "Wiktor Strzębała"
+                wrapMode: Text.WordWrap
+                color: Theme.primaryColor
+                anchors.right: parent.right
+                anchors.rightMargin: Theme.paddingMedium
+                anchors.left: parent.left
+                anchors.leftMargin: Theme.paddingMedium
+            }
+
+            Row {
+                anchors.right: parent.right
+                anchors.rightMargin: Theme.paddingMedium
+                anchors.left: parent.left
+                anchors.leftMargin: Theme.paddingMedium
+                height:  buttonTwitterW.height
+
+                Image {
+                    id: imageTwitterW
+                    width:  buttonTwitterW.height
+                    height: buttonTwitterW.height
+                    fillMode: Image.PreserveAspectFit
+                    smooth: true
+                    source: "twitter.png"
+                }
+
+                Button {
+                    id: buttonTwitterW
+                    text: "@wiktorek140"
+                    onClicked: Qt.openUrlExternally("https://twitter.com/wiktorek140")
+                }
+            }
+
+
+            Row {
+                anchors.right: parent.right
+                anchors.rightMargin: Theme.paddingMedium
+                anchors.left: parent.left
+                anchors.leftMargin: Theme.paddingMedium
+                height:  buttonMailW.height
+
+                Image {
+                    id: imageMailW
+                    width:  buttonMailW.height
+                    height: buttonMailW.height
+                    fillMode: Image.PreserveAspectFit
+                    smooth: true
+                    source: "mail.png"
+                }
+
+                Button {
+                    id: buttonMailW
+                    text: qsTr("Write a mail")
+                    onClicked: Qt.openUrlExternally("mailto:wiktorek140@tlen.pl")
+                }
             }
 
             SectionHeader {
@@ -142,12 +198,11 @@ Page {
                 Button {
                     anchors.bottom: parent.bottom
                     text: qsTr("Report bugs")
-                    onClicked: Qt.openUrlExternally("https://github.com/neochapay/Prostogram/issues")
+                    onClicked: Qt.openUrlExternally("https://github.com/wiktorek140/Prostogram/issues")
                 }
             }
 
-            Row
-            {
+            Row {
                 anchors.right: parent.right
                 anchors.rightMargin: Theme.paddingLarge
                 anchors.left: parent.left
@@ -157,8 +212,8 @@ Page {
                     id: button1
                     anchors.bottom: parent.bottom
                     width: parent.width
-                    text: qsTr("Paypal USD")
-                    onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=CD7MEFDNKNM9E")
+                    text: qsTr("Paypal")
+                    onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YT53SRQZU45TQ")
                 }
             }
         }

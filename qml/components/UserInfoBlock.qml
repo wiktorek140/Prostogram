@@ -1,32 +1,31 @@
 import QtQuick 2.0
+import QtGraphicalEffects 1.0
 import Sailfish.Silica 1.0
+import "../js/Settings.js" as Setting
 
 Rectangle {
     id: userInfo
-
-    anchors{
+    anchors {
         right: parent.right
-        bottomMargin: userInfo.height*0.1
+        left: parent.left
     }
-
-    height: 100
+    height: (parent.width * 0.1852)
     width: parent.width
-    color: "transparent"
+    //color: "transparent"
+    //border.color: "black"
+    //border.width: 1
 
-    Rectangle{
-        id: profilpicture
+    Rectangle {
+        id: profilePicture
 
-        height: userInfo.height*0.9
+        height: userInfo.height * 0.7
         width: height
-
-        radius: width
-
         color: "transparent"
-        clip: true
+        clip: false
 
-        anchors{
+        anchors {
             left: userInfo.left
-            leftMargin: userInfo.height*0.1
+            leftMargin: profilePicture.height * 0.1
             verticalCenter: userInfo.verticalCenter
         }
 
@@ -34,41 +33,56 @@ Rectangle {
             height: parent.width
             width: parent.height
             source: item.user.profile_pic_url
+            layer.enabled: true
+            layer.effect: OpacityMask {
+                maskSource: Item {
+                    width: profilePicture.width
+                    height: profilePicture.height
+                    Rectangle {
+                        anchors.centerIn: parent
+                        width: profilePicture.width
+                        height: profilePicture.height
+                        radius: width
+                    }
+                }
+            }
         }
     }
 
     Label {
-        id:username
+        id: username
         text: item.user.username
         anchors{
-            left: profilpicture.right
+            left: profilePicture.right
             leftMargin: Theme.paddingMedium
-            verticalCenter: userInfo.verticalCenter
+            top: parent.top
+            topMargin: userInfo.height * 0.15
         }
         truncationMode: TruncationMode.Fade
-        font.pixelSize: Theme.fontSizeSmall
+        font.pixelSize: Setting.feedFontSize()
         font.bold: true
-        color: Theme.secondaryHighlightColor
+        color: "black"
     }
 
     Label {
-        text: Qt.formatDateTime(
-                  new Date(parseInt(item.created_time) * 1000),
-                  "dd.MM.yy hh:mm")
-        anchors.right: profilpicture.left
-        anchors.rightMargin: Theme.paddingMedium
-        anchors.top: username.bottom
+        id: createDate
+        text: { Qt.formatDateTime(new Date(parseInt(item.taken_at) * 1000),
+                  "dd.MM.yy hh:mm"); }
 
-        truncationMode: TruncationMode.Fade
-        font.pixelSize: Theme.fontSizeSmall
-        color: Theme.secondaryHighlightColor
+        anchors {
+            left: profilePicture.right
+            leftMargin: Theme.paddingMedium
+            top: username.bottom
+        }
+        font.pixelSize: Setting.feedLikeFontSize()
+        color: "black"
     }
 
     MouseArea {
         id: mousearea
         anchors.fill: parent
         onClicked: {
-            pageStack.push(Qt.resolvedUrl("../pages/UserProfilPage.qml"),{user:item.user});
+            pageStack.push(Qt.resolvedUrl("../pages/UserProfilPage.qml"), {user: item.user});
         }
     }
 }

@@ -1,21 +1,25 @@
 import QtQuick 2.0
 import harbour.prostogram.cache 1.0
 
-Image {
+//Reworked
 
-    CacheImage {
-        id: cache
-    }
+Image {
+    property var url
 
     id: mainImage
     width: parent.width
-    height: parent.height
+    anchors.top: parent.top
     fillMode: Image.PreserveAspectFit
 
-    source: {
-        if(item.special === 1) {
-            "../images/next.svg";
+    Component.onCompleted: {
+        mainImage.source = imageCache.getFromCache(url);
+        height = (width/sourceSize.width) * sourceSize.height
+        sourceSize.height = height
+        sourceSize.width = width
+    }
+    onStatusChanged: {
+        if(mainImage.status === Image.Error) {
+            mainImage.source = imageCache.getFromCache(url,true);
         }
-        else cache.getFromCache(item.image_versions2.candidates[0].url)
     }
 }

@@ -36,12 +36,12 @@
         <translation>Bugs rapporteren</translation>
     </message>
     <message>
-        <source>Paypal USD</source>
-        <translation>PayPal USD</translation>
-    </message>
-    <message>
         <source>Version: %1</source>
         <translation>Versie %1</translation>
+    </message>
+    <message>
+        <source>Paypal</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -52,34 +52,18 @@
     </message>
 </context>
 <context>
-    <name>CoverPage</name>
+    <name>CommentsPage</name>
     <message>
-        <source>Login</source>
-        <translation>Inloggen</translation>
+        <source>Comments</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Password</source>
-        <translation>Wachtwoord</translation>
+        <source>Load More</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Sign in</source>
-        <translation>Aanmelden</translation>
-    </message>
-    <message>
-        <source>Entering...</source>
-        <translation>Openen...</translation>
-    </message>
-    <message>
-        <source>Login fail!</source>
-        <translation>Inloggen mislukt</translation>
-    </message>
-    <message>
-        <source>Version: %1</source>
-        <translation>Versie %1</translation>
-    </message>
-    <message>
-        <source>Login...</source>
-        <translation>Inloggen...</translation>
+        <source>Reload</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -113,12 +97,8 @@
 <context>
     <name>InboxItem</name>
     <message>
-        <source>You send message</source>
-        <translation>U stuurt bericht</translation>
-    </message>
-    <message>
-        <source>You get message</source>
-        <translation>U krijgt bericht</translation>
+        <source>Raven Message.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -136,46 +116,34 @@
     </message>
 </context>
 <context>
-    <name>MediaDetailPage</name>
+    <name>LoginPage</name>
     <message>
-        <source>Details</source>
-        <translation>Details</translation>
+        <source>Version: %1</source>
+        <translation type="unfinished">Versie %1</translation>
     </message>
     <message>
-        <source>likes</source>
-        <translation>Vind ik leuks</translation>
+        <source>Login</source>
+        <translation type="unfinished">Inloggen</translation>
     </message>
     <message>
-        <source>comments</source>
-        <translation>Commentaar</translation>
+        <source>Password</source>
+        <translation type="unfinished">Wachtwoord</translation>
     </message>
     <message>
-        <source>You liked this.</source>
-        <translation>Je vond dit leuk.</translation>
+        <source>Sign in</source>
+        <translation type="unfinished">Aanmelden</translation>
     </message>
     <message>
-        <source>Follow</source>
-        <translation>Volgend</translation>
+        <source>Login...</source>
+        <translation type="unfinished">Inloggen...</translation>
     </message>
     <message>
-        <source>Unlike</source>
-        <translation>Vind ik niet leuk</translation>
+        <source>Login fail!</source>
+        <translation type="unfinished">Inloggen mislukt</translation>
     </message>
     <message>
-        <source>Like</source>
-        <translation>Vind ik leuk</translation>
-    </message>
-    <message>
-        <source>Remove</source>
-        <translation>Verwijderen</translation>
-    </message>
-    <message>
-        <source>Story</source>
-        <translation>Verhaal</translation>
-    </message>
-    <message>
-        <source>Un Follow</source>
-        <translation>Niet meer volgen</translation>
+        <source>Entering...</source>
+        <translation type="unfinished">Openen...</translation>
     </message>
 </context>
 <context>
@@ -239,21 +207,6 @@
     <message>
         <source>Load more</source>
         <translation>Meer laden</translation>
-    </message>
-</context>
-<context>
-    <name>TagSearchPage</name>
-    <message>
-        <source>Search user</source>
-        <translation>Zoek gebruiker</translation>
-    </message>
-    <message>
-        <source>Explore</source>
-        <translation>Onderzoeken</translation>
-    </message>
-    <message>
-        <source>Search tag</source>
-        <translation>Zoek tag</translation>
     </message>
 </context>
 <context>
@@ -338,13 +291,6 @@
     <message>
         <source>Logout</source>
         <translation>Uitloggen</translation>
-    </message>
-</context>
-<context>
-    <name>UserSearchPage</name>
-    <message>
-        <source>Search users</source>
-        <translation>Zoek gebruikers</translation>
     </message>
 </context>
 </TS>
