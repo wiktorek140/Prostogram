@@ -19,6 +19,11 @@ INSTALLS += i18n_files
 
 CONFIG += sailfishapp
 
+#QMAKE_CXXFLAGS_RELEASE -= -O
+#QMAKE_CXXFLAGS_RELEASE -= -O1
+#QMAKE_CXXFLAGS_RELEASE *= -O2
+
+
 include(QtInstagram/QtInstagram.pri)
 
 SOURCES += src/harbour-prostogram.cpp \
@@ -61,7 +66,6 @@ DISTFILES += \
     qml/components/ThreadView.qml \
     qml/components/ThreadMessageItem.qml \
     qml/pages/StoryShowPage.qml \
-    qml/components/new/FeedBottom.qml \
     qml/components/FeedBottom.qml \
     qml/components/FeedHeader.qml \
     qml/components/StoriesList.qml \
@@ -69,7 +73,9 @@ DISTFILES += \
     qml/MediaTypes.js \
     qml/components/Border.qml \
     qml/pages/SingleMediaPage.qml \
-    qml/pages/SearchPage.qml
+    qml/pages/SearchPage.qml \
+    qml/js/Settings.js \
+    qml/components/UserFollowItem.qml
 
 TRANSLATIONS += translations/harbour-prostogram_ca.ts \
                 translations/harbour-prostogram_cs_CZ.ts \
