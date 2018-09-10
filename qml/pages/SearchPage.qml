@@ -192,7 +192,7 @@ Page {
             recentMediaModel.clear();
             var data  = JSON.parse(answer)
 
-            print("Number of elements: "+ data.results.length)
+            //print("Number of elements: "+ data.results.length)
             for(var i=0; i < data.results.length; i++) {
                 mediaModel.append(data.results[i]);
             }
@@ -207,7 +207,7 @@ Page {
             recentMediaModel.clear();
             var user = JSON.parse(answer)
 
-            print("Number of elements: "+ user.users.length)
+            //print("Number of elements: "+ user.users.length)
             for(var i=0; i < user.users.length; i++) {
 
                 mediaModel.append(user.users[i]);
