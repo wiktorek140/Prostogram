@@ -36,12 +36,12 @@
         <translation>Skicka ett mejl</translation>
     </message>
     <message>
-        <source>Paypal USD</source>
-        <translation>Paypal USD</translation>
-    </message>
-    <message>
         <source>Version: %1</source>
         <translation>Version: %1</translation>
+    </message>
+    <message>
+        <source>Paypal</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -61,36 +61,9 @@
         <source>Load More</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>CoverPage</name>
     <message>
-        <source>Login</source>
-        <translation type="unfinished">Användarnamn</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished">Lösenord</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation type="unfinished">Logga in</translation>
-    </message>
-    <message>
-        <source>Entering...</source>
-        <translation type="unfinished">Loggar in...</translation>
-    </message>
-    <message>
-        <source>Login fail!</source>
-        <translation type="unfinished">Inloggningen misslyckades!</translation>
-    </message>
-    <message>
-        <source>Version: %1</source>
-        <translation type="unfinished">Version: %1</translation>
-    </message>
-    <message>
-        <source>Login...</source>
-        <translation>Logga in...</translation>
+        <source>Reload</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -124,12 +97,8 @@
 <context>
     <name>InboxItem</name>
     <message>
-        <source>You send message</source>
-        <translation>Du skickar meddelande</translation>
-    </message>
-    <message>
-        <source>You get message</source>
-        <translation>Du tar emot meddelande</translation>
+        <source>Raven Message.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -144,6 +113,37 @@
     <message>
         <source>Likes</source>
         <translation>Gillanden</translation>
+    </message>
+</context>
+<context>
+    <name>LoginPage</name>
+    <message>
+        <source>Version: %1</source>
+        <translation type="unfinished">Version: %1</translation>
+    </message>
+    <message>
+        <source>Login</source>
+        <translation type="unfinished">Användarnamn</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished">Lösenord</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished">Logga in</translation>
+    </message>
+    <message>
+        <source>Login...</source>
+        <translation type="unfinished">Logga in...</translation>
+    </message>
+    <message>
+        <source>Login fail!</source>
+        <translation type="unfinished">Inloggningen misslyckades!</translation>
+    </message>
+    <message>
+        <source>Entering...</source>
+        <translation type="unfinished">Loggar in...</translation>
     </message>
 </context>
 <context>
@@ -207,25 +207,6 @@
     <message>
         <source>Load more</source>
         <translation type="unfinished">Läs in mer</translation>
-    </message>
-</context>
-<context>
-    <name>TagSearchPage</name>
-    <message>
-        <source>Search user</source>
-        <translation>Sök användare</translation>
-    </message>
-    <message>
-        <source>Explore</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Search tag</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -310,13 +291,6 @@
     <message>
         <source>Logout</source>
         <translation>Logga ut</translation>
-    </message>
-</context>
-<context>
-    <name>UserSearchPage</name>
-    <message>
-        <source>Search users</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

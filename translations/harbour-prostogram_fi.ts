@@ -36,11 +36,11 @@
         <translation>Ilmoita virheestä</translation>
     </message>
     <message>
-        <source>Paypal USD</source>
-        <translation>Paypal USD</translation>
+        <source>Version: %1</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Version: %1</source>
+        <source>Paypal</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -61,35 +61,8 @@
         <source>Load More</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>CoverPage</name>
     <message>
-        <source>Login</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Entering...</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Login fail!</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Version: %1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Login...</source>
+        <source>Reload</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -124,11 +97,7 @@
 <context>
     <name>InboxItem</name>
     <message>
-        <source>You send message</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>You get message</source>
+        <source>Raven Message.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -143,6 +112,37 @@
     <name>LikesPage</name>
     <message>
         <source>Likes</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>LoginPage</name>
+    <message>
+        <source>Version: %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login fail!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Entering...</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -207,25 +207,6 @@
     <message>
         <source>Load more</source>
         <translation type="unfinished">Lataa lisää</translation>
-    </message>
-</context>
-<context>
-    <name>TagSearchPage</name>
-    <message>
-        <source>Search user</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Explore</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Search tag</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -309,13 +290,6 @@
     </message>
     <message>
         <source>Logout</source>
-        <translation type="unfinished"></translation>
-    </message>
-</context>
-<context>
-    <name>UserSearchPage</name>
-    <message>
-        <source>Search users</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

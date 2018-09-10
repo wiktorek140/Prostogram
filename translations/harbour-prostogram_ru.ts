@@ -36,12 +36,12 @@
         <translation>Сообщить о проблеме</translation>
     </message>
     <message>
-        <source>Paypal USD</source>
-        <translation>Paypal USD</translation>
-    </message>
-    <message>
         <source>Version: %1</source>
         <translation>Версия: %1</translation>
+    </message>
+    <message>
+        <source>Paypal</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -61,36 +61,9 @@
         <source>Load More</source>
         <translation type="unfinished"></translation>
     </message>
-</context>
-<context>
-    <name>CoverPage</name>
     <message>
-        <source>Login</source>
-        <translation>Логин</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation>Пароль</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Вход</translation>
-    </message>
-    <message>
-        <source>Entering...</source>
-        <translation>Входим...</translation>
-    </message>
-    <message>
-        <source>Login fail!</source>
-        <translation>Ошибка входа!</translation>
-    </message>
-    <message>
-        <source>Version: %1</source>
-        <translation>Версия: %1</translation>
-    </message>
-    <message>
-        <source>Login...</source>
-        <translation>Входим...</translation>
+        <source>Reload</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -124,12 +97,8 @@
 <context>
     <name>InboxItem</name>
     <message>
-        <source>You send message</source>
-        <translation>Вы отправили сообщения</translation>
-    </message>
-    <message>
-        <source>You get message</source>
-        <translation>Вы получили сообщения</translation>
+        <source>Raven Message.</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -144,6 +113,37 @@
     <message>
         <source>Likes</source>
         <translation>Лайки</translation>
+    </message>
+</context>
+<context>
+    <name>LoginPage</name>
+    <message>
+        <source>Version: %1</source>
+        <translation type="unfinished">Версия: %1</translation>
+    </message>
+    <message>
+        <source>Login</source>
+        <translation type="unfinished">Логин</translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished">Пароль</translation>
+    </message>
+    <message>
+        <source>Sign in</source>
+        <translation type="unfinished">Вход</translation>
+    </message>
+    <message>
+        <source>Login...</source>
+        <translation type="unfinished">Входим...</translation>
+    </message>
+    <message>
+        <source>Login fail!</source>
+        <translation type="unfinished">Ошибка входа!</translation>
+    </message>
+    <message>
+        <source>Entering...</source>
+        <translation type="unfinished">Входим...</translation>
     </message>
 </context>
 <context>
@@ -207,25 +207,6 @@
     <message>
         <source>Load more</source>
         <translation>Загрузить ещё</translation>
-    </message>
-</context>
-<context>
-    <name>TagSearchPage</name>
-    <message>
-        <source>Search user</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Explore</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Search tag</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Search</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -310,13 +291,6 @@
     <message>
         <source>Logout</source>
         <translation>Выход</translation>
-    </message>
-</context>
-<context>
-    <name>UserSearchPage</name>
-    <message>
-        <source>Search users</source>
-        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
