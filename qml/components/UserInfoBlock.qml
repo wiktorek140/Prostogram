@@ -1,6 +1,7 @@
 import QtQuick 2.0
 import QtGraphicalEffects 1.0
 import Sailfish.Silica 1.0
+import "../js/Settings.js" as Setting
 
 Rectangle {
     id: userInfo
@@ -58,7 +59,7 @@ Rectangle {
             topMargin: userInfo.height * 0.15
         }
         truncationMode: TruncationMode.Fade
-        font.pixelSize: Theme.fontSizeMedium
+        font.pixelSize: Setting.feedFontSize()
         font.bold: true
         color: "black"
     }
@@ -73,7 +74,7 @@ Rectangle {
             leftMargin: Theme.paddingMedium
             top: username.bottom
         }
-        font.pixelSize: Theme.fontSizeExtraSmall
+        font.pixelSize: Setting.feedLikeFontSize()
         color: "black"
     }
 

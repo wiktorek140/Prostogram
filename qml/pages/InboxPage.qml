@@ -1,9 +1,16 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "../components"
+import "../js/Settings.js" as Setting
 
 Page {
     id: inboxPage
+
+    property bool isLoaded: false
+    Rectangle {
+        anchors.fill: parent
+        color: Setting.STYLE_COLOR_BACKGROUND
+    }
 
     BusyIndicator {
         id: loadIndicator
@@ -13,42 +20,45 @@ Page {
     }
 
     Component.onCompleted: {
-        instagram.getInbox();
+        if(!isLoaded) instagram.getInbox();
     }
 
-    ListModel{
+    ListModel {
         id: inboxModel
     }
 
-    SilicaListView{
+    SilicaListView {
         anchors.fill: parent
 
         header: PageHeader {
             title: qsTr("Inbox")
+            _titleItem.color: Setting.STYLE_COLOR_FONT
         }
 
         id: inboxView
         width: parent.width
         height: parent.height
-        clip: true
+        //clip: true
+        contentHeight: (inboxModel.count) * (parent.width * 0.1852)
         model: inboxModel
-        delegate: InboxItem{
-            item: model
+        delegate: InboxItem {
+            itemData: model
         }
     }
 
-    Connections{
+    Connections {
         target: instagram
 
-        onInboxDataReady:{
-            print(answer)
+        onInboxDataReady: {
+            //print(answer)
             var out = JSON.parse(answer)
-            if(out.status === "ok")
+            if(out.status === "ok" && !isLoaded)
             {
-                for(var i=0; i<out.inbox.threads.length; i++) {
+                for(var i=0; i < out.inbox.threads.length; i++) {
                     inboxModel.append(out.inbox.threads[i]);
                 }
-                console.log(out.inbox.threads.length)
+                //print(out.inbox.threads.length)
+                isLoaded = true;
             }
             loadIndicator.visible = false
         }

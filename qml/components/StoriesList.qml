@@ -2,7 +2,7 @@ import QtQuick 2.5
 import QtGraphicalEffects 1.0
 import Sailfish.Silica 1.0
 import harbour.prostogram.cache 1.0
-
+import "../js/Settings.js" as Setting
 //reworked
 
 Rectangle {
@@ -12,7 +12,7 @@ Rectangle {
 
     id: story
     width: parent.width
-    height: parent.width/4
+    height: parent.width / 4 + Setting.storyTitleSize()
 
     Component.onCompleted: {
         if (!dataLoaded) {
@@ -29,6 +29,7 @@ Rectangle {
     SilicaFlickable {
         anchors.left: parent.left
         anchors.right: parent.right
+
         contentHeight: parent.height
         contentWidth: parent.width
 
@@ -37,9 +38,7 @@ Rectangle {
 
             height:parent.height
             width: parent.width
-
             implicitWidth: parent.height
-
             orientation: SilicaListView.Horizontal
 
             model: recentMediaModel
@@ -47,13 +46,13 @@ Rectangle {
             delegate: Item {
 
                 height: parent.height
-                width: height
-                property bool isViewed:false
+                width: height - Setting.storyTitleSize()
+                property bool isViewed: false
 
                 Image {
                     id: delegate
-                    width: parent.height * 0.8
-                    height: parent.width * 0.8
+                    width: parent.width * 0.75
+                    height: parent.width * 0.75
 
                     anchors.centerIn: parent
 
@@ -81,6 +80,23 @@ Rectangle {
                     }
                 }
 
+                Label {
+                    id: name
+                    text: model.user.username
+                    anchors {
+                        top: delegate.bottom
+                        //left: parent.left
+                        //right: parent.right
+                        horizontalCenter: delegate.horizontalCenter
+                    }
+
+                    font.pixelSize: Setting.storyTitleSize()
+                    font.bold: true
+                    horizontalAlignment: Text.AlignHCenter
+                    color: Setting.STYLE_COLOR_FONT
+                    wrapMode: Text.Wrap
+                }
+
                 MouseArea {
                     id: mousearea
                     anchors.fill: parent
@@ -103,11 +119,12 @@ Rectangle {
     Connections {
         target: instagram
         onReelsTrayFeedDataReady: {
+            //print(answer)
             var data = JSON.parse(answer);
-            for(var i=0; i<data.tray.length; i++) {
+            for(var i = 0; i < data.tray.length; i++) {
                 recentMediaModel.append(data.tray[i]);
             }
-            dataLoaded=true;
+            dataLoaded = true;
         }
     }
 

@@ -1,10 +1,13 @@
 import QtQuick 2.0
-import Sailfish.Silica 1.0
+import QtQuick.LocalStorage 2.0
 import QtMultimedia 5.0
+import Sailfish.Silica 1.0
+
 import "../components"
 import "../Helper.js" as Helper
 import "../MediaStreamMode.js" as MediaStreamMode
-
+import "../js/Settings.js" as Setting
+import "../Storage.js" as Storage
 
 Page {
 
@@ -18,8 +21,6 @@ Page {
 
     property bool privateProfile : false;
     property bool recentMediaLoaded: false;
-
-    property int recentMediaSize: (width - 2 * Theme.paddingMedium) / 3
 
     property bool errorAtUserMediaRequestOccurred : false
 
@@ -48,7 +49,7 @@ Page {
 
     Rectangle {
         anchors.fill: parent
-        color: "white"
+        color: Setting.STYLE_COLOR_BACKGROUND
     }
 
     SilicaFlickable {
@@ -60,7 +61,7 @@ Page {
         PageHeader {
             id: header
             title: user.username
-            _titleItem.color: "black"
+            _titleItem.color: Setting.STYLE_COLOR_FONT
         }
 
         Column {
@@ -71,17 +72,7 @@ Page {
             id: column
             spacing: Theme.paddingSmall
 
-            Item {
-                width: parent.width
-                height: 150
-                Rectangle {
-                    anchors.fill: parent
-                    color: "black"
-                    opacity: 0.1
-                }
-                UserDetailBlock{
-                }
-            }
+            UserDetailBlock { }
 
             Label {
                 id: incomingRelLabel
@@ -90,9 +81,10 @@ Page {
                 anchors.leftMargin: Theme.paddingMedium
                 anchors.right: parent.right
                 anchors.rightMargin: Theme.paddingMedium
-                color: "black"
+                color: Setting.STYLE_COLOR_FONT
                 truncationMode: TruncationMode.Fade
                 visible: text!==""
+                font.pixelSize: Setting.profileFontSize();
                 function getOutgoingText() {
                     if(!relationStatus)
                     {
@@ -112,9 +104,10 @@ Page {
                 anchors.leftMargin: Theme.paddingMedium
                 anchors.right: parent.right
                 anchors.rightMargin: Theme.paddingMedium
-                color: "black"
+                color: Setting.STYLE_COLOR_FONT
                 truncationMode: TruncationMode.Fade
                 visible: text!==""
+                font.pixelSize: Setting.profileFontSize();
 
                 function getIncomingText() {
                     if(!relationStatus)
@@ -132,39 +125,43 @@ Page {
                 }
             }
 
-
             Label {
                 text: user.full_name
                 anchors.left: parent.left
                 anchors.leftMargin: Theme.paddingMedium
                 anchors.right: parent.right
                 anchors.rightMargin: Theme.paddingMedium
-                color: "black"
+                color: Setting.STYLE_COLOR_FONT
                 truncationMode: TruncationMode.Fade
                 font.bold: true
+                font.pixelSize: Setting.profileFontSize();
                 visible: user.full_name !== "" ? true : false
 
             }
+
             Label {
                 text: user.biography !== undefined ? user.biography : ""
                 anchors.left: parent.left
                 anchors.leftMargin: Theme.paddingMedium
                 anchors.right: parent.right
                 anchors.rightMargin: Theme.paddingMedium
-                color: "black"
+                font.pixelSize: Setting.profileFontSize();
+                color: Setting.STYLE_COLOR_FONT
                 visible: text!==""
                 wrapMode: Text.Wrap
 
             }
 
             Label {
-                text: user.external_url !== undefined ? user.external_url :""
+                text: user.external_url !== undefined ? '<a href="'+user.external_url+'">'+user.external_url+'</a>' : ""
                 anchors.left: parent.left
                 anchors.leftMargin: Theme.paddingMedium
                 anchors.right: parent.right
                 anchors.rightMargin: Theme.paddingMedium
-                color: "black"
-                visible: text!==""
+
+                font.pixelSize: Setting.profileFontSize();
+                color: Setting.STYLE_COLOR_FONT
+                visible: text !== ""
                 truncationMode: TruncationMode.Fade
             }
 
@@ -176,7 +173,8 @@ Page {
                 anchors.leftMargin: Theme.paddingMedium
                 anchors.right: parent.right
                 anchors.rightMargin: Theme.paddingMedium
-                color: "black"
+                font.pixelSize: Setting.profileFontSize();
+                color: Setting.STYLE_COLOR_FONT
                 visible: false
             }
 
@@ -203,36 +201,28 @@ Page {
                         bottom: parent.bottom
                     }
                     width: parent.width/2
-                    color: "transparent"
 
                     Rectangle {
-                        anchors.fill: parent
-                        color: Theme.highlightColor
-                        opacity : mouseAreaHeader.pressed ? 0.3 : 0
-                    }
-
-                    Image {
-                        id: iconL
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.left: parent.left
-                        anchors.leftMargin: Theme.paddingLarge
-                        source:  "image://theme/icon-m-left"
+                        anchors.fill:parent
+                        color: Setting.STYLE_COLOR_BUTTON
+                        opacity: 0.1
                     }
 
                     Label {
-                        font.pixelSize: Theme.fontSizeLarge
-                        color: "black"
+                        font.pixelSize: Setting.profileFontSize();
+                        color: Setting.STYLE_COLOR_FONT
 
                         text: "#tags"
                         anchors.verticalCenter: parent.verticalCenter
-                        anchors.left: iconL.right
+                        anchors.left: parent.left
                         anchors.leftMargin: Theme.paddingMedium
                     }
 
                     MouseArea {
                         id: mouseAreaHeaderTag
                         anchors.fill: parent
-                        onClicked: pageStack.push(Qt.resolvedUrl("MediaStreamPage.qml"),{mode : MediaStreamMode.TAG_MODE, streamData: recentMediaData,tag: user.username, streamTitle: user.username})
+                        onClicked: pageStack.push(Qt.resolvedUrl("MediaStreamPage.qml"),{mode : MediaStreamMode.TAG_MODE,
+                                                      streamData: recentMediaData,tag: user.username, streamTitle: user.username})
                     }
                 }
 
@@ -243,29 +233,21 @@ Page {
                         bottom: parent.bottom
                     }
                     width: parent.width/2
-                    color: "transparent"
 
                     Rectangle {
                         anchors.fill: parent
-                        color: Theme.highlightColor
-                        opacity : mouseAreaHeader.pressed ? 0.3 : 0
-                    }
-
-                    Image {
-                        id: icon
-                        anchors.verticalCenter: parent.verticalCenter
-                        anchors.right: parent.right
-                        anchors.rightMargin: Theme.paddingLarge
-                        source:  "image://theme/icon-m-right"
+                        color: Setting.STYLE_COLOR_BUTTON
+                        opacity : 0.1
                     }
 
                     Label {
-                        font.pixelSize: Theme.fontSizeLarge
-                        color: "black"
+                        font.pixelSize: Setting.profileFontSize();
+                        color: Setting.STYLE_COLOR_FONT
                         text: user.username
                         anchors.verticalCenter: parent.verticalCenter
-                        anchors.right: icon.left
+                        anchors.right: parent.right
                         anchors.rightMargin: Theme.paddingMedium
+
                     }
 
                     MouseArea {
@@ -280,13 +262,14 @@ Page {
 
             GridView {
                 width: parent.width
-                height: allView.height
+                height: cellHeight * (recentMediaModel.count/3)
+                //contentHeight: allView.height
                 cellWidth: width/3
                 cellHeight: cellWidth
 
                 clip: true
 
-                anchors{
+                anchors {
                     left: parent.left
                     right: parent.right
                 }
@@ -303,7 +286,7 @@ Page {
                         anchors.fill: parent
                         width: parent.width
                         clip: true
-
+                        preview: true
                         autoVideoPlay: false
                         isSquared: true
                     }
@@ -326,8 +309,11 @@ Page {
                 id: logoutItem
                 text: qsTr("Logout")
                 visible: isSelf
-                color: "black"
+                color: Setting.STYLE_COLOR_FONT
                 onClicked: {
+                    Storage.set("username", "");
+                    Storage.set("password", "");
+                    app.need_login = true;
                     instagram.logout();
                 }
             }
@@ -335,7 +321,7 @@ Page {
             MenuItem {
                 id: followersMenuItem
                 visible: isSelf
-                color: "black"
+                color: Setting.STYLE_COLOR_FONT
                 text:  qsTr("Followers")
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("UserListPage.qml"),{pageTitle:qsTr("Followers"), userId: user.pk});
@@ -345,7 +331,7 @@ Page {
             MenuItem {
                 id: followingMenuItem
                 visible: isSelf
-                color: "black"
+                color: Setting.STYLE_COLOR_FONT
                 text:  qsTr("Following")
                 onClicked: {
                     pageStack.push(Qt.resolvedUrl("UserListPage.qml"),{pageTitle:qsTr("Following"), userId: user.pk});
@@ -354,7 +340,7 @@ Page {
 
             MenuItem {
                 id: unFollowMenuItem
-                color: "black"
+                color: Setting.STYLE_COLOR_FONT
                 visible: !isSelf && !relationStatus.following
                 text:  qsTr("Unfollow %1").arg(user.username)
                 onClicked: {
@@ -364,7 +350,7 @@ Page {
 
             MenuItem {
                 id: followMenuItem
-                color: "black"
+                color: Setting.STYLE_COLOR_FONT
                 visible: !isSelf &&  relationStatus.following
                 text: qsTr("Follow %1").arg(user.username)
                 onClicked: {
@@ -398,7 +384,7 @@ Page {
 
 
     function reloadFinished(data) {
-        if(data.meta.code===200) {
+        if(data.meta.code === 200) {
             user = data.data;
         } else {
             privateProfile = true;
@@ -407,7 +393,7 @@ Page {
 
     Connections {
         target: instagram
-        onUserFeedDataReady:{
+        onUserFeedDataReady: {
             var data = JSON.parse(answer);
             if(data === undefined || data.items === undefined) {
                 recentMediaLoaded=true;
@@ -419,22 +405,21 @@ Page {
             }
             recentMediaLoaded=true;
         }
-        onInfoByIdDataReady:{
+        onInfoByIdDataReady: {
             var out = JSON.parse(answer);
             user = out.user
         }
-        onFollowDataReady:{
+        onFollowDataReady: {
             relationStatusLoaded = false;
             instagram.getFriendship(user.pk);
         }
-        onUnfollowDataReady:{
+        onUnfollowDataReady: {
             relationStatusLoaded = false;
             instagram.getFriendship(user.pk);
         }
-        onFriendshipDataReady:{
-            relationStatusLoaded = true;
+        onFriendshipDataReady: {
             relationStatus = JSON.parse(answer)
-            print(answer);
+            //print(answer);
             if(!isSelf)
             {
                 followMenuItem.visible = !relationStatus.following
@@ -450,6 +435,11 @@ Page {
             {
                 privatelabel.visible = true
             }
+
+            //print(Theme.fontSizeExtraSmall+"-" +Theme.fontSizeTiny+"-" +Theme.fontSizeSmall+"-" +Theme.fontSizeMedium+"-" +Theme.fontSizeLarge
+            //      +"-" +Theme.fontSizeHuge+"-" +Theme.fontSizeExtraLarge);
+
+            relationStatusLoaded = true;
         }
     }
 }

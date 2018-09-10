@@ -1,26 +1,28 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "../components"
+import "../MediaTypes.js" as MediaType
 
 Page {
     id: mediaDetail
     property var singleItem
-    Rectangle{
+    Rectangle {
         anchors.fill: parent
         color:"white"
     }
-    FeedItem {
-        id: singleFeedItem
-        anchors {
-            top:parent.top
-            bottom: parent.bottom
+
+    SilicaFlickable {
+        anchors.fill: parent
+        contentHeight: singleFeedItem.height
+
+        FeedItem {
+            id: singleFeedItem
+            anchors {
+                top:parent.top
+                bottom: parent.bottom
+            }
+            item: singleItem
+            type: singleItem.media_type === MediaType.VIDEO_PREVIEW_TYPE ? MediaType.VIDEO_TYPE : 0
         }
-        item: singleItem
-
-    }
-
-    Component.onCompleted: {
-        singleFeedItem.item = singleItem
-        //print(JSON.stringify(singleItem))
     }
 }

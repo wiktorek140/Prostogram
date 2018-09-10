@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "../MediaStreamMode.js" as MediaStreamMode
-
+import "../js/Settings.js" as Setting
 
 Page {
     id: threadView
@@ -19,15 +19,14 @@ Page {
     property int userLength:1;
 
 
-    PageHeader {
-        id: header
-        title: name
+    Rectangle {
+        anchors.fill: parent
+        color: Setting.STYLE_COLOR_BACKGROUND
     }
 
     ListModel {
         id: threadModel;
     }
-
 
     SilicaListView {
         id: grid
@@ -39,6 +38,11 @@ Page {
         width: parent.width
         height: parent.height
         clip: true
+
+        header: PageHeader {
+            id: header
+            title: name
+        }
 
         model: threadModel
 
@@ -65,17 +69,16 @@ Page {
                 id: moreMenu
                 text: qsTr("Load older")
                 onClicked: {
-                    instagram.getDirectThread(threadId,oldestCursor);
+                    instagram.getDirectThread(threadId, oldestCursor);
                 }
             }
         }
 
-        delegate:
-            ThreadMessageItem {
-                pic_url: getUser(model.user_id);
-                isSelf: isSelfID(model.user_id);
+        delegate: ThreadMessageItem {
+            pic_url: getUser(model.user_id);
+            isSelf: isSelfID(model.user_id);
 
-            }
+        }
 
     }
 
@@ -118,8 +121,8 @@ Page {
 
         }
         else for(var i=0; i < user.length; i++) {
-            if(""+user[i].pk === ""+id) return user[i].profile_pic_url;
-        }
+                if(""+user[i].pk === ""+id) return user[i].profile_pic_url;
+            }
     }
     function isSelfID(id) {
         if( ""+id === ""+instagram.getUsernameId() ) {

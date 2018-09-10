@@ -7,9 +7,9 @@ Rectangle {
     id: feedBottom
     width: parent.width
     height: childrenRect.height
-
     color: "white"
-    IconButton{
+
+    IconButton {
         id: mail
         anchors{
             right: search.left
@@ -24,8 +24,7 @@ Rectangle {
                                           "../pages/InboxPage.qml"))
         }
     }
-
-    IconButton{
+    IconButton {
         id: search
         anchors{
             right: sendPhoto.left
@@ -36,10 +35,7 @@ Rectangle {
                      ? Theme.highlightColor
                      : "black")
 
-        onClicked: pageStack.push(Qt.resolvedUrl(
-                                      "../pages/SearchPage.qml")
-                                  //, {user: user}
-                                  )
+        onClicked: pageStack.push(Qt.resolvedUrl("../pages/SearchPage.qml"))
     }
 
     IconButton {

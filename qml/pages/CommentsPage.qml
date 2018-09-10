@@ -12,24 +12,36 @@ Page {
     property var elementId
     property var comments
     property var relationStatus
+    property bool reloaded: false
 
     Rectangle {
         anchors.fill: parent
         color: "white"
     }
 
-    SilicaFlickable {
+    ListModel {
+        id: commentModel
+    }
 
+    SilicaFlickable {
         id: flick
         anchors {
             fill: parent
             bottom: doComment.top
         }
-        contentHeight: header.height + mainComment.height + column.height + 20
+        contentHeight: header.height + mainComment.height +commentsRepeater.height + 20
         contentWidth: parent.width
         //height: parent.height - doComment.height
 
         PullDownMenu {
+            MenuItem {
+                id: reload
+                text: qsTr("Reload")
+                color: "black"
+                onClicked: {
+                    //todo loadMore();
+                }
+            }
             MenuItem {
                 id: loadMore
                 text: qsTr("Load More")
@@ -64,7 +76,8 @@ Page {
                     left: parent.left
                     leftMargin: Theme.paddingMedium
                     rightMargin: Theme.paddingMedium
-                    verticalCenter: parent.verticalCenter
+                    topMargin: Theme.paddingMedium
+
                 }
                 layer.enabled: true
                 layer.effect: OpacityMask {
@@ -105,35 +118,25 @@ Page {
 
         Border {
             id: border
-            anchors.top:mainComment.bottom
+            anchors.top: mainComment.bottom
         }
 
-        Column {
-            id: column
-            width: parent.width - (2 * Theme.paddingMedium)
-
-            clip: true
-
+        ColumnView {
+            id: commentsRepeater
+            width: parent.width
             anchors {
                 top: border.bottom
                 left: parent.left
                 right: parent.right
+
                 leftMargin: Theme.paddingMedium
                 rightMargin: Theme.paddingMedium
-
             }
+            itemHeight: Screen.width * 0.19
+            model:commentModel
 
-            Repeater {
-                id: commentsRepeater
-                width: parent.width
-                anchors {
-                    left: parent.left
-                    right: parent.right
-                }
-
-                delegate: CommentItem {
-                    item: modelData
-                }
+            delegate: CommentItem {
+                item: model
             }
         }
     }
@@ -156,7 +159,7 @@ Page {
             onClicked: {
                 commentBody.readOnly = true
                 if(commentBody.text.length > 0) {
-                    instagram.comment(item.id, commentBody.text)
+                    instagram.comment(elementId, commentBody.text)
                 }
             }
         }
@@ -164,7 +167,7 @@ Page {
         TextField {
             id: commentBody
             color: "black"
-            width: parent.width-sendCommentButton.width
+            width: parent.width - sendCommentButton.width
             anchors{
                 verticalCenter: sendCommentButton.verticalCenter
                 left: parent.left
@@ -201,18 +204,27 @@ Page {
         }
         onMediaCommentsDataReady: {
             //print(answer);
-            var data = JSON.parse(answer)
+            var data = JSON.parse(answer);
+
             userPic.source = data.caption.user.profile_pic_url;
             description.text = "<b>"+data.caption.user.username+"</b> "+ Helper.formatString(data.caption.text);
             mainComment.height = 10 + ( userPic.height > description.contentHeight ? userPic.height : description.contentHeight);
 
-            commentsRepeater.model = data.comments
-
+            if(reloaded) commentModel = data.comments;
+            else {
+                for(var i=0; i < data.comments.length; i++){
+                    //print("Counter: "+i)
+                    commentModel.append(data.comments[i]);
+                }
+            }
+            reloaded = false;
         }
         onCommentPosted: {
-            instagram.getComments(elementsId);
+            print(answer)
+            instagram.getComments(elementId);
             commentBody.readOnly = false
             commentBody.text = "";
+            reloaded = true;
         }
         onSearchUsernameDataReady: {
             var data = JSON.parse(answer)

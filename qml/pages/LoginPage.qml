@@ -32,7 +32,7 @@ Page {
             clip: true
         }
 
-        Rectangle{
+        Rectangle {
             id: logoAction
             visible: !app.need_login
 
@@ -79,7 +79,7 @@ Page {
             }
         }
 
-        Rectangle{
+        Rectangle {
             id: entherAction
             color: Theme.rgba(Theme.highlightBackgroundColor, Theme.highlightBackgroundOpacity)
             clip: true
@@ -97,7 +97,7 @@ Page {
                 leftMargin: 0.125*parent.width
             }
 
-            TextField{
+            TextField {
                 id: loginField
                 width: parent.width-10
                 height: Theme.itemSizeMedium
@@ -113,7 +113,7 @@ Page {
                 }
             }
 
-            TextField{
+            TextField {
                 id: passwordField
                 width: parent.width-10
                 height: Theme.itemSizeMedium
@@ -124,14 +124,14 @@ Page {
 
                 echoMode: TextInput.Password
 
-                anchors{
+                anchors {
                     top: loginField.bottom
                     left: parent.left
                     leftMargin: 5
                 }
             }
 
-            Rectangle{
+            Rectangle {
                 id: loginButton
                 width: parent.width
                 height: Theme.itemSizeMedium
@@ -139,7 +139,7 @@ Page {
 
                 color: Theme.highlightBackgroundColor
 
-                anchors{
+                anchors {
                     bottom: parent.bottom
                     left: parent.left
                 }
@@ -154,7 +154,7 @@ Page {
                     minimumPixelSize: 10
                     font.pixelSize: 72
 
-                    anchors{
+                    anchors {
                         verticalCenter: parent.verticalCenter
                     }
 
@@ -162,7 +162,7 @@ Page {
                     verticalAlignment: Text.AlignVCenter
                 }
 
-                Rectangle{
+                Rectangle {
                     color: parent.color
                     width: parent.radius
                     height: parent.radius
@@ -172,7 +172,7 @@ Page {
                     }
                 }
 
-                Rectangle{
+                Rectangle {
                     color: parent.color
                     width: parent.radius
                     height: parent.radius
@@ -182,11 +182,10 @@ Page {
                     }
                 }
 
-                MouseArea{
+                MouseArea {
                     anchors.fill: parent
                     onClicked: {
-                        if(loginField.text && passwordField.text)
-                        {
+                        if(loginField.text && passwordField.text) {
                             instagram.setUsername(loginField.text);
                             instagram.setPassword(passwordField.text);
                             instagram.login(true);
@@ -198,20 +197,19 @@ Page {
         }
     }
 
-    Connections{
+    Connections {
         target: instagram
-        onProfileConnected:{
-            if(app.need_login)
-            {
+        onProfileConnected: {
+            if(app.need_login) {
                 Storage.set("password", passwordField.text);
-                Storage.set("username",loginField.text)
+                Storage.set("username", loginField.text)
             }
             instagram.getInfoById(instagram.getUsernameId());
             instagram.getRecentActivityInbox();
-            instagram.getInbox();
+            //instagram.getInbox();
         }
 
-        onProfileConnectedFail:{
+        onProfileConnectedFail: {
             banner.notify(qsTr("Login fail!"))
             instagram.logout();
         }
@@ -227,9 +225,9 @@ Page {
         }
     }
 
-    Connections{
+    Connections {
         target: app
-        onCoverRefreshButtonPress:{
+        onCoverRefreshButtonPress: {
             updateAllFeeds()
         }
     }
@@ -239,6 +237,5 @@ Page {
         {
             banner.notify(qsTr("Entering..."))
         }
-
     }
 }

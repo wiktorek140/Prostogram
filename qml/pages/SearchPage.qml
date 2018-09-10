@@ -119,7 +119,6 @@ Page {
         }
     }
 
-
     ListModel {
         id: recentMediaModel
     }

@@ -4,11 +4,13 @@ import QtGraphicalEffects 1.0
 
 import "../Helper.js" as Helper
 
-Rectangle {
+Item {
+    id: commentSingleItem
     property var item;
 
-    width: parent.width
-    height: ((labelTime.height + labelComment.height + 10) > width * 0.15) ? labelTime.height + labelComment.height + 10 :  width * 0.15
+    width: parent.width;
+    height: Screen.width * 0.1852;
+    //height: ((labelTime.height + labelComment.height + 10) > width * 0.15) ? labelTime.height + labelComment.height + 10 :  width * 0.15
 
     anchors {
         left: parent.left
@@ -21,14 +23,8 @@ Rectangle {
         id: topBorder
     }
 
-    Border {
-        id: bottomBorder
-        anchors.top: parent.bottom
-    }
-
     Component.onCompleted: {
-        if(!item.text)
-        {
+        if(!item.text) {
             item.text = "";
         }
         labelComment.text = "<b>"+item.user.username+"</b> "+ Helper.formatString(item.text);
@@ -37,16 +33,20 @@ Rectangle {
                                            "dd.MM.yy hh:mm");
 
         userIcon.source = item.user.profile_pic_url
+        commentSingleItem.height = ((labelTime.height + labelComment.height + 10) > width * 0.15) ? labelTime.height + labelComment.height + 10 :  Screen.width * 0.1852;
+
     }
 
     Image {
         id: userIcon
-        width: parent.width * 0.15
+        width: Screen.width * 0.1852 * 0.8
         height: width
 
         fillMode: Image.PreserveAspectFit
         anchors {
             left: parent.left
+            top: parent.top
+            topMargin: Theme.paddingMedium
         }
 
         layer.enabled: true
@@ -72,7 +72,7 @@ Rectangle {
 
     Label {
         id: labelComment
-        anchors{
+        anchors {
             top: topBorder.bottom
             left: userIcon.right
             leftMargin: Theme.paddingMedium
@@ -104,4 +104,11 @@ Rectangle {
         font.pixelSize: Theme.fontSizeTiny + 1
         color: "black"
     }
+
+    Border {
+        id: bottomBorder
+        anchors.top: parent.bottom
+    }
 }
+
+

@@ -1,20 +1,25 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtGraphicalEffects 1.0
+import "../js/Settings.js" as Setting
 
-Rectangle {
-    property var item
+Item {
+    property var itemData
 
     width: parent.width
-    height: conversationCover.height
+    height: conversationCover.height + (2*Theme.paddingSmall)
 
-    color: "transparent"
-    clip: true
-
+    anchors {
+        topMargin: Theme.paddingSmall
+        bottomMargin: Theme.paddingSmall
+    }
 
     Image {
         id: conversationCover
-        source: item.users.get(0).profile_pic_url
+        source: itemData.users.get(0).profile_pic_url
+
+        height: parent.width * 0.1852
+        width: height
         layer.enabled: true
         layer.effect: OpacityMask {
             maskSource: Item {
@@ -30,46 +35,60 @@ Rectangle {
         }
     }
 
-    Text {
-        id: conversationUser
-        text: item.users.get(0).full_name ? item.users.get(0).full_name : item.users.get(0).username
-
-        width: parent.width-conversationCover.width-Theme.paddingSmall*2
-        wrapMode: Text.WordWrap
-
-        maximumLineCount: 1
-
-        anchors{
-            top: conversationCover.top
+    Column {
+        width: parent.width - conversationCover.width - (Theme.paddingLarge*2)
+        anchors {
             left: conversationCover.right
-            leftMargin: Theme.paddingSmall
+            right: parent.right
+            leftMargin: Theme.paddingLarge
+            rightMargin: Theme.paddingLarge
+            verticalCenter: conversationCover.verticalCenter
         }
-        font.pixelSize:Theme.fontSizeMedium
-        font.bold: true
-        color: Theme.highlightColor
+
+        Text {
+            id: conversationUser
+            text: itemData.users.get(0).username
+
+            width: parent.width
+            wrapMode: Text.WordWrap
+            maximumLineCount: 1
+
+            anchors {
+                //top: conversationCover.top
+                left: parent.left
+                leftMargin: Theme.paddingLarge
+            }
+            font.pixelSize: Setting.inboxFontSize()
+            font.bold: true
+            color: Setting.STYLE_COLOR_FONT
+        }
+
+        Text {
+            id: conversationLastItem
+            text: (itemData.items.get(0).item_type === "text") ? itemData.items.get(0).text : qsTr("Raven Message.")
+
+            width: parent.width
+            //height: parent.height - conversationUser.height - (Theme.paddingSmall*2)
+
+            wrapMode: Text.WordWrap
+            anchors {
+                //top: conversationUser.bottom
+                left: parent.left
+                //topMargin: Theme.paddingSmall
+                leftMargin: Theme.paddingLarge
+
+            }
+            color: Setting.STYLE_COLOR_INBOX_GRAY
+            maximumLineCount: 1
+            font.pixelSize: Setting.inboxFontSize()
+        }
     }
 
-    Text{
-        id: conversationLastItem
-        text: (item.items.get(0).item_type === "text") ? item.items.get(0).text : (item.items.get(0).user_id === instagram.getUsernameId()) ? qsTr("You send message") : qsTr("You get message")
-
-        width: parent.width-conversationCover.width-Theme.paddingSmall*2
-        height: parent.height-conversationUser.height-Theme.paddingSmall*2
-
-        wrapMode: Text.WordWrap
-        anchors{
-            top: conversationUser.bottom
-            topMargin: Theme.paddingSmall
-            left: conversationUser.left
-        }
-        color: Theme.secondaryColor
-    }
-
-    MouseArea{
+    MouseArea {
         anchors.fill: parent
         onClicked: {
-            console.log("Load thread "+item.thread_id)
-            pageStack.push(Qt.resolvedUrl("ThreadView.qml"),{threadId:item.thread_id, user:item.users.get(0).username});
+            console.log("Load thread "+itemData.thread_id)
+            pageStack.push(Qt.resolvedUrl("ThreadView.qml"),{threadId: itemData.thread_id, user: itemData.users.get(0).username});
         }
     }
 }

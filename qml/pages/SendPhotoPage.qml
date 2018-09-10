@@ -21,7 +21,11 @@ Page {
         Column {
             id: column
             width: parent.width
+            anchors {
+            top: header.bottom
+            left: parent.left
 
+            }
             Image {
                 id: sendPhoto
                 source: image_url
@@ -30,7 +34,7 @@ Page {
                 fillMode: Image.PreserveAspectFit
             }
 
-            TextField{
+            TextField {
                 id: caption
                 width: parent.width
                 EnterKey.iconSource: "image://theme/icon-m-enter-accept"

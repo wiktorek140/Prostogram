@@ -7,6 +7,7 @@ import "../Helper.js" as Helper
 import "../MediaStreamMode.js" as MediaStreamMode
 import "../itemLoader.js" as ItemLoader
 import "../MediaTypes.js" as MediaType
+import "../js/Settings.js" as Setting
 
 //Reworked
 
@@ -15,20 +16,18 @@ ListItem {
     id: feedItem
     property var item
     property bool playVideo: false
-    property int type: 0
+    property int type
     property bool isLoaded: false
 
     width: parent.width
     height: header.height + image.height + actions.height +
             likeCount.height + description.height + commentsRectangle.height
 
-    //Component.onCompleted: {
-    //height = header.height + mainLoader.height + actions.height +
-    //likeCount.height + description.height + commentsRectangle.height
-    //}
     Component.onCompleted: {
         //if(item.media_type === MediaType.VIDEO_TYPE) item.media_type = MediaType.VIDEO_PREVIEW_TYPE;
+        if(type === MediaType.VIDEO_TYPE && item.media_type === MediaType.VIDEO_PREVIEW_TYPE) item.media_type = MediaType.VIDEO_TYPE;
 
+        print(item.media_type)
         switch (item.media_type) {
         case MediaType.IMAGE_TYPE:
             image.height = (width/item.image_versions2.candidates[0].width) * item.image_versions2.candidates[0].height;
@@ -57,8 +56,8 @@ ListItem {
             ItemLoader.createComponentObjects("LoaderVideoPreview.qml", {"url": item.image_versions2.candidates[1].url}, image);
             break;
         }
-        feedItemArea.width = image.width / 3;
-        feedItemArea.height = image.width / 3;
+        likeImage.width = image.width / 3;
+        likeImage.height = image.width / 3;
         isLoaded = true;
     }
 
@@ -78,9 +77,6 @@ ListItem {
             //height: parent.width * (4/3)
             //clip: true
             //anchors.top: header.bottom
-
-
-
             Image {
                 z:5
                 id: likeImage
@@ -126,61 +122,54 @@ ListItem {
         }
 
 
-        Rectangle {
+        Row {
             id: actions
             anchors{
                 left: parent.left
                 right: parent.right
-                //top: image.bottom
+                leftMargin: Theme.paddingMedium
             }
 
             width: parent.width
-            height: commentIcon.height
+            height: parent.width * 0.1296
+            spacing: height / 3
 
-            Image {
-                id: likeIcon
-                height: commentIcon.height * 0.7
-                width: commentIcon.width * 0.7
-                anchors {
-                    left: parent.left
-                    leftMargin: likeIcon.width / 3
-                    verticalCenter: commentIcon.verticalCenter
-                }
-                source: item.has_liked ? "../images/heart.svg" : "../images/heart-o.svg"
-                MouseArea {
-                    id: clickLikeIcon
-                    anchors.fill: parent
-                    onClicked: {
-                        if(item.has_liked === true)
-                        {
-                            instagram.unLike(item.id);
-                            likeUpdate(false);
-                        }
-                        else
-                        {
-                            instagram.like(item.id);
-                            likeUpdate(true);
-                        }
+            IconButton {
+                id: testHeart
+                height: parent.height * 0.6
+                width: height
+                anchors.verticalCenter: parent.verticalCenter
+                icon.width: width
+                icon.height: height
+                icon.source: item.has_liked ? "../images/heart.svg" : "../images/heart-o.svg"
+                onClicked: {
+                    if(item.has_liked === true) {
+                        instagram.unLike(item.id);
+                        likeUpdate(false);
+                    } else {
+                        instagram.like(item.id);
+                        likeUpdate(true);
                     }
                 }
             }
-
             IconButton {
                 id: commentIcon
-                anchors {
-                    left: likeIcon.right
-                    leftMargin: commentIcon.width/3
+                height: parent.height * 0.6
+                width: height
+                anchors.verticalCenter: parent.verticalCenter
+                icon.width: width
+                icon.height: height
+                icon.source: "../images/comment.svg"
+                onClicked: {
+                    goToComents();
                 }
-                icon.source: "image://theme/icon-m-bubble-universal?" +
-                             (pressed? Theme.highlightColor: "black" )
-                onClicked: { goToComents(); }
             }
         }
 
         Label {
             id: likeCount
             color: "black"
-            width: parent.width-40
+            width: parent.width - 40
             height: Font.bold
             anchors{
                 left: parent.left
@@ -188,7 +177,7 @@ ListItem {
                 //top:actions.bottom
             }
 
-            text: item.like_count+" "+qsTr("likes");
+            text: item.like_count + " " + qsTr("likes");
             font.bold: true
             font.pixelSize: Theme.fontSizeExtraSmall
         }
@@ -209,9 +198,9 @@ ListItem {
             maximumLineCount: 3
 
             wrapMode: Text.Wrap
-            font.pixelSize: Theme.fontSizeSmall
-            color: "black"
-            linkColor: "navy"
+            font.pixelSize: Theme.fontSizeExtraSmall
+            color: Setting.STYLE_COLOR_FONT;
+            linkColor: Setting.STYLE_COLOR_LINK;
             textFormat: Text.StyledText
 
             onLinkActivated: {
@@ -232,7 +221,7 @@ ListItem {
             //anchors.top: description.bottom
             anchors.leftMargin: 20
             width: parent.width
-            height: commentsPreview.height + 10
+            height: commentsPreview.height + 30
             visible: item.preview_comments !== []
 
             Repeater {
@@ -241,7 +230,7 @@ ListItem {
                 delegate: Label {
                     text: "<b>"+ model.user.username + "</b>" + model.text
                     textFormat: Text.StyledText
-                    font.pixelSize: Theme.fontSizeSmall
+                    font.pixelSize: Theme.fontSizeExtraSmall
                     width: parent.width
                     height: font.pixelSize
                     anchors {
@@ -276,7 +265,7 @@ ListItem {
 
     function likeUpdate(like) {
         item.has_liked = like;
-        likeIcon.source = like ? "../images/heart.svg" : "../images/heart-o.svg"
+        //likeIcon.source = like ? "../images/heart.svg" : "../images/heart-o.svg"
         item.like_count = item.like_count+(like ? 1 : (-1) );
         likeCount.text = item.like_count + " " +qsTr("likes")
 

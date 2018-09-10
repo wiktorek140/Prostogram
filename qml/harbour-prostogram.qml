@@ -90,7 +90,7 @@ ApplicationWindow {
         imageCache.clean();
 
 
-        return Qt.resolvedUrl(Qt.resolvedUrl("pages/CoverPage.qml"))
+        return Qt.resolvedUrl(Qt.resolvedUrl("pages/LoginPage.qml"))
     }
 
     function refresh(){
@@ -112,16 +112,17 @@ ApplicationWindow {
 
     Connections {
         target: instagram
-        onMediaInfoReady:{
+        onMediaInfoReady: {
             var out = JSON.parse(answer);
             pageStack.push(Qt.resolvedUrl("pages/MediaDetailPage.qml"),{item: out.items[0]})
         }
         onError: {
-            print("Error: "+message)
+            print("Error: " + message)
         }
-        onDoLogout:{
+        onDoLogout: {
+            app.need_login = true;
             pageStack.clear();
-            pageStack.push(Qt.resolvedUrl(Qt.resolvedUrl("pages/CoverPage.qml")))
+            pageStack.push(Qt.resolvedUrl(Qt.resolvedUrl("pages/LoginPage.qml")))
         }
     }
 

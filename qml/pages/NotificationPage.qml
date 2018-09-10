@@ -67,7 +67,7 @@ Page {
         }
     }
 
-    ListModel{
+    ListModel {
         id: notifyModel
     }
 }
