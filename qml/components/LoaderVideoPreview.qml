@@ -9,14 +9,10 @@ Rectangle {
     width: parent.width
     height: parent.height
 
-    CacheImage {
-        id: cache
-    }
-
     Image {
         id: mainImage
         anchors.fill: parent
-        source: cache.getFromCache2(url);
+        source: url;
     }
 
     Image{
