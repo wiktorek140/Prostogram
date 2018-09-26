@@ -16,11 +16,13 @@ public:
 
 signals:
     void finished();
+    void fileDownloaded(QString path);
 
 private slots:
     void startNextDownload();
     void downloadFinished();
     void downloadReadyRead();
+
 
 private:
     bool isHttpRedirect() const;

@@ -86,7 +86,7 @@ void DownloadManager::startNextDownload()
                 SLOT(downloadReadyRead()));
 
         // prepare the output
-        //qDebug("Downloading %s...\n", url.toEncoded().constData());
+        qDebug("Downloading %s...\n", url.toEncoded().constData());
         downloadTime.start();
 
     //}
@@ -96,7 +96,7 @@ void DownloadManager::startNextDownload()
 void DownloadManager::downloadFinished()
 {
     output.close();
-    //emit fileDownloaded(cacheLocation + output.fileName());
+    emit fileDownloaded(cacheLocation + output.fileName());
     if (currentDownload->error()) {
         // download failed
         qDebug()<<"Failed"<<currentDownload->errorString();
@@ -114,7 +114,7 @@ void DownloadManager::downloadFinished()
     }
 
     //currentDownload->deleteLater();
-    //currentDownload->close();
+    currentDownload->close();
     startNextDownload();
 }
 
@@ -124,7 +124,7 @@ void DownloadManager::downloadReadyRead()
 
     if(output.isOpen() && output.isWritable()) {
         while(currentDownload->bytesAvailable()){
-            output.write(currentDownload->read(512));
+            output.write(currentDownload->read(4096));
         }
     }
     else {
