@@ -7,45 +7,55 @@ import QtGraphicalEffects 1.0
 Item {
     id: notifyItem
     width: parent.width
-    height: width * 0.2
+    height: (Theme.itemSizeSmall >= notifyText.height)? Theme.itemSizeSmall : notifyText.height
 
     clip: true
 
-    Image {
+    Rectangle {
         id: userCover
-        source: args.profile_image
-
-        width: parent.height * 0.8
-        height: parent.height * 0.8
-
-        fillMode: Image.PreserveAspectFit
-
+        width: Theme.itemSizeSmall
+        height: Theme.itemSizeSmall
         anchors {
-            topMargin: 10
-            bottomMargin: 10
+            //topMargin: 10
+            //bottomMargin: 10
             top: parent.top
             left: parent.left
-            verticalCenter: notifyItem.verticalCenter
+            //verticalCenter: notifyItem.verticalCenter
         }
-        layer.enabled: true
-        layer.effect: OpacityMask {
-            anchors.fill: userCover
-            maskSource: Rectangle {
-                width: userCover.height
-                height: userCover.height
-                radius: width
-            }
-        }
+        color: settings.transparent()
 
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                instagram.getInfoById(args.links[0].id);
+        Image {
+            id:userCoverImg
+            source: args.profile_image
+            width: parent.height * 0.8
+            height: parent.height * 0.8
+            //fillMode: Image.PreserveAspectFit
+            sourceSize {
+                width: width
+                height: height
+            }
+            anchors {
+                verticalCenter: parent.verticalCenter
+                horizontalCenter: parent.horizontalCenter
+            }
+            layer.enabled: true
+            layer.effect: OpacityMask {
+                anchors.fill: userCoverImg
+                maskSource: Rectangle {
+                    width: userCoverImg.height
+                    height: userCoverImg.height
+                    radius: width
+                }
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    instagram.getInfoById(args.links[0].id);
+                }
             }
         }
     }
-
-
 
     Label {
         id: notifyText
@@ -55,36 +65,48 @@ Item {
             right: (type === 1) ? mediaImage.left : parent.right
             rightMargin: Theme.paddingMedium
             top: parent.top
+            topMargin: parent.height * 0.1
         }
 
         wrapMode: Text.Wrap
-        font.pixelSize: Theme.fontSizeExtraSmall
+        font.pixelSize: settings.notificationFontSize()
 
-        color: "black"
-        linkColor: "navy"
+        color: settings.fontColor()
+        linkColor: settings.linkColor()
         text: args.text
     }
 
-    Image {
+    Rectangle {
         id: mediaImage
-        visible: (type === 1) ? true : false
-        source: (type === 1) ? imageCache.getFromCache2(args.media[0].image) : ""
-
-        width: parent.height * 0.9
-        height: parent.height * 0.9
-
-        fillMode: Image.PreserveAspectFit
-
+        color: settings.transparent()
+        width: Theme.itemSizeSmall
+        height: Theme.itemSizeSmall
         anchors {
             top: parent.top
             right: parent.right
         }
 
-        MouseArea {
-            anchors.fill: parent
-            onClicked: {
-                instagram.getInfoMedia(args.media[0].id);
-                notifyBusy.running = true
+        Image {
+
+            visible: (type === 1) ? true : false
+            source: (type === 1) ? imageCache.getFromCache2(args.media[0].image) : ""
+
+            width: parent.height * 0.8
+            height: parent.height * 0.8
+
+            fillMode: Image.PreserveAspectFit
+
+            anchors {
+                verticalCenter: parent.verticalCenter
+                horizontalCenter: parent.horizontalCenter
+            }
+
+            MouseArea {
+                anchors.fill: parent
+                onClicked: {
+                    instagram.getInfoMedia(args.media[0].id);
+                    notifyBusy.running = true
+                }
             }
         }
     }
