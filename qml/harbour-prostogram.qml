@@ -2,16 +2,16 @@ import QtQuick 2.2
 import Sailfish.Silica 1.0
 import QtQuick.LocalStorage 2.0
 import Nemo.DBus 2.0
+import Nemo.Configuration 1.0
 import harbour.prostogram 1.0
 import harbour.prostogram.cache 1.0
 
 import "pages"
 import "components"
-
-import "Storage.js" as Storage
-import "MediaStreamMode.js" as MediaStreamMode
 import "Cover.js" as CoverCtl
+import "Storage.js" as Storage
 import "FavManager.js" as FavManager
+import "MediaStreamMode.js" as MediaStreamMode
 
 ApplicationWindow {
     id: app
@@ -23,6 +23,8 @@ ApplicationWindow {
 
     property var user
     property bool need_login: true
+    property bool try_login: true
+    property bool connected
 
     signal coverRefreshButtonPress();
 
@@ -30,6 +32,49 @@ ApplicationWindow {
 
     initialPage: getInitialPage()
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
+
+    DBusInterface {
+        id: networkDBusListener
+        bus: DBus.SystemBus
+        service: "net.connman"
+        path: "/"
+        iface: "net.connman.Manager"
+        signalsEnabled: true
+        Component.onCompleted: getStatus() // Init
+
+        // Methods
+        function getStatus() {
+            typedCall("GetProperties", [], function(properties) {
+                if(properties["State"] == "online") {
+                    console.debug("Network connected, loading...");
+                    connected = true;
+                }
+                else {
+                    console.debug("Offline!");
+                    connected = false;
+                }
+            },
+            function(trace) {
+                console.error("Network state couldn't be retrieved: " + trace);
+            })
+        }
+
+        // Signals
+        function propertyChanged(name, value) {
+            if(name == "State") {
+                if(value == "online") {
+                    console.debug("Network connected, reloading...");
+                    //webview.reload();
+                    connected = true;
+                    //instagram.login(true);
+                }
+                else {
+                    console.debug("Offline!");
+                    connected = false;
+                }
+            }
+        }
+    }
 
     DBusAdaptor {
         id: dbus
@@ -73,6 +118,13 @@ ApplicationWindow {
         id: notifyStream
     }
 
+    onConnectedChanged: {
+        if(connected && try_login) {
+            instagram.login(true);
+            app.need_login = false;
+        }
+    }
+
     function getInitialPage() {
         loadFavTags()
         var username = Storage.get("username");
@@ -84,17 +136,17 @@ ApplicationWindow {
             instagram.setPassword(password);
             instagram.login(true);
             app.need_login = false;
+
         }
 
         imageCache.init();
         imageCache.clean();
 
-
         return Qt.resolvedUrl(Qt.resolvedUrl("pages/LoginPage.qml"))
     }
 
     function refresh(){
-       coverRefreshButtonPress();
+        coverRefreshButtonPress();
     }
 
     property int streamPreviewColumnCount: 3;
@@ -124,6 +176,7 @@ ApplicationWindow {
             pageStack.clear();
             pageStack.push(Qt.resolvedUrl(Qt.resolvedUrl("pages/LoginPage.qml")))
         }
+
     }
 
     function init() {
@@ -170,4 +223,89 @@ ApplicationWindow {
         }
     }
 
+
+    ConfigurationGroup {
+            id: settings
+            path: "/apps/harbour-prostogram/settings"
+
+            property string login: ""
+            property string password: ""
+
+            property string styleColorBackground: "white"
+            property string styleColorFont: "black"
+            property string styleColorLink: "navy";
+            property string styleColorButton: "gray";
+            property string styleColorInboxGray: styleColorButton;
+
+            function backgroundColor() {
+                return styleColorBackground;
+            }
+            function fontColor() {
+                return styleColorFont;
+            }
+            function linkColor(){
+                return styleColorLink;
+            }
+            function buttonBackgroundColor() {
+                return styleColorButton;
+            }
+            function transparent() {
+                return "transparent";
+            }
+            function inboxFontColor() {
+                return styleColorButton;
+            }
+            function iconColor() {
+                return styleColorFont;
+            }
+
+            property int tiny: 20;
+            property int extra_small: tiny + 4;
+            property int small: extra_small + 4;
+            property int medium: small + 4;
+            property int large: medium + 8;
+            property int extra_large: large + 10;
+            property int huge: extra_large + 14;
+
+            /*property int tiny: 20;
+            property int extra_small: 24;
+            property int small: 28;
+            property int medium: 32;
+            property int large: 40;
+            property int extra_large: 50;
+            property int huge: 64;*/
+
+
+            function profileFontSize() {
+                return small;
+            }
+            function profileFollowSize() {
+                return extra_small;
+            }
+            function loginFontSize() {
+                return medium;
+            }
+            function feedFontSize() {
+                return small;
+            }
+            function feedLikeFontSize() {
+                return extra_small;
+            }
+            function inboxFontSize() {
+                return small;
+            }
+            function storyTitleSize() {
+                return tiny;
+            }
+
+            function notificationFontSize() {
+                return tiny + 2;
+            }
+
+            property string profile_pic_url
+            function getProfilePic() {
+                return profile_pic_url;
+
+            }
+    }
 }
