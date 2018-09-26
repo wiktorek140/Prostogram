@@ -18,7 +18,7 @@ Page {
 
     Rectangle {
         anchors.fill: parent
-        color: "white"
+        color: settings.backgroundColor()
         z:-1
     }
 
@@ -32,9 +32,9 @@ Page {
             id: searchField
             anchors.top: parent.top
             width: parent.width
-            color: "black"
-            _labelItem.color: "black"
-            placeholderColor: "black"
+            color: settings.fontColor()
+            _labelItem.color: settings.fontColor()
+            placeholderColor: settings.fontColor()
             onTextChanged: {
                 timerSearchTags.restart();
             }
@@ -62,9 +62,17 @@ Page {
                 cellWidth: width/3
                 cellHeight: cellWidth
                 clip: true
+                anchors.leftMargin: 1
 
                 //visible: !isSearchResult
                 //enabled: !isSearchResult
+
+                onContentYChanged: {
+                    if(contentHeight - height - contentY < 10 && next_id != "" && dataLoaded ) {
+                        instagram.getExploreFeed(next_id);
+                        dataLoaded = false;
+                    }
+                }
 
                 anchors {
                     left: parent.left
@@ -73,12 +81,16 @@ Page {
                 model: recentMediaModel
 
                 delegate: Item {
-                    width: parent.width / 3
+                    width: parent.width / 3 - 2
                     height: width
 
                     MainItemLoader {
                         id: mainLoader
-                        anchors.fill: parent
+                        //anchors.fill: parent
+                        anchors {
+                            verticalCenter: parent.verticalCenter
+                            horizontalCenter: parent.horizontalCenter
+                        }
                         width: parent.width
                         preview: true
                         clip: true
@@ -173,17 +185,18 @@ Page {
     Connections {
         target: instagram
         onExploreFeedDataReady: {
+            dataLoaded = false;
             var data = JSON.parse(answer);
 
-            for(var i=1; i<data.items.length; i++) {
+            for(var i=0; i<data.items.length; i++) {
                 recentMediaModel.append(data.items[i].media);
             }
             next_id = data.next_max_id
-            dataLoaded=true;
 
-            data.items[0].media_type=1
-            data.items[0].special=1
-            recentMediaModel.append(data.items[0])
+            //data.items[0].media_type=1
+            //data.items[0].special=1
+            //recentMediaModel.append(data.items[0])
+            dataLoaded=true;
         }
 
         onSearchTagsDataReady: {
