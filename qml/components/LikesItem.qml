@@ -30,7 +30,7 @@ Item {
         anchors.rightMargin: Theme.paddingMedium
         anchors.top: parent.top
         wrapMode: Text.Wrap
-        font.pixelSize: Theme.fontSizeSmall
+        font.pixelSize: settings.small
         color: Theme.highlightColor
 
         linkColor: Theme.highlightColor

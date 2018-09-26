@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtGraphicalEffects 1.0
-import "../js/Settings.js" as Setting
+
 
 BackgroundItem {
     id: userInfo
@@ -43,7 +43,7 @@ BackgroundItem {
         anchors.leftMargin: Theme.paddingLarge
         anchors.verticalCenter: parent.verticalCenter
         truncationMode: TruncationMode.Fade
-        color: Setting.STYLE_COLOR_FONT
+        color: settings.fontColor()
     }
 
     onClicked: {

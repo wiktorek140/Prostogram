@@ -80,9 +80,9 @@ Item {
             rightMargin: Theme.paddingMedium
         }
         wrapMode: Text.Wrap
-        font.pixelSize: Theme.fontSizeExtraSmall
-        color: "black"
-        linkColor: "navy"
+        font.pixelSize: settings.extra_small
+        color: settings.fontColor()
+        linkColor: settings.linkColor()
         textFormat: Text.StyledText
 
         onLinkActivated: {
@@ -101,8 +101,8 @@ Item {
         }
         wrapMode: Text.Wrap
         truncationMode: TruncationMode.Fade
-        font.pixelSize: Theme.fontSizeTiny + 1
-        color: "black"
+        font.pixelSize: settings.tiny + 1
+        color: settings.fontColor()
     }
 
     Border {

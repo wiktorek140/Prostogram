@@ -16,7 +16,7 @@ Page {
 
     Rectangle {
         anchors.fill: parent
-        color: "white"
+        color: settings.backgroundColor()
     }
 
     SilicaFlickable {
@@ -28,7 +28,7 @@ Page {
         PageHeader {
             id: header
             title: qsTr("Explore")
-            _titleItem.color: "black"
+            _titleItem.color: settings.fontColor()
         }
 
         Column {

@@ -7,7 +7,7 @@ import "../components"
 Page {
     id: cameraPage
 
-    orientation: Orientation.All
+    allowedOrientations: Orientation.All
 
     property int cameraId: 0
     property bool rotated: false
@@ -30,7 +30,7 @@ Page {
         }
 
         onOrientationChanged: {
-            print("Orientation camera: " + orientation);
+            //print("Orientation camera: " + orientation);
             //rotated = true;
         }
         imageCapture {
@@ -41,9 +41,9 @@ Page {
             //}
             onImageSaved: {
                 //print("RES:"+ camera.viewfinder.resolution);
-                print("Orientation camera: " + camera.orientation);
-                print("Orientation video: " + viewFinder.orientation);
-                print("Orientation page: " + cameraPage.orientation);
+                //print("Orientation camera: " + camera.orientation);
+                //print("Orientation video: " + viewFinder.orientation);
+                //print("Orientation page: " + cameraPage.orientation);
                 instagram.cropImg(path, true, rotated)
                 pageStack.replace(Qt.resolvedUrl("SendPhotoPage.qml"), {image_url: path})
             }
@@ -69,7 +69,7 @@ Page {
         focus : visible // to receive focus and capture key events when visible
 
         onOrientationChanged: {
-            print("Orientation video: " + orientation);
+            //print("Orientation video: " + orientation);
             //rotated = true;
         }
 
@@ -94,7 +94,7 @@ Page {
             width: Math.min(cameraPage.width, cameraPage.height)
             height: width
             color: "transparent"
-            border.color: "white"
+            border.color: settings.backgroundColor()
             border.width: 2
 
             anchors.centerIn: parent
@@ -115,7 +115,7 @@ Page {
             visible: QtMultimedia.availableCameras.length > 1;
 
             onClicked: {
-                print(QtMultimedia.availableCameras.length)
+                //print(QtMultimedia.availableCameras.length)
                 camera.stop();
                 if(cameraId + 1 === QtMultimedia.availableCameras.length)
                 {

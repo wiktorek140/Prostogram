@@ -16,7 +16,7 @@ Page {
 
     Rectangle {
         anchors.fill: parent
-        color: "white"
+        color: settings.backgroundColor()
     }
 
     ListModel {
@@ -37,7 +37,7 @@ Page {
             MenuItem {
                 id: reload
                 text: qsTr("Reload")
-                color: "black"
+                color: settings.fontColor()
                 onClicked: {
                     //todo loadMore();
                 }
@@ -45,7 +45,7 @@ Page {
             MenuItem {
                 id: loadMore
                 text: qsTr("Load More")
-                color: "black"
+                color: settings.fontColor()
                 onClicked: {
                     //todo loadMore();
                 }
@@ -54,7 +54,7 @@ Page {
 
         PageHeader {
             id: header
-            _titleItem.color: "black"
+            _titleItem.color: settings.fontColor()
             title: qsTr("Comments")
         }
 
@@ -67,6 +67,7 @@ Page {
                 left: parent.left
                 right: parent.right
             }
+            color: settings.backgroundColor()
 
             Image {
                 id: userPic
@@ -106,9 +107,9 @@ Page {
                 }
 
                 wrapMode: Text.Wrap
-                font.pixelSize: Theme.fontSizeExtraSmall
-                color: "black"
-                linkColor: "navy"
+                font.pixelSize: settings.extra_small
+                color: settings.fontColor()
+                linkColor: settings.linkColor()
                 textFormat: Text.StyledText
                 onLinkActivated: {
                     linkClick(link);
@@ -147,6 +148,7 @@ Page {
         anchors.bottom: parent.bottom
         width: parent.width
         height: childrenRect.height
+        color: settings.backgroundColor()
 
         Border {}
 
@@ -154,7 +156,7 @@ Page {
             id: sendCommentButton
             icon.source: "image://theme/icon-m-bubble-universal?" + (pressed
                                                                      ? Theme.highlightColor
-                                                                     : "black")
+                                                                     : settings.fontColor())
             anchors.right: parent.right
             onClicked: {
                 commentBody.readOnly = true
@@ -166,7 +168,7 @@ Page {
 
         TextField {
             id: commentBody
-            color: "black"
+            color: settings.fontColor()
             width: parent.width - sendCommentButton.width
             anchors{
                 verticalCenter: sendCommentButton.verticalCenter
@@ -220,7 +222,7 @@ Page {
             reloaded = false;
         }
         onCommentPosted: {
-            print(answer)
+            //print(answer)
             instagram.getComments(elementId);
             commentBody.readOnly = false
             commentBody.text = "";

@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import QtGraphicalEffects 1.0
 import Sailfish.Silica 1.0
-import "../js/Settings.js" as Setting
+
 
 Rectangle {
     id: userInfo
@@ -9,11 +9,9 @@ Rectangle {
         right: parent.right
         left: parent.left
     }
-    height: (parent.width * 0.1852)
+    height: parent.width * 0.1852
     width: parent.width
-    //color: "transparent"
-    //border.color: "black"
-    //border.width: 1
+    color: settings.backgroundColor()
 
     Rectangle {
         id: profilePicture
@@ -59,9 +57,9 @@ Rectangle {
             topMargin: userInfo.height * 0.15
         }
         truncationMode: TruncationMode.Fade
-        font.pixelSize: Setting.feedFontSize()
+        font.pixelSize: settings.feedFontSize()
         font.bold: true
-        color: "black"
+        color: settings.fontColor()
     }
 
     Label {
@@ -74,8 +72,8 @@ Rectangle {
             leftMargin: Theme.paddingMedium
             top: username.bottom
         }
-        font.pixelSize: Setting.feedLikeFontSize()
-        color: "black"
+        font.pixelSize: settings.feedLikeFontSize()
+        color: settings.fontColor()
     }
 
     MouseArea {

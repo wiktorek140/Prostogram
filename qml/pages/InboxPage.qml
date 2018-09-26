@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "../components"
-import "../js/Settings.js" as Setting
+
 
 Page {
     id: inboxPage
@@ -9,9 +9,8 @@ Page {
     property bool isLoaded: false
     Rectangle {
         anchors.fill: parent
-        color: Setting.STYLE_COLOR_BACKGROUND
-    }
-
+        color: settings.backgroundColor()
+}
     BusyIndicator {
         id: loadIndicator
         anchors.centerIn: parent
@@ -32,7 +31,7 @@ Page {
 
         header: PageHeader {
             title: qsTr("Inbox")
-            _titleItem.color: Setting.STYLE_COLOR_FONT
+            _titleItem.color: settings.fontColor()
         }
 
         id: inboxView
@@ -64,4 +63,3 @@ Page {
         }
     }
 }
-

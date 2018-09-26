@@ -38,7 +38,7 @@ Page {
                 anchors.bottom: imageCrop.top
             }
 
-            Rectangle{
+            Rectangle {
                 width: parent.width
                 height: mainImage.height-topSpace.height-imageCrop.height
                 color: "#000000"

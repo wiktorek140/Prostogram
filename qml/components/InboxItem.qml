@@ -1,7 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtGraphicalEffects 1.0
-import "../js/Settings.js" as Setting
 
 Item {
     property var itemData
@@ -58,9 +57,9 @@ Item {
                 left: parent.left
                 leftMargin: Theme.paddingLarge
             }
-            font.pixelSize: Setting.inboxFontSize()
+            font.pixelSize: settings.inboxFontSize()
             font.bold: true
-            color: Setting.STYLE_COLOR_FONT
+            color: settings.fontColor()
         }
 
         Text {
@@ -78,9 +77,9 @@ Item {
                 leftMargin: Theme.paddingLarge
 
             }
-            color: Setting.STYLE_COLOR_INBOX_GRAY
+            color: settings.inboxFontColor()
             maximumLineCount: 1
-            font.pixelSize: Setting.inboxFontSize()
+            font.pixelSize: settings.inboxFontSize()
         }
     }
 
