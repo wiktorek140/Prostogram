@@ -10,14 +10,22 @@
 #   - translation filenames have to be changed
 
 # The name of your application
-TARGET = harbour-prostogram
+CONFIG += sailfishapp alpha
+
+alpha {
+    TARGET = harbour-prostogram-alpha
+} else {
+    TARGET = harbour-prostogram
+}
+
+#TARGET = harbour-prostogram
 
 i18n_files.files = translations
 i18n_files.path = /usr/share/$$TARGET
 
 INSTALLS += i18n_files
 
-CONFIG += sailfishapp
+
 
 #QMAKE_CXXFLAGS_RELEASE -= -O
 #QMAKE_CXXFLAGS_RELEASE -= -O1
@@ -75,7 +83,11 @@ DISTFILES += \
     qml/pages/SingleMediaPage.qml \
     qml/pages/SearchPage.qml \
     qml/js/Settings.js \
-    qml/components/UserFollowItem.qml
+    qml/components/UserFollowItem.qml \
+    qml/components/LoaderPreview.qml \
+    qml/components/LoaderAd.qml \
+    qml/images/usertagged.svg \
+    qml/pages/SettingsPage.qml
 
 TRANSLATIONS += translations/harbour-prostogram_ca.ts \
                 translations/harbour-prostogram_cs_CZ.ts \
