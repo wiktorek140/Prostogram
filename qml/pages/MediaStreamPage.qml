@@ -8,7 +8,7 @@ import "../MediaStreamMode.js" as MediaStreamMode
 import "../Storage.js" as Storage
 import "../CoverMode.js" as CoverMode
 import "../FavManager.js" as FavManager
-import "../js/Settings.js" as Setting
+
 
 Page {
     id: page
@@ -27,9 +27,9 @@ Page {
     property bool more_available
     property string next_max_id
 
-    Rectangle{
+    Rectangle {
         anchors.fill: parent
-        color:Setting.STYLE_COLOR_BACKGROUND
+        color: settings.backgroundColor()
     }
 
     SilicaListView {
@@ -38,6 +38,7 @@ Page {
         anchors.fill: parent
         header: PageHeader {
             title: streamTitle
+            _titleItem.color: settings.fontColor();
         }
 
         delegate: FeedItem {
@@ -50,6 +51,7 @@ Page {
             MenuItem {
                 visible: mode === MediaStreamMode.TAG_MODE && tag !== ""
                 text: qsTr("Pin this tag feed")
+                color: settings.fontColor()
                 onClicked: {
                     FavManager.addFavTag(tag)
                     saveFavTags()
@@ -106,23 +108,21 @@ Page {
         getMedia();
     }
 
-    function getMedia(next_id)
-    {
-        if(mode === MediaStreamMode.MY_STREAM_MODE)
-        {
+    function getMedia(next_id) {
+        if(mode === MediaStreamMode.MY_STREAM_MODE) {
             instagram.getTimelineFeed(next_id);
         }
-        else if(mode === MediaStreamMode.POPULAR_MODE)
-        {
+        else if(mode === MediaStreamMode.POPULAR_MODE) {
             instagram.getPopularFeed(next_id)
         }
-        else if(mode === MediaStreamMode.TAG_MODE)
-        {
+        else if(mode === MediaStreamMode.TAG_MODE) {
             instagram.getTagFeed(tag)
         }
-        else if(mode === MediaStreamMode.USER_MODE)
-        {
-            instagram.getUserFeed(tag,next_id);
+        else if(mode === MediaStreamMode.USER_MODE) {
+            instagram.getUserFeed(tag, next_id);
+        }
+        else if(mode === MediaStreamMode.USER_TAGGED_MODE) {
+            instagram.getUserTags(tag, next_id);
         }
     }
 
@@ -140,8 +140,7 @@ Page {
 
     function mediaDataFinished(data) {
         streamData = data;
-        if(data ===null || data === undefined || data.items.length === 0)
-        {
+        if(data ===null || data === undefined || data.items.length === 0) {
             dataLoaded=true;
             errorOccurred=true
             return;
@@ -155,12 +154,10 @@ Page {
         dataLoaded = true
 
         page.more_available = data.more_available
-        if(page.more_available)
-        {
+        if(page.more_available) {
             page.next_max_id = data.next_max_id
         }
-        else
-        {
+        else {
             page.next_max_id = "";
         }
     }
@@ -189,7 +186,9 @@ Page {
             }
         }
         onTagFeedDataReady: {
+            //print(answer)
             var data = JSON.parse(answer);
+
             if(mode === MediaStreamMode.TAG_MODE)
             {
                 mediaDataFinished(data);
@@ -198,6 +197,13 @@ Page {
         onUserFeedDataReady: {
             var data = JSON.parse(answer);
             if(page.mode === MediaStreamMode.USER_MODE)
+            {
+                mediaDataFinished(data);
+            }
+        }
+        onUserTagsDataReady: {
+            var data = JSON.parse(answer);
+            if(page.mode === MediaStreamMode.USER_TAGGED_MODE)
             {
                 mediaDataFinished(data);
             }
