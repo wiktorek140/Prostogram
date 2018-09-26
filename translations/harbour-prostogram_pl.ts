@@ -122,20 +122,12 @@
         <translation type="unfinished">Wersja %1</translation>
     </message>
     <message>
-        <source>Login</source>
-        <translation type="unfinished">Login</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished">Hasło</translation>
-    </message>
-    <message>
         <source>Sign in</source>
-        <translation type="unfinished">Zaloguj</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Login...</source>
-        <translation type="unfinished">Logowanie...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Login fail!</source>
@@ -143,7 +135,15 @@
     </message>
     <message>
         <source>Entering...</source>
-        <translation type="unfinished">Wczytywanie...</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -183,8 +183,8 @@
         <translation>Usuń</translation>
     </message>
     <message>
-        <source>Set as favorite</source>
-        <translation type="unfinished">Ustaw jako ulubione</translation>
+        <source>Make favorite</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -199,11 +199,66 @@
     </message>
 </context>
 <context>
-    <name>StreamPreviewBlock</name>
+    <name>SettingsPage</name>
     <message>
-        <source>Refresh</source>
-        <translation type="unfinished">Odśwież</translation>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Predefined themes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Theme. NOT IMPLEMENTED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colors (text/#rgb)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Backgorund Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Links Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Buttons/messages Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base Font Size. Will Increase All Font!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>StreamPreviewBlock</name>
     <message>
         <source>Load more</source>
         <translation type="unfinished">Więcej</translation>
@@ -224,15 +279,15 @@
     <name>UserDetailBlock</name>
     <message>
         <source>%1 posts</source>
-        <translation>%1 wpisów</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 followers</source>
-        <translation>%1 obserwujących</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 following</source>
-        <translation>%1 obserwujesz</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -261,10 +316,6 @@
         <translation>Zablokowałeś %1</translation>
     </message>
     <message>
-        <source>This profile is private.</source>
-        <translation>Twój profil jest prywatny</translation>
-    </message>
-    <message>
         <source>Follow %1</source>
         <translation>Obserwuj %1</translation>
     </message>
@@ -291,6 +342,10 @@
     <message>
         <source>Logout</source>
         <translation type="unfinished">Wyloguj</translation>
+    </message>
+    <message>
+        <source>Setting</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

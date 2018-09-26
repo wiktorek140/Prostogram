@@ -105,7 +105,7 @@
     <name>InboxPage</name>
     <message>
         <source>Inbox</source>
-        <translation>Входящие</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -122,28 +122,28 @@
         <translation type="unfinished">Версия: %1</translation>
     </message>
     <message>
-        <source>Login</source>
-        <translation type="unfinished">Логин</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished">Пароль</translation>
-    </message>
-    <message>
         <source>Sign in</source>
-        <translation type="unfinished">Вход</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Login...</source>
-        <translation type="unfinished">Входим...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Login fail!</source>
-        <translation type="unfinished">Ошибка входа!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Entering...</source>
-        <translation type="unfinished">Входим...</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -183,8 +183,8 @@
         <translation>Удалить</translation>
     </message>
     <message>
-        <source>Set as favorite</source>
-        <translation>Установить как избранное</translation>
+        <source>Make favorite</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -199,14 +199,69 @@
     </message>
 </context>
 <context>
-    <name>StreamPreviewBlock</name>
+    <name>SettingsPage</name>
     <message>
-        <source>Refresh</source>
-        <translation>Обновить</translation>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
     </message>
     <message>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Predefined themes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Theme. NOT IMPLEMENTED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colors (text/#rgb)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Backgorund Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Links Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Buttons/messages Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base Font Size. Will Increase All Font!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>StreamPreviewBlock</name>
+    <message>
         <source>Load more</source>
-        <translation>Загрузить ещё</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -224,15 +279,15 @@
     <name>UserDetailBlock</name>
     <message>
         <source>%1 posts</source>
-        <translation>%1 сообщений</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 followers</source>
-        <translation>%1 подписчиков</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 following</source>
-        <translation>%1 подписки</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -269,10 +324,6 @@
         <translation>Пользователь заблокирован %1</translation>
     </message>
     <message>
-        <source>This profile is private.</source>
-        <translation>Профиль скрыт.</translation>
-    </message>
-    <message>
         <source>Followers</source>
         <translation>Подписчики</translation>
     </message>
@@ -291,6 +342,10 @@
     <message>
         <source>Logout</source>
         <translation>Выход</translation>
+    </message>
+    <message>
+        <source>Setting</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>

@@ -122,16 +122,8 @@
         <translation type="unfinished">%1 версиясе</translation>
     </message>
     <message>
-        <source>Login</source>
-        <translation type="unfinished">Логин</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished">Серсүз</translation>
-    </message>
-    <message>
         <source>Sign in</source>
-        <translation type="unfinished">Керү</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Login...</source>
@@ -139,11 +131,19 @@
     </message>
     <message>
         <source>Login fail!</source>
-        <translation type="unfinished">Керү хатасы!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Entering...</source>
-        <translation type="unfinished">Керәбез...</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -183,8 +183,8 @@
         <translation>Бетерү</translation>
     </message>
     <message>
-        <source>Set as favorite</source>
-        <translation>Сайланма итү</translation>
+        <source>Make favorite</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -199,11 +199,66 @@
     </message>
 </context>
 <context>
-    <name>StreamPreviewBlock</name>
+    <name>SettingsPage</name>
     <message>
-        <source>Refresh</source>
-        <translation>Яңарту</translation>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Predefined themes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Theme. NOT IMPLEMENTED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colors (text/#rgb)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Backgorund Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Links Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Buttons/messages Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base Font Size. Will Increase All Font!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>StreamPreviewBlock</name>
     <message>
         <source>Load more</source>
         <translation type="unfinished">Күбрәк йөкләү</translation>
@@ -224,15 +279,15 @@
     <name>UserDetailBlock</name>
     <message>
         <source>%1 posts</source>
-        <translation>%1 язма</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 followers</source>
-        <translation>%1 язылучы</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 following</source>
-        <translation>%1 язылу</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -269,10 +324,6 @@
         <translation>%1 тыелган</translation>
     </message>
     <message>
-        <source>This profile is private.</source>
-        <translation>Профиль ябык.</translation>
-    </message>
-    <message>
         <source>Followers</source>
         <translation>Язылучы</translation>
     </message>
@@ -290,6 +341,10 @@
     </message>
     <message>
         <source>Logout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Setting</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

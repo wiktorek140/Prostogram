@@ -105,7 +105,7 @@
     <name>InboxPage</name>
     <message>
         <source>Inbox</source>
-        <translation>Inkorg</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -122,28 +122,28 @@
         <translation type="unfinished">Version: %1</translation>
     </message>
     <message>
-        <source>Login</source>
-        <translation type="unfinished">Användarnamn</translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished">Lösenord</translation>
-    </message>
-    <message>
         <source>Sign in</source>
-        <translation type="unfinished">Logga in</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Login...</source>
-        <translation type="unfinished">Logga in...</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Login fail!</source>
-        <translation type="unfinished">Inloggningen misslyckades!</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Entering...</source>
-        <translation type="unfinished">Loggar in...</translation>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -183,8 +183,8 @@
         <translation>Ta bort</translation>
     </message>
     <message>
-        <source>Set as favorite</source>
-        <translation>Ange som favorit</translation>
+        <source>Make favorite</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -199,11 +199,66 @@
     </message>
 </context>
 <context>
-    <name>StreamPreviewBlock</name>
+    <name>SettingsPage</name>
     <message>
-        <source>Refresh</source>
-        <translation type="unfinished">Uppdatera</translation>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Predefined themes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Theme. NOT IMPLEMENTED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colors (text/#rgb)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Backgorund Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Links Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Buttons/messages Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base Font Size. Will Increase All Font!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>StreamPreviewBlock</name>
     <message>
         <source>Load more</source>
         <translation type="unfinished">Läs in mer</translation>
@@ -224,15 +279,15 @@
     <name>UserDetailBlock</name>
     <message>
         <source>%1 posts</source>
-        <translation>%1 inlägg</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 followers</source>
-        <translation>%1 följare</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 following</source>
-        <translation>%1 följer</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -269,10 +324,6 @@
         <translation>Du blockerade %1</translation>
     </message>
     <message>
-        <source>This profile is private.</source>
-        <translation>Den här profilen är privat</translation>
-    </message>
-    <message>
         <source>Unfollow %1</source>
         <translation>Följ inte %1</translation>
     </message>
@@ -292,13 +343,9 @@
         <source>Logout</source>
         <translation>Logga ut</translation>
     </message>
-</context>
-
-<context>
-    <name>UserSearchPage</name>
     <message>
-        <source>Search users</source>
-        <translation>Sök användare</translation>
+        <source>Setting</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 </TS>
