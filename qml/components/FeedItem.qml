@@ -1,13 +1,12 @@
 import QtQuick 2.5
-
 import Sailfish.Silica 1.0
 import QtMultimedia 5.0
+import QtGraphicalEffects 1.0
 
 import "../Helper.js" as Helper
 import "../MediaStreamMode.js" as MediaStreamMode
 import "../itemLoader.js" as ItemLoader
 import "../MediaTypes.js" as MediaType
-import "../js/Settings.js" as Setting
 
 //Reworked
 
@@ -27,8 +26,19 @@ ListItem {
         //if(item.media_type === MediaType.VIDEO_TYPE) item.media_type = MediaType.VIDEO_PREVIEW_TYPE;
         if(type === MediaType.VIDEO_TYPE && item.media_type === MediaType.VIDEO_PREVIEW_TYPE) item.media_type = MediaType.VIDEO_TYPE;
 
-        print(item.media_type)
+        if(item.injected) {
+            print("Its ad!");
+            if(item.injected.label != "") item.media_type = MediaType.AD_TYPE;
+        }
+
+        //print(item.media_type)
         switch (item.media_type) {
+
+        case MediaType.AD_TYPE:
+            image.height = image.width;
+            ItemLoader.createComponentObjects("LoaderAd.qml", {}, image);
+            break;
+
         case MediaType.IMAGE_TYPE:
             image.height = (width/item.image_versions2.candidates[0].width) * item.image_versions2.candidates[0].height;
             ItemLoader.createComponentObjects("LoaderImage.qml", {"url": item.image_versions2.candidates[0].url}, image);
@@ -41,7 +51,7 @@ ListItem {
                                                   "videoUrl": item.video_versions.get(0).url,
                                                   "autoVideoPlay": playVideo}, image);
             if(item.image_versions2.candidates[0].url) {
-                print(JSON.toString(item))
+                //print(JSON.toString(item))
             }
 
             break;
@@ -68,15 +78,12 @@ ListItem {
 
         UserInfoBlock {
             id: header
-            //anchors.top: parent.top
         }
 
         Rectangle {
             id: image
             width: parent.width
-            //height: parent.width * (4/3)
-            //clip: true
-            //anchors.top: header.bottom
+            color: settings.backgroundColor();
             Image {
                 z:5
                 id: likeImage
@@ -99,7 +106,7 @@ ListItem {
 
             MouseArea {
                 id: feedItemArea
-                //z:2
+
                 //anchors.centerIn: parent
                 //width: image.width
                 //height: image.width
@@ -117,6 +124,10 @@ ListItem {
                         }
                     }
                     lClick = nc
+                    if(z == 1) {
+                        z = 0;
+                    }
+
                 }
             }
         }
@@ -141,6 +152,10 @@ ListItem {
                 anchors.verticalCenter: parent.verticalCenter
                 icon.width: width
                 icon.height: height
+                icon.layer.enabled: true
+                icon.layer.effect: ColorOverlay {
+                    color: settings.iconColor();
+                }
                 icon.source: item.has_liked ? "../images/heart.svg" : "../images/heart-o.svg"
                 onClicked: {
                     if(item.has_liked === true) {
@@ -149,7 +164,11 @@ ListItem {
                     } else {
                         instagram.like(item.id);
                         likeUpdate(true);
+
                     }
+                }
+                icon.onSourceChanged: {
+                    icon.layer.enabled = !item.has_liked;
                 }
             }
             IconButton {
@@ -157,6 +176,10 @@ ListItem {
                 height: parent.height * 0.6
                 width: height
                 anchors.verticalCenter: parent.verticalCenter
+                icon.layer.enabled: true
+                icon.layer.effect: ColorOverlay {
+                    color: settings.iconColor();
+                }
                 icon.width: width
                 icon.height: height
                 icon.source: "../images/comment.svg"
@@ -168,7 +191,7 @@ ListItem {
 
         Label {
             id: likeCount
-            color: "black"
+            color: settings.fontColor()
             width: parent.width - 40
             height: Font.bold
             anchors{
@@ -179,7 +202,7 @@ ListItem {
 
             text: item.like_count + " " + qsTr("likes");
             font.bold: true
-            font.pixelSize: Theme.fontSizeExtraSmall
+            font.pixelSize: settings.extra_small
         }
 
         Label {
@@ -198,9 +221,9 @@ ListItem {
             maximumLineCount: 3
 
             wrapMode: Text.Wrap
-            font.pixelSize: Theme.fontSizeExtraSmall
-            color: Setting.STYLE_COLOR_FONT;
-            linkColor: Setting.STYLE_COLOR_LINK;
+            font.pixelSize: settings.extra_small
+            color: settings.fontColor();
+            linkColor: settings.linkColor();
             textFormat: Text.StyledText
 
             onLinkActivated: {
@@ -223,6 +246,7 @@ ListItem {
             width: parent.width
             height: commentsPreview.height + 30
             visible: item.preview_comments !== []
+            color: settings.backgroundColor()
 
             Repeater {
                 id: commentsPreview
@@ -230,7 +254,7 @@ ListItem {
                 delegate: Label {
                     text: "<b>"+ model.user.username + "</b>" + model.text
                     textFormat: Text.StyledText
-                    font.pixelSize: Theme.fontSizeExtraSmall
+                    font.pixelSize: settings.extra_small
                     width: parent.width
                     height: font.pixelSize
                     anchors {
@@ -247,19 +271,16 @@ ListItem {
     function linkClick(link)
     {
         var result = link.split("://");
-        if(result[0] === "user")
-        {
+        if(result[0] === "user") {
             instagram.searchUsername(result[1]);
         }
 
-        if(result[0] === "tag")
-        {
+        if(result[0] === "tag") {
             pageStack.push(Qt.resolvedUrl("../pages/MediaStreamPage.qml"),{tag: result[1], mode:  MediaStreamMode.TAG_MODE, streamTitle: 'Tagged with ' + "#"+result[1] });
         }
     }
 
-    function goToComents()
-    {
+    function goToComents() {
         pageStack.push(Qt.resolvedUrl("../pages/CommentsPage.qml"),{"elementId": item.id});
     }
 
@@ -268,6 +289,5 @@ ListItem {
         //likeIcon.source = like ? "../images/heart.svg" : "../images/heart-o.svg"
         item.like_count = item.like_count+(like ? 1 : (-1) );
         likeCount.text = item.like_count + " " +qsTr("likes")
-
     }
 }
