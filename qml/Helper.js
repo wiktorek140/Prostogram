@@ -44,3 +44,16 @@ function formatString(string)
     else string = '<a href="user://unname">@unname</a>'
     return string;
 }
+
+function skrocLiczbe(input){
+    var arg = parseInt(input);
+    if(arg < 1000) return arg;
+    if(arg < 1000000) {
+        return (arg/1000).toFixed(1) + "k";
+    }
+    if(arg <1000000000) {
+        return (arg/1000000).toFixed(1) + "m";
+    } else {
+        return (arg/1000000000).toFixed(1) + "b";
+    }
+}
