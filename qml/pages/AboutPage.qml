@@ -1,7 +1,8 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import QtGraphicalEffects 1.0
 import "../components"
-import "../js/Settings.js" as Setting
+
 
 Page {
 
@@ -10,7 +11,7 @@ Page {
 
     Rectangle {
         anchors.fill: parent
-        color: Setting.STYLE_COLOR_BACKGROUND
+        color: settings.backgroundColor()
     }
 
     SilicaFlickable {
@@ -22,6 +23,7 @@ Page {
         PageHeader {
             id: header
             title: qsTr("About")
+            _titleItem.color: settings.fontColor()
         }
 
         Column {
@@ -42,6 +44,7 @@ Page {
                 anchors.left: parent.left
                 anchors.leftMargin: Theme.paddingMedium
                 wrapMode: Text.WordWrap
+                color: settings.fontColor()
             }
 
             Label {
@@ -51,6 +54,7 @@ Page {
                 anchors.left: parent.left
                 anchors.leftMargin: Theme.paddingMedium
                 wrapMode: Text.WordWrap
+                color: settings.fontColor()
             }
 
             SectionHeader {
@@ -60,11 +64,12 @@ Page {
             Label {
                 text : "Chupligin Sergey"
                 wrapMode: Text.WordWrap
-                color: Theme.primaryColor
+                color: settings.fontColor()
                 anchors.right: parent.right
                 anchors.rightMargin: Theme.paddingMedium
                 anchors.left: parent.left
                 anchors.leftMargin: Theme.paddingMedium
+
             }
 
             Row {
@@ -87,6 +92,7 @@ Page {
                     id: buttonTwitter
                     text: "@neochapay"
                     onClicked: Qt.openUrlExternally("https://twitter.com/neochapay")
+                    color: settings.fontColor()
                 }
             }
 
@@ -111,13 +117,14 @@ Page {
                     id: buttonMail
                     text: qsTr("Write a mail")
                     onClicked: Qt.openUrlExternally("mailto:neochapay@gmail.com")
+                    color: settings.fontColor()
                 }
             }
 
             Label {
                 text : "Wiktor Strzębała"
                 wrapMode: Text.WordWrap
-                color: Theme.primaryColor
+                color: settings.fontColor()
                 anchors.right: parent.right
                 anchors.rightMargin: Theme.paddingMedium
                 anchors.left: parent.left
@@ -144,6 +151,7 @@ Page {
                     id: buttonTwitterW
                     text: "@wiktorek140"
                     onClicked: Qt.openUrlExternally("https://twitter.com/wiktorek140")
+                    color: settings.fontColor()
                 }
             }
 
@@ -168,6 +176,7 @@ Page {
                     id: buttonMailW
                     text: qsTr("Write a mail")
                     onClicked: Qt.openUrlExternally("mailto:wiktorek140@tlen.pl")
+                    color: settings.fontColor()
                 }
             }
 
@@ -182,6 +191,7 @@ Page {
                 anchors.left: parent.left
                 anchors.leftMargin: Theme.paddingMedium
                 wrapMode: Text.WordWrap
+                color: settings.fontColor()
             }
 
             SectionHeader {
@@ -199,6 +209,7 @@ Page {
                     anchors.bottom: parent.bottom
                     text: qsTr("Report bugs")
                     onClicked: Qt.openUrlExternally("https://github.com/wiktorek140/Prostogram/issues")
+                    color: settings.fontColor()
                 }
             }
 
@@ -214,6 +225,7 @@ Page {
                     width: parent.width
                     text: qsTr("Paypal")
                     onClicked: Qt.openUrlExternally("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=YT53SRQZU45TQ")
+                    color: settings.fontColor()
                 }
             }
         }

@@ -1,18 +1,13 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
-import "../MediaStreamMode.js" as MediaStreamMode
 import "../CoverMode.js" as CoverMode
-
-//reworked
+import "../MediaStreamMode.js" as MediaStreamMode
 
 Item {
     id: streamPreviewBlock
     height: parent.height
     width: parent.width
-
-    //color: "white"
     clip: true
-    //anchors.right: parent.right
 
     property bool recentMediaLoaded: false
     property bool errorOccurred : false
@@ -21,12 +16,12 @@ Item {
     property string nextId : "";
 
     Rectangle {
-    anchors.fill: parent
-    color: "white"
+        anchors.fill: parent
+        color: settings.backgroundColor()
     }
 
     ListModel {
-        id: recentMediaModel;  
+        id: recentMediaModel;
     }
     SilicaListView {
         id: grid
@@ -41,19 +36,22 @@ Item {
 
         model: recentMediaModel
 
-        PullDownMenu{
+        /*PullDownMenu {
             id: topMenu;
             quickSelect: true
-            MenuItem {
-                id: refreshMenu
-                text: qsTr("Refresh")
-                color: "black"
-                visible: true
-                onClicked: {
-                    refresh();
+            background: Rectangle {
+                anchors {
+                    fill: parent
+                    //bottomMargin: parent.spacing
                 }
+                color: settings.backgroundColor()
             }
-        }
+            menuIndicator: Rectangle {
+            height: 0
+            color: "transparent"
+            }
+        }*/
+
 
         PushUpMenu {
             id: bottomMenu
@@ -62,7 +60,7 @@ Item {
 
             MenuItem {
                 id: moreMenu
-                color: "black"
+                color: settings.fontColor()
                 text: qsTr("Load more")
                 onClicked: {
                     instagram.getTimelineFeed(nextId)
@@ -76,7 +74,7 @@ Item {
         }
 
         delegate: FeedItem {
-                item: model
+            item: model
         }
 
     }
@@ -90,11 +88,16 @@ Item {
         visible: errorOccurred
     }
 
-    function refresh() {
-        streamPreviewBlock.nextId = "";
-
-        recentMediaLoaded = false;
-        instagram.getTimelineFeed(nextId);
+    function refresh(toUp) {
+        if(toUp){
+            grid.scrollToTop();
+        }
+        else {
+            grid.scrollToTop();
+            streamPreviewBlock.nextId = "";
+            recentMediaLoaded = false;
+            instagram.getTimelineFeed(nextId);
+        }
     }
 
     Component.onCompleted: {
@@ -125,12 +128,6 @@ Item {
             errorOccurred = false
 
             for(var i = 0; i<data.items.length; i++) {
-                /*
-                TYPE 1 - IMAGE
-                TYPE 2 - VIDEO
-                TYPE 3 - FRIEND
-                TYPE 8 - CARUSEL
-                */
 
                 if(recentMediaModel.count == 0)
                 {
@@ -150,17 +147,19 @@ Item {
 
                 if(data.items[i].media_type >= 1 && data.items[i].media_type !== 3 ){
                     data.items[i].type = "stories";
+
                     recentMediaModel.append(data.items[i]);
                 }
             }
 
             //recentMediaModelChanged()
 
-            recentMediaLoaded=true;
             streamPreviewBlock.nextId = data.next_max_id;
+            recentMediaLoaded=true;
         }
+
         onMediaDeleted: {
-            refresh()
+            refresh(false)
         }
     }
 }

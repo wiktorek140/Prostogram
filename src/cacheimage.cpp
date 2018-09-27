@@ -9,10 +9,6 @@ void CacheImage::init() {
     if(!c.exists()){
         c.mkdir(cacheLocation);
     }
-    c.setPath(cacheLocation+"profilePic");
-    if(!c.exists()){
-        c.mkdir(cacheLocation+"profilePic");
-    }
 }
 
 void CacheImage::clean(){
@@ -40,24 +36,26 @@ QVariant CacheImage::getFromCache2(const QString &str) {
 }
 
 
-QVariant CacheImage::getFromCache(const QString &str,bool forceDownload) {
+QVariant CacheImage::getFromCache(const QString &str, bool forceDownload) {
     QUrl *url = new QUrl(str);
+    //qDebug()<<str<<endl;
     QString path = cacheLocation + "/" + url->fileName();
-
+    //QObject.connect(downloadManager,DownloadManager::fileDownloaded(QString path),this,)
     if(forceDownload) {
         if(QFile::exists(path)) {
-            qDebug()<< "File Exist - Force remove - "<<url->toString();
+            //qDebug()<< "File Exist - Force remove - "<<url->toString();
             QFile::remove(path);
         }
     } else {
         if(QFile::exists(path)) {
-            qDebug()<< "File Exist - "<<url->toString();
+            //qDebug()<< "File Exist - "<<url->toString();
             return path;
         }
     }
-    downloadManager.append(*url);
-    //return path;
-    return url->toString();
+    //downloadManager.append(*url);
+    //qDebug()<<path<<endl;
+    return path;
+    //return url->toString();
 
 }
 
@@ -79,5 +77,4 @@ QVariant CacheImage::getUserImageFromCache(const QString &str, bool forceDownloa
     downloadManager.append(url);
     //return path;
     return url.toString();
-
 }

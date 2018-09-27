@@ -1,7 +1,7 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtGraphicalEffects 1.0
-import "../js/Settings.js" as Setting
+
 
 BackgroundItem {
 
@@ -56,7 +56,7 @@ BackgroundItem {
         //width: parent.width - profilePicture.width - Theme.paddingMedium * 4
         wrapMode: Text.Wrap
         textFormat: Text.StyledText
-        color: Setting.STYLE_COLOR_FONT
+        color: settings.fontColor()
 
         Rectangle {
             anchors.fill: parent
@@ -65,7 +65,7 @@ BackgroundItem {
             border.width: isSelf ? 0 : 2
             radius: 30
             opacity: 0.2
-            color: isSelf ? Setting.STYLE_COLOR_INBOX_GRAY : "transparent"
+            color: isSelf ? settings.buttonBackgroundColor() : "transparent"
         }
     }
 
@@ -77,7 +77,7 @@ BackgroundItem {
         width: parent.width - profilePicture.width - Theme.paddingMedium
         height: width
 
-        source: isText? "" : model.media_share.image_versions2.candidates[0].url
+        source: isText ? "" : model.media_share.image_versions2.candidates[0].url
     }
 
 }

@@ -98,7 +98,7 @@
     <name>InboxItem</name>
     <message>
         <source>Raven Message.</source>
-        <translation>Raven-meddelande.</translation>
+        <translation>Raven-meddelanden.</translation>
     </message>
 </context>
 <context>
@@ -122,28 +122,28 @@
         <translation>Version: %1</translation>
     </message>
     <message>
+        <source>Sign in</source>
+        <translation>Logga in</translation>
+    </message>
+    <message>
+        <source>Login...</source>
+        <translation>Inloggning...</translation>
+    </message>
+    <message>
+        <source>Login fail!</source>
+        <translation>Inloggning misslyckades!</translation>
+    </message>
+    <message>
+        <source>Entering...</source>
+        <translation>Anger...</translation>
+    </message>
+    <message>
         <source>Login</source>
         <translation>Användarnamn</translation>
     </message>
     <message>
         <source>Password</source>
         <translation>Lösenord</translation>
-    </message>
-    <message>
-        <source>Sign in</source>
-        <translation>Logga in</translation>
-    </message>
-    <message>
-        <source>Login...</source>
-        <translation>Logga in...</translation>
-    </message>
-    <message>
-        <source>Login fail!</source>
-        <translation>Inloggningen misslyckades!</translation>
-    </message>
-    <message>
-        <source>Entering...</source>
-        <translation>Loggar in...</translation>
     </message>
 </context>
 <context>
@@ -183,8 +183,8 @@
         <translation>Ta bort</translation>
     </message>
     <message>
-        <source>Set as favorite</source>
-        <translation>Ange som favorit</translation>
+        <source>Make favorite</source>
+        <translation>Skapa favorit</translation>
     </message>
 </context>
 <context>
@@ -199,11 +199,66 @@
     </message>
 </context>
 <context>
-    <name>StreamPreviewBlock</name>
+    <name>SettingsPage</name>
     <message>
-        <source>Refresh</source>
-        <translation>Uppdatera</translation>
+        <source>Settings</source>
+        <translation>Inställningar</translation>
     </message>
+    <message>
+        <source>Save</source>
+        <translation>Spara</translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation>Avbryt</translation>
+    </message>
+    <message>
+        <source>Predefined themes</source>
+        <translation>Förinställda teman</translation>
+    </message>
+    <message>
+        <source>Theme. NOT IMPLEMENTED</source>
+        <translation>Tema. INTE IMPLEMENTERAT</translation>
+    </message>
+    <message>
+        <source>Colors (text/#rgb)</source>
+        <translation>Färger (text/#rgb)</translation>
+    </message>
+    <message>
+        <source>Font Color</source>
+        <translation>Teckenfärg</translation>
+    </message>
+    <message>
+        <source>Backgorund Color</source>
+        <translation>Bakgrundsfärg</translation>
+    </message>
+    <message>
+        <source>Links Color</source>
+        <translation>Länkfärg</translation>
+    </message>
+    <message>
+        <source>Color</source>
+        <translation>Färg</translation>
+    </message>
+    <message>
+        <source>Buttons/messages Color</source>
+        <translation>Färg på knappar/meddelanden</translation>
+    </message>
+    <message>
+        <source>Font Size</source>
+        <translation>Teckenstorlek</translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation>Storlek</translation>
+    </message>
+    <message>
+        <source>Base Font Size. Will Increase All Font!</source>
+        <translation>Grundteckenstorlek. Gör alla tecken större!</translation>
+    </message>
+</context>
+<context>
+    <name>StreamPreviewBlock</name>
     <message>
         <source>Load more</source>
         <translation>Hämta mer</translation>
@@ -224,7 +279,7 @@
     <name>UserDetailBlock</name>
     <message>
         <source>%1 posts</source>
-        <translation>%1 inlägg</translation>
+        <translation>%1 poster</translation>
     </message>
     <message>
         <source>%1 followers</source>
@@ -239,7 +294,7 @@
     <name>UserListPage</name>
     <message>
         <source>Load more</source>
-        <translation>Läs in mer</translation>
+        <translation>Hämta mer</translation>
     </message>
     <message>
         <source>Followers</source>
@@ -269,10 +324,6 @@
         <translation>Du blockerade %1</translation>
     </message>
     <message>
-        <source>This profile is private.</source>
-        <translation>Den här profilen är privat</translation>
-    </message>
-    <message>
         <source>Unfollow %1</source>
         <translation>Följ inte %1</translation>
     </message>
@@ -292,12 +343,9 @@
         <source>Logout</source>
         <translation>Logga ut</translation>
     </message>
-</context>
-<context>
-    <name>UserSearchPage</name>
     <message>
-        <source>Search users</source>
-        <translation>Sök användare</translation>
+        <source>Setting</source>
+        <translation>Inställning</translation>
     </message>
 </context>
 </TS>

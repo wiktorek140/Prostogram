@@ -47,7 +47,7 @@ BackgroundItem {
         anchors.leftMargin: Theme.paddingMedium
         anchors.verticalCenter: parent.verticalCenter
         truncationMode: TruncationMode.Fade
-        color: "black"
+        color: settings.fontColor()
     }
 
     onClicked: {

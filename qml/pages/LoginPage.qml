@@ -14,23 +14,13 @@ Page {
         z: 1000
     }
 
-    Rectangle{
+    Rectangle {
         id: loginArea
 
         width: parent.width
         height: parent.height
 
-        Image{
-            id: backImage
-            width: parent.width
-            height: parent.height
-
-            source: "../images/cover.jpg"
-
-            fillMode: Image.PreserveAspectCrop
-
-            clip: true
-        }
+        color: settings.backgroundColor();
 
         Rectangle {
             id: logoAction
@@ -39,7 +29,7 @@ Page {
             anchors.fill: parent
             color: "transparent"
 
-            Image{
+            Image {
                 id: logoImage
                 source: "../images/logo.svg"
                 width: (coverPage.width > coverPage.height) ? coverPage.height/3 : coverPage.width/3
@@ -57,19 +47,20 @@ Page {
             Label{
                 id: nameLabel
                 text: "Prostogram"
-                font.pixelSize: Theme.fontSizeExtraLarge
-
-                anchors{
+                font.pixelSize: settings.extra_large
+                color: settings.fontColor()
+                anchors {
                     top: logoImage.bottom
                     topMargin: Theme.paddingMedium
                     horizontalCenter: parent.horizontalCenter
                 }
             }
 
-            Label{
+            Label {
                 id: versionLabel
                 text: qsTr("Version: %1").arg(Qt.application.version)
-                font.pixelSize: Theme.fontSizeMedium
+                font.pixelSize: settings.medium
+                color: settings.fontColor()
 
                 anchors{
                     top: nameLabel.bottom
@@ -79,76 +70,155 @@ Page {
             }
         }
 
-        Rectangle {
-            id: entherAction
-            color: Theme.rgba(Theme.highlightBackgroundColor, Theme.highlightBackgroundOpacity)
+        Column {
+            id: enterAction
+
             clip: true
-            radius: 5
-
+            spacing: Theme.itemSizeSmall / 4 + 1.4
             visible: app.need_login
+            width: parent.width * 0.6722
+            //height: Theme.itemSizeSmall * 5
 
-            width: parent.width-0.25*parent.width
-            height: Theme.itemSizeMedium*3
+            anchors {
+                //bottom: parent.bottom
+                //bottomMargin: parent.height * 0.0703
+                verticalCenter: parent.verticalCenter
+                horizontalCenter: parent.horizontalCenter
 
-            anchors{
-                bottom: parent.bottom
-                bottomMargin: 0.125*parent.width
-                left: parent.left
-                leftMargin: 0.125*parent.width
             }
 
-            TextField {
-                id: loginField
-                width: parent.width-10
-                height: Theme.itemSizeMedium
 
-                placeholderText: qsTr("Login")
-                placeholderColor: Theme.primaryColor
-                color: Theme.primaryColor
+            Row {
+                id: topBaner
+                spacing: 10
+                visible: app.need_login
+                height: parent.width * 0.1488
+                anchors {
+                    horizontalCenter: parent.horizontalCenter
+                }
 
-                anchors{
-                    top: parent.top
-                    left: parent.left
-                    leftMargin: 5
+                Image {
+                    id: logoProg
+                    source: "../images/logo.svg"
+                    width: parent.height
+                    height: width
+                    anchors {
+                        verticalCenter: parent.verticalCenter
+                    }
+                    sourceSize.width: width
+                    sourceSize.height: height
+                }
+
+                Image {
+                    id: logo
+
+                    source: "../images/prostogram.svg"
+
+                    width: parent.width * 0.8
+                    height: parent.height
+                    anchors{
+                        verticalCenter: parent.verticalCenter
+                        leftMargin: Theme.paddingMedium
+                    }
+                    sourceSize.width: width
+                    sourceSize.height: height
                 }
             }
 
-            TextField {
-                id: passwordField
-                width: parent.width-10
-                height: Theme.itemSizeMedium
+            Rectangle {
+                id: spacing
+                height: 1
+                width: parent.width
+                anchors.left: parent.left
+            }
 
-                placeholderText: qsTr("Password")
-                placeholderColor: Theme.primaryColor
-                color: Theme.primaryColor
+            Rectangle {
 
-                echoMode: TextInput.Password
+                color: Theme.rgba(Theme.highlightBackgroundColor, Theme.highlightBackgroundOpacity)
+                radius: 5
 
+                width: parent.width
+                height: Theme.itemSizeSmall * 1.05
                 anchors {
-                    top: loginField.bottom
                     left: parent.left
-                    leftMargin: 5
+                }
+
+                TextInput {
+                    id: loginField
+                    width: parent.width
+                    height: settings.loginFontSize()
+
+                    opacity: 1;
+                    color: settings.fontColor()
+                    font.pixelSize: settings.loginFontSize();
+
+                    anchors {
+                        left: parent.left
+                        verticalCenter: parent.verticalCenter
+                        leftMargin: 16
+                    }
+
+                    Text {
+                        text: qsTr("Login");
+                        color: "#707070"
+                        visible: !loginField.text
+                        y: y - 10
+                    }
+                }
+            }
+
+            Rectangle {
+
+                color: Theme.rgba(Theme.highlightBackgroundColor, Theme.highlightBackgroundOpacity)
+                radius: 5
+
+                width: parent.width
+                height: Theme.itemSizeSmall * 1.05
+                anchors {
+                    left: parent.left
+                }
+
+                TextInput {
+                    id: passwordField
+                    width: parent.width
+                    height: settings.loginFontSize()
+
+                    opacity: 1
+                    color: settings.fontColor()
+                    font.pixelSize: settings.loginFontSize();
+                    echoMode: TextInput.Password
+
+                    anchors {
+                        left: parent.left
+                        verticalCenter: parent.verticalCenter
+                        leftMargin: 16
+                    }
+
+                    Text {
+                        text: qsTr("Password");
+                        color: "#707070"
+                        visible: !passwordField.text
+                        y: y - 10
+                    }
                 }
             }
 
             Rectangle {
                 id: loginButton
                 width: parent.width
-                height: Theme.itemSizeMedium
+                height: Theme.itemSizeSmall * 1.05
                 radius: 5
-
                 color: Theme.highlightBackgroundColor
-
                 anchors {
-                    bottom: parent.bottom
-                    left: parent.left
+                    left: enterAction.left
                 }
 
-                Text{
+                Text {
+                    id: sitext
                     text: qsTr("Sign in")
                     color: Theme.primaryColor
                     width: parent.width
-                    height: parent.height/3*2
+                    height: parent.height / 3 * 2
 
                     fontSizeMode: Text.Fit
                     minimumPixelSize: 10
@@ -160,26 +230,6 @@ Page {
 
                     horizontalAlignment: Text.AlignHCenter
                     verticalAlignment: Text.AlignVCenter
-                }
-
-                Rectangle {
-                    color: parent.color
-                    width: parent.radius
-                    height: parent.radius
-                    anchors{
-                        top: parent.top
-                        left: parent.left
-                    }
-                }
-
-                Rectangle {
-                    color: parent.color
-                    width: parent.radius
-                    height: parent.radius
-                    anchors{
-                        top: parent.top
-                        right: parent.right
-                    }
                 }
 
                 MouseArea {
@@ -204,21 +254,24 @@ Page {
                 Storage.set("password", passwordField.text);
                 Storage.set("username", loginField.text)
             }
+            app.try_login = false
             instagram.getInfoById(instagram.getUsernameId());
             instagram.getRecentActivityInbox();
-            //instagram.getInbox();
+            instagram.getInbox();
+
+
         }
 
         onProfileConnectedFail: {
             banner.notify(qsTr("Login fail!"))
             instagram.logout();
+            app.need_login=true;
         }
 
         onInfoByIdDataReady: {
             var obj = JSON.parse(answer)
 
-            if(obj.user.pk == instagram.getUsernameId())
-            {
+            if(obj.user.pk == instagram.getUsernameId()) {
                 app.user = obj.user
                 pageStack.replace(Qt.resolvedUrl("StartPage.qml"));
             }
@@ -233,9 +286,9 @@ Page {
     }
 
     Component.onCompleted: {
-        if(!app.need_login)
-        {
+        if(!app.need_login) {
             banner.notify(qsTr("Entering..."))
         }
+        //print(Theme.itemSizeSmall / 3)
     }
 }

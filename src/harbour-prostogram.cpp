@@ -31,6 +31,7 @@ int main(int argc, char *argv[])
 
    qmlRegisterType<Instagramv2>("harbour.prostogram", 1,0, "Instagram");
    qmlRegisterType<CacheImage>("harbour.prostogram.cache", 1,0, "CacheImage");
+   //qmlRegisterType<Capturer>("harbour.prostogram.saver", 1,0, "Capturer");
 
    QUrl pageSource = SailfishApp::pathTo("qml/harbour-prostogram.qml");
    view->setSource(pageSource);

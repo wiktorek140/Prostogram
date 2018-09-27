@@ -1,27 +1,27 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import "../MediaStreamMode.js" as MediaStreamMode
-import "../js/Settings.js" as Setting
+
 
 Page {
     id: threadView
+
+    property bool threadLoaded: false
+    property string cursorId : ""
+    property string newestCursor: ""
+    property string oldestCursor: ""
+    property string name: ""
+    property string threadId
+    property var user
+    property int userLength: 1
+
     height: parent.height
     width: parent.width
     clip: true
 
-    property bool threadLoaded: false
-    property string cursorId : "";
-    property string newestCursor: "";
-    property string oldestCursor: "";
-    property string name:"";
-    property string threadId;
-    property var user;
-    property int userLength:1;
-
-
     Rectangle {
         anchors.fill: parent
-        color: Setting.STYLE_COLOR_BACKGROUND
+        color: settings.backgroundColor()
     }
 
     ListModel {
@@ -42,6 +42,7 @@ Page {
         header: PageHeader {
             id: header
             title: name
+            _titleItem.color: settings.fontColor()
         }
 
         model: threadModel
@@ -77,9 +78,7 @@ Page {
         delegate: ThreadMessageItem {
             pic_url: getUser(model.user_id);
             isSelf: isSelfID(model.user_id);
-
         }
-
     }
 
     BusyIndicator {
@@ -88,8 +87,7 @@ Page {
     }
 
     Component.onCompleted: {
-        if(threadModel.count === 0)
-        {
+        if(threadModel.count === 0) {
             threadLoaded = false;
             instagram.getDirectThread(threadId);
         }
@@ -117,18 +115,17 @@ Page {
     function getUser(id) {
         //console.log(id," - ",instagram.getUsernameId());
         if (""+id ===  ""+instagram.getUsernameId()){
-            return instagram.getProfilePic();
-
+            return settings.getProfilePic();
         }
         else for(var i=0; i < user.length; i++) {
                 if(""+user[i].pk === ""+id) return user[i].profile_pic_url;
             }
     }
+
     function isSelfID(id) {
         if( ""+id === ""+instagram.getUsernameId() ) {
             return true;
         }
         else return false;
-
     }
 }

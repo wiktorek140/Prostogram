@@ -7,6 +7,9 @@
 #include <QDir>
 #include <QDebug>
 #include <QStandardPaths>
+#include <QPainter>
+#include <QPixmap>
+
 
 #include "downloadmanager.h"
 
@@ -22,11 +25,17 @@ public:
     Q_INVOKABLE QVariant getFromCache(const QString &str, bool forceDownload = false);
     Q_INVOKABLE QVariant getUserImageFromCache(const QString &str, bool forceDownload = false);
     Q_INVOKABLE QVariant getFromCache2(const QString &str);
+    Q_INVOKABLE bool isFileDownloaded(const QString &str,bool full = true) {
+        if(!full)return QFile::exists(cacheLocation+"/"+ str);
+        return QFile::exists(str);
+    }
 
-    const QString cacheLocation = QStandardPaths::writableLocation(QStandardPaths::CacheLocation)+"/images/";
+    const QString cacheLocation = QStandardPaths::writableLocation(QStandardPaths::CacheLocation)+"/images";
 
 private:
     DownloadManager downloadManager;
 };
+
+
 
 #endif // CACHEIMAGE_H

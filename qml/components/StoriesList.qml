@@ -2,7 +2,7 @@ import QtQuick 2.5
 import QtGraphicalEffects 1.0
 import Sailfish.Silica 1.0
 import harbour.prostogram.cache 1.0
-import "../js/Settings.js" as Setting
+
 //reworked
 
 Rectangle {
@@ -12,7 +12,8 @@ Rectangle {
 
     id: story
     width: parent.width
-    height: parent.width / 4 + Setting.storyTitleSize()
+    height: parent.width / 4 + settings.storyTitleSize()
+    color: settings.backgroundColor()
 
     Component.onCompleted: {
         if (!dataLoaded) {
@@ -46,7 +47,7 @@ Rectangle {
             delegate: Item {
 
                 height: parent.height
-                width: height - Setting.storyTitleSize()
+                width: height - settings.storyTitleSize()
                 property bool isViewed: false
 
                 Image {
@@ -90,10 +91,10 @@ Rectangle {
                         horizontalCenter: delegate.horizontalCenter
                     }
 
-                    font.pixelSize: Setting.storyTitleSize()
+                    font.pixelSize: settings.storyTitleSize()
                     font.bold: true
                     horizontalAlignment: Text.AlignHCenter
-                    color: Setting.STYLE_COLOR_FONT
+                    color: settings.fontColor()
                     wrapMode: Text.Wrap
                 }
 
@@ -130,6 +131,7 @@ Rectangle {
 
     Border {
         anchors.top: parent.bottom
-        height: 3
+        height: 1
+        opacity: 0.3
     }
 }

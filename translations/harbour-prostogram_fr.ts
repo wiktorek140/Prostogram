@@ -122,14 +122,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Login</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Password</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Sign in</source>
         <translation type="unfinished"></translation>
     </message>
@@ -143,6 +135,14 @@
     </message>
     <message>
         <source>Entering...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Login</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Password</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -183,8 +183,8 @@
         <translation>Supprimer</translation>
     </message>
     <message>
-        <source>Set as favorite</source>
-        <translation>Définir comme favori</translation>
+        <source>Make favorite</source>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -199,11 +199,66 @@
     </message>
 </context>
 <context>
-    <name>StreamPreviewBlock</name>
+    <name>SettingsPage</name>
     <message>
-        <source>Refresh</source>
-        <translation type="unfinished">Rafraîchir</translation>
+        <source>Settings</source>
+        <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Predefined themes</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Theme. NOT IMPLEMENTED</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Colors (text/#rgb)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Backgorund Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Links Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Buttons/messages Color</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Font Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Size</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Base Font Size. Will Increase All Font!</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>StreamPreviewBlock</name>
     <message>
         <source>Load more</source>
         <translation type="unfinished">Voir plus</translation>
@@ -224,15 +279,15 @@
     <name>UserDetailBlock</name>
     <message>
         <source>%1 posts</source>
-        <translation>%1 messages</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 followers</source>
-        <translation>%1 abonnés</translation>
+        <translation type="unfinished"></translation>
     </message>
     <message>
         <source>%1 following</source>
-        <translation>%1 abonnements</translation>
+        <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
@@ -269,10 +324,6 @@
         <translation>Vous bloquez %1</translation>
     </message>
     <message>
-        <source>This profile is private.</source>
-        <translation>Ce profile est privé.</translation>
-    </message>
-    <message>
         <source>Followers</source>
         <translation>Abonnés</translation>
     </message>
@@ -290,6 +341,10 @@
     </message>
     <message>
         <source>Logout</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Setting</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -12,12 +12,13 @@ Rectangle {
 
     width: parent.width
     height: parent.height
-
+    color: settings.backgroundColor()
 
     Image {
         id: placeholder
         anchors.fill: parent
-        source: imageCache.getFromCache2(url);
+        source: url;
+        visible: video.source == "" || video.status === MediaPlayer.Loading
     }
 
     BusyIndicator {
@@ -32,23 +33,19 @@ Rectangle {
         anchors.right: parent.right
         height: parent.height
         width: parent.width
-
         autoPlay: autoVideoPlay
-
-
         muted: true
         //source: ""
         onPlaybackStateChanged: {
             print("Playback State: "+ playbackState);
-            if(playbackState == 0 && visible)
-            {
+            if(playbackState == 0 && visible) {
                 video.play();
             }
         }
 
         onVisibleChanged: {
-            print("Visible: "+visible);
-            if(!visible){
+            //print("Visible: "+visible);
+            if(!visible) {
                 video.stop();
             }
             else if(playbackState == 0) video.play();
@@ -61,7 +58,7 @@ Rectangle {
 
     Component.onCompleted: {
         //print(videoUrl + autoVideoPlay);
-        video.source = imageCache.getFromCache2(videoUrl);
+        video.source = videoUrl;//imageCache.getFromCache2(videoUrl);
         placeholder.visible = false;
     }
 
@@ -84,13 +81,10 @@ Rectangle {
         MouseArea {
             anchors.fill: parent
             onClicked: {
-                if(video.muted)
-                {
+                if(video.muted) {
                     muteOption.source = "../images/volume-up.svg"
                     video.muted = false
-                }
-                else
-                {
+                } else {
                     muteOption.source = "../images/volume-off.svg"
                     video.muted = true
                 }

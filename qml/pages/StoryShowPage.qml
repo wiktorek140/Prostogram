@@ -10,7 +10,7 @@ import "../Helper.js" as Helper
 
 Page {
 
-    allowedOrientations:  Orientation.Portrait
+    allowedOrientations: Orientation.Portrait
     property bool isVideo: false
     property bool loadedAll: false
     property string userId: ""
@@ -18,7 +18,7 @@ Page {
     property int counter: 0
     property int last: 1
     property bool isLoadingNext: false
-
+    property var obj: []
 
     ListModel {
         id: storiesList
@@ -112,6 +112,9 @@ Page {
 
                 autoPlay: true
                 muted: false
+                onPlaybackStateChanged: {
+                    if(playbackState == 0 && visible) video.play();
+                }
             }
 
             Image {
@@ -121,7 +124,7 @@ Page {
 
                 onStatusChanged: {
                     if(userImage.status === Image.Error) {
-                        userImage.source = imageCache.getFromCache(userImage.source,true);
+                        //userImage.source = imageCache.getFromCache(userImage.source,true);
                     }
                 }
                 anchors {
@@ -167,6 +170,20 @@ Page {
         }
     }
 
+
+    Rectangle {
+        z:2
+        color: settings.fontColor()
+        width: parent.width
+        height: parent.width * 0.008
+        id: bottomCounter
+        anchors {
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        }
+    }
+
     function linkClick(link)
     {
         var result = link.split("://");
@@ -187,7 +204,7 @@ Page {
         if(!isLoadingNext) {
             if(counter >= 1) {
                 counter--;
-                console.log("Left")
+                //console.log("Left")
                 checkType();
                 //imageItem.source = storiesList.get(counter).image_versions2.candidates[0].url;
             }
@@ -199,7 +216,7 @@ Page {
         if(!isLoadingNext) {
             if(counter < last-1) {
                 counter++;
-                console.log("Right")
+                //console.log("Right")
                 //imageItem.source = storiesList.get(counter).image_versions2.candidates[0].url;
                 checkType();
             }
@@ -211,17 +228,44 @@ Page {
     function checkType() {
         if(storiesList.get(counter).media_type === 2) {
             isVideo = true
-            video.source = imageCache.getFromCache(storiesList.get(counter).video_versions.get(0).url);
+            video.source = storiesList.get(counter).video_versions.get(0).url;
         }
         else {
             isVideo = false
-            imageItem.source = imageCache.getFromCache(storiesList.get(counter).image_versions2.candidates[0].url);
+            imageItem.source = storiesList.get(counter).image_versions2.candidates[0].url;
         }
         isLoadingNext=false
+        updateCounter(counter);
+    }
+
+    function updateCounter( pos ) {
+        obj[pos].clip = true;
+        //for(var i = 0; i < last; i++) {
+        //    obj[i].color = (i<=pos)? "white" : "#606060";
+        //}
+    }
+
+    function generateCounter() {
+        var l = ((bottomCounter.width - (last * 4)) / last).toFixed(2);
+        var lc = (bottomCounter.width / last).toFixed(2);
+        //print(l);
+        for(var i = 0; i < last; i++){
+            obj[i] = Qt.createQmlObject('import QtQuick 2.0; Rectangle {id: tp; color: "#606060"; width: ' + l + '; height: bottomCounter.height;
+Rectangle {id:slide; color: "#FFFFFF"; height: parent.height; width:0;}
+SequentialAnimation {id: slideAnimation; NumberAnimation { target: slide; property: "width";  from: 0; to: tp.width; duration: 5000;}}
+onClipChanged: {slideAnimation.start();}
+}',
+                                        bottomCounter,
+                                        "pages");
+            if(i>0) obj[i].x = (i * (lc)) + 2;
+            else obj[i].x = 2;
+        }
+
     }
 
     Component.onCompleted: {
         instagram.getUserReelsMediaFeed(userId);
+
     }
 
     Connections {
@@ -233,16 +277,16 @@ Page {
 
             for(var i=0; i<data.items.length; i++){
                 storiesList.append(data.items[i])
-                console.log("Added");
-
+                //console.log("Added");
             }
 
             imageItem.source = data.items[0].image_versions2.candidates[0].url
-            checkType();
-            userNameLabel.text = data.user.username
-            userImage.source = imageCache.getFromCache(data.user.profile_pic_url)
             last = data.items.length
-            loadedAll = true
+            generateCounter();
+            checkType();
+            userNameLabel.text = data.user.username;
+            userImage.source = imageCache.getFromCache(data.user.profile_pic_url);
+            loadedAll = true;
         }
     }
 }

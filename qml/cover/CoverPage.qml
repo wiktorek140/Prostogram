@@ -70,7 +70,7 @@ CoverBackground {
             anchors.right: parent.right
             anchors.rightMargin: Theme.paddingSmall
             truncationMode: TruncationMode.Fade
-            font.pixelSize: Theme.fontSizeSmall
+            font.pixelSize: settings.small
             color: Theme.secondaryHighlightColor
         }
     }

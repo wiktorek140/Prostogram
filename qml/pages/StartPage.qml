@@ -47,6 +47,9 @@ Page {
         anchors{
             bottom: parent.bottom
         }
+        onHomeClick: {
+            myFeedBlock.refresh(isDouble)
+        }
     }
 
     function updateAllFeeds() {
@@ -69,7 +72,7 @@ Page {
     function refreshFavoriteTagFeedBlock() {
         if(FavManager.favTag===null) FavManager.favTag = ""
         console.log("current fav " + favoriteTag + " - new " + FavManager.favTag)
-        print("current fav " + favoriteTag + " - new " + FavManager.favTag)
+        //print("current fav " + favoriteTag + " - new " + FavManager.favTag)
         if(favoriteTag!==FavManager.favTag) {
             favoriteTag = FavManager.favTag
         }

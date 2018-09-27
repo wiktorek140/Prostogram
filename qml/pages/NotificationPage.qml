@@ -6,7 +6,7 @@ Page {
     id: notificationPage
 
     Rectangle {
-        color: "white"
+        color: settings.backgroundColor()
         anchors.fill: parent
     }
 
@@ -29,15 +29,12 @@ Page {
     SilicaListView {
         anchors.fill: parent
         header: PageHeader {
-            _titleItem.color: "black"
+            _titleItem.color: settings.fontColor()
             title: qsTr("Notifications")
         }
+        spacing: Theme.paddingMedium
 
-        VerticalScrollDecorator {
-            id: scroll
-        }
-
-        model: notifyModel;
+        model: notifyModel
         delegate: NotifyItem {}
     }
 

@@ -9,6 +9,7 @@ Page {
         anchors.fill: parent
         header: PageHeader {
             title: qsTr("Likes")
+            _titleItem.color: settings.fontColor()
         }
 
         VerticalScrollDecorator {
@@ -16,16 +17,16 @@ Page {
         }
 
         model: likesModel
-        delegate: LikesItem{
+        delegate: LikesItem {
             item: model
         }
     }
 
-    ListModel{
+    ListModel {
         id: likesModel
     }
 
-    BusyIndicator{
+    BusyIndicator {
         id: busyIndicator
         anchors.centerIn: parent
         running: true
@@ -37,7 +38,7 @@ Page {
         instagram.getMediaLikers(mediaId);
     }
 
-    Connections{
+    Connections {
         target: instagram
         onMediaLikersDataReady: {
             busyIndicator.running = false;

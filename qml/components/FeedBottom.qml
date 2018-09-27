@@ -1,5 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
+import QtGraphicalEffects 1.0
 
 //reworked
 
@@ -7,21 +8,32 @@ Rectangle {
     id: feedBottom
     width: parent.width
     height: childrenRect.height
-    color: "white"
+    color: settings.backgroundColor()
+
+    signal homeClick(var isDouble);
 
     IconButton {
+        property var lClick2
         id: mail
         anchors{
             right: search.left
             rightMargin: (parent.width/5-likes.width)
         }
 
-        icon.source: "image://theme/icon-m-mail?" + (pressed
+        icon.source: "image://theme/icon-m-home?" + (pressed
                      ? Theme.highlightColor
-                     : "black")
+                     : settings.iconColor())
         onClicked: {
-            onClicked: pageStack.push(Qt.resolvedUrl(
-                                          "../pages/InboxPage.qml"))
+            var ncc = Date.now()
+            if ((ncc - lClick2) < 500) {
+                homeClick(false);
+                return;
+            }
+            lClick2 = ncc
+
+            homeClick(true);
+            //pageStack.push(Qt.resolvedUrl("../pages/InboxPage.qml"))
+
         }
     }
     IconButton {
@@ -33,7 +45,7 @@ Rectangle {
 
         icon.source: "image://theme/icon-m-search?" + (pressed
                      ? Theme.highlightColor
-                     : "black")
+                     : settings.iconColor())
 
         onClicked: pageStack.push(Qt.resolvedUrl("../pages/SearchPage.qml"))
     }
@@ -46,7 +58,7 @@ Rectangle {
 
         icon.source: "image://theme/icon-m-add?" + (pressed
                      ? Theme.highlightColor
-                     : "black")
+                     : settings.iconColor())
         onClicked: {
             var imagePicker = pageStack.push("Sailfish.Pickers.ImagePickerPage")
             imagePicker.selectedContentChanged.connect(function () {
@@ -58,14 +70,18 @@ Rectangle {
 
     IconButton {
         id: likes
-        anchors{
+        anchors {
             left: sendPhoto.right
             leftMargin: (parent.width/5-likes.width)
         }
 
-        icon.source: "image://theme/icon-m-like?" + (pressed
-                     ? Theme.highlightColor
-                     : "black")
+        icon.source: "../images/notifications.svg"
+        icon.width: width * 0.8
+        icon.height: height * 0.8
+        layer.enabled: true
+        layer.effect: ColorOverlay {
+            color: settings.iconColor();
+        }
 
         onClicked: pageStack.push(Qt.resolvedUrl("../pages/NotificationPage.qml"));
 
@@ -87,7 +103,7 @@ Rectangle {
             Label{
                 id: likeCount
                 text: (notifyStream.notifyCount > 99) ? "99+" : notifyStream.notifyCount
-                color: "white"
+                color: settings.backgroundColor()
                 font.pixelSize: parent.height/2
                 anchors.centerIn: parent
             }
@@ -103,7 +119,7 @@ Rectangle {
 
         icon.source: "image://theme/icon-m-people?" + (pressed
                      ? Theme.highlightColor
-                     : "black")
+                     : settings.iconColor())
 
         onClicked: pageStack.push(Qt.resolvedUrl(
                                       "../pages/UserProfilPage.qml"), {

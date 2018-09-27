@@ -1,7 +1,6 @@
 import QtQuick 2.0
 import Sailfish.Silica 1.0
 import QtQuick.LocalStorage 2.0
-import "../js/Settings.js" as Setting
 import "../components"
 
 Page {
@@ -19,7 +18,7 @@ Page {
 
     Rectangle {
         anchors.fill: parent
-        color: Setting.STYLE_COLOR_BACKGROUND
+        color: settings.backgroundColor()
     }
 
 
@@ -29,6 +28,7 @@ Page {
         anchors.fill: parent
         header: PageHeader {
             title: pageTitle
+            _titleItem.color: settings.fontColor()
         }
         delegate: UserFollowItem {
             visible: dataLoaded

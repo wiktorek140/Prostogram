@@ -8,7 +8,7 @@ Page {
     property var singleItem
     Rectangle {
         anchors.fill: parent
-        color:"white"
+        color: settings.backgroundColor()
     }
 
     SilicaFlickable {
