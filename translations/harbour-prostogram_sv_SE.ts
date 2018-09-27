@@ -41,7 +41,7 @@
     </message>
     <message>
         <source>Paypal</source>
-        <translation type="unfinished"></translation>
+        <translation>Paypal</translation>
     </message>
 </context>
 <context>
@@ -55,15 +55,15 @@
     <name>CommentsPage</name>
     <message>
         <source>Comments</source>
-        <translation type="unfinished"></translation>
+        <translation>Kommentarer</translation>
     </message>
     <message>
         <source>Load More</source>
-        <translation type="unfinished"></translation>
+        <translation>Hämta mer</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>Uppdatera</translation>
     </message>
 </context>
 <context>
@@ -91,21 +91,21 @@
     <name>FeedItem</name>
     <message>
         <source>likes</source>
-        <translation type="unfinished">gillanden</translation>
+        <translation>gillanden</translation>
     </message>
 </context>
 <context>
     <name>InboxItem</name>
     <message>
         <source>Raven Message.</source>
-        <translation type="unfinished"></translation>
+        <translation>Raven-meddelanden.</translation>
     </message>
 </context>
 <context>
     <name>InboxPage</name>
     <message>
         <source>Inbox</source>
-        <translation type="unfinished"></translation>
+        <translation>Inkorg</translation>
     </message>
 </context>
 <context>
@@ -119,31 +119,31 @@
     <name>LoginPage</name>
     <message>
         <source>Version: %1</source>
-        <translation type="unfinished">Version: %1</translation>
+        <translation>Version: %1</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation type="unfinished"></translation>
+        <translation>Logga in</translation>
     </message>
     <message>
         <source>Login...</source>
-        <translation type="unfinished"></translation>
+        <translation>Inloggning...</translation>
     </message>
     <message>
         <source>Login fail!</source>
-        <translation type="unfinished"></translation>
+        <translation>Inloggning misslyckades!</translation>
     </message>
     <message>
         <source>Entering...</source>
-        <translation type="unfinished"></translation>
+        <translation>Anger...</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="unfinished"></translation>
+        <translation>Användarnamn</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Lösenord</translation>
     </message>
 </context>
 <context>
@@ -184,7 +184,7 @@
     </message>
     <message>
         <source>Make favorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Skapa favorit</translation>
     </message>
 </context>
 <context>
@@ -202,73 +202,73 @@
     <name>SettingsPage</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Inställningar</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Spara</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Avbryt</translation>
     </message>
     <message>
         <source>Predefined themes</source>
-        <translation type="unfinished"></translation>
+        <translation>Förinställda teman</translation>
     </message>
     <message>
         <source>Theme. NOT IMPLEMENTED</source>
-        <translation type="unfinished"></translation>
+        <translation>Tema. INTE IMPLEMENTERAT</translation>
     </message>
     <message>
         <source>Colors (text/#rgb)</source>
-        <translation type="unfinished"></translation>
+        <translation>Färger (text/#rgb)</translation>
     </message>
     <message>
         <source>Font Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Teckenfärg</translation>
     </message>
     <message>
         <source>Backgorund Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Bakgrundsfärg</translation>
     </message>
     <message>
         <source>Links Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Länkfärg</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Färg</translation>
     </message>
     <message>
         <source>Buttons/messages Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Färg på knappar/meddelanden</translation>
     </message>
     <message>
         <source>Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Teckenstorlek</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Storlek</translation>
     </message>
     <message>
         <source>Base Font Size. Will Increase All Font!</source>
-        <translation type="unfinished"></translation>
+        <translation>Grundteckenstorlek. Gör alla tecken större!</translation>
     </message>
 </context>
 <context>
     <name>StreamPreviewBlock</name>
     <message>
         <source>Load more</source>
-        <translation type="unfinished">Läs in mer</translation>
+        <translation>Hämta mer</translation>
     </message>
 </context>
 <context>
     <name>ThreadView</name>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished">Uppdatera</translation>
+        <translation>Uppdatera</translation>
     </message>
     <message>
         <source>Load older</source>
@@ -279,26 +279,26 @@
     <name>UserDetailBlock</name>
     <message>
         <source>%1 posts</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 poster</translation>
     </message>
     <message>
         <source>%1 followers</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 följare</translation>
     </message>
     <message>
         <source>%1 following</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 följer</translation>
     </message>
 </context>
 <context>
     <name>UserListPage</name>
     <message>
         <source>Load more</source>
-        <translation>Läs in mer</translation>
+        <translation>Hämta mer</translation>
     </message>
     <message>
         <source>Followers</source>
-        <translation type="unfinished">Följare</translation>
+        <translation>Följare</translation>
     </message>
 </context>
 <context>
@@ -345,7 +345,7 @@
     </message>
     <message>
         <source>Setting</source>
-        <translation type="unfinished"></translation>
+        <translation>Inställning</translation>
     </message>
 </context>
 </TS>
