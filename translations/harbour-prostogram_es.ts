@@ -37,40 +37,40 @@
     </message>
     <message>
         <source>Version: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Versión %1</translation>
     </message>
     <message>
         <source>Paypal</source>
-        <translation type="unfinished"></translation>
+        <translation>Paypal</translation>
     </message>
 </context>
 <context>
     <name>CameraPage</name>
     <message>
         <source>Set photo</source>
-        <translation type="unfinished"></translation>
+        <translation>Elegir foto</translation>
     </message>
 </context>
 <context>
     <name>CommentsPage</name>
     <message>
         <source>Comments</source>
-        <translation type="unfinished"></translation>
+        <translation>Comentarios</translation>
     </message>
     <message>
         <source>Load More</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargar más</translation>
     </message>
     <message>
         <source>Reload</source>
-        <translation type="unfinished"></translation>
+        <translation>Volver a cargar</translation>
     </message>
 </context>
 <context>
     <name>EditPhotoPage</name>
     <message>
         <source>Edit photo</source>
-        <translation type="unfinished"></translation>
+        <translation>Editar foto</translation>
     </message>
 </context>
 <context>
@@ -84,66 +84,66 @@
     <name>ExplorePage</name>
     <message>
         <source>Explore</source>
-        <translation type="unfinished"></translation>
+        <translation>Explorar</translation>
     </message>
 </context>
 <context>
     <name>FeedItem</name>
     <message>
         <source>likes</source>
-        <translation type="unfinished">Me gusta</translation>
+        <translation>Me gusta</translation>
     </message>
 </context>
 <context>
     <name>InboxItem</name>
     <message>
         <source>Raven Message.</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">Mensaje de cuervo.</translation>
     </message>
 </context>
 <context>
     <name>InboxPage</name>
     <message>
         <source>Inbox</source>
-        <translation type="unfinished"></translation>
+        <translation>Bandeja de entrada</translation>
     </message>
 </context>
 <context>
     <name>LikesPage</name>
     <message>
         <source>Likes</source>
-        <translation type="unfinished"></translation>
+        <translation>Me gusta</translation>
     </message>
 </context>
 <context>
     <name>LoginPage</name>
     <message>
         <source>Version: %1</source>
-        <translation type="unfinished"></translation>
+        <translation>Versión %1</translation>
     </message>
     <message>
         <source>Sign in</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrar</translation>
     </message>
     <message>
         <source>Login...</source>
-        <translation type="unfinished"></translation>
+        <translation>Iniciando sesión...</translation>
     </message>
     <message>
         <source>Login fail!</source>
-        <translation type="unfinished"></translation>
+        <translation>¡Error de inicio de sesión!</translation>
     </message>
     <message>
         <source>Entering...</source>
-        <translation type="unfinished"></translation>
+        <translation>Entrando...</translation>
     </message>
     <message>
         <source>Login</source>
-        <translation type="unfinished"></translation>
+        <translation>Usuario</translation>
     </message>
     <message>
         <source>Password</source>
-        <translation type="unfinished"></translation>
+        <translation>Contraseña</translation>
     </message>
 </context>
 <context>
@@ -162,14 +162,14 @@
     </message>
     <message>
         <source>There is no picture in this feed.</source>
-        <translation>No hay fotos en este feed.</translation>
+        <translation>No hay fotos en este canal.</translation>
     </message>
 </context>
 <context>
     <name>NotificationPage</name>
     <message>
         <source>Notifications</source>
-        <translation type="unfinished"></translation>
+        <translation>Notificaciones</translation>
     </message>
 </context>
 <context>
@@ -184,110 +184,110 @@
     </message>
     <message>
         <source>Make favorite</source>
-        <translation type="unfinished"></translation>
+        <translation>Favorito</translation>
     </message>
 </context>
 <context>
     <name>SendPhotoPage</name>
     <message>
         <source>Send picture</source>
-        <translation type="unfinished"></translation>
+        <translation>Enviar imagen</translation>
     </message>
     <message>
         <source>Send photo</source>
-        <translation type="unfinished"></translation>
+        <translation>Enviar foto</translation>
     </message>
 </context>
 <context>
     <name>SettingsPage</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished"></translation>
+        <translation>Ajustes</translation>
     </message>
     <message>
         <source>Save</source>
-        <translation type="unfinished"></translation>
+        <translation>Guardar</translation>
     </message>
     <message>
         <source>Cancel</source>
-        <translation type="unfinished"></translation>
+        <translation>Cancelar</translation>
     </message>
     <message>
         <source>Predefined themes</source>
-        <translation type="unfinished"></translation>
+        <translation>Temas predefinidos</translation>
     </message>
     <message>
         <source>Theme. NOT IMPLEMENTED</source>
-        <translation type="unfinished"></translation>
+        <translation>Tema NO IMPLEMENTADO</translation>
     </message>
     <message>
         <source>Colors (text/#rgb)</source>
-        <translation type="unfinished"></translation>
+        <translation>Colores (texto/#rgb)</translation>
     </message>
     <message>
         <source>Font Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Color de la fuente</translation>
     </message>
     <message>
         <source>Backgorund Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Color de fondo</translation>
     </message>
     <message>
         <source>Links Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Color de enlaces</translation>
     </message>
     <message>
         <source>Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Color</translation>
     </message>
     <message>
         <source>Buttons/messages Color</source>
-        <translation type="unfinished"></translation>
+        <translation>Color de botones/mensajes</translation>
     </message>
     <message>
         <source>Font Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamaño de la fuente</translation>
     </message>
     <message>
         <source>Size</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamaño</translation>
     </message>
     <message>
         <source>Base Font Size. Will Increase All Font!</source>
-        <translation type="unfinished"></translation>
+        <translation>Tamaño de fuente base. ¡Aumentará todas las fuentes!</translation>
     </message>
 </context>
 <context>
     <name>StreamPreviewBlock</name>
     <message>
         <source>Load more</source>
-        <translation type="unfinished">Cargar más</translation>
+        <translation>Cargar más</translation>
     </message>
 </context>
 <context>
     <name>ThreadView</name>
     <message>
         <source>Refresh</source>
-        <translation type="unfinished">Actualizar</translation>
+        <translation>Actualizar</translation>
     </message>
     <message>
         <source>Load older</source>
-        <translation type="unfinished"></translation>
+        <translation>Cargar más antiguos</translation>
     </message>
 </context>
 <context>
     <name>UserDetailBlock</name>
     <message>
         <source>%1 posts</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 publicaciones</translation>
     </message>
     <message>
         <source>%1 followers</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 seguidores</translation>
     </message>
     <message>
         <source>%1 following</source>
-        <translation type="unfinished"></translation>
+        <translation>%1 siguiendo</translation>
     </message>
 </context>
 <context>
@@ -298,7 +298,7 @@
     </message>
     <message>
         <source>Followers</source>
-        <translation type="unfinished">Seguidores</translation>
+        <translation>Seguidores</translation>
     </message>
 </context>
 <context>
@@ -341,11 +341,11 @@
     </message>
     <message>
         <source>Logout</source>
-        <translation type="unfinished"></translation>
+        <translation>Cerrar sesión</translation>
     </message>
     <message>
         <source>Setting</source>
-        <translation type="unfinished"></translation>
+        <translation>Configuración</translation>
     </message>
 </context>
 </TS>
